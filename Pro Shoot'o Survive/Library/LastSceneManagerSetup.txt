@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Giulio scene.unity
+- path: Assets/Scenes/AS_EnemyPathfinding.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
