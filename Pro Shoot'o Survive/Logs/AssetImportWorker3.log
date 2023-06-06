@@ -1,0 +1,420 @@
+Using pre-set license
+Built from '2022.3/release' branch; Version is '2022.3.0f1 (fb119bb0b476) revision 16454043'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'it' Physical Memory: 32472 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker3
+-projectPath
+C:/Users/Andrea Stelliferi/Documents/GitHub/FPAIV2023/Pro Shoot'o Survive
+-logFile
+Logs/AssetImportWorker3.log
+-srvPort
+54953
+Successfully changed project path to: C:/Users/Andrea Stelliferi/Documents/GitHub/FPAIV2023/Pro Shoot'o Survive
+C:/Users/Andrea Stelliferi/Documents/GitHub/FPAIV2023/Pro Shoot'o Survive
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [22580] Host "[IP] 192.168.1.36 [Port] 0 [Flags] 2 [Guid] 3828862094 [EditorId] 3828862094 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [22580] Host "[IP] 192.168.1.36 [Port] 0 [Flags] 2 [Guid] 3828862094 [EditorId] 3828862094 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 7.25 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.0f1 (fb119bb0b476)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Andrea Stelliferi/Documents/GitHub/FPAIV2023/Pro Shoot'o Survive/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3080 Laptop GPU (ID=0x249c)
+    Vendor:   NVIDIA
+    VRAM:     8031 MB
+    Driver:   31.0.15.3598
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56804
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004866 seconds.
+- Loaded All Assemblies, in  0.229 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.198 seconds
+Domain Reload Profiling: 426ms
+	BeginReloadAssembly (60ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (96ms)
+		LoadAssemblies (59ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (92ms)
+			TypeCache.Refresh (91ms)
+				TypeCache.ScanAssembly (82ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (198ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (155ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (102ms)
+			ProcessInitializeOnLoadMethodAttributes (37ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Andrea Stelliferi\Documents\GitHub\FPAIV2023\Pro Shoot'o Survive\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\Andrea Stelliferi\Documents\GitHub\FPAIV2023\Pro Shoot'o Survive\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  0.557 seconds
+Refreshing native plugins compatible for Editor in 2.83 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.466 seconds
+Domain Reload Profiling: 1021ms
+	BeginReloadAssembly (94ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (16ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (31ms)
+	LoadAllAssembliesAndSetupDomain (399ms)
+		LoadAssemblies (223ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (219ms)
+			TypeCache.Refresh (197ms)
+				TypeCache.ScanAssembly (188ms)
+			ScanForSourceGeneratedMonoScriptInfo (16ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (466ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (351ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (83ms)
+			ProcessInitializeOnLoadAttributes (208ms)
+			ProcessInitializeOnLoadMethodAttributes (48ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 4.38 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4931 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 74 unused Assets / (0.8 MB). Loaded Objects now: 5380.
+Memory consumption went from 197.1 MB to 196.4 MB.
+Total: 4.010300 ms (FindLiveObjects: 0.292200 ms CreateObjectMapping: 0.182400 ms MarkObjects: 3.117700 ms  DeleteObjects: 0.416700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 28705.202213 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_FemaleHero.mat
+  artifactKey: Guid(b78b82e7e9aa4ce438403d803a345a8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_FemaleHero.mat using Guid(b78b82e7e9aa4ce438403d803a345a8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ca94d42cca95880f8b059743ace4eda') in 0.014702 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_FemaleTrenchcoat.mat
+  artifactKey: Guid(7e30f370eea8d8f4592944ff37500f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_FemaleTrenchcoat.mat using Guid(7e30f370eea8d8f4592944ff37500f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82e60b1213c4406ffa67e7010299ed36') in 0.000986 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_MaleTrenchcoat.mat
+  artifactKey: Guid(565a36848934faa4db08756381f0ec23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_MaleTrenchcoat.mat using Guid(565a36848934faa4db08756381f0ec23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cd19fb78bb8567ee7320dbf40dfaa9e') in 0.001084 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_Scout.mat
+  artifactKey: Guid(70535cd9e2b507c45b018cfd9adec4e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_Scout.mat using Guid(70535cd9e2b507c45b018cfd9adec4e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4bf8601e41cc43eccfa4018e9cf8bf9') in 0.000744 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 4.456654 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Building_Damaged_01.prefab
+  artifactKey: Guid(babb8c76344f6eb4eb04c2794b80804b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Building_Damaged_01.prefab using Guid(babb8c76344f6eb4eb04c2794b80804b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5fac403c620266ba9de6aee434c4540') in 0.002662 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_CoolingTowerLarge_Damaged_01.prefab
+  artifactKey: Guid(35ef9ab7fd503494992bd5637f7d7bb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_CoolingTowerLarge_Damaged_01.prefab using Guid(35ef9ab7fd503494992bd5637f7d7bb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c5a16111e2108f7a5affd90d418845d') in 0.001669 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HouseLarge_Damaged_04.prefab
+  artifactKey: Guid(79bc1d1b03535c6408c047e89221d593) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HouseLarge_Damaged_04.prefab using Guid(79bc1d1b03535c6408c047e89221d593) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1cbb9619678939bf0823eceb00d642e') in 0.003054 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 20
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HouseMedium_Damaged_04.prefab
+  artifactKey: Guid(58b5f96e2a7cdc94faa6d6df59296bdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HouseMedium_Damaged_04.prefab using Guid(58b5f96e2a7cdc94faa6d6df59296bdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cf80d30ec83d78728167b2b79cf87c3') in 0.002062 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 20
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HouseGarage_01.prefab
+  artifactKey: Guid(3bb2915900a617546808e7abbff0b6c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HouseGarage_01.prefab using Guid(3bb2915900a617546808e7abbff0b6c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '086f4e38ea6ba939b0343ad7a04872d9') in 0.002767 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 15
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_House_Damaged_01.prefab
+  artifactKey: Guid(84bc417e2eabc7d4a98fe912acf43217) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_House_Damaged_01.prefab using Guid(84bc417e2eabc7d4a98fe912acf43217) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e60cf5fd527f0fa281e26a263eb709dd') in 0.001729 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 15
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_CoolingTowerSmall_Damaged_01.prefab
+  artifactKey: Guid(b1aec8a9785427c42a91f7343cfc4ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_CoolingTowerSmall_Damaged_01.prefab using Guid(b1aec8a9785427c42a91f7343cfc4ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebda8051aeb3f5b6a94bf86b91f9c594') in 0.001463 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HospitalFountain_01.prefab
+  artifactKey: Guid(79ca462c8174cc540b7bf40fe738186c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HospitalFountain_01.prefab using Guid(79ca462c8174cc540b7bf40fe738186c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '704f173fc19a1256c490165d1cabec7d') in 0.001691 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Building_Damaged_02.prefab
+  artifactKey: Guid(21fa6ed1493697f469076ac853937f59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Building_Damaged_02.prefab using Guid(21fa6ed1493697f469076ac853937f59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '641f097b32afd56bf606e027b9b12133') in 0.001722 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HospitalBuilding_Damaged_01.prefab
+  artifactKey: Guid(3e6aa9674e3ca754a9e306dc33982117) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HospitalBuilding_Damaged_01.prefab using Guid(3e6aa9674e3ca754a9e306dc33982117) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '794e886a4b661bf324f1022dd20069af') in 0.002572 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.966977 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Motel_Carpark_01.prefab
+  artifactKey: Guid(41ea8d93a3f407541b6480db58c18aa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Motel_Carpark_01.prefab using Guid(41ea8d93a3f407541b6480db58c18aa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32d178366ac270830f398ce071901eb1') in 0.002676 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Office_Damaged_02.prefab
+  artifactKey: Guid(7e48f0e616016df44b4d95f6acdd30b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Office_Damaged_02.prefab using Guid(7e48f0e616016df44b4d95f6acdd30b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87a96f660f2be9fdf82952c8860e3bf1') in 0.001803 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 15
+========================================================================
+Received Import Request.
+  Time since last request: 0.081113 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_OfficeGrey_02.prefab
+  artifactKey: Guid(e31f8b526ff6b1743b7928b7c847a12e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_OfficeGrey_02.prefab using Guid(e31f8b526ff6b1743b7928b7c847a12e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c59afb63537ed75648ad7368fd5a97f') in 0.002426 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 15
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_OfficeOld_Clean_02.prefab
+  artifactKey: Guid(c1cb50eceb7028644ad314ead190c174) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_OfficeOld_Clean_02.prefab using Guid(c1cb50eceb7028644ad314ead190c174) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c38cef4d2664bfcb8e6081d104ffead') in 0.001674 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.029520 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_OfficeWhite_04.prefab
+  artifactKey: Guid(b73bd1cfb5855ca4592308d9adeda4d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_OfficeWhite_04.prefab using Guid(b73bd1cfb5855ca4592308d9adeda4d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1671cae32190bafa3b53eb2f26b2eaf') in 0.001756 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_PowerLineLarge_Defended_01.prefab
+  artifactKey: Guid(a3e361aa4a4ea1947822cdbf89e7e865) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_PowerLineLarge_Defended_01.prefab using Guid(a3e361aa4a4ea1947822cdbf89e7e865) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5545061ac4e8e6d97f68bc04b1d30bfb') in 0.002055 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.310128 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_ShopSmall_Clean_02.prefab
+  artifactKey: Guid(3869ac0e319d60c41aef5882b6399995) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_ShopSmall_Clean_02.prefab using Guid(3869ac0e319d60c41aef5882b6399995) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f80654c89ecfc7aef173767cdada0c46') in 0.001842 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_TownHouse_02.prefab
+  artifactKey: Guid(7a44fa0b5668acd4f8758c68c8144715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_TownHouse_02.prefab using Guid(7a44fa0b5668acd4f8758c68c8144715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35339a72ef8573d26a57852f7b091746') in 0.002060 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 18
+========================================================================
+Received Import Request.
+  Time since last request: 0.003366 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Trailer_01.prefab
+  artifactKey: Guid(051ae293f777dd849a38b316166483e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Trailer_01.prefab using Guid(051ae293f777dd849a38b316166483e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e3e63d7d9f5f47b4b6af11c0b1ba929') in 0.001868 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_TrailerRV_Damaged_01.prefab
+  artifactKey: Guid(8032fcaaed6f63748ad7fa6a63000acf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_TrailerRV_Damaged_01.prefab using Guid(8032fcaaed6f63748ad7fa6a63000acf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64030ed8b5228b55849094d39154de39') in 0.001837 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.034814 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_WarehouseOld_Damaged_02.prefab
+  artifactKey: Guid(04cdf33c683c3644c84b1ff6cfc9258a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_WarehouseOld_Damaged_02.prefab using Guid(04cdf33c683c3644c84b1ff6cfc9258a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8399a62041ba37a16f63ce6db7046740') in 0.002358 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 17
+========================================================================
+Received Import Request.
+  Time since last request: 7.012272 seconds.
+  path: Assets/SimpleApocalypse/Textures/Zombies/SA_Zombie_Cheerleader.png
+  artifactKey: Guid(969b8499de92f7d41839e687f672f69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Textures/Zombies/SA_Zombie_Cheerleader.png using Guid(969b8499de92f7d41839e687f672f69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94df7021ade79f0fa5536641024f25af') in 0.002214 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SimpleApocalypse/Textures/Zombies/SA_Zombie_Farmer.png
+  artifactKey: Guid(5cf46a2ed0940cd44bddca4d3288de18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Textures/Zombies/SA_Zombie_Farmer.png using Guid(5cf46a2ed0940cd44bddca4d3288de18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71bcfa5e0521b5fe3f4d8ea8055595e1') in 0.002224 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/SimpleApocalypse/Textures/Zombies/SA_Zombie_Trucker.png
+  artifactKey: Guid(24ea722503c8082419da354c575bf04a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Textures/Zombies/SA_Zombie_Trucker.png using Guid(24ea722503c8082419da354c575bf04a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab032c6840e9c6e935e32d092e8d273d') in 0.001430 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SimpleApocalypse/Textures/Zombies/SA_Zombie_Robber.png
+  artifactKey: Guid(6b294cf1c2f696e4e9faeea49394c4af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Textures/Zombies/SA_Zombie_Robber.png using Guid(6b294cf1c2f696e4e9faeea49394c4af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e8ac22a69030ca7bd0cc594e7f5082f') in 0.002175 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/SimpleApocalypse/Textures/Zombies/SA_Zombie_Pilot.png
+  artifactKey: Guid(da80cb659c328474390b7170f6f7d103) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Textures/Zombies/SA_Zombie_Pilot.png using Guid(da80cb659c328474390b7170f6f7d103) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9493cb03a12ed062deb153f679b0fda5') in 0.001202 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: Operazione di I/O terminata a causa dell'uscita dal thread oppure della richiesta di un'applicazione.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
