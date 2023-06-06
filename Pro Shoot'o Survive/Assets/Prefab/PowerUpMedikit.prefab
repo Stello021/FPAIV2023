@@ -11,13 +11,13 @@ PrefabInstance:
     - target: {fileID: 2671600223759145899, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
       propertyPath: m_Name
-      value: PowerUp Variant
+      value: PowerUpMedikit
       objectReference: {fileID: 0}
     - target: {fileID: 6460022919690459794, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6802c68bcd90da4eba67f7c73239634, type: 2}
+      objectReference: {fileID: 2100000, guid: 82baf628cddba304693a7a97b9953a5e, type: 2}
     - target: {fileID: 8032132720332899389, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
       propertyPath: m_RootOrder
@@ -101,3 +101,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a218dcdd1dbfde42a11d796278f7198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpRecovery: 0

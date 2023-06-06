@@ -11,13 +11,13 @@ PrefabInstance:
     - target: {fileID: 2671600223759145899, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
       propertyPath: m_Name
-      value: PowerUp Variant
+      value: PowerUpHoming
       objectReference: {fileID: 0}
     - target: {fileID: 6460022919690459794, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 50ee241e803e6bf4aa342c2869f50af0, type: 2}
+      objectReference: {fileID: 2100000, guid: 267a02d5df9e3724992c61b3a1d8ccb0, type: 2}
     - target: {fileID: 8032132720332899389, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
       propertyPath: m_RootOrder
@@ -83,7 +83,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3050420314483124246}
   m_SourcePrefab: {fileID: 100100000, guid: d7a3215ffb6a808459d6558b35225f7a, type: 3}
---- !u!1 &1100614586440250301 stripped
+--- !u!1 &3085823566150596696 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2671600223759145899, guid: d7a3215ffb6a808459d6558b35225f7a,
     type: 3}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100614586440250301}
+  m_GameObject: {fileID: 3085823566150596696}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e03cef672ee73ae4abcb52649dccfb0d, type: 3}

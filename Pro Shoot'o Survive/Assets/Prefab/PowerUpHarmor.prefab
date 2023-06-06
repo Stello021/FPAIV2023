@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: 2671600223759145899, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
       propertyPath: m_Name
-      value: PowerUp (1) Variant
+      value: PowerUpHarmor
       objectReference: {fileID: 0}
     - target: {fileID: 6460022919690459794, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6935c04b3c4d2394d9f8414733ef283f, type: 2}
+      objectReference: {fileID: 2100000, guid: f81ff830e44ed5b4a843866a75ed8d45, type: 2}
     - target: {fileID: 8032132720332899389, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8032132720332899389, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
@@ -83,7 +83,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6728034419829360224}
   m_SourcePrefab: {fileID: 100100000, guid: d7a3215ffb6a808459d6558b35225f7a, type: 3}
---- !u!1 &8668771327278276043 stripped
+--- !u!1 &1013063701163195187 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2671600223759145899, guid: d7a3215ffb6a808459d6558b35225f7a,
     type: 3}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8668771327278276043}
+  m_GameObject: {fileID: 1013063701163195187}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4403cd0c2f8b7054b884c794c72ac071, type: 3}
