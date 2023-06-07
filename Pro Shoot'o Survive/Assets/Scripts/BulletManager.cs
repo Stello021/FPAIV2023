@@ -58,19 +58,19 @@ public class BulletManager : MonoBehaviour
 
 
     // ContextMenu non accetta funzioni con parametri
-    //[ContextMenu("Sparo Bullet Homing")]
-    //public void InstantiateHomingBullet()
-    //{
-    //    if (Ammo > 0)
-    //    {
-    //        BulletLogic b = bullet;
-    //        b.IsHoming = true;
-    //        Instantiate(bullet, transform.position, transform.rotation);
-    //        Ammo--;
-    //    }
-    //    else
-    //    {
-    //        //Show that u need a reload on screen
-    //    }
-    //}
+    [ContextMenu("Sparo Bullet Homing")]
+    public void InstantiateHomingBullet()
+    {
+        if (Ammo > 0)
+        {
+            BulletLogic b = bullet;
+            b.IsHoming = true;
+            Instantiate(bullet, transform.position, transform.rotation);
+            Ammo--;
+        }
+        else
+        {
+            //Show that u need a reload on screen
+        }
+    }
 }

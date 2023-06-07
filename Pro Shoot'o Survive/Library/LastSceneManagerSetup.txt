@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Gabba scene.unity
+- path: Assets/Scenes/Giulio scene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
