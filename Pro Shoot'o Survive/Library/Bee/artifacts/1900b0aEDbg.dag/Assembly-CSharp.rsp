@@ -368,6 +368,11 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/PlayerNavMesh.cs"
+"Assets/Scripts/PowerUp.cs"
+"Assets/Scripts/PowerUpArmor.cs"
+"Assets/Scripts/PowerUpHoming.cs"
+"Assets/Scripts/PowerUpMedikit.cs"
+"Assets/Scripts/RotatingManager.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 
