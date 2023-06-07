@@ -627,6 +627,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5122285013143787133, guid: ef0d6741634238645b3c86f1c6167050,
+        type: 3}
+      propertyPath: EnemySpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 383306028579105388, guid: ef0d6741634238645b3c86f1c6167050,
         type: 3}
       propertyPath: destinantionTransform

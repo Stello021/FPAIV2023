@@ -3611,10 +3611,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4043904646962154607}
-  - component: {fileID: 6436699831706909602}
   - component: {fileID: 5987727262183129162}
-  - component: {fileID: 3893702834539149258}
+  - component: {fileID: 6436699831706909602}
   - component: {fileID: 93887017981155082}
+  - component: {fileID: 3893702834539149258}
+  - component: {fileID: 1364094032878804937}
   m_Layer: 0
   m_Name: SE_AirportSecurity
   m_TagString: Untagged
@@ -3688,27 +3689,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &6436699831706909602
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5513327704959904112}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: dbbc53a6bc8f5c64bb234194ce1380aa, type: 3}
-  m_Controller: {fileID: 9100000, guid: 92c93b80307cf90438fcfadd52eab10c, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!136 &5987727262183129162
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3732,20 +3712,27 @@ CapsuleCollider:
   m_Height: 2.9648552
   m_Direction: 1
   m_Center: {x: 0, y: 1.4283764, z: 0}
---- !u!114 &3893702834539149258
-MonoBehaviour:
+--- !u!95 &6436699831706909602
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5513327704959904112}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a35a0b807bd44e54da871e8c66a79225, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinantionTransform: {fileID: 0}
-  enemyAnimator: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: dbbc53a6bc8f5c64bb234194ce1380aa, type: 3}
+  m_Controller: {fileID: 9100000, guid: 92c93b80307cf90438fcfadd52eab10c, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!195 &93887017981155082
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3768,6 +3755,34 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3893702834539149258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513327704959904112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35a0b807bd44e54da871e8c66a79225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinantionTransform: {fileID: 0}
+  enemyAnimator: {fileID: 0}
+--- !u!114 &1364094032878804937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513327704959904112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd58ee869d0da424383e1fab5b491378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemySpeed: 1
+  MaxHP: 100
 --- !u!1 &5529811618820181213
 GameObject:
   m_ObjectHideFlags: 0
