@@ -19,6 +19,7 @@ public class PlayerNavMesh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyAgent.SetDestination(destinantionTransform.position);
+        enemyAgent.destination = destinantionTransform.position;
+        if(enemyAgent.destination)
     }
 }
