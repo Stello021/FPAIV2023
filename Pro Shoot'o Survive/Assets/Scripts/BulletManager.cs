@@ -21,6 +21,7 @@ public class BulletManager : MonoBehaviour
         //instantiateBullet(transform, Vector3.zero);
     }
 
+    //[ContextMenu("Sparo Bullet")]
     public void instantiateBullet(Transform PlayerTransform, Vector3 offset)
     {
         if (Ammo > 0)
@@ -54,4 +55,22 @@ public class BulletManager : MonoBehaviour
     {
         Ammo = TotalAmmo;
     }
+
+
+    // ContextMenu non accetta funzioni con parametri
+    //[ContextMenu("Sparo Bullet Homing")]
+    //public void InstantiateHomingBullet()
+    //{
+    //    if (Ammo > 0)
+    //    {
+    //        BulletLogic b = bullet;
+    //        b.IsHoming = true;
+    //        Instantiate(bullet, transform.position, transform.rotation);
+    //        Ammo--;
+    //    }
+    //    else
+    //    {
+    //        //Show that u need a reload on screen
+    //    }
+    //}
 }
