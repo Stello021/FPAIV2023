@@ -3745,6 +3745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinantionTransform: {fileID: 0}
+  enemyAnimator: {fileID: 0}
 --- !u!195 &93887017981155082
 NavMeshAgent:
   m_ObjectHideFlags: 0
