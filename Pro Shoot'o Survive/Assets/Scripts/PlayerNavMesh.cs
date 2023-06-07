@@ -20,6 +20,5 @@ public class PlayerNavMesh : MonoBehaviour
     void Update()
     {
         enemyAgent.destination = destinantionTransform.position;
-        if(enemyAgent.destination)
     }
 }
