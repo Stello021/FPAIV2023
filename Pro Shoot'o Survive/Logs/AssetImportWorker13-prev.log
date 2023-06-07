@@ -1,0 +1,1476 @@
+Using pre-set license
+Built from '2022.3/release' branch; Version is '2022.3.0f1 (fb119bb0b476) revision 16454043'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'it' Physical Memory: 32472 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker13
+-projectPath
+C:/Users/Andrea Stelliferi/Documents/GitHub/FPAIV2023/Pro Shoot'o Survive
+-logFile
+Logs/AssetImportWorker13.log
+-srvPort
+54953
+Successfully changed project path to: C:/Users/Andrea Stelliferi/Documents/GitHub/FPAIV2023/Pro Shoot'o Survive
+C:/Users/Andrea Stelliferi/Documents/GitHub/FPAIV2023/Pro Shoot'o Survive
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [16044] Host "[IP] 192.168.1.36 [Port] 0 [Flags] 2 [Guid] 1923108030 [EditorId] 1923108030 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [16044] Host "[IP] 192.168.1.36 [Port] 0 [Flags] 2 [Guid] 1923108030 [EditorId] 1923108030 [Version] 1048832 [Id] WindowsEditor(7,MSI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 15.38 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.0f1 (fb119bb0b476)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Andrea Stelliferi/Documents/GitHub/FPAIV2023/Pro Shoot'o Survive/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3080 Laptop GPU (ID=0x249c)
+    Vendor:   NVIDIA
+    VRAM:     8031 MB
+    Driver:   31.0.15.3598
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56632
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.006769 seconds.
+- Loaded All Assemblies, in  0.425 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.391 seconds
+Domain Reload Profiling: 814ms
+	BeginReloadAssembly (110ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (43ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (75ms)
+	LoadAllAssembliesAndSetupDomain (180ms)
+		LoadAssemblies (106ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (173ms)
+			TypeCache.Refresh (172ms)
+				TypeCache.ScanAssembly (155ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (392ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (301ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (11ms)
+			SetLoadedEditorAssemblies (10ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (3ms)
+			ProcessInitializeOnLoadAttributes (200ms)
+			ProcessInitializeOnLoadMethodAttributes (77ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Andrea Stelliferi\Documents\GitHub\FPAIV2023\Pro Shoot'o Survive\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\Andrea Stelliferi\Documents\GitHub\FPAIV2023\Pro Shoot'o Survive\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  1.117 seconds
+Refreshing native plugins compatible for Editor in 5.64 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.945 seconds
+Domain Reload Profiling: 2058ms
+	BeginReloadAssembly (192ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (41ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (73ms)
+	LoadAllAssembliesAndSetupDomain (786ms)
+		LoadAssemblies (435ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (433ms)
+			TypeCache.Refresh (386ms)
+				TypeCache.ScanAssembly (367ms)
+			ScanForSourceGeneratedMonoScriptInfo (35ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (945ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (698ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (141ms)
+			ProcessInitializeOnLoadAttributes (444ms)
+			ProcessInitializeOnLoadMethodAttributes (94ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.26 seconds
+Refreshing native plugins compatible for Editor in 4.10 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4931 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 74 unused Assets / (0.8 MB). Loaded Objects now: 5382.
+Memory consumption went from 198.0 MB to 197.3 MB.
+Total: 6.762300 ms (FindLiveObjects: 0.562700 ms CreateObjectMapping: 0.790200 ms MarkObjects: 4.880500 ms  DeleteObjects: 0.526900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 28815.026459 seconds.
+  path: Assets/SimpleApocalypse/Models/Buildings/SA_Bld_CoolingTowerSmall_Damaged_01.fbx
+  artifactKey: Guid(7b5ef9fc8b68ae94e87c4459ac1b8924) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Buildings/SA_Bld_CoolingTowerSmall_Damaged_01.fbx using Guid(7b5ef9fc8b68ae94e87c4459ac1b8924) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'd9dfe90c2317f4211b719f849b51f4c1') in 0.638085 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BeerKeg_01_Convex.asset
+  artifactKey: Guid(fd7105104339aef449231ecd606d67c5) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BeerKeg_01_Convex.asset using Guid(fd7105104339aef449231ecd606d67c5) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '75b6925d1313fcc450f964f15f75fc3c') in 0.015052 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Bloodstain_03_Convex.asset
+  artifactKey: Guid(790203c3485011f4d98babb6c9b8f35c) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Bloodstain_03_Convex.asset using Guid(790203c3485011f4d98babb6c9b8f35c) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'e37ac45ae5cd14b12427373a67a23309') in 0.013174 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_Battery_02_Convex.asset
+  artifactKey: Guid(08f3d7f80f388334a8ce4fb31661e89a) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_Battery_02_Convex.asset using Guid(08f3d7f80f388334a8ce4fb31661e89a) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '05ee63b3f872bf260c866dee21aba968') in 0.014926 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BodyBag_03_Convex.asset
+  artifactKey: Guid(a81df149fb5f6b14186f3a98b69ff50a) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BodyBag_03_Convex.asset using Guid(a81df149fb5f6b14186f3a98b69ff50a) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '75ceaa2f4c76fbfd944700326e39fd9d') in 0.012640 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BodyBag_05_Convex.asset
+  artifactKey: Guid(bd64ee35b5cd423469a68449281ab3ff) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BodyBag_05_Convex.asset using Guid(bd64ee35b5cd423469a68449281ab3ff) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'd07424240ee10deb7a4df2aeaa898820') in 0.015768 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Ambulance_Brokendown_01_Convex.asset
+  artifactKey: Guid(ffe9f842fb5015b419fb4d38c9b86f63) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Ambulance_Brokendown_01_Convex.asset using Guid(ffe9f842fb5015b419fb4d38c9b86f63) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'd638688c7b2a7641f42f5a0a32abc897') in 0.011914 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Backpack_02_Convex.asset
+  artifactKey: Guid(cc4644924fdc9ba47ab499d95f3ad3c1) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Backpack_02_Convex.asset using Guid(cc4644924fdc9ba47ab499d95f3ad3c1) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '880cc05a39efc5a79a677d644378edc1') in 0.012182 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_Ammo_Shotgun_Convex.asset
+  artifactKey: Guid(d8a57fcfc17262445b6226518d6a71e6) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_Ammo_Shotgun_Convex.asset using Guid(d8a57fcfc17262445b6226518d6a71e6) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '60436bc625f53f8cd795691ca587b01c') in 0.011355 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/SimpleApocalypse/Models/Buildings/SA_Bld_HouseSmallA_Damaged_02.fbx
+  artifactKey: Guid(fd2cbe126d4ce004c94709edaf9cd28e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Buildings/SA_Bld_HouseSmallA_Damaged_02.fbx using Guid(fd2cbe126d4ce004c94709edaf9cd28e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '961bf62d450bb6d3e112577584501e1b') in 0.052195 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SimpleApocalypse/Models/Environment/SA_Env_Pool_01_Convex.asset
+  artifactKey: Guid(e2a199198ac3fff40be46e4ab570b6ad) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Environment/SA_Env_Pool_01_Convex.asset using Guid(e2a199198ac3fff40be46e4ab570b6ad) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '190b55fd3adc3ce1ada9457988d43a88') in 0.014783 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 1.080180 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BuildingDressing_08_Convex.asset
+  artifactKey: Guid(706f2d3d14830d140a45dfd53e9b0c09) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BuildingDressing_08_Convex.asset using Guid(706f2d3d14830d140a45dfd53e9b0c09) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '885a8095839eac3248ff3e5ca02ba794') in 0.014840 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_FenceWoodL_Concrete_05_Convex.asset
+  artifactKey: Guid(f90562a2229f389489d18facec011801) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_FenceWoodL_Concrete_05_Convex.asset using Guid(f90562a2229f389489d18facec011801) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'ec44e7c11d9bcc32798d7792e89c9a44') in 0.012457 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_FenceWoodL_Concrete_04_Convex.asset
+  artifactKey: Guid(92178ba8f24b31347b1232524bcdcde1) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_FenceWoodL_Concrete_04_Convex.asset using Guid(92178ba8f24b31347b1232524bcdcde1) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '56bbcd81fed234dbf545fc3a5379e43d') in 0.015467 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Citywall_Gate_01_Convex.asset
+  artifactKey: Guid(d980ba4a7c4acd04abecb69304718b51) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Citywall_Gate_01_Convex.asset using Guid(d980ba4a7c4acd04abecb69304718b51) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '1e8d368bb1f024db5c8c0e962a0d8f5c') in 0.012747 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_CarRolled_01_Convex.asset
+  artifactKey: Guid(91e823f356a56434d83f2dc865dfacd0) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_CarRolled_01_Convex.asset using Guid(91e823f356a56434d83f2dc865dfacd0) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'e479aa746ddd27af00d3f0b28ca16a84') in 0.016661 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BurntBlack_Car_01_Convex.asset
+  artifactKey: Guid(ef90a4ddb657d9e4e8238334d68fa9ee) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BurntBlack_Car_01_Convex.asset using Guid(ef90a4ddb657d9e4e8238334d68fa9ee) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '72047bdbe1bbb6fafcd50f163f237584') in 0.013482 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.549888 seconds.
+  path: Assets/SimpleApocalypse/Models/Buildings/SA_Bld_Motel_SideBuilding_Damaged_01_Convex.asset
+  artifactKey: Guid(8ea591e985c034e4ba977c2c99d1fc25) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Buildings/SA_Bld_Motel_SideBuilding_Damaged_01_Convex.asset using Guid(8ea591e985c034e4ba977c2c99d1fc25) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '7f5df366af178b6e27633358e4780ffa') in 0.012737 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SimpleApocalypse/Models/Buildings/SA_Bld_ShopSmall_Clean_01.fbx
+  artifactKey: Guid(2cdc2c893c3078d468223f86208efb32) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Buildings/SA_Bld_ShopSmall_Clean_01.fbx using Guid(2cdc2c893c3078d468223f86208efb32) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '7b7684017223a7787f25ff26ddb855bc') in 0.031817 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SimpleApocalypse/Models/Buildings/SA_Bld_ShopSmall_Growth_01.fbx
+  artifactKey: Guid(23e3f358e85824f4e91c364899b1f99b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Buildings/SA_Bld_ShopSmall_Growth_01.fbx using Guid(23e3f358e85824f4e91c364899b1f99b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'fe5826bae35b74fb509a6ff1d136df50') in 0.034918 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000165 seconds.
+  path: Assets/SimpleApocalypse/Models/Buildings/SA_Bld_TownHall_Damaged_01.fbx
+  artifactKey: Guid(68253c90f4ddcc243ba8bc4d92d639e5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Buildings/SA_Bld_TownHall_Damaged_01.fbx using Guid(68253c90f4ddcc243ba8bc4d92d639e5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '2f1798223ae6ad2f9b8ff34bf9290910') in 0.057901 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 17
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SimpleApocalypse/Models/Buildings/SA_Bld_PetrolStation_Damaged_01_Convex 2.asset
+  artifactKey: Guid(86bc91b0e48b4a34dbd4a4496745308d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Buildings/SA_Bld_PetrolStation_Damaged_01_Convex 2.asset using Guid(86bc91b0e48b4a34dbd4a4496745308d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '6fd0c545f7bc61ab66a9518e24a77254') in 0.021183 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Models/Buildings/SA_Bld_PowerLineLarge_Defended_01_Convex 1.asset
+  artifactKey: Guid(6df45caca1b5e9f49a04d3c634df2826) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Buildings/SA_Bld_PowerLineLarge_Defended_01_Convex 1.asset using Guid(6df45caca1b5e9f49a04d3c634df2826) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '3ce0bb3ab9521884776ba930616013b2') in 0.013119 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.343762 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Fence_Wire_Damaged_03_Convex.asset
+  artifactKey: Guid(42312e9bdc993a745ab3ebccddcbbce4) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Fence_Wire_Damaged_03_Convex.asset using Guid(42312e9bdc993a745ab3ebccddcbbce4) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '3e6e881aa4ef6807b79f927e42e594d3') in 0.027242 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000469 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_OverGrowth_04_Convex.asset
+  artifactKey: Guid(a80f0b726d592a14d92ba4d6965cd443) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_OverGrowth_04_Convex.asset using Guid(a80f0b726d592a14d92ba4d6965cd443) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '98eeddc57a91977eb6dc837aea5c468e') in 0.017646 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Mattress_01_Convex.asset
+  artifactKey: Guid(3058d1fc603cb8e4aaf2c02786f04a48) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Mattress_01_Convex.asset using Guid(3058d1fc603cb8e4aaf2c02786f04a48) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '81e0c2a3e13f4bebf20af8ea9fc7964d') in 0.011941 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_TentShelter_01_Convex.asset
+  artifactKey: Guid(f95f50bb3b7bf8644b8c9b264969b3c1) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_TentShelter_01_Convex.asset using Guid(f95f50bb3b7bf8644b8c9b264969b3c1) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '9c6f86b53fa8236b9acd79d324c6d923') in 0.012834 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_TentShelterDeadTree_02_Convex.asset
+  artifactKey: Guid(f298b80a286890a4aa1acbe786eb3bf1) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_TentShelterDeadTree_02_Convex.asset using Guid(f298b80a286890a4aa1acbe786eb3bf1) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'f97f1c9be466b79e0ba0fb85c95e7a9d') in 0.012129 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Gravestone_03_Convex.asset
+  artifactKey: Guid(d7027e27a073d614f82467d1fad16a06) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Gravestone_03_Convex.asset using Guid(d7027e27a073d614f82467d1fad16a06) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'cf619aba333fcaa972df215dbf28de72') in 0.016680 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Statue_Damaged_01_Convex.asset
+  artifactKey: Guid(1ba310000e605474598039c98840da3d) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Statue_Damaged_01_Convex.asset using Guid(1ba310000e605474598039c98840da3d) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '8ff5130a6a212f4cf6c35a08e79fd8e7') in 0.011157 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Rubble_04_Convex.asset
+  artifactKey: Guid(3767fede09a149141bf6ce09b00ded1f) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Rubble_04_Convex.asset using Guid(3767fede09a149141bf6ce09b00ded1f) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'ca1c46919fbb3634480b3087ec7d7d46') in 0.018734 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_PowerLine_07_Convex.asset
+  artifactKey: Guid(c6d74699bb4647a42816b091544efbaf) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_PowerLine_07_Convex.asset using Guid(c6d74699bb4647a42816b091544efbaf) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '7c48e4d3bb4a1dff5a063f4212abe894') in 0.012613 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.955760 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_TreeAutumnRed_04_Convex 1.asset
+  artifactKey: Guid(8eb33b758069dc641b751a7daf32022b) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_TreeAutumnRed_04_Convex 1.asset using Guid(8eb33b758069dc641b751a7daf32022b) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '617592d61ca11da76cd840523bc5dd31') in 0.014987 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Tree_04_Convex.asset
+  artifactKey: Guid(5509903e9ce672f48b9d56b737732442) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Tree_04_Convex.asset using Guid(5509903e9ce672f48b9d56b737732442) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '684d6a13ed28337b9ece139c91cdae92') in 0.022062 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000112 seconds.
+  path: Assets/SimpleApocalypse/Models/Vehicles/SA_Veh_Troopcar_Convex.asset
+  artifactKey: Guid(44a669c67b16e25448b8838b35caf0d5) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Vehicles/SA_Veh_Troopcar_Convex.asset using Guid(44a669c67b16e25448b8838b35caf0d5) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '295cac5f56b686ddce2b70b90d68253f') in 0.014468 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SimpleApocalypse/Models/Vehicles/SA_Veh_BuggyB_Convex.asset
+  artifactKey: Guid(46d70476674e68b419d66bfd2f791559) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Vehicles/SA_Veh_BuggyB_Convex.asset using Guid(46d70476674e68b419d66bfd2f791559) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '7f5cc95942ce9dae0550014ea7b1a8ed') in 0.016298 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_UteBroken_01_Convex.asset
+  artifactKey: Guid(ec672789a2c1cb74ea9baf19f6b5a729) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_UteBroken_01_Convex.asset using Guid(ec672789a2c1cb74ea9baf19f6b5a729) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '1d72c2bf332e70cea874dbb81c268a48') in 0.012223 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Walkway_02_Convex 1.asset
+  artifactKey: Guid(705aa97175745b842be164bd65c44258) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Walkway_02_Convex 1.asset using Guid(705aa97175745b842be164bd65c44258) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '588b161d40872208559d8182925d2e09') in 0.014398 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_TreeDeadBurnt_04_Convex 1.asset
+  artifactKey: Guid(8f5139bbb49d64742936bc5c2044e4ca) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_TreeDeadBurnt_04_Convex 1.asset using Guid(8f5139bbb49d64742936bc5c2044e4ca) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '4b1bb8214cf8e57976be5b18e3e31e63') in 0.012169 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_TreeAutumn_02_Convex.asset
+  artifactKey: Guid(b41591c928a1aa041b5352b18610247e) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_TreeAutumn_02_Convex.asset using Guid(b41591c928a1aa041b5352b18610247e) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '1c02fe5f8cb61094456084e28fbd9e8f') in 0.011275 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/SimpleApocalypse/Models/Vehicles/SA_Veh_DuneBuggy_Convex.asset
+  artifactKey: Guid(3f5327315569b38448ecaddf99d23abc) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Vehicles/SA_Veh_DuneBuggy_Convex.asset using Guid(3f5327315569b38448ecaddf99d23abc) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'fb7f70875ca2e6681997a7a1344c17bd') in 0.010572 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.296228 seconds.
+  path: Assets/SimpleApocalypse/Models/Buildings/SA_Bld_Trailer_02.fbx
+  artifactKey: Guid(22299baa464dbba45b1a7f3955e88128) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Buildings/SA_Bld_Trailer_02.fbx using Guid(22299baa464dbba45b1a7f3955e88128) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '24b9a7bf9eeabe70c21bac6b68c6f348') in 0.041088 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SimpleApocalypse/Models/Environment/SA_Env_ForestTile_04.fbx
+  artifactKey: Guid(87cc3b2b3db0b6d4aa00bf48e80caf94) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Environment/SA_Env_ForestTile_04.fbx using Guid(87cc3b2b3db0b6d4aa00bf48e80caf94) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'c84ee155e9983b6193e3b524ade9a2ac') in 0.040504 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/SimpleApocalypse/Models/Environment/SA_Env_DirtCircle_Convex.asset
+  artifactKey: Guid(8bcb218c9a226764390d2080fc604236) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Environment/SA_Env_DirtCircle_Convex.asset using Guid(8bcb218c9a226764390d2080fc604236) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'b0d3245dbcd3f26b025b7628c97200b7') in 0.011685 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SimpleApocalypse/Models/Environment/Cloud_05.fbx
+  artifactKey: Guid(5d92abef242cfcc4781ac2ae661d8fe8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Environment/Cloud_05.fbx using Guid(5d92abef242cfcc4781ac2ae661d8fe8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '92a18b7bc4ac0f6f243b1aeca2a39391') in 0.029849 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/SimpleApocalypse/Models/Environment/SA_Env_Concrete_Convex.asset
+  artifactKey: Guid(cfd2dd401ea217646a3dc13b0ec81068) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Environment/SA_Env_Concrete_Convex.asset using Guid(cfd2dd401ea217646a3dc13b0ec81068) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '98d6048c1a9260ef856a1f286a3ebe5d') in 0.012531 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/SimpleApocalypse/Models/Environment/SA_Env_RoadStraight_Damaged_04.fbx
+  artifactKey: Guid(4e7b61c61bf15844bb0b6e1c2877d7c3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Environment/SA_Env_RoadStraight_Damaged_04.fbx using Guid(4e7b61c61bf15844bb0b6e1c2877d7c3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '6613879e0290a5d1464bea44afca2154') in 0.033394 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Models/Environment/SA_Env_ManholeClosed_Convex.asset
+  artifactKey: Guid(333aa012807554240ae4dcffe23b5791) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Environment/SA_Env_ManholeClosed_Convex.asset using Guid(333aa012807554240ae4dcffe23b5791) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '307f6200e4919849199e07c323245d89') in 0.013322 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Models/Environment/SA_Env_BeachSection_01_Convex.asset
+  artifactKey: Guid(560fff1ce8ef5124ebc957508ebaed58) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Environment/SA_Env_BeachSection_01_Convex.asset using Guid(560fff1ce8ef5124ebc957508ebaed58) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '922350a4d1200c0a821da4a3b565f1f2') in 0.012276 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/SimpleApocalypse/Models/Environment/SA_Env_Road_Crossing_01.fbx
+  artifactKey: Guid(5f516ac64a098ac48ab9668b40be6d32) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Environment/SA_Env_Road_Crossing_01.fbx using Guid(5f516ac64a098ac48ab9668b40be6d32) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'ea8dd58e67384713d386b8cf26cc809e') in 0.054264 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.174239 seconds.
+  path: Assets/SimpleApocalypse/Models/Weapons/SA_Wep_Crowbar_Convex.asset
+  artifactKey: Guid(866da828623fa8e4c957baf4c73cf10e) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Weapons/SA_Wep_Crowbar_Convex.asset using Guid(866da828623fa8e4c957baf4c73cf10e) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '67a5b65ee10dab5edd49adbde6a91ac0') in 0.026913 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000145 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_WarehouseOld_Damaged_03.prefab
+  artifactKey: Guid(262e7cbd7c9ba1d4a9ca4e2e7044ffd0) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_WarehouseOld_Damaged_03.prefab using Guid(262e7cbd7c9ba1d4a9ca4e2e7044ffd0) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '062afa2a7b2fa4119603c518821af641') in 0.025783 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 19
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_OfficeOld_Clean_03.prefab
+  artifactKey: Guid(c550af74fba87d84db7c7314801d1c4b) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_OfficeOld_Clean_03.prefab using Guid(c550af74fba87d84db7c7314801d1c4b) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'd3f99a2dd0854ae5f7003a9550922738') in 0.019398 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Church_Damaged_01.prefab
+  artifactKey: Guid(916341e2ae5be5348a18c36602fa75fb) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Church_Damaged_01.prefab using Guid(916341e2ae5be5348a18c36602fa75fb) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'df6c523eb8f2ee3132557f8aa5bf00b1') in 0.015662 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HospitalBuildingSmall_Damaged_01.prefab
+  artifactKey: Guid(aed58a5347fa0ad46831e299b112e350) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HospitalBuildingSmall_Damaged_01.prefab using Guid(aed58a5347fa0ad46831e299b112e350) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '046df1926f57568d7035bc0efe6efd3d') in 0.017073 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Environment/SA_Env_GrassSection_Raised_01.prefab
+  artifactKey: Guid(ad9e5e3f6f30621448d3fd825dbdc1e7) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Environment/SA_Env_GrassSection_Raised_01.prefab using Guid(ad9e5e3f6f30621448d3fd825dbdc1e7) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'b6f22db3e989060a8750bb9ac451cf24') in 0.016055 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HospitalBuilding_Damaged_01.prefab
+  artifactKey: Guid(3e6aa9674e3ca754a9e306dc33982117) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_HospitalBuilding_Damaged_01.prefab using Guid(3e6aa9674e3ca754a9e306dc33982117) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'c17513e4672448a114acbb93302aa812') in 0.017032 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_OfficeGrey_03.prefab
+  artifactKey: Guid(03ecee8c1a338f047a8fce4421fb8934) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_OfficeGrey_03.prefab using Guid(03ecee8c1a338f047a8fce4421fb8934) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '64e730cd7a638ac01b6da69360624dff') in 0.017113 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 17
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Trailer_01.prefab
+  artifactKey: Guid(051ae293f777dd849a38b316166483e0) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Trailer_01.prefab using Guid(051ae293f777dd849a38b316166483e0) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '5f1b7ffbf85b66c418a1554a92958cf0') in 0.015007 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/SimpleApocalypse/Models/Weapons/SA_Wep_Flaregun_Convex.asset
+  artifactKey: Guid(e1086435620d5ef4daa29d498528dc1c) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Models/Weapons/SA_Wep_Flaregun_Convex.asset using Guid(e1086435620d5ef4daa29d498528dc1c) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '5239a4eae1758f5f834239e9c33c54f0') in 0.013423 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_ShopOld_Damaged_02.prefab
+  artifactKey: Guid(478dba39042c1534787affe86e2430f5) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_ShopOld_Damaged_02.prefab using Guid(478dba39042c1534787affe86e2430f5) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '95065b062eb75fbcb4d9bd8b8a0524aa') in 0.016220 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 19
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Environment/SA_Env_Dirt_02.prefab
+  artifactKey: Guid(10fb44be36c39a147a8aab66cfe8d88b) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Environment/SA_Env_Dirt_02.prefab using Guid(10fb44be36c39a147a8aab66cfe8d88b) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '49f563ff5f5ff10aacfca774edb94d37') in 0.015737 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_TownHouse_Clean_01.prefab
+  artifactKey: Guid(fbcc929a40e619c40b3a93bd89137c45) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_TownHouse_Clean_01.prefab using Guid(fbcc929a40e619c40b3a93bd89137c45) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '9e08f069733ec750463f8865bbbe5684') in 0.016124 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Trailer_Damaged_03.prefab
+  artifactKey: Guid(ac3a07ad73f439048960fc87b6e6ec31) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Buildings/SA_Bld_Trailer_Damaged_03.prefab using Guid(ac3a07ad73f439048960fc87b6e6ec31) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '70047f8930472508f8b8b20293c8ee63') in 0.016136 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 0.500820 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Environment/SA_Env_Road_Bend_Right_01.prefab
+  artifactKey: Guid(3a4a4c9bcd2ddc44fa648c557d98affb) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Environment/SA_Env_Road_Bend_Right_01.prefab using Guid(3a4a4c9bcd2ddc44fa648c557d98affb) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '227699516857f081644358f9a539f90e') in 0.014834 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Items/SA_Item_Candles.prefab
+  artifactKey: Guid(1b3dd47a850e07a40870714f9df8d5f8) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Items/SA_Item_Candles.prefab using Guid(1b3dd47a850e07a40870714f9df8d5f8) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'c70161c08ff27f3aa102e9f202fb94af') in 0.014154 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_BurntTank_01.prefab
+  artifactKey: Guid(0d896edcf654c324d95648379c2ada7e) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_BurntTank_01.prefab using Guid(0d896edcf654c324d95648379c2ada7e) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '1c4adfd47ed5fd9f311cf327002cc15e') in 0.019202 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_BioSign_01.prefab
+  artifactKey: Guid(48b79f1702180764097ddcb8650adccf) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_BioSign_01.prefab using Guid(48b79f1702180764097ddcb8650adccf) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '6b4ca23b7760f075cde75488761604aa') in 0.015332 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Items/SA_Item_CannedFood_03.prefab
+  artifactKey: Guid(2e7dcc1260150b046adc09a1938cda6b) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Items/SA_Item_CannedFood_03.prefab using Guid(2e7dcc1260150b046adc09a1938cda6b) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '9663c13f9fbbb495eeb3df83cd549394') in 0.018461 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Items/SA_Item_ToiletPaper.prefab
+  artifactKey: Guid(cc19955c9ba71224da2f27ff87209aa9) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Items/SA_Item_ToiletPaper.prefab using Guid(cc19955c9ba71224da2f27ff87209aa9) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'a39a5499bba570da47763c6137dd9669') in 0.015922 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_AmmoPile_L_01.prefab
+  artifactKey: Guid(2e13e9ecdb06d1445933843ed12ebfab) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_AmmoPile_L_01.prefab using Guid(2e13e9ecdb06d1445933843ed12ebfab) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '2a687ac7dbbadaba895e5db04436b72f') in 0.037441 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_AmmoBox_01.prefab
+  artifactKey: Guid(2f8fda89ab1ec834882c458137e71234) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_AmmoBox_01.prefab using Guid(2f8fda89ab1ec834882c458137e71234) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'e07a0d0d99c4bf7217b5b6afefb40636') in 0.016180 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Items/SA_Item_Ammo_Missiles.prefab
+  artifactKey: Guid(9899f34c95d2c074e84f6322fd2ada5b) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Items/SA_Item_Ammo_Missiles.prefab using Guid(9899f34c95d2c074e84f6322fd2ada5b) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '5dfb1c20a3c5d2b743f0d3113b37c68f') in 0.017244 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000090 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_BuildingDressing_03.prefab
+  artifactKey: Guid(7117e3453ec1e9d4aa2a4593c95304ff) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_BuildingDressing_03.prefab using Guid(7117e3453ec1e9d4aa2a4593c95304ff) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'bde2c2fc0c8afb686b4bb6bc1a3f790e') in 0.015606 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/FX/FX_BloodSplatter.prefab
+  artifactKey: Guid(8c27aeead6d968e4ba986702d6b84335) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/FX/FX_BloodSplatter.prefab using Guid(8c27aeead6d968e4ba986702d6b84335) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'deded59670f6990ddc49c42384f4a225') in 0.022375 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_DeadBody_OnCarTop_01.prefab
+  artifactKey: Guid(1f50592ce9678dc448a350833aa139d3) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_DeadBody_OnCarTop_01.prefab using Guid(1f50592ce9678dc448a350833aa139d3) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'a4afb5b0d69f7404f34dac0eb05cd40f') in 0.019714 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Items/SA_Item_Candle.prefab
+  artifactKey: Guid(2ccc864ccb1b4014e8275ed55e5cdd12) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Items/SA_Item_Candle.prefab using Guid(2ccc864ccb1b4014e8275ed55e5cdd12) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '82f1dd7bd7ba7bd36e80a2b02b8e642e') in 0.014143 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Items/SA_Item_FlashlightB.prefab
+  artifactKey: Guid(835091381215a3546bb45bf28cd80a35) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Items/SA_Item_FlashlightB.prefab using Guid(835091381215a3546bb45bf28cd80a35) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'e3ee6d0e8a007c44c508d9e8ac651028') in 0.014717 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.258319 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_FenceSmall_05.prefab
+  artifactKey: Guid(ceaf13dfc5a8a834ba009c60a92a70a0) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_FenceSmall_05.prefab using Guid(ceaf13dfc5a8a834ba009c60a92a70a0) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '8978f7674328abfe83afc614e7a83381') in 0.024402 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_TreeSnow_01.prefab
+  artifactKey: Guid(4e0851595fb56b642ae503addfef6c41) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_TreeSnow_01.prefab using Guid(4e0851595fb56b642ae503addfef6c41) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'a93cf665fda5a480cef4b4bd92bcd7ad') in 0.021325 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_TablePlant_04.prefab
+  artifactKey: Guid(607facfd35b121945bf4493ef50978b4) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_TablePlant_04.prefab using Guid(607facfd35b121945bf4493ef50978b4) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'c0cdc3617218834d425e580155446c03') in 0.015079 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_SubwayEntranceBroken_01.prefab
+  artifactKey: Guid(442c9896917b5eb429763ee5a1270eda) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_SubwayEntranceBroken_01.prefab using Guid(442c9896917b5eb429763ee5a1270eda) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'a21a214f0548dae7706152cf71df8032') in 0.016209 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_OverGrowth_02.prefab
+  artifactKey: Guid(53bdae7226408f34aa51a220c91195c0) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_OverGrowth_02.prefab using Guid(53bdae7226408f34aa51a220c91195c0) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '0c32efb025e2b9def60a72fe65014aec') in 0.016757 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_TentPackedup_01.prefab
+  artifactKey: Guid(824e8096187d97e469e5c1f160d5de34) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_TentPackedup_01.prefab using Guid(824e8096187d97e469e5c1f160d5de34) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '364deb50f350f91cd46c263a6e96a2da') in 0.014277 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_JunkPile_01.prefab
+  artifactKey: Guid(65c97d195de1b0541a2b02d8fecf18dd) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_JunkPile_01.prefab using Guid(65c97d195de1b0541a2b02d8fecf18dd) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'd635bfeed442d432ca3d708a5afcb01f') in 0.016802 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_Boxcutter.fbx
+  artifactKey: Guid(3d4a9cc5d5bbc544698a9ee489d67006) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_Boxcutter.fbx using Guid(3d4a9cc5d5bbc544698a9ee489d67006) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'f82d505c6de615f65c801d0808d73d63') in 0.032216 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_Ammo_Rifle_Convex.asset
+  artifactKey: Guid(c76fecc51c3034f4492d0fa763f707c9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_Ammo_Rifle_Convex.asset using Guid(c76fecc51c3034f4492d0fa763f707c9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '09237740a17b338ec7aaecd931c47abc') in 0.013513 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_TreeAutumn_04.prefab
+  artifactKey: Guid(baa1bf63206c4f44889caca4239fc7f8) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_TreeAutumn_04.prefab using Guid(baa1bf63206c4f44889caca4239fc7f8) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '7457ea2ee7b0e5f4075b7dae68ccd653') in 0.014857 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_Phonograph.fbx
+  artifactKey: Guid(3e164397136bfa141a60efc329d70a44) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_Phonograph.fbx using Guid(3e164397136bfa141a60efc329d70a44) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'd5e27de347ef80aa64dda4e8674e9676') in 0.054889 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_Airhorn_Convex.asset
+  artifactKey: Guid(2cf7db674ff6a904c87fb8ed9e11edb4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_Airhorn_Convex.asset using Guid(2cf7db674ff6a904c87fb8ed9e11edb4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '27ddaba68891468f10ac30d930e71d7d') in 0.011216 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_Whisky_Convex.asset
+  artifactKey: Guid(fa7af3bd49051f54d88784306ddca6ca) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_Whisky_Convex.asset using Guid(fa7af3bd49051f54d88784306ddca6ca) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '99670a61cfbad6de61e1506d448bb31d') in 0.012033 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Weapons/SA_Wep_FlamethrowerTank.prefab
+  artifactKey: Guid(02cdf47be73bd4a41abb9d33437ec403) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Weapons/SA_Wep_FlamethrowerTank.prefab using Guid(02cdf47be73bd4a41abb9d33437ec403) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'd0efc56c082104822c607699d12d8d1d') in 0.014399 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_WalkieTalkie_Convex.asset
+  artifactKey: Guid(97efb74c141985f40ac6fc9dff55b1a5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_WalkieTalkie_Convex.asset using Guid(97efb74c141985f40ac6fc9dff55b1a5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'd4da618a82a7e0cd428713a9c05f0198') in 0.012068 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000138 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_Pallet_01.prefab
+  artifactKey: Guid(af008a8425e3bc342832db8dd5bfd4ff) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_Pallet_01.prefab using Guid(af008a8425e3bc342832db8dd5bfd4ff) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'c1873d789cc229b08c096bf726030657') in 0.013535 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_FlashlightHighPower.fbx
+  artifactKey: Guid(c8f8590e23685484cae37e9d4a134529) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_FlashlightHighPower.fbx using Guid(c8f8590e23685484cae37e9d4a134529) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '56f0d4134495e238ab4bb26dd753822c') in 0.034068 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/SimpleApocalypse/Models/Environment/SA_Env_Road_StraightLarge_01_Convex.asset
+  artifactKey: Guid(0d0812227dbbe6a4281e374500262beb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Environment/SA_Env_Road_StraightLarge_01_Convex.asset using Guid(0d0812227dbbe6a4281e374500262beb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'e81ddb60cdf33ecdaf468dee34edaaa0') in 0.013565 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_Ammo_Shotgun.fbx
+  artifactKey: Guid(e115495afbe9dd247a176017743dc22d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_Ammo_Shotgun.fbx using Guid(e115495afbe9dd247a176017743dc22d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '6c9e43457113cd3f1858f32368bd702a') in 0.045542 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Characters/Zombies/SA_Zombie_Tourist.prefab
+  artifactKey: Guid(02fa487f63c3989429418e446c705207) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Characters/Zombies/SA_Zombie_Tourist.prefab using Guid(02fa487f63c3989429418e446c705207) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '82d91270a66cdde05a79734422d71d53') in 0.095182 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 250
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Weapons/SA_Wep_Pickaxe.prefab
+  artifactKey: Guid(d97d90653ace0be48910df9e93b9c15d) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Weapons/SA_Wep_Pickaxe.prefab using Guid(d97d90653ace0be48910df9e93b9c15d) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '89587768637b8c15fb4277730895b64b') in 0.016324 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Characters/Zombies/SA_Zombie_Bellhop.prefab
+  artifactKey: Guid(ea9791ddb8d44474bbcec609b9748edf) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Characters/Zombies/SA_Zombie_Bellhop.prefab using Guid(ea9791ddb8d44474bbcec609b9748edf) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '13b16953ca0d1180acd2f1afce21d887') in 0.075145 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 250
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_FlashlightB.fbx
+  artifactKey: Guid(5089827b763fd584b94120d519007f6b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_FlashlightB.fbx using Guid(5089827b763fd584b94120d519007f6b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'f432f916114ac0598844ef54cb01cabf') in 0.047456 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_TreeAutumnYellow_03.prefab
+  artifactKey: Guid(49dafe6557e20f54db20d81daa6504d6) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_TreeAutumnYellow_03.prefab using Guid(49dafe6557e20f54db20d81daa6504d6) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'f6f77574986ddc9ab2bb0a0113227b1b') in 0.019106 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_WaterBottle.fbx
+  artifactKey: Guid(5263806a5151d034798ba4ff5a95d6a7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_WaterBottle.fbx using Guid(5263806a5151d034798ba4ff5a95d6a7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '1b5d9a0c8cce1309c56f5fc029ab5443') in 0.038096 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/SimpleApocalypse/Models/Environment/SA_Env_Road_LaneTransition_Right01_Convex.asset
+  artifactKey: Guid(d9d32fe1f64edd8488bcd7c8d5d81486) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Environment/SA_Env_Road_LaneTransition_Right01_Convex.asset using Guid(d9d32fe1f64edd8488bcd7c8d5d81486) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '63e7377fed3049422eee3c2d5dba1f5a') in 0.015359 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Vehicles/SA_Veh_ArmytruckTanker.prefab
+  artifactKey: Guid(4d4db3865f3e276479c2dbe7d1547e08) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Vehicles/SA_Veh_ArmytruckTanker.prefab using Guid(4d4db3865f3e276479c2dbe7d1547e08) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'a0f4e6d39c0500ec06d8966b7a4e5dad') in 0.020929 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 44
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_CannedFood_01.fbx
+  artifactKey: Guid(ba3866cfd7f96494283a99ee20d47985) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_CannedFood_01.fbx using Guid(ba3866cfd7f96494283a99ee20d47985) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '85494742df5a722155143dd9c7c3a696') in 0.040731 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Vehicles/SA_Veh_CampervanTrailer.prefab
+  artifactKey: Guid(39b29a6cb9aef9a49966f5248fa80ab6) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Vehicles/SA_Veh_CampervanTrailer.prefab using Guid(39b29a6cb9aef9a49966f5248fa80ab6) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '0ba458e81316c005f80d7b8f23ac46f7') in 0.020049 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 24
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Weapons/SA_Wep_Paddle.prefab
+  artifactKey: Guid(272d2b25a08fc4e4f9dff13ae6b4dc8b) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Weapons/SA_Wep_Paddle.prefab using Guid(272d2b25a08fc4e4f9dff13ae6b4dc8b) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '8afaecea1fbf76c97ede5cdb3ea7ee53') in 0.026897 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_WaterBottle_Convex.asset
+  artifactKey: Guid(79005e6e6d6a1484fba4a2c78029b457) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_WaterBottle_Convex.asset using Guid(79005e6e6d6a1484fba4a2c78029b457) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '0d0308617a60aeefd1994afae222271f') in 0.011066 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000066 seconds.
+  path: Assets/SimpleApocalypse/Models/Items/SA_Item_Compass_Convex.asset
+  artifactKey: Guid(2eef9061e51621d4da862418b20f84c3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Items/SA_Item_Compass_Convex.asset using Guid(2eef9061e51621d4da862418b20f84c3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '2281802db1f9072c1af028bf7797548c') in 0.012141 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_Sleepingbag_Open_02.prefab
+  artifactKey: Guid(e9b3f71a3ec2e304084f4114d7bf24e4) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_Sleepingbag_Open_02.prefab using Guid(e9b3f71a3ec2e304084f4114d7bf24e4) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '76388fa1d874ef4f84b97a08c2f3dedd') in 0.019344 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_TreeDeadBurnt_04.prefab
+  artifactKey: Guid(af7a6180b3416684c93589ea55fa72a0) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_TreeDeadBurnt_04.prefab using Guid(af7a6180b3416684c93589ea55fa72a0) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'bb70cb823b5e83023385812d60c9e626') in 0.014601 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000058 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_Toilet_Damaged_01.prefab
+  artifactKey: Guid(192765837fe85614bb9a05b00a6e7479) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_Toilet_Damaged_01.prefab using Guid(192765837fe85614bb9a05b00a6e7479) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'b2b892af6fe03e804860a36714c9f694') in 0.016968 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_Sleepingbag_Open_03.prefab
+  artifactKey: Guid(6b78e6ef67a2b694795473a2029d96d3) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b)
+Start importing Assets/SimpleApocalypse/Prefabs/Props/SA_Prop_Sleepingbag_Open_03.prefab using Guid(6b78e6ef67a2b694795473a2029d96d3) Importer(2089858483,3d70f49cd1c2eb9ae422958d1c652c6b) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'a47e799fb62508a18aa6060279e40b69') in 0.015747 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_AirconUnit_01_Convex.asset
+  artifactKey: Guid(95678905362fadf4d9fe9ce6f41b6ba6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_AirconUnit_01_Convex.asset using Guid(95678905362fadf4d9fe9ce6f41b6ba6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'a95dd60fba14fd2472056675fb8fb0cb') in 0.011976 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.900632 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Barrier_02_Convex.asset
+  artifactKey: Guid(693d531f9b1d8aa47ba85736555a3c68) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Barrier_02_Convex.asset using Guid(693d531f9b1d8aa47ba85736555a3c68) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '838791a7a7325cb7f784e60dcfb1be6f') in 0.013535 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BurntBody_OnCarTop.fbx
+  artifactKey: Guid(97924877b22987e4aa75ffd4aa63d4e9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BurntBody_OnCarTop.fbx using Guid(97924877b22987e4aa75ffd4aa63d4e9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '8f2a24a1612f39e2b69d7d980d232ec0') in 0.038700 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Couch_Damaged_01_Convex.asset
+  artifactKey: Guid(cf0eff7de49f99b4d967169526b1c632) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Couch_Damaged_01_Convex.asset using Guid(cf0eff7de49f99b4d967169526b1c632) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'b33a2fd0d381f0e1b506289fd1407c87') in 0.013512 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BodyBag_04_Convex.asset
+  artifactKey: Guid(d7253970f48ae294e8e329cb12d53751) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BodyBag_04_Convex.asset using Guid(d7253970f48ae294e8e329cb12d53751) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'f7d71ca3e56468c972cc4301e2d55d13') in 0.014278 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BioBioTentSign_01_Convex 1.asset
+  artifactKey: Guid(6891b18cc54e8ca45b56c351005511ec) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BioBioTentSign_01_Convex 1.asset using Guid(6891b18cc54e8ca45b56c351005511ec) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '95daa64ec56d4fd8784c2b8218bbc1b6') in 0.012308 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BioBarrel_01_Convex.asset
+  artifactKey: Guid(ade965fdc3fc12340bce81f65eae12e9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BioBarrel_01_Convex.asset using Guid(ade965fdc3fc12340bce81f65eae12e9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'd47815c9492997aa1cc4eead0a8260e9') in 0.016582 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BBQSmall_01_Convex.asset
+  artifactKey: Guid(e3204619d055a304caf41a7d1d285737) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BBQSmall_01_Convex.asset using Guid(e3204619d055a304caf41a7d1d285737) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '8acfa87d627150b7a8babdc7f1dc961c') in 0.023689 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_DeckChair_02.fbx
+  artifactKey: Guid(16d32fd01c5cbbc40bb4b1e9d4453dc9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_DeckChair_02.fbx using Guid(16d32fd01c5cbbc40bb4b1e9d4453dc9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'bc242886f2f085f3c2f9c79aa5a254b8') in 0.035617 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BurntBody_01.fbx
+  artifactKey: Guid(f2b56443c6aff654194189b4cafcb8cb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BurntBody_01.fbx using Guid(f2b56443c6aff654194189b4cafcb8cb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'a18c92312edc5bab68fea37c0fc5e6d7') in 0.042314 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BurntBrown_RV_01.fbx
+  artifactKey: Guid(04f3f424737420947bd22d1297682808) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BurntBrown_RV_01.fbx using Guid(04f3f424737420947bd22d1297682808) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'e3933b32ebe694284e1ef34433224ed6') in 0.032287 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Campfire_01_Convex.asset
+  artifactKey: Guid(8aaca0c4921b21649ba48fd63b271a16) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Campfire_01_Convex.asset using Guid(8aaca0c4921b21649ba48fd63b271a16) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'ea89403a846db988046f264cc5ed8010') in 0.011776 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BrokenTank_01_Convex.asset
+  artifactKey: Guid(b77f18ca989a37b43862d14d88cb4612) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BrokenTank_01_Convex.asset using Guid(b77f18ca989a37b43862d14d88cb4612) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'c3aa77407dfe711416078cd9e4012781') in 0.011159 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BBQSmall_01.fbx
+  artifactKey: Guid(510fad7ab01f84948992f4664e90de51) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BBQSmall_01.fbx using Guid(510fad7ab01f84948992f4664e90de51) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '31359dc9e4738afe350968cd3d873cd5') in 0.028883 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_BuildingDressing_05_Convex.asset
+  artifactKey: Guid(41989be35f9e5864fad114dddcd279dc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_BuildingDressing_05_Convex.asset using Guid(41989be35f9e5864fad114dddcd279dc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'ce29b42cc0d1142f33717426b4b6ceb7') in 0.040745 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Bloodstain_01_Convex.asset
+  artifactKey: Guid(235005af7c9b4d44a989bf9433fb9426) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Bloodstain_01_Convex.asset using Guid(235005af7c9b4d44a989bf9433fb9426) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '9e968533998ab713ab0a177c4d06ad86') in 0.031657 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 1.348786 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_FenceSmall_02_Convex.asset
+  artifactKey: Guid(e216b1875548f3446844b052c7336eae) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_FenceSmall_02_Convex.asset using Guid(e216b1875548f3446844b052c7336eae) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '2900041ccc1fbb27be7ff27cc1e819d7') in 0.015082 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Litter_08.fbx
+  artifactKey: Guid(89b35c6271ad9104f9134212ea058283) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Litter_08.fbx using Guid(89b35c6271ad9104f9134212ea058283) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '35d418ec3335b15c83d763776e074b12') in 0.056177 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Mattress_01_Convex.asset
+  artifactKey: Guid(3058d1fc603cb8e4aaf2c02786f04a48) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Mattress_01_Convex.asset using Guid(3058d1fc603cb8e4aaf2c02786f04a48) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '53832c779eed78752189674b07ad9c8c') in 0.016067 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_PowerLine_04_Convex.asset
+  artifactKey: Guid(0b2cbf8bf0245dd46964d612151c4276) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_PowerLine_04_Convex.asset using Guid(0b2cbf8bf0245dd46964d612151c4276) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'eae5af96d18d3a725e9aa58ee58e3207') in 0.017252 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_FenceWoodL_Plain_01_Convex.asset
+  artifactKey: Guid(3e53ba1430a179042ace89273707b88e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_FenceWoodL_Plain_01_Convex.asset using Guid(3e53ba1430a179042ace89273707b88e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'a36110698cfc4e0d826f6be749fd7402') in 0.012666 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Fridge_Damaged_02.fbx
+  artifactKey: Guid(e9634429daf4f874da6732c14873d31d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Fridge_Damaged_02.fbx using Guid(e9634429daf4f874da6732c14873d31d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'e994c03203df1ffcd3543a4e58b8944a') in 0.037385 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_FenceWoodL_Concrete_01.fbx
+  artifactKey: Guid(52bc4f7f8dbbfb24fb4d03b3d45e06a7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_FenceWoodL_Concrete_01.fbx using Guid(52bc4f7f8dbbfb24fb4d03b3d45e06a7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'ee4039786313e124fa41b0f722ed5b83') in 0.035471 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_GrassSmallDry_01_Convex.asset
+  artifactKey: Guid(5f3e8d0259144e74c807d8851bfc1483) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_GrassSmallDry_01_Convex.asset using Guid(5f3e8d0259144e74c807d8851bfc1483) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '889b9850a28ce25cdb58ee525f0b5643') in 0.011901 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_OverGrowth_05.fbx
+  artifactKey: Guid(c39975e482b5c9c49b54926862a25520) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_OverGrowth_05.fbx using Guid(c39975e482b5c9c49b54926862a25520) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'd3239296bb0537f2e119eb57106a8643') in 0.060284 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_FootBridge_01.fbx
+  artifactKey: Guid(48d30c49d99dccf4097d8adba0726336) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_FootBridge_01.fbx using Guid(48d30c49d99dccf4097d8adba0726336) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'eea2b470625a369fe92837a833605b0d') in 0.036987 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_MattressBed_01.fbx
+  artifactKey: Guid(c7c7e79bdd7dd294eb9b94ce7466efc2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_MattressBed_01.fbx using Guid(c7c7e79bdd7dd294eb9b94ce7466efc2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'b708dd5088d492b5ec6b59c9e2c5f160') in 0.031081 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_LawnFlamingo_01_Convex.asset
+  artifactKey: Guid(f4f9a53b64dcdb74cb5f04164b50f71b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_LawnFlamingo_01_Convex.asset using Guid(f4f9a53b64dcdb74cb5f04164b50f71b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'fd58e16a4d9dd3d077f5559b14b06d77') in 0.016119 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_Plant_03_Convex.asset
+  artifactKey: Guid(7453804fedacf1745b4f2a8f419281d6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_Plant_03_Convex.asset using Guid(7453804fedacf1745b4f2a8f419281d6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'ea49886aea4996d0386e38fc86c94390') in 0.010447 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SimpleApocalypse/Models/Props/SA_Prop_GravestoneHole_01.fbx
+  artifactKey: Guid(4444ffc414865304f96f14c12b02c938) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/SimpleApocalypse/Models/Props/SA_Prop_GravestoneHole_01.fbx using Guid(4444ffc414865304f96f14c12b02c938) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '14b3ad36ee32963a891c93f374ace849') in 0.033523 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+Editor requested this worker to shutdown with reason: balancing worker count downwards
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: Operazione di I/O terminata a causa dell'uscita dal thread oppure della richiesta di un'applicazione.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
