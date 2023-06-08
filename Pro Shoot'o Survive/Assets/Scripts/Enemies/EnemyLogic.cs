@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyLogic : MonoBehaviour
 {
-    [SerializeField] float EnemySpeed;
     [SerializeField] float MaxHP; //Starting HP
     private float currentHP;
     private NavMeshAgent enemyAgent; 
@@ -14,9 +13,7 @@ public class EnemyLogic : MonoBehaviour
     {
         currentHP = MaxHP;
         enemyAgent = GetComponent<NavMeshAgent>();
-        enemyAgent.speed= EnemySpeed;
     }
-
     // Update is called once per frame
     void Update()
     {

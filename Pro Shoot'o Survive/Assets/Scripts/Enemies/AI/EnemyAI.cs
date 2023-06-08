@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyNavMesh : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private Transform destinantionTransform; //enemy destination transform
-    [SerializeField] private Animator enemyAnimator;
-    private NavMeshAgent enemyAgent;
+    [SerializeField] protected Transform PlayerTransform; //enemy destination transform
+    protected Animator enemyAnimator;
+    protected NavMeshAgent enemyAgent;
 
     // Start is called before the first frame update
     void Start()
@@ -18,11 +18,11 @@ public class EnemyNavMesh : MonoBehaviour
     {
         enemyAgent = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponent<Animator>();
+        enemyAnimator.speed = enemyAgent.speed;
     }
     // Update is called once per frame
     void Update()
     {
-        enemyAnimator.speed = enemyAgent.speed;
-        enemyAgent.destination = destinantionTransform.position;
+        enemyAgent.SetDestination(PlayerTransform.position);
     }
 }

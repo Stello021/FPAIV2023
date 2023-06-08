@@ -481,7 +481,7 @@ PrefabInstance:
     - target: {fileID: 93887017981155082, guid: 026e6f82045969d4e97f9d13b5dea9b4,
         type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 93887017981155082, guid: 026e6f82045969d4e97f9d13b5dea9b4,
         type: 3}
@@ -630,7 +630,7 @@ PrefabInstance:
     - target: {fileID: -5122285013143787133, guid: ef0d6741634238645b3c86f1c6167050,
         type: 3}
       propertyPath: EnemySpeed
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 383306028579105388, guid: ef0d6741634238645b3c86f1c6167050,
         type: 3}
@@ -645,7 +645,7 @@ PrefabInstance:
     - target: {fileID: 4713493426767633321, guid: ef0d6741634238645b3c86f1c6167050,
         type: 3}
       propertyPath: m_Speed
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4713493426767633321, guid: ef0d6741634238645b3c86f1c6167050,
         type: 3}
@@ -1327,7 +1327,7 @@ PrefabInstance:
     - target: {fileID: 86991938589420790, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2,
         type: 3}
       propertyPath: m_Speed
-      value: 3.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 86991938589420790, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2,
         type: 3}
@@ -1353,6 +1353,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SA_Zombie_AirportWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522473067755598066, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2,
+        type: 3}
+      propertyPath: EnemySpeed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3776675833177437779, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2,
         type: 3}
