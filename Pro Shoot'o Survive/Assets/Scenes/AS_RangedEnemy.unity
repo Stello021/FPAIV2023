@@ -365,35 +365,12 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!1 &732910907 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a,
+--- !u!4 &589948356 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7780033942896603832, guid: 285734cbbc31c9149881524fdd95894a,
     type: 3}
   m_PrefabInstance: {fileID: 5204926208267059511}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &732910909
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732910907}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.6658934
-  m_Height: 3.0522618
-  m_Direction: 1
-  m_Center: {x: 0.013985455, y: 1.5310924, z: 0}
 --- !u!1 &968855393
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,20 +640,20 @@ PrefabInstance:
       propertyPath: PlayerTransform
       value: 
       objectReference: {fileID: 5834721}
+    - target: {fileID: 547434509561185464, guid: 285734cbbc31c9149881524fdd95894a,
+        type: 3}
+      propertyPath: TimeBetweenShoots
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 547434509561185464, guid: 285734cbbc31c9149881524fdd95894a,
+        type: 3}
+      propertyPath: BulletStartingPoint
+      value: 
+      objectReference: {fileID: 589948356}
     - target: {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a,
         type: 3}
       propertyPath: m_Name
       value: SA_Character_MaleSurvivorHunter
-      objectReference: {fileID: 0}
-    - target: {fileID: 2515234307171907312, guid: 285734cbbc31c9149881524fdd95894a,
-        type: 3}
-      propertyPath: m_Speed
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2515234307171907312, guid: 285734cbbc31c9149881524fdd95894a,
-        type: 3}
-      propertyPath: m_Acceleration
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6092548633087904813, guid: 285734cbbc31c9149881524fdd95894a,
         type: 3}
@@ -736,9 +713,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a,
-        type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 732910909}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 285734cbbc31c9149881524fdd95894a, type: 3}

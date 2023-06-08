@@ -57,7 +57,6 @@ public class RangedEnemyAI : EnemyAI
         {
             enemyAnimator.SetInteger("WeaponType_int", 1);
             enemyAnimator.SetBool("Shoot_b", true);
-            //Instantiate(bulletPrefab, transform.position + Vector3.forward, Quaternion.identity).GetComponent<Rigidbody>();
             alreadyShooted = true;
             Invoke(nameof(ResetAttack), TimeBetweenShoots);
         }
