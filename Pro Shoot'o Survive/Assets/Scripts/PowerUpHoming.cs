@@ -36,7 +36,7 @@ public class PowerUpHoming : PowerUp
 
     public void Homing()
     {
-        // il bullet si fisserà allora come target il nemico più vicino
+        // il bullet generato si fisserà allora come target il nemico più vicino
         // entro un raggio ragionevole
         // e nell'update
         // Vector3 distance = target.position - bullet.position
@@ -45,6 +45,7 @@ public class PowerUpHoming : PowerUp
         // Quaternion rotationDir = Quaternion.LookRotation(distance)
         // Quaternion newRotation = Quaternion.Lerp(bullet.rotation, rotationDir, rotSpeed * Time.deltaTime);
         // Quaternion.RotateTowards(bullet.rotation, rotationDir, rotSpeed * Time.deltaTime)
+        // e lo spostiamo nella direzione di distance
     }
 
     public void SetTarget()
