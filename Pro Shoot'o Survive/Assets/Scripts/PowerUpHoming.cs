@@ -29,6 +29,7 @@ public class PowerUpHoming : PowerUp
 
     public override void PickUp(GameObject owner)
     {
+        // owner.getComponent<Player>();
         // owner.activateHoming
         // quando il player sparerà finchè activateHoming è true
         // passa al bullet il fatto che deve essere homing

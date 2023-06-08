@@ -371,6 +371,7 @@
 "Assets/Scripts/BulletManager.cs"
 "Assets/Scripts/Enemies/AI/EnemyNavMesh.cs"
 "Assets/Scripts/Enemies/EnemyLogic.cs"
+"Assets/Scripts/Granade.cs"
 "Assets/Scripts/PowerUp.cs"
 "Assets/Scripts/PowerUpArmor.cs"
 "Assets/Scripts/PowerUpGranade.cs"
