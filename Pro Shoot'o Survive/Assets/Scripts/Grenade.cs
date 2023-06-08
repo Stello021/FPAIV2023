@@ -20,7 +20,7 @@ public class Grenade : MonoBehaviour
     {
         timeToExplosion = explosionDelay;
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(forceDir * forceValue * Time.deltaTime, ForceMode.Impulse);
+        //rb.AddForce(forceDir * forceValue * Time.deltaTime, ForceMode.Impulse);
     }
 
     // Update is called once per frame
