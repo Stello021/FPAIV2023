@@ -47,7 +47,7 @@ public class BulletLogic : MonoBehaviour
 
     private void StandardMovement()
     {
-        transform.position += new Vector3(0, 0, bulletSpeed) * Time.deltaTime;
+        transform.localPosition += transform.forward * bulletSpeed * Time.deltaTime;
     }
 
     private void HomingMovement() 

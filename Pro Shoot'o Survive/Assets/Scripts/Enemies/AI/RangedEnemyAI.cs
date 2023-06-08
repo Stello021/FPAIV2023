@@ -7,6 +7,7 @@ public class RangedEnemyAI : EnemyAI
 {
     [SerializeField] LayerMask whatIsPlayer;
     [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject OwnWeapon;
     public Transform BulletStartingPoint;
     private float startingEnemySpeed;
 
@@ -36,6 +37,7 @@ public class RangedEnemyAI : EnemyAI
         playerInShootRange = Physics.CheckSphere(transform.position, ShootRange, whatIsPlayer);
         if (!playerInShootRange)
         {
+            OwnWeapon.SetActive(false);
             enemyAgent.speed = startingEnemySpeed;
             enemyAnimator.SetInteger("WeaponType_int", 0);
             enemyAnimator.SetBool("Shoot_b", false);
@@ -57,8 +59,11 @@ public class RangedEnemyAI : EnemyAI
         {
             enemyAnimator.SetInteger("WeaponType_int", 1);
             enemyAnimator.SetBool("Shoot_b", true);
+            OwnWeapon.SetActive(true);
+            Instantiate(bulletPrefab, BulletStartingPoint.position, BulletStartingPoint.rotation);
             alreadyShooted = true;
             Invoke(nameof(ResetAttack), TimeBetweenShoots);
+            
         }
     }
     private void ResetAttack()
