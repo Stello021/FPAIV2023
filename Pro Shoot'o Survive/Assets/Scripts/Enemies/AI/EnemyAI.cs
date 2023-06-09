@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] protected Transform PlayerTransform; //enemy destination transform
+    public Transform PlayerTransform; //enemy destination transform
     protected Animator enemyAnimator;
     protected NavMeshAgent enemyAgent;
 
