@@ -57,3 +57,4 @@ public class Grenade : MonoBehaviour
         rb.AddForce(dir * forceValue * Time.deltaTime, ForceMode.Impulse);
     }
 }
+//commento
