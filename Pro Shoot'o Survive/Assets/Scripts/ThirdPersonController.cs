@@ -3,110 +3,127 @@ using UnityEngine.InputSystem;
 
 public class ThirdPersonController : MonoBehaviour
 {
-    [SerializeField] private CharacterController controller; // Reference to the CharacterController component used for movement
-    [SerializeField] private float movementSpeed = 6f; // Movement speed of the character
-    [SerializeField] private float jumpForce = 5f; // Jump force of the character
-    [SerializeField] private float gravity = 9.8f; // Gravity force applied to the character
+    [SerializeField] private CharacterController controller; // Reference to the CharacterController component for player movement.
+    [SerializeField] private float movementSpeed = 6f; // Speed at which the player moves.
+    [SerializeField] private float jumpForce = 5f; // Force applied when the player jumps.
+    [SerializeField] private float gravity = 9.8f; // Gravity value affecting player movement.
 
-    private InputAction moveAction; // Input action for movement
-    private InputAction jumpAction; // Input action for jumping
-    private InputAction shootAction; // Input action for shooting
+    private Animator animator; // Reference to the Animator component for controlling animations.
+    private InputAction moveAction; // Input action for player movement.
+    private InputAction jumpAction; // Input action for player jump.
+    private InputAction shootAction; // Input action for player shooting.
 
-    private Vector2 movementInput; // Movement input
-    private Vector3 velocity; // Current velocity of the character
+    private Vector2 movementInput; // Player movement input values.
+    private Vector3 velocity; // Player's current velocity.
 
-    private bool isGrounded; // Indicates whether the character is grounded
+    private bool isGrounded; // Flag indicating if the player is grounded.
+    private bool isJumping; // Flag indicating if the player is currently jumping.
 
     private void Awake()
     {
-        var actionAsset = new ThirdPersonActionAssets(); // Create an instance of the input action asset
+        var actionAsset = new ThirdPersonActionAssets(); // Create an instance of the ThirdPersonActionAssets class.
 
-        moveAction = actionAsset.Player.Move; // Get the movement input action from the asset
-        jumpAction = actionAsset.Player.Jump; // Get the jump input action from the asset
-        shootAction = actionAsset.Player.Shooting; // Get the shoot input action from the asset
+        moveAction = actionAsset.Player.Move; // Get the move input action from the action asset.
+        jumpAction = actionAsset.Player.Jump; // Get the jump input action from the action asset.
+        shootAction = actionAsset.Player.Shooting; // Get the shooting input action from the action asset.
+
+        animator = GetComponent<Animator>(); // Get the Animator component attached to the same GameObject.
     }
 
     private void OnEnable()
     {
-        moveAction.Enable(); // Enable the movement input action
-        moveAction.performed += OnMovePerformed; // Register the event for movement input
-        moveAction.canceled += OnMoveCanceled; // Register the event for movement input cancellation
+        moveAction.Enable(); // Enable the move input action.
+        moveAction.performed += OnMovePerformed; // Register the move performed event callback.
+        moveAction.canceled += OnMoveCanceled; // Register the move canceled event callback.
 
-        jumpAction.Enable(); // Enable the jump input action
-        jumpAction.performed += OnJumpPerformed; // Register the event for jump input
+        jumpAction.Enable(); // Enable the jump input action.
+        jumpAction.performed += OnJumpPerformed; // Register the jump performed event callback.
 
-        shootAction.Enable(); // Enable the shoot input action
-        shootAction.performed += OnShootPerformed; // Register the event for shoot input
+        shootAction.Enable(); // Enable the shoot input action.
+        shootAction.performed += OnShootPerformed; // Register the shoot performed event callback.
     }
 
     private void OnDisable()
     {
-        moveAction.Disable(); // Disable the movement input action
-        moveAction.performed -= OnMovePerformed; // Remove the event for movement input
-        moveAction.canceled -= OnMoveCanceled; // Remove the event for movement input cancellation
+        moveAction.Disable(); // Disable the move input action.
+        moveAction.performed -= OnMovePerformed; // Unregister the move performed event callback.
+        moveAction.canceled -= OnMoveCanceled; // Unregister the move canceled event callback.
 
-        jumpAction.Disable(); // Disable the jump input action
-        jumpAction.performed -= OnJumpPerformed; // Remove the event for jump input
+        jumpAction.Disable(); // Disable the jump input action.
+        jumpAction.performed -= OnJumpPerformed; // Unregister the jump performed event callback.
 
-        shootAction.Disable(); // Disable the shoot input action
-        shootAction.performed -= OnShootPerformed; // Remove the event for shoot input
+        shootAction.Disable(); // Disable the shoot input action.
+        shootAction.performed -= OnShootPerformed; // Unregister the shoot performed event callback.
     }
 
     private void Update()
     {
-        ApplyGravity(); // Apply gravity to the character
-        MovePlayer(); // Move the character
+        ApplyGravity(); // Apply gravity to the player's velocity.
+        MovePlayer(); // Move the player based on the input and current velocity.
     }
 
     private void MovePlayer()
     {
-        Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y); // Calculate the movement vector based on the input
-        movement = transform.TransformDirection(movement); // Transform the movement vector based on the character's direction
-        movement *= movementSpeed; // Apply the movement speed to the movement vector
-
-        controller.Move((movement + velocity) * Time.deltaTime); // Move the character using the CharacterController
+        Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y); // Create a movement vector from the input values.
+        movement = transform.TransformDirection(movement); // Transform the movement vector relative to the player's orientation.
+        movement *= movementSpeed; // Scale the movement vector by the movement speed.
+        controller.Move((movement + velocity) * Time.deltaTime); // Move the player using the CharacterController component.
 
         if (isGrounded && velocity.y < 0f)
         {
-            velocity.y = -0.1f; // Set a small downward velocity when the character is grounded to avoid jitter
+            velocity.y = -0.1f; // Ensure a small negative value to stick the player to the ground.
+            if (isJumping)
+            {
+                isJumping = false;
+                animator.SetBool("Jump_b", false); // Set the "Jump_b" parameter in the animator to false.
+            }
         }
+
+        float currentSpeed = movement.magnitude; // Calculate the magnitude of the movement vector.
+        animator.SetFloat("Speed_f", currentSpeed); // Set the "Speed_f" parameter in the animator based on the current speed.
+
+        bool isMoving = currentSpeed > 0f; // Check if the player is currently moving.
+        animator.SetBool("Static_b", !isMoving); // Set the "Static_b" parameter in the animator based on the movement state.
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
-        movementInput = context.ReadValue<Vector2>(); // Read the value of the movement input
+        movementInput = context.ReadValue<Vector2>(); // Read the movement input values from the input action.
+        animator.SetBool("Static_b", false); // Set the "Static_b" parameter in the animator to false.
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext context)
     {
-        movementInput = Vector2.zero; // Cancel the movement input (character stops moving)
+        movementInput = Vector2.zero; // Reset the movement input values.
+        animator.SetBool("Static_b", true); // Set the "Static_b" parameter in the animator to true.
     }
 
     private void OnJumpPerformed(InputAction.CallbackContext context)
     {
         if (isGrounded)
         {
-            Debug.Log("Jump!"); // Print a debug message when the character jumps
-            velocity.y = jumpForce; // Apply a jump force to the character
+            velocity.y = jumpForce; // Apply the jump force to the player's velocity.
+            isJumping = true; // Set the jumping flag to true.
+            animator.SetBool("Jump_b", true); // Set the "Jump_b" parameter in the animator to true.
         }
     }
 
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
-        Debug.Log("Shooting!"); // Print a debug message when the character shoots
+        Debug.Log("Shooting!"); // Log a message indicating the player is shooting.
     }
 
     private void ApplyGravity()
     {
-        velocity.y -= gravity * Time.deltaTime; // Apply gravity to the character's vertical velocity
+        velocity.y -= gravity * Time.deltaTime; // Apply gravity to the player's velocity.
 
         if (controller.isGrounded)
         {
-            isGrounded = true; // If the CharacterController is grounded, the character is considered grounded
+            isGrounded = true; // Set the grounded flag to true if the player is on the ground.
         }
         else
         {
-            isGrounded = false; // Otherwise, the character is not grounded
+            isGrounded = false; // Set the grounded flag to false if the player is not on the ground.
         }
     }
 }
