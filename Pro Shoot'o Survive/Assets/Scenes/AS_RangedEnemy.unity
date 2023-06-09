@@ -645,10 +645,20 @@ PrefabInstance:
       propertyPath: PlayerTransform
       value: 
       objectReference: {fileID: 5834721}
+    - target: {fileID: 547434509561185464, guid: 285734cbbc31c9149881524fdd95894a,
+        type: 3}
+      propertyPath: PlayerMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a,
         type: 3}
       propertyPath: m_Name
       value: SA_Character_MaleSurvivorHunter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2515234307171907312, guid: 285734cbbc31c9149881524fdd95894a,
+        type: 3}
+      propertyPath: m_Speed
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6092548633087904813, guid: 285734cbbc31c9149881524fdd95894a,
         type: 3}
