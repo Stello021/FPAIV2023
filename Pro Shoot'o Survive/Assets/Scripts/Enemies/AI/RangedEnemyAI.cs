@@ -58,8 +58,10 @@ public class RangedEnemyAI : EnemyAI
         enemyAgent.SetDestination(transform.position);
         if (!alreadyShooted)
         {
+            //Animator settings
             enemyAnimator.SetInteger("WeaponType_int", 1);
             enemyAnimator.SetBool("Shoot_b", true);
+
             OwnWeapon.SetActive(true);
             Invoke(nameof(SpawnBullet), TimeBetweenShoots);
             alreadyShooted = true;
