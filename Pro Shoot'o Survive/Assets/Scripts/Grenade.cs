@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Grenade : MonoBehaviour
 {
@@ -36,19 +38,27 @@ public class Grenade : MonoBehaviour
 
     private void Explode()
     {
-        Instantiate(explosionFX, transform.position, transform.rotation);
+        GameObject go = Instantiate(explosionFX, transform.position, transform.rotation);
 
         Collider[] explodingColliders = Physics.OverlapSphere(transform.position, explosionRadius, enemyMask);
 
         foreach (Collider collider in explodingColliders)
         {
-            Rigidbody rigidBody = collider.GetComponent<Rigidbody>();
+            Rigidbody enemyRB = collider.GetComponent<Rigidbody>();
+            NavMeshAgent enemy = collider.GetComponent<NavMeshAgent>();
+            enemy.enabled = false;
+            
+            
+            enemyRB.AddExplosionForce(explosionForce, transform.position, explosionRadius, 2, ForceMode.Impulse); 
+            
             //EnemyLogic enemy = collider.GetComponent<EnemyLogic>();
             //enemyMask.currentHP--;
-            rigidBody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+            enemy.enabled = true;
             
+            Destroy(enemyRB);
         }
 
+        //Destroy(go);
         Destroy(gameObject);
     }
 

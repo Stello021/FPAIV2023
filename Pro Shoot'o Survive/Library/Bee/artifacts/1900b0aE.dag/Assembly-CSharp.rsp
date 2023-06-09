@@ -375,6 +375,7 @@
 "Assets/Scripts/Enemies/AI/EnemyAI.cs"
 "Assets/Scripts/Enemies/AI/RangedEnemyAI.cs"
 "Assets/Scripts/Enemies/EnemyLogic.cs"
+"Assets/Scripts/Enemies/Spawner.cs"
 "Assets/Scripts/Grenade.cs"
 "Assets/Scripts/PowerUp.cs"
 "Assets/Scripts/PowerUpArmor.cs"
