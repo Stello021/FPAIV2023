@@ -749,12 +749,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6110337654910159497}
-  - component: {fileID: 115975859165075470}
+  - component: {fileID: -8520310060908165932}
   - component: {fileID: 663388381771156188}
   - component: {fileID: 86991938589420790}
   - component: {fileID: 3776675833177437779}
   - component: {fileID: 3522473067755598066}
-  - component: {fileID: -8398303801262788428}
   m_Layer: 8
   m_Name: SE_AirportWorker
   m_TagString: Untagged
@@ -828,8 +827,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &115975859165075470
-CapsuleCollider:
+--- !u!65 &-8520310060908165932
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -846,11 +845,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7585182
-  m_Height: 2.9648552
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.4283764, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 2.816023, z: 1}
+  m_Center: {x: 0, y: 1.6580116, z: 0}
 --- !u!95 &663388381771156188
 Animator:
   serializedVersion: 5
@@ -920,33 +917,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 100
---- !u!54 &-8398303801262788428
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852849922244661303}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 50
-  m_AngularDrag: 2
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &917441874097044377
 GameObject:
   m_ObjectHideFlags: 0

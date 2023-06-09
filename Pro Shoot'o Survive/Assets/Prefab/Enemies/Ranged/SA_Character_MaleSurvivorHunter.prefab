@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6092548633087904813}
-  - component: {fileID: 9021938067272179396}
+  - component: {fileID: 2955096086638675600}
   - component: {fileID: 721242271680094322}
   - component: {fileID: 2515234307171907312}
   - component: {fileID: 547434509561185464}
@@ -134,10 +134,10 @@ Transform:
   - {fileID: 3875335131157609208}
   - {fileID: 6736728117634006587}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &9021938067272179396
-CapsuleCollider:
+--- !u!65 &2955096086638675600
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -154,11 +154,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.6658934
-  m_Height: 3.0522618
-  m_Direction: 1
-  m_Center: {x: 0.013985455, y: 1.5310924, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 2.816023, z: 1}
+  m_Center: {x: 0, y: 1.6580116, z: 0}
 --- !u!95 &721242271680094322
 Animator:
   serializedVersion: 5
@@ -215,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 0}
-  whatIsPlayer:
+  PlayerMask:
     serializedVersion: 2
     m_Bits: 128
   bulletPrefab: {fileID: 2405495413867421730, guid: 84cfd7d88325e044c8b71077cb2d4dcc,
@@ -223,7 +221,7 @@ MonoBehaviour:
   OwnWeapon: {fileID: 6127826821187222149}
   BulletStartingPoint: {fileID: 7780033942896603832}
   TimeBetweenShoots: 1
-  ShootRange: 5
+  ShootRange: 15
 --- !u!114 &-4162386982589132573
 MonoBehaviour:
   m_ObjectHideFlags: 0
