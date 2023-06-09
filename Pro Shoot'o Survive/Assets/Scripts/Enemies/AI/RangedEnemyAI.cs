@@ -17,10 +17,13 @@ public class RangedEnemyAI : EnemyAI
     public float ShootRange;
     private bool playerInShootRange;
 
+    public Rigidbody rb;
+
     private void Awake()
     {
         enemyAgent = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
         startingEnemySpeed = enemyAgent.speed;
     }
 
@@ -44,8 +47,11 @@ public class RangedEnemyAI : EnemyAI
     private void ChasePlayer()
     {
         OwnWeapon.SetActive(false); //Deactivate Weapon
-        enemyAgent.speed = startingEnemySpeed; 
-        enemyAgent.SetDestination(PlayerTransform.position);
+        enemyAgent.speed = startingEnemySpeed;
+        if (enemyAgent.isOnNavMesh)
+        {
+            enemyAgent.SetDestination(PlayerTransform.position); 
+        }
         //Animation settings
         enemyAnimator.SetInteger("WeaponType_int", 0);
         enemyAnimator.SetBool("Shoot_b", false);
@@ -55,7 +61,10 @@ public class RangedEnemyAI : EnemyAI
     {
         gameObject.transform.LookAt(new Vector3(PlayerTransform.position.x, 0, PlayerTransform.position.z));
         enemyAgent.speed = 0;
-        enemyAgent.SetDestination(transform.position);
+        if (enemyAgent.isOnNavMesh)
+        {
+            enemyAgent.SetDestination(transform.position); 
+        }
         if (!alreadyShooted)
         {
             //Animator settings
@@ -76,6 +85,21 @@ public class RangedEnemyAI : EnemyAI
     private void ResetAttack()
     {
         alreadyShooted = false;
+    }
+
+    public void DisableAgent()
+    {
+        rb.isKinematic = false;
+        enemyAgent.enabled = false;
+        enemyAnimator.enabled = false;
+        Invoke("EnableAgent", 3f);
+    }
+
+    public void EnableAgent()
+    {
+        enemyAgent.enabled = true;
+        rb.isKinematic = true;
+        enemyAnimator.enabled = true;
     }
 
 }

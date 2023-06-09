@@ -44,18 +44,13 @@ public class Grenade : MonoBehaviour
 
         foreach (Collider collider in explodingColliders)
         {
-            Rigidbody enemyRB = collider.GetComponent<Rigidbody>();
-            NavMeshAgent enemy = collider.GetComponent<NavMeshAgent>();
-            enemy.enabled = false;
-            
-            
-            enemyRB.AddExplosionForce(explosionForce, transform.position, explosionRadius, 2, ForceMode.Impulse); 
+            RangedEnemyAI enemy = collider.GetComponent<RangedEnemyAI>();
+            enemy.DisableAgent();
+            enemy.rb.AddExplosionForce(explosionForce, transform.position, explosionRadius); 
             
             //EnemyLogic enemy = collider.GetComponent<EnemyLogic>();
             //enemyMask.currentHP--;
-            enemy.enabled = true;
             
-            Destroy(enemyRB);
         }
 
         //Destroy(go);
@@ -67,4 +62,3 @@ public class Grenade : MonoBehaviour
         rb.AddForce(dir * forceValue * Time.deltaTime, ForceMode.Impulse);
     }
 }
-//commento

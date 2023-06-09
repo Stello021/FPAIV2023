@@ -537,11 +537,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 547434509561185464, guid: 285734cbbc31c9149881524fdd95894a,
         type: 3}
-      propertyPath: ShootRange
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 547434509561185464, guid: 285734cbbc31c9149881524fdd95894a,
-        type: 3}
       propertyPath: PlayerTransform
       value: 
       objectReference: {fileID: 1169774011}
@@ -549,6 +544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SA_Character_MaleSurvivorHunter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300890679074815323, guid: 285734cbbc31c9149881524fdd95894a,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6092548633087904813, guid: 285734cbbc31c9149881524fdd95894a,
         type: 3}
@@ -1544,7 +1544,7 @@ PrefabInstance:
     - target: {fileID: 1712922633197921183, guid: 5d863161cd4c0184eb5d7da647ce12e4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.28
+      value: -0.74
       objectReference: {fileID: 0}
     - target: {fileID: 1712922633197921183, guid: 5d863161cd4c0184eb5d7da647ce12e4,
         type: 3}
@@ -1596,20 +1596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GranadePrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 8416421997194633816, guid: 5d863161cd4c0184eb5d7da647ce12e4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8442571692502757648, guid: 5d863161cd4c0184eb5d7da647ce12e4,
         type: 3}
       propertyPath: explosionForce
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8442571692502757648, guid: 5d863161cd4c0184eb5d7da647ce12e4,
-        type: 3}
-      propertyPath: enemyMask.m_Bits
-      value: 256
+      value: 700
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
