@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class BulletLogic : MonoBehaviour
 {
@@ -12,10 +11,11 @@ public class BulletLogic : MonoBehaviour
 
     // homing variables
     public Transform target;
-    public float searchRadius = 300;
-    public List<Transform> targetsInRange = new List<Transform>();
-    public LayerMask objmask;
-    public float rotSpeed;
+    [SerializeField] float viewRadius = 300;
+    [SerializeField] LayerMask enemyMask;
+    [SerializeField] LayerMask obstacleMask;
+    [SerializeField] float rotSpeed;
+    [SerializeField] float angleOfVision = 180;
 
 
 
@@ -62,30 +62,39 @@ public class BulletLogic : MonoBehaviour
 
 
 
-    // homing stuff
+    // set target for homing projectile (this method must be in the player)
     public void SetTarget()
     {
-        this.targetsInRange.Clear();
-        Collider[] targetsInRange = Physics.OverlapSphere(transform.position, searchRadius, objmask);
+        Collider[] validTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
 
-        if (targetsInRange.Length > 0)
+        if (validTargets.Length > 0)
         {
             Transform nextTarget = null;
             Vector3 lowestDist = Vector3.zero;
 
-            for (int i = 0; i < targetsInRange.Length; i++)
+            for (int i = 0; i < validTargets.Length; i++)
             {
-                Transform possibleTarget = targetsInRange[i].transform;
+                Transform possibleTarget = validTargets[i].transform;
                 Vector3 distToTarget = possibleTarget.position - transform.position;
-                if (i == 0)
+                float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
+
+                // check if enemy is within angle of vision
+                if (angleToTarget < angleOfVision * 0.5f)
                 {
-                    lowestDist = distToTarget;
-                    nextTarget = possibleTarget;
-                }
-                else if (distToTarget.magnitude < lowestDist.magnitude)
-                {
-                    lowestDist = distToTarget;
-                    nextTarget = possibleTarget;
+                    // check if enemy is NOT behind a wall
+                    if (!Physics.Raycast(transform.position, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
+                    {
+                        if (nextTarget == null)
+                        {
+                            lowestDist = distToTarget;
+                            nextTarget = possibleTarget;
+                        }
+                        else if (distToTarget.magnitude < lowestDist.magnitude)
+                        {
+                            lowestDist = distToTarget;
+                            nextTarget = possibleTarget;
+                        }
+                    }
                 }
             }
 
