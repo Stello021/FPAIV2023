@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638216574353748777
-    m_Hash: 2251383194
+      ticks: 638219922919822865
+    m_Hash: 3033038583
   m_LockFileStatus:
     m_FilePath: C:/Users/fmoch/OneDrive/Documenti/GitHub/FPAIV2023/Pro Shoot'o Survive/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638216574353820645
-    m_Hash: 2552943029
+      ticks: 638219922919822865
+    m_Hash: 3681892152
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -107,15 +107,17 @@ m_ResolvedPackages:
     - 2.0.1
     - 2.0.3
     - 2.0.4
+    - 2.0.5
     - 2.1.0-preview.3
     - 2.1.0-preview.5
     - 2.1.0-preview.6
     compatible:
     - 2.0.4
+    - 2.0.5
     - 2.1.0-preview.3
     - 2.1.0-preview.5
     - 2.1.0-preview.6
-    recommended: 2.0.4
+    recommended: 2.0.5
     deprecated: []
   dependencies: []
   resolvedDependencies: []
