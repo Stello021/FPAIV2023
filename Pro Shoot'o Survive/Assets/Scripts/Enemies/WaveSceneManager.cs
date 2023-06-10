@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class WaveSceneManager : MonoBehaviour
 {
-    private int waveNumber = 1;
+    [Range(0, 4)] private int waveNumber; 
     private Spawner[] spawners;
+    public List<Wave> waves;
+    private int enemiesToSpawn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +22,33 @@ public class WaveSceneManager : MonoBehaviour
     }
     public void Spawn()
     {
-        for (int i = 0; i < spawners.Length; i++)
+        enemiesToSpawn = waves[waveNumber].StandardEnemiesToSpawn + waves[waveNumber].RangedEnemiesToSpawn;
+        int standardSpawned = 0;
+        int rangedSpawned = 0;
+        for (int i = 0; i < enemiesToSpawn; i++)
         {
-            spawners[i].SpawnEnemies(waveNumber);
-        }           
+
+            while(standardSpawned < waves[waveNumber].StandardEnemiesToSpawn)
+            {
+                int randomIndex = Random.Range(0, spawners.Length);
+                if (spawners[randomIndex].type == SpawnerType.Standard)
+                {
+                    spawners[randomIndex].SpawnEnemy();
+                    standardSpawned++;
+                }
+            }
+            while(rangedSpawned < waves[waveNumber].RangedEnemiesToSpawn)
+            {
+                int randomIndex = Random.Range(0, spawners.Length);
+                if (spawners[randomIndex].type == SpawnerType.Ranged && rangedSpawned < waves[waveNumber].RangedEnemiesToSpawn)
+                {
+                    spawners[randomIndex].SpawnEnemy();
+                    rangedSpawned++;
+                }
+            }
+            
+            
+        }
     }
     public void Destroy()
     {
