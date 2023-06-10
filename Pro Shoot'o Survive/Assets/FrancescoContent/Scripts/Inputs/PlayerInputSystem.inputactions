@@ -1,0 +1,150 @@
+{
+    "name": "PlayerInputSystem",
+    "maps": [
+        {
+            "name": "MouseDelta",
+            "id": "8b445174-f6d1-4a54-ba59-537134e83e28",
+            "actions": [
+                {
+                    "name": "MouseDeltaDir",
+                    "type": "Value",
+                    "id": "20c23aac-ef15-4602-a15c-da2ae7705a4b",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Dir",
+                    "id": "0b437d94-fa60-4ca9-81d7-d383b1af60c0",
+                    "path": "2DVector(mode=2)",
+                    "interactions": "",
+                    "processors": "StickDeadzone(min=0.5,max=1),NormalizeVector2",
+                    "groups": "",
+                    "action": "MouseDeltaDir",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "53e328c3-876f-4279-b6a8-eaf22ac34014",
+                    "path": "<Mouse>/delta/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseDeltaDir",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "8d2ab6ca-8891-4f29-a738-2f420e4832bb",
+                    "path": "<Mouse>/delta/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseDeltaDir",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "501c025c-f78a-486d-ab6c-9c0dd48298d6",
+                    "path": "<Mouse>/delta/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseDeltaDir",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "5a7b8cfa-f3b4-4bbe-b199-961be1a4b678",
+                    "path": "<Mouse>/delta/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseDeltaDir",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "PlayerMovement",
+            "id": "2d83c5c6-68bf-4421-ba63-f04f9ef73a30",
+            "actions": [
+                {
+                    "name": "PlayerMoveDir",
+                    "type": "Value",
+                    "id": "76bcd015-a7aa-411b-acc3-1c863a7209e1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Dir",
+                    "id": "63e57b8b-a465-4fa1-83da-b9d5c24c8694",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerMoveDir",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "a8ceb23c-6882-4616-8dbe-e8e71b180eab",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerMoveDir",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "5180de39-1d5b-4d8e-b21e-58bf096f5dcf",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerMoveDir",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "8b8fa26c-093f-4089-8dab-d04d8c139297",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerMoveDir",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "1826765c-e535-4d09-8bde-325a4309dd31",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerMoveDir",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
