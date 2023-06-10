@@ -37,7 +37,7 @@ public class BulletLogic : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.forward,out hit, raycastDistance))
         {
-            if(hit.collider.tag == "Enemy")
+            if(hit.collider.tag == "Enemy" || hit.collider.tag == "Default")
             {
                 //enemy damaged
             }
@@ -52,12 +52,20 @@ public class BulletLogic : MonoBehaviour
 
     private void HomingMovement() 
     {
-        Vector3 distance = target.position - transform.position;
-        Debug.Log(distance.magnitude);
-        Quaternion rotationDir = Quaternion.LookRotation(distance);
-        Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotationDir, rotSpeed * Time.deltaTime);
-        transform.position += distance.normalized * bulletSpeed * Time.deltaTime;
-        transform.rotation = newRotation;
+        if (target != null)
+        {
+            Vector3 distance = target.position - transform.position;
+            Quaternion rotationDir = Quaternion.LookRotation(distance);
+            Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotationDir, rotSpeed * Time.deltaTime);
+            transform.position += distance.normalized * bulletSpeed * Time.deltaTime;
+            transform.rotation = newRotation; 
+        }
+        else
+        {
+            StandardMovement();
+        }
+
+
     }
 
 
@@ -65,22 +73,23 @@ public class BulletLogic : MonoBehaviour
     // set target for homing projectile (this method must be in the player)
     public void SetTarget()
     {
-        Collider[] validTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
-
-        if (validTargets.Length > 0)
+        Collider[] enemyTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
+        //Debug.Log("Detected enemies: " + enemyTargets.Length);
+        if (enemyTargets.Length > 0)
         {
             Transform nextTarget = null;
             Vector3 lowestDist = Vector3.zero;
 
-            for (int i = 0; i < validTargets.Length; i++)
+            for (int i = 0; i < enemyTargets.Length; i++)
             {
-                Transform possibleTarget = validTargets[i].transform;
+                Transform possibleTarget = enemyTargets[i].transform;
                 Vector3 distToTarget = possibleTarget.position - transform.position;
                 float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
-
+                //Debug.Log("ANGOLO: " + angleToTarget);
                 // check if enemy is within angle of vision
                 if (angleToTarget < angleOfVision * 0.5f)
                 {
+                    
                     // check if enemy is NOT behind a wall
                     if (!Physics.Raycast(transform.position, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
                     {

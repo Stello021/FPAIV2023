@@ -65,6 +65,7 @@ public class RangedEnemyAI : EnemyAI
         {
             enemyAgent.SetDestination(transform.position); 
         }
+
         if (!alreadyShooted)
         {
             //Animator settings

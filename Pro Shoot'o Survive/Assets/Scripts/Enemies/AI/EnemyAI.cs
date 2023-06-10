@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     protected Animator enemyAnimator;
     protected NavMeshAgent enemyAgent;
     public Rigidbody rb;
+    protected float reactivationTime = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,10 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyAgent.SetDestination(PlayerTransform.position);
+        if (enemyAgent.isOnNavMesh)
+        {
+            enemyAgent.SetDestination(PlayerTransform.position); 
+        }
     }
 
     public void DisableAgent()
@@ -33,7 +37,7 @@ public class EnemyAI : MonoBehaviour
         rb.isKinematic = false;
         enemyAgent.enabled = false;
         enemyAnimator.enabled = false;
-        Invoke("EnableAgent", 3f);
+        Invoke("EnableAgent", reactivationTime);
     }
 
     public void EnableAgent()
