@@ -44,7 +44,7 @@ public class Grenade : MonoBehaviour
 
         foreach (Collider collider in explodingColliders)
         {
-            RangedEnemyAI enemy = collider.GetComponent<RangedEnemyAI>();
+            EnemyAI enemy = collider.GetComponent<RangedEnemyAI>();
             enemy.DisableAgent();
             enemy.rb.AddExplosionForce(explosionForce, transform.position, explosionRadius); 
             
@@ -53,8 +53,8 @@ public class Grenade : MonoBehaviour
             
         }
 
-        //Destroy(go);
         Destroy(gameObject);
+        Destroy(go, 3f);
     }
 
     public void Throw(Vector3 dir)

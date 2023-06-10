@@ -17,7 +17,7 @@ public class RangedEnemyAI : EnemyAI
     public float ShootRange;
     private bool playerInShootRange;
 
-    public Rigidbody rb;
+    
 
     private void Awake()
     {
@@ -87,19 +87,7 @@ public class RangedEnemyAI : EnemyAI
         alreadyShooted = false;
     }
 
-    public void DisableAgent()
-    {
-        rb.isKinematic = false;
-        enemyAgent.enabled = false;
-        enemyAnimator.enabled = false;
-        Invoke("EnableAgent", 3f);
-    }
 
-    public void EnableAgent()
-    {
-        enemyAgent.enabled = true;
-        rb.isKinematic = true;
-        enemyAnimator.enabled = true;
-    }
+
 
 }
