@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2405495413867421730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8566440723524754477}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 5
   raycastDistance: 0.4
-  IsHoming: 1
+  IsHoming: 0
   target: {fileID: 0}
   viewRadius: 300
   enemyMask:
