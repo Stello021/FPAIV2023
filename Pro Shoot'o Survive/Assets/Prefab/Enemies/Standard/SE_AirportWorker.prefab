@@ -754,6 +754,7 @@ GameObject:
   - component: {fileID: 86991938589420790}
   - component: {fileID: 3776675833177437779}
   - component: {fileID: 3522473067755598066}
+  - component: {fileID: 6546758204662904997}
   m_Layer: 8
   m_Name: SE_AirportWorker
   m_TagString: Untagged
@@ -846,8 +847,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 2.816023, z: 1}
-  m_Center: {x: 0, y: 1.6580116, z: 0}
+  m_Size: {x: 1.5, y: 3.0751646, z: 1}
+  m_Center: {x: 0, y: 1.5284408, z: 0}
 --- !u!95 &663388381771156188
 Animator:
   serializedVersion: 5
@@ -904,6 +905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!114 &3522473067755598066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,6 +919,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 100
+--- !u!54 &6546758204662904997
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852849922244661303}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 1
+  m_AngularDrag: 2
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &917441874097044377
 GameObject:
   m_ObjectHideFlags: 0

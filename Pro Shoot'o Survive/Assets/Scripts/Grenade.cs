@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Grenade : MonoBehaviour
 {
-    public Vector3 forceDir;
-    public float forceValue;
-    public float explosionDelay;
-    [SerializeField]
-    private float timeToExplosion;
-    public float explosionRadius;
-    public LayerMask enemyMask;
-    public float explosionForce;
-    public Rigidbody rb;
+    [SerializeField] float throwForceValue;
+    [SerializeField] float explosionDelay;
+    [SerializeField] float timeToExplosion;
+    [SerializeField] float explosionRadius;
+    [SerializeField] LayerMask enemyMask;
+    [SerializeField] float explosionForce;
+    [SerializeField] Rigidbody rb;
 
     public GameObject explosionFX;
     // Start is called before the first frame update
@@ -20,7 +20,6 @@ public class Grenade : MonoBehaviour
     {
         timeToExplosion = explosionDelay;
         rb = GetComponent<Rigidbody>();
-        //rb.AddForce(forceDir * forceValue * Time.deltaTime, ForceMode.Impulse);
     }
 
     // Update is called once per frame
@@ -36,25 +35,31 @@ public class Grenade : MonoBehaviour
 
     private void Explode()
     {
-        Instantiate(explosionFX, transform.position, transform.rotation);
+        GameObject go = Instantiate(explosionFX, transform.position, transform.rotation);
 
         Collider[] explodingColliders = Physics.OverlapSphere(transform.position, explosionRadius, enemyMask);
-
+        Debug.Log(explodingColliders.Length);
         foreach (Collider collider in explodingColliders)
         {
-            Rigidbody rigidBody = collider.GetComponent<Rigidbody>();
+            EnemyAI enemy = collider.GetComponent<EnemyAI>();
+            if (enemy != null)
+            {
+                enemy.DisableAgent();
+                enemy.rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, -1);
+                Debug.Log("Esploso");
+            }
+            
             //EnemyLogic enemy = collider.GetComponent<EnemyLogic>();
             //enemyMask.currentHP--;
-            rigidBody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
             
         }
 
         Destroy(gameObject);
+        Destroy(go, 3f);
     }
 
     public void Throw(Vector3 dir)
     {
-        rb.AddForce(dir * forceValue * Time.deltaTime, ForceMode.Impulse);
+        rb.AddForce(dir * throwForceValue * Time.deltaTime, ForceMode.Impulse);
     }
 }
-//commento

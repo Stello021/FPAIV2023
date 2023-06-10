@@ -112,7 +112,8 @@ GameObject:
   - component: {fileID: 2515234307171907312}
   - component: {fileID: 547434509561185464}
   - component: {fileID: -4162386982589132573}
-  m_Layer: 0
+  - component: {fileID: 5300890679074815323}
+  m_Layer: 8
   m_Name: SA_Character_MaleSurvivorHunter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,8 +156,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 2.816023, z: 1}
-  m_Center: {x: 0, y: 1.6580116, z: 0}
+  m_Size: {x: 1.5, y: 2.9710565, z: 1}
+  m_Center: {x: 0, y: 1.4624832, z: 0}
 --- !u!95 &721242271680094322
 Animator:
   serializedVersion: 5
@@ -213,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 0}
+  rb: {fileID: 0}
   PlayerMask:
     serializedVersion: 2
     m_Bits: 128
@@ -221,7 +223,7 @@ MonoBehaviour:
   OwnWeapon: {fileID: 6127826821187222149}
   BulletStartingPoint: {fileID: 7780033942896603832}
   TimeBetweenShoots: 1
-  ShootRange: 15
+  ShootRange: 5
 --- !u!114 &-4162386982589132573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +237,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 100
+--- !u!54 &5300890679074815323
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005842482110059738}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 1
+  m_AngularDrag: 2
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1475343305989632744
 GameObject:
   m_ObjectHideFlags: 0

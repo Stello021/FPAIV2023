@@ -49,12 +49,15 @@ MonoBehaviour:
   raycastDistance: 0.4
   IsHoming: 0
   target: {fileID: 0}
-  searchRadius: 300
-  targetsInRange: []
-  objmask:
+  viewRadius: 300
+  enemyMask:
     serializedVersion: 2
-    m_Bits: 64
-  rotSpeed: 0
+    m_Bits: 256
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1
+  rotSpeed: 10
+  angleOfVision: 180
 --- !u!1 &6079692056677599391
 GameObject:
   m_ObjectHideFlags: 0

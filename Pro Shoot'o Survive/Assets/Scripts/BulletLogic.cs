@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class BulletLogic : MonoBehaviour
 {
@@ -12,10 +11,11 @@ public class BulletLogic : MonoBehaviour
 
     // homing variables
     public Transform target;
-    public float searchRadius = 300;
-    public List<Transform> targetsInRange = new List<Transform>();
-    public LayerMask objmask;
-    public float rotSpeed;
+    [SerializeField] float viewRadius = 300;
+    [SerializeField] LayerMask enemyMask;
+    [SerializeField] LayerMask obstacleMask;
+    [SerializeField] float rotSpeed;
+    [SerializeField] float angleOfVision = 180;
 
 
 
@@ -37,7 +37,7 @@ public class BulletLogic : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.forward,out hit, raycastDistance))
         {
-            if(hit.collider.tag == "Enemy")
+            if(hit.collider.tag == "Enemy" || hit.collider.tag == "Default")
             {
                 //enemy damaged
             }
@@ -52,40 +52,58 @@ public class BulletLogic : MonoBehaviour
 
     private void HomingMovement() 
     {
-        Vector3 distance = target.position - transform.position;
-        Debug.Log(distance.magnitude);
-        Quaternion rotationDir = Quaternion.LookRotation(distance);
-        Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotationDir, rotSpeed * Time.deltaTime);
-        transform.position += distance.normalized * bulletSpeed * Time.deltaTime;
-        transform.rotation = newRotation;
+        if (target != null)
+        {
+            Vector3 distance = target.position - transform.position;
+            Quaternion rotationDir = Quaternion.LookRotation(distance);
+            Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotationDir, rotSpeed * Time.deltaTime);
+            transform.position += distance.normalized * bulletSpeed * Time.deltaTime;
+            transform.rotation = newRotation; 
+        }
+        else
+        {
+            StandardMovement();
+        }
+
+
     }
 
 
 
-    // homing stuff
+    // set target for homing projectile (this method must be in the player)
     public void SetTarget()
     {
-        this.targetsInRange.Clear();
-        Collider[] targetsInRange = Physics.OverlapSphere(transform.position, searchRadius, objmask);
-
-        if (targetsInRange.Length > 0)
+        Collider[] enemyTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
+        //Debug.Log("Detected enemies: " + enemyTargets.Length);
+        if (enemyTargets.Length > 0)
         {
             Transform nextTarget = null;
             Vector3 lowestDist = Vector3.zero;
 
-            for (int i = 0; i < targetsInRange.Length; i++)
+            for (int i = 0; i < enemyTargets.Length; i++)
             {
-                Transform possibleTarget = targetsInRange[i].transform;
+                Transform possibleTarget = enemyTargets[i].transform;
                 Vector3 distToTarget = possibleTarget.position - transform.position;
-                if (i == 0)
+                float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
+                //Debug.Log("ANGOLO: " + angleToTarget);
+                // check if enemy is within angle of vision
+                if (angleToTarget < angleOfVision * 0.5f)
                 {
-                    lowestDist = distToTarget;
-                    nextTarget = possibleTarget;
-                }
-                else if (distToTarget.magnitude < lowestDist.magnitude)
-                {
-                    lowestDist = distToTarget;
-                    nextTarget = possibleTarget;
+                    
+                    // check if enemy is NOT behind a wall
+                    if (!Physics.Raycast(transform.position, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
+                    {
+                        if (nextTarget == null)
+                        {
+                            lowestDist = distToTarget;
+                            nextTarget = possibleTarget;
+                        }
+                        else if (distToTarget.magnitude < lowestDist.magnitude)
+                        {
+                            lowestDist = distToTarget;
+                            nextTarget = possibleTarget;
+                        }
+                    }
                 }
             }
 
