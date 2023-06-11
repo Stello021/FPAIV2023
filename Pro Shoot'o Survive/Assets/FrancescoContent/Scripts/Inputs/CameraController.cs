@@ -23,32 +23,33 @@ public class CameraController : MonoBehaviour
     private Vector3 playerVelocity;
     private RaycastHit cameraHitInfo;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 newOffset = new Vector3(cameraPosOffset.x, 0, cameraPosOffset.z).magnitude * -player.transform.forward;
-        newOffset.y = cameraPosOffset.y;
+        //Vector3 newOffset = new Vector3(cameraPosOffset.x, 0, cameraPosOffset.z).magnitude * -player.transform.forward;
+        //newOffset.y = cameraPosOffset.y;
 
-        cameraPosOffset = newOffset;
-
+        //cameraPosOffset = newOffset;
+        cameraPosOffset = cameraStartPosOffset;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void MoveCamera()
     {
-        playerVelocity += transform.right * InputSysController.Instance.PlayerMoveDir.x * playerMoveSpeed;
-        playerVelocity += transform.forward * InputSysController.Instance.PlayerMoveDir.y * playerMoveSpeed;
-        playerVelocity *= 0.5f;
-        playerVelocity.y = 0;
+        //playerVelocity += transform.right * InputSysController.Instance.PlayerMoveDir.x * playerMoveSpeed;
+        //playerVelocity += transform.forward * InputSysController.Instance.PlayerMoveDir.y * playerMoveSpeed;
+        //playerVelocity *= 0.5f;
+        //playerVelocity.y = 0;
 
-        if (playerVelocity != Vector3.zero)
-        {
-            player.transform.forward = Vector3.Lerp(player.transform.forward, playerVelocity, playerRotationSpeed * Time.deltaTime);
-        }
+        //if (playerVelocity != Vector3.zero)
+        //{
+        //    player.transform.forward = Vector3.Lerp(player.transform.forward, playerVelocity, playerRotationSpeed * Time.deltaTime);
+        //}
 
-        player.transform.position += playerVelocity * Time.deltaTime;
-        transform.position = player.transform.position + cameraPosOffset;
+        //player.transform.position += playerVelocity * Time.deltaTime;
+        transform.position = Vector3.Lerp(transform.position, player.transform.position + cameraPosOffset, 5 * Time.deltaTime);
     }
 
     public void MoveCameraOrbitally()
@@ -134,7 +135,7 @@ public class CameraController : MonoBehaviour
     public void RotateCamera()
     {
         Vector3 cameraToTarget = player.transform.position - transform.position;
-
+        cameraToTarget = new Vector3(cameraToTarget.x + 2, cameraToTarget.y + 2, cameraToTarget.z);
         transform.rotation = Quaternion.LookRotation(cameraToTarget, Vector3.up);
     }
 

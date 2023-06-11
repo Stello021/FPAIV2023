@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 5
   raycastDistance: 0.4
+  dir: {x: 0, y: 0, z: 0}
   IsHoming: 0
   target: {fileID: 0}
   viewRadius: 300
@@ -55,7 +56,7 @@ MonoBehaviour:
     m_Bits: 256
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 512
   rotSpeed: 10
   angleOfVision: 180
 --- !u!1 &6079692056677599391

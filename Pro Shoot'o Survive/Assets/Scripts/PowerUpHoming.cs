@@ -29,8 +29,10 @@ public class PowerUpHoming : PowerUp
 
     public override void PickUp(GameObject owner)
     {
-        // owner.getComponent<Player>();
-        // owner.activateHoming
+        owner.GetComponent<ThirdPersonController>().activeHoming = true;
+        Debug.Log("Sei homing");
+        Destroy(gameObject);
+
         // quando il player sparerà finchè activateHoming è true
         // passa al bullet il fatto che deve essere homing
     }
@@ -49,36 +51,4 @@ public class PowerUpHoming : PowerUp
         // e lo spostiamo nella direzione di distance
     }
 
-    public void SetTarget()
-    {
-        this.targetsInRange.Clear();
-        Collider[] targetsInRange = Physics.OverlapSphere(transform.position, searchRadius, enemyMask);
-
-        if (targetsInRange.Length > 0)
-        {
-            Transform nextTarget = null;
-            Vector3 lowestDist = Vector3.zero;
-
-            for (int i = 0; i < targetsInRange.Length; i++)
-            {
-                Transform possibleTarget = targetsInRange[i].transform;
-                Vector3 distToTarget = possibleTarget.position - transform.position;
-                if (i == 0)
-                {
-                    lowestDist = distToTarget;
-                    nextTarget = possibleTarget;
-                }
-                else if (distToTarget.magnitude < lowestDist.magnitude)
-                {
-                    lowestDist = distToTarget;
-                    nextTarget = possibleTarget;
-                }
-            }
-
-            target = nextTarget;
-        }
-
-
-
-    }
 }

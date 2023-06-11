@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 2671600223759145899, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
       propertyPath: m_Name
-      value: PowerUpHarmor
+      value: PowerUpArmour
       objectReference: {fileID: 0}
     - target: {fileID: 6460022919690459794, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
@@ -101,4 +101,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4403cd0c2f8b7054b884c794c72ac071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armorAmount: 0
+  armourAmount: 25
