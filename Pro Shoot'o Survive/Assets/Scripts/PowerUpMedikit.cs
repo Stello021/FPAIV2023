@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PowerUpMedikit : PowerUp
 {
-    public float hpRecovery;
+    [SerializeField] float hpRecovery = 50;
     public override void PickUp(GameObject owner)
     {
-        // owner.hp += 50;
-        Debug.Log("Aumenta il parametro HP del player");
+        ThirdPersonController player = owner.GetComponent<ThirdPersonController>();
+        player.hp += hpRecovery;
+        player.UpdateHPText();
+        Destroy(gameObject);
+
     }
 }

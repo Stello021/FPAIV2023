@@ -269,6 +269,7 @@ Transform:
   - {fileID: 5635976305557439872}
   - {fileID: 1508352175758956729}
   - {fileID: 5556613329380079112}
+  - {fileID: 866391988763072698}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -338,10 +339,15 @@ MonoBehaviour:
   Bullet: {fileID: 2405495413867421730, guid: 84cfd7d88325e044c8b71077cb2d4dcc, type: 3}
   BulletSpawn: {fileID: 5831531739084673375}
   CentreCameraTarget: {fileID: 0}
+  isGrounded: 0
   cam: {fileID: 0}
   aimMask:
     serializedVersion: 2
     m_Bits: 1
+  hp: 0
+  armour: 0
+  activateHoming: 0
+  grenades: 0
 --- !u!1 &1109565101684327897
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +794,37 @@ Transform:
   - {fileID: 5852696665747072799}
   m_Father: {fileID: 3165855469058822974}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7184788085679951663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 866391988763072698}
+  m_Layer: 0
+  m_Name: GrenadeSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &866391988763072698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184788085679951663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 2.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3165855469058822974}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7328031328722464051
 GameObject:

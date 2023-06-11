@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6202381023793414026
 MeshFilter:
@@ -146,8 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be797a14bcf9a74fb2675a9c2219d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceDir: {x: 0, y: 0, z: 1}
-  forceValue: 500
+  throwForceValue: 2000
   explosionDelay: 5
   timeToExplosion: 0
   explosionRadius: 30
@@ -155,5 +154,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   explosionForce: 500
-  rb: {fileID: 0}
+  rb: {fileID: 9172492341976094191}
   explosionFX: {fileID: 191186, guid: f90e42cfac6401a42af4c10707545dd8, type: 3}

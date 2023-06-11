@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,8 +24,25 @@ public class ThirdPersonController : MonoBehaviour
     private bool isJumping; // Flag indicating if the player is currently jumping.
 
     public Transform cam;
-
     public LayerMask aimMask;
+
+
+
+    [Header("Player functions")]
+
+    public float hp;
+    public float armour;
+    public bool activeHoming;
+    [SerializeField] float homingTimer;
+    [SerializeField] float homingTime = 60;
+    public float grenades;
+    [SerializeField] GameObject grenadePrefab;
+    [SerializeField] Transform grenadeSpawnPoint;
+
+    [Header("UI")]
+    [SerializeField] TMP_Text hpText;
+    [SerializeField] TMP_Text armourText;
+
 
     private void Awake()
     {
@@ -36,6 +54,9 @@ public class ThirdPersonController : MonoBehaviour
 
         animator = GetComponent<Animator>(); // Get the Animator component attached to the same GameObject.
         cam = Camera.main.transform;
+
+        hp = 100;
+        homingTimer = homingTime;
     }
 
     private void OnEnable()
@@ -68,30 +89,85 @@ public class ThirdPersonController : MonoBehaviour
     {
         ApplyGravity(); // Apply gravity to the player's velocity.
         MovePlayer(); // Move the player based on the input and current velocity.
+
+        if (Input.GetKeyDown(KeyCode.G) && grenades > 0)
+        {
+            GameObject grenade = Instantiate(grenadePrefab, grenadeSpawnPoint.position, grenadeSpawnPoint.rotation);
+
+            grenade.GetComponent<Grenade>().Throw(transform.forward);
+
+            grenades--;
+        }
+
+        if (activeHoming)
+        {
+            homingTimer -= Time.deltaTime;
+            if (homingTimer <= 0)
+            {
+                activeHoming = false;
+                homingTimer = homingTime;
+            }
+        }
     }
+
+    private void OnShootPerformed(InputAction.CallbackContext context)
+    {
+        //Debug.Log("shoot");
+        //Vector2 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
+
+        if (activeHoming)
+        {
+            GameObject homingBullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
+
+            homingBullet.GetComponent<BulletLogic>().IsHoming = activeHoming;
+        }
+        else
+        {
+            Ray rayToCenter = new Ray(cam.position, cam.forward);
+
+            Vector3 shootDir = Vector3.zero;
+
+            if (Physics.Raycast(rayToCenter, out RaycastHit target, Mathf.Infinity, aimMask))
+            {
+                shootDir = (target.point - BulletSpawn.position).normalized;
+            }
+            else
+            {
+                shootDir = (cam.position + cam.forward * 1000) - BulletSpawn.position;
+            }
+
+            //Vector3 shootDir = (CentreCameraTarget.position - BulletSpawn.position).normalized; // Calculate the shooting direction
+
+            GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
+
+            bullet.GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction 
+        }
+    }
+
+    #region Movement
 
     private void MovePlayer()
     {
         Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y); // Create a movement vector from the input values.
 
-        // movement influenced by camera forward (added by Giulio)
-        //Vector3 movementNormalized = Vector3.Normalize(movement);
-        //if (movementNormalized != Vector3.zero)
-        //{
-        //    float targetAngle = Mathf.Atan2(movementNormalized.x, movementNormalized.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-        //    Quaternion angle = Quaternion.Euler(0, targetAngle, 0);
-        //    transform.rotation = Quaternion.Slerp(transform.rotation, angle, 100 * Time.deltaTime);
-        //    Vector3 rotatedMovement = angle * Vector3.forward;
-        //    controller.Move(rotatedMovement * 10 * Time.deltaTime);
-        //}
+        //movement influenced by camera(added by Giulio)
+        Vector3 movementNormalized = Vector3.Normalize(movement);
+        if (movementNormalized != Vector3.zero)
+        {
+            float targetAngle = Mathf.Atan2(movementNormalized.x, movementNormalized.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            Quaternion angle = Quaternion.Euler(0, targetAngle, 0);
+            transform.rotation = Quaternion.Slerp(transform.rotation, angle, 100 * Time.deltaTime);
+            Vector3 rotatedMovement = angle * Vector3.forward;
+            controller.Move(rotatedMovement * 10 * Time.deltaTime);
+        }
 
-        //// apply gravity
-        //controller.Move(velocity * Time.deltaTime);
+        // apply gravity
+        controller.Move(velocity * Time.deltaTime);
 
         // added by Alessio
-        movement = transform.TransformDirection(movement); // Transform the movement vector relative to the player's orientation.
-        movement *= movementSpeed; // Scale the movement vector by the movement speed.
-        controller.Move((movement + velocity) * Time.deltaTime); // Move the player using the CharacterController component.
+        //movement = transform.TransformDirection(movement); // Transform the movement vector relative to the player's orientation.
+        //movement *= movementSpeed; // Scale the movement vector by the movement speed.
+        //controller.Move((movement + velocity) * Time.deltaTime); // Move the player using the CharacterController component.
 
         if (isGrounded && velocity.y < 0f)
         {
@@ -136,33 +212,6 @@ public class ThirdPersonController : MonoBehaviour
         }
     }
 
-    private void OnShootPerformed(InputAction.CallbackContext context)
-    {
-        Debug.Log("shoot");
-        Vector2 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
-        Ray rayToCenter = new Ray(cam.position, cam.forward);
-
-        Vector3 shootDir = Vector3.zero;
-
-        if (Physics.Raycast(rayToCenter, out RaycastHit target, Mathf.Infinity, aimMask))
-        {
-            shootDir = (target.point - BulletSpawn.position).normalized;
-        }
-        else
-        {
-            shootDir = (cam.position + cam.forward * 1000) - BulletSpawn.position;
-        }
-
-        //Vector3 shootDir = (CentreCameraTarget.position - BulletSpawn.position).normalized; // Calculate the shooting direction
-
-        GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
-
-        bullet.GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction
-    }
-
-
-
-
     private void ApplyGravity()
     {
         velocity.y -= gravity * Time.deltaTime; // Apply gravity to the player's velocity.
@@ -176,4 +225,25 @@ public class ThirdPersonController : MonoBehaviour
             isGrounded = false; // Set the grounded flag to false if the player is not on the ground.
         }
     }
+
+    #endregion
+
+    public void UpdateHPText()
+    {
+        hpText.text = hp.ToString();
+    }
+
+    public void UpdateArmourText()
+    {
+        armourText.text = armour.ToString();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PowerUp"))
+        {
+            other.GetComponent<PowerUp>().PickUp(gameObject);
+        }
+    }
+
 }

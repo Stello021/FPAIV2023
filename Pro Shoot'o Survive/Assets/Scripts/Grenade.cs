@@ -60,6 +60,7 @@ public class Grenade : MonoBehaviour
 
     public void Throw(Vector3 dir)
     {
+        Debug.Log(throwForceValue);
         rb.AddForce(dir * throwForceValue * Time.deltaTime, ForceMode.Impulse);
     }
 }

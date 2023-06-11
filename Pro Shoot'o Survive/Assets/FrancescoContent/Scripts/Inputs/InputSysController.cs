@@ -48,6 +48,6 @@ public class InputSysController : Singleton<InputSysController>
     void Update()
     {
         mouseDeltaDir = Inputs["MouseDeltaDir"].ReadValue<Vector2>();
-        playerMoveDir = Inputs["PlayerMoveDir"].ReadValue<Vector2>();
+        //playerMoveDir = Inputs["PlayerMoveDir"].ReadValue<Vector2>();
     }
 }

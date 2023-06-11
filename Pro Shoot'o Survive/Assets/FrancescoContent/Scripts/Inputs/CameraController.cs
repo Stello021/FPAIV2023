@@ -8,7 +8,6 @@ public class CameraController : MonoBehaviour
 {
     [Header("Player references")]
     [SerializeField] private GameObject player;
-    //[SerializeField] private GameObject lookTarget;
     [SerializeField] private float playerMoveSpeed;
     [SerializeField] private float playerRotationSpeed;
 
