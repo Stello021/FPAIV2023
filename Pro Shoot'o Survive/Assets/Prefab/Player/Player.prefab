@@ -32,6 +32,37 @@ Transform:
   m_Father: {fileID: 8644700930179030216}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &635338236308744140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5556613329380079112}
+  m_Layer: 0
+  m_Name: CameraTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5556613329380079112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635338236308744140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.16, y: 2.576, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3165855469058822974}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &792072982057679970
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,8 +268,9 @@ Transform:
   m_Children:
   - {fileID: 5635976305557439872}
   - {fileID: 1508352175758956729}
+  - {fileID: 5556613329380079112}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3047167158606249523
 Animator:
@@ -305,7 +337,11 @@ MonoBehaviour:
   gravity: 9.8
   Bullet: {fileID: 2405495413867421730, guid: 84cfd7d88325e044c8b71077cb2d4dcc, type: 3}
   BulletSpawn: {fileID: 5831531739084673375}
-  Target: {fileID: 0}
+  CentreCameraTarget: {fileID: 0}
+  cam: {fileID: 0}
+  aimMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &1109565101684327897
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5831531739084673375}
   m_Layer: 0
-  m_Name: BulletSpown
+  m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
