@@ -6,6 +6,7 @@ public class BulletLogic : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
     [SerializeField] float raycastDistance;
+    public Vector3 dir;
 
     public bool IsHoming;
 
@@ -22,6 +23,7 @@ public class BulletLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //dir = transform.forward;
         SetTarget();
     }
 
@@ -47,7 +49,7 @@ public class BulletLogic : MonoBehaviour
 
     private void StandardMovement()
     {
-        transform.localPosition += transform.forward * bulletSpeed * Time.deltaTime;
+        transform.localPosition += dir * bulletSpeed * Time.deltaTime;
     }
 
     private void HomingMovement() 
