@@ -7,6 +7,9 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private float movementSpeed = 6f; // Speed at which the player moves.
     [SerializeField] private float jumpForce = 5f; // Force applied when the player jumps.
     [SerializeField] private float gravity = 9.8f; // Gravity value affecting player movement.
+    [SerializeField] private GameObject Bullet; // Reference to Bullet prefab.
+    [SerializeField] private Transform BulletSpawn; // Reference to BulletSpown transform.
+    [SerializeField] private Transform CentreCameraTarget; // Reference to the transform of an EmptyObject located in the center of the camera frame. 
 
     private Animator animator; // Reference to the Animator component for controlling animations.
     private InputAction moveAction; // Input action for player movement.
@@ -105,13 +108,22 @@ public class ThirdPersonController : MonoBehaviour
             velocity.y = jumpForce; // Apply the jump force to the player's velocity.
             isJumping = true; // Set the jumping flag to true.
             animator.SetBool("Jump_b", true); // Set the "Jump_b" parameter in the animator to true.
+            animator.SetBool("Jump_b", false); // Set the "Jump_b" parameter in the animator to false in order to prevent a doublejump.
+
         }
     }
 
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
-        Debug.Log("Shooting!"); // Log a message indicating the player is shooting.
+        Vector3 shootDir = (CentreCameraTarget.position - BulletSpawn.position).normalized; // Calculate the shooting direction
+
+        GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
+
+        bullet.GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction
     }
+
+
+
 
     private void ApplyGravity()
     {
