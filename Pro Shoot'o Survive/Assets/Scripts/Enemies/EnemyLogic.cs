@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyLogic : MonoBehaviour
 {
     [SerializeField] float MaxHP; //Starting HP
-    private float currentHP;
+    [HideInInspector]public float currentHP;
     private NavMeshAgent enemyAgent; 
     // Start is called before the first frame update
     void Start()

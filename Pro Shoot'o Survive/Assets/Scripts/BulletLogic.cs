@@ -35,11 +35,13 @@ public class BulletLogic : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.forward,out hit, raycastDistance))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
         {
-            if(hit.collider.tag == "Enemy" || hit.collider.tag == "Default")
+            if (hit.collider.tag == "Standard" || hit.collider.tag == "Ranged")
             {
-                //enemy damaged
+                //enemy damage
+                EnemyLogic enemy = hit.collider.gameObject.GetComponent<EnemyLogic>();
+                enemy.currentHP = 0;
             }
             Destroy(gameObject);
         }

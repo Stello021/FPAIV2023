@@ -289,7 +289,7 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &96960944
 GameObject:
@@ -407,7 +407,7 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &262383504
 GameObject:
@@ -512,7 +512,7 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &295007639
 GameObject:
@@ -835,7 +835,7 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &428723865
 GameObject:
@@ -885,7 +885,7 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &528284907
 GameObject:
@@ -933,7 +933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesPrefabs:
   - {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &576257067
 GameObject:
@@ -981,7 +981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesPrefabs:
   - {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &596045260
 GameObject:
@@ -1031,7 +1031,7 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &725897278
 GameObject:
@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesPrefabs:
   - {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &730450313
 GameObject:
@@ -1127,7 +1127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesPrefabs:
   - {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &783442614
 GameObject:
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &996851998
 GameObject:
@@ -1228,37 +1228,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1291555141
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1291555145}
-  m_Layer: 7
-  m_Name: Target
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1291555145
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291555141}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.46, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1306471795
 GameObject:
@@ -1577,7 +1546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesPrefabs:
   - {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &1339731511
 GameObject:
@@ -1627,7 +1596,7 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &1355671192
 GameObject:
@@ -1675,7 +1644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesPrefabs:
   - {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &1390465518
 GameObject:
@@ -1725,7 +1694,7 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &1430277290
 GameObject:
@@ -1773,7 +1742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesPrefabs:
   - {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &1459621957
 GameObject:
@@ -2093,7 +2062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesPrefabs:
   - {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &1573716732
 GameObject:
@@ -2200,6 +2169,111 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1607140029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1607140033}
+  - component: {fileID: 1607140032}
+  - component: {fileID: 1607140031}
+  - component: {fileID: 1607140030}
+  m_Layer: 7
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1607140030
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607140029}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1607140031
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607140029}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1607140032
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607140029}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1607140033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607140029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1616821411
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,7 +2456,7 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &1674244466
 GameObject:
@@ -2430,7 +2504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesPrefabs:
   - {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &1751758389
 GameObject:
@@ -2480,7 +2554,7 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &1789355336
 GameObject:
@@ -2530,7 +2604,7 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &1878702453
 GameObject:
@@ -2580,7 +2654,7 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &1965740502
 GameObject:
@@ -2628,7 +2702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesPrefabs:
   - {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
 --- !u!1 &2007641277
 GameObject:
@@ -2812,5 +2886,5 @@ MonoBehaviour:
   - {fileID: 5513327704959904112, guid: 026e6f82045969d4e97f9d13b5dea9b4, type: 3}
   - {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2, type: 3}
   - {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050, type: 3}
-  Target: {fileID: 1291555145}
+  Target: {fileID: 1607140033}
   type: 0
