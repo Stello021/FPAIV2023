@@ -3044,7 +3044,7 @@ GameObject:
   - component: {fileID: 7732149030087572073}
   m_Layer: 8
   m_Name: SE_Pimp
-  m_TagString: Untagged
+  m_TagString: Standard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

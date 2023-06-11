@@ -3619,7 +3619,7 @@ GameObject:
   - component: {fileID: 4208671294045329953}
   m_Layer: 8
   m_Name: SE_AirportSecurity
-  m_TagString: Untagged
+  m_TagString: Standard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 5300890679074815323}
   m_Layer: 8
   m_Name: SA_Character_MaleSurvivorHunter
-  m_TagString: Untagged
+  m_TagString: Ranged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
