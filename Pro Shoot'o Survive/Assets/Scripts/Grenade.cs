@@ -38,7 +38,7 @@ public class Grenade : MonoBehaviour
         GameObject go = Instantiate(explosionFX, transform.position, transform.rotation);
 
         Collider[] explodingColliders = Physics.OverlapSphere(transform.position, explosionRadius, enemyMask);
-        Debug.Log(explodingColliders.Length);
+
         foreach (Collider collider in explodingColliders)
         {
             EnemyAI enemy = collider.GetComponent<EnemyAI>();
@@ -48,6 +48,8 @@ public class Grenade : MonoBehaviour
                 enemy.rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, -1);
                 Debug.Log("Esploso");
             }
+
+            //collider.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, -1);
             
             //EnemyLogic enemy = collider.GetComponent<EnemyLogic>();
             //enemyMask.currentHP--;

@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ThirdPersonController : MonoBehaviour
 {
@@ -89,6 +90,13 @@ public class ThirdPersonController : MonoBehaviour
     {
         ApplyGravity(); // Apply gravity to the player's velocity.
         MovePlayer(); // Move the player based on the input and current velocity.
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SceneManager.LoadScene(0);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
 
         if (Input.GetKeyDown(KeyCode.G) && grenades > 0)
         {

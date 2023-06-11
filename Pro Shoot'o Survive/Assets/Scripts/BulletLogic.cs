@@ -49,6 +49,12 @@ public class BulletLogic : MonoBehaviour
 
     private void StandardMovement()
     {
+
+        if (dir == Vector3.zero)
+        {
+            dir = transform.forward;
+        }
+
         transform.localPosition += dir * bulletSpeed * Time.deltaTime;
     }
 
