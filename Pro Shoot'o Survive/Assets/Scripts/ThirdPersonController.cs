@@ -22,6 +22,9 @@ public class ThirdPersonController : MonoBehaviour
     private bool isGrounded; // Flag indicating if the player is grounded.
     private bool isJumping; // Flag indicating if the player is currently jumping.
 
+    public Transform cam;
+
+
     private void Awake()
     {
         var actionAsset = new ThirdPersonActionAssets(); // Create an instance of the ThirdPersonActionAssets class.
@@ -31,6 +34,7 @@ public class ThirdPersonController : MonoBehaviour
         shootAction = actionAsset.Player.Shooting; // Get the shooting input action from the action asset.
 
         animator = GetComponent<Animator>(); // Get the Animator component attached to the same GameObject.
+        cam = Camera.main.transform;
     }
 
     private void OnEnable()
@@ -68,9 +72,21 @@ public class ThirdPersonController : MonoBehaviour
     private void MovePlayer()
     {
         Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y); // Create a movement vector from the input values.
-        movement = transform.TransformDirection(movement); // Transform the movement vector relative to the player's orientation.
-        movement *= movementSpeed; // Scale the movement vector by the movement speed.
-        controller.Move((movement + velocity) * Time.deltaTime); // Move the player using the CharacterController component.
+        Vector3 movementNormalized = Vector3.Normalize(movement);
+        if (movement != Vector3.zero)
+        {
+            float targetAngle = Mathf.Atan2(movementNormalized.x, movementNormalized.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            Quaternion angle = Quaternion.Euler(0, targetAngle, 0);
+            transform.rotation = Quaternion.Slerp(transform.rotation, angle, 100 * Time.deltaTime);
+            Vector3 rotatedMovement = angle * Vector3.forward;
+            controller.Move(rotatedMovement * 10 * Time.deltaTime);
+        }
+
+
+
+        //movement = transform.TransformDirection(movement); // Transform the movement vector relative to the player's orientation.
+        //movement *= movementSpeed; // Scale the movement vector by the movement speed.
+        //controller.Move((movement + velocity) * Time.deltaTime); // Move the player using the CharacterController component.
 
         if (isGrounded && velocity.y < 0f)
         {
@@ -115,6 +131,9 @@ public class ThirdPersonController : MonoBehaviour
 
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
+
+
+
         Vector3 shootDir = (CentreCameraTarget.position - BulletSpawn.position).normalized; // Calculate the shooting direction
 
         GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet

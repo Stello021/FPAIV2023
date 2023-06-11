@@ -1,0 +1,408 @@
+Using pre-set license
+Built from '2022.3/release' branch; Version is '2022.3.0f1 (fb119bb0b476) revision 16454043'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'it' Physical Memory: 15724 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/giuli/OneDrive/Documenti/GitHub/FPAIV2023/Pro Shoot'o Survive
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+60315
+Successfully changed project path to: C:/Users/giuli/OneDrive/Documenti/GitHub/FPAIV2023/Pro Shoot'o Survive
+C:/Users/giuli/OneDrive/Documenti/GitHub/FPAIV2023/Pro Shoot'o Survive
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [10668] Host "[IP] 192.168.178.125 [Port] 0 [Flags] 2 [Guid] 1624292660 [EditorId] 1624292660 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-P5AR8BIN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [10668] Host "[IP] 192.168.178.125 [Port] 0 [Flags] 2 [Guid] 1624292660 [EditorId] 1624292660 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-P5AR8BIN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 12.24 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.0f1 (fb119bb0b476)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/giuli/OneDrive/Documenti/GitHub/FPAIV2023/Pro Shoot'o Survive/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 Laptop GPU (ID=0x2520)
+    Vendor:   NVIDIA
+    VRAM:     6009 MB
+    Driver:   31.0.15.3203
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56976
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.010051 seconds.
+- Loaded All Assemblies, in  0.331 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.252 seconds
+Domain Reload Profiling: 580ms
+	BeginReloadAssembly (92ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (32ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (62ms)
+	LoadAllAssembliesAndSetupDomain (133ms)
+		LoadAssemblies (90ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (126ms)
+			TypeCache.Refresh (125ms)
+				TypeCache.ScanAssembly (113ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (252ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (196ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (131ms)
+			ProcessInitializeOnLoadMethodAttributes (47ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+Symbol file data-00000159EE48F5B0 doesn't match image C:\Users\giuli\OneDrive\Documenti\GitHub\FPAIV2023\Pro Shoot'o Survive\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000159EC33F930 doesn't match image C:\Users\giuli\OneDrive\Documenti\GitHub\FPAIV2023\Pro Shoot'o Survive\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory doesn't match image C:\Users\giuli\OneDrive\Documenti\GitHub\FPAIV2023\Pro Shoot'o Survive\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\giuli\OneDrive\Documenti\GitHub\FPAIV2023\Pro Shoot'o Survive\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  0.876 seconds
+Refreshing native plugins compatible for Editor in 5.68 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.721 seconds
+Domain Reload Profiling: 1593ms
+	BeginReloadAssembly (149ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (29ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (55ms)
+	LoadAllAssembliesAndSetupDomain (622ms)
+		LoadAssemblies (347ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (343ms)
+			TypeCache.Refresh (311ms)
+				TypeCache.ScanAssembly (291ms)
+			ScanForSourceGeneratedMonoScriptInfo (24ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (721ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (539ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (84ms)
+			ProcessInitializeOnLoadAttributes (359ms)
+			ProcessInitializeOnLoadMethodAttributes (73ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 5.03 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5321 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 81 unused Assets / (0.8 MB). Loaded Objects now: 5789.
+Memory consumption went from 223.6 MB to 222.8 MB.
+Total: 3.876200 ms (FindLiveObjects: 0.398000 ms CreateObjectMapping: 0.333700 ms MarkObjects: 2.786600 ms  DeleteObjects: 0.356900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 318631.711492 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/FullscreenInvertColors.mat
+  artifactKey: Guid(78a08787ca30045abb69f6f7dd878e09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/FullscreenInvertColors.mat using Guid(78a08787ca30045abb69f6f7dd878e09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e98296f80751d47721db1f209d92fd62') in 0.006667 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.004744 seconds.
+  path: Assets/SimpleApocalypse/Models/Characters/Materials/lambert1.mat
+  artifactKey: Guid(3ea972b2807037b46b8f3671768ade42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Models/Characters/Materials/lambert1.mat using Guid(3ea972b2807037b46b8f3671768ade42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8bf081b57a24c6df860a51df0e82ead') in 0.001136 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat
+  artifactKey: Guid(79459efec17a4d00a321bdcc27bbc385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat using Guid(79459efec17a4d00a321bdcc27bbc385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50060e0e8af30e7669ad347dd61c806a') in 0.001380 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.001594 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+  artifactKey: Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset using Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf669ed0a8b6e6a7090c7e94a47f83a2') in 0.011614 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 0.033270 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+  artifactKey: Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset using Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fb4777c5e9389cf070db16fb0f537b1') in 0.017030 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.022810 seconds.
+  path: Assets/SimpleApocalypse/Materials/Misc/Lightray.mat
+  artifactKey: Guid(aa8f7297945ef844a8f6f28d6bc460cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Misc/Lightray.mat using Guid(aa8f7297945ef844a8f6f28d6bc460cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dff34294de55138220e58b461e6efd2') in 0.001282 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.010715 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/ArnoldStandardSurface/ArnoldStandardSurfaceTransparent.shadergraph
+  artifactKey: Guid(30fa68ce467463643a86b839ca0eb195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/ArnoldStandardSurface/ArnoldStandardSurfaceTransparent.shadergraph using Guid(30fa68ce467463643a86b839ca0eb195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b08f8c6008906096f4e58c42a11607c') in 0.001675 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/FrancescoContent/Materials/M_LowPolyMegapolis_MAIN.mat
+  artifactKey: Guid(e2989df07e431f14e9e7cd9b6bf39ff2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FrancescoContent/Materials/M_LowPolyMegapolis_MAIN.mat using Guid(e2989df07e431f14e9e7cd9b6bf39ff2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2bda6f4e709417c979d681b7300cb3e') in 0.001455 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Shaders/FullscreenInvertColors.shadergraph
+  artifactKey: Guid(fb6390f650ca44a5ba3246d8dda47927) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Shaders/FullscreenInvertColors.shadergraph using Guid(fb6390f650ca44a5ba3246d8dda47927) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fff25d4f277fed8d0b6ad67d5f06d76') in 0.001652 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.013799 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Shaders/2D/VFXSpriteLit.shadergraph
+  artifactKey: Guid(24a73dccd7b6fad4798be282f96a21f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Shaders/2D/VFXSpriteLit.shadergraph using Guid(24a73dccd7b6fad4798be282f96a21f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea8014526e7f05f282153620b50bc2ec') in 0.001780 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Shaders/2D/VFXSpriteUnlit.shadergraph
+  artifactKey: Guid(d7288f66e4fb0634c9afef98c31b722a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Shaders/2D/VFXSpriteUnlit.shadergraph using Guid(d7288f66e4fb0634c9afef98c31b722a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1415641c6eb3b952cfe5bd1a19fc6a16') in 0.001935 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Shaders/Decal.shadergraph
+  artifactKey: Guid(9b4e681081e2b4c469111bb649e2f7ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Shaders/Decal.shadergraph using Guid(9b4e681081e2b4c469111bb649e2f7ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2c37c9dcd033fe0b0f7faef7b982bca') in 0.001863 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/PhysicalMaterial3DsMax/PhysicalMaterial3DsMaxTransparent.shadergraph
+  artifactKey: Guid(1a207e3bee00db44b940e6f362a8e148) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/PhysicalMaterial3DsMax/PhysicalMaterial3DsMaxTransparent.shadergraph using Guid(1a207e3bee00db44b940e6f362a8e148) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0eaac114fa5211af1fc0c14669886416') in 0.001445 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/PhysicalMaterial3DsMax/PhysicalMaterial3DsMax.shadergraph
+  artifactKey: Guid(44245ab89240f51459a5077d7145c452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/PhysicalMaterial3DsMax/PhysicalMaterial3DsMax.shadergraph using Guid(44245ab89240f51459a5077d7145c452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cabaea82653f6eed44473774c0d35be') in 0.001709 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Shaders/Nature/SpeedTree8_PBRLit.shadergraph
+  artifactKey: Guid(9920c1f1781549a46ba081a2a15a16ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Shaders/Nature/SpeedTree8_PBRLit.shadergraph using Guid(9920c1f1781549a46ba081a2a15a16ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8f6e78d49e495074656105a2eeaecf0') in 0.001431 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SimpleApocalypse/Materials/Bodies/SA_BurntBody_01.mat
+  artifactKey: Guid(43c8a575626d4454eb5748876aadd6d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Bodies/SA_BurntBody_01.mat using Guid(43c8a575626d4454eb5748876aadd6d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26c35434f42a799c2f84cd95083ceeb2') in 0.001157 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.002961 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_FarmerSurvivor.mat
+  artifactKey: Guid(f8672fff81932364d94b22fbcd3933f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_FarmerSurvivor.mat using Guid(f8672fff81932364d94b22fbcd3933f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94eb7417d32ffc71e5d90b0d3e60929f') in 0.001130 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000283 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_FemaleHero.mat
+  artifactKey: Guid(b78b82e7e9aa4ce438403d803a345a8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_FemaleHero.mat using Guid(b78b82e7e9aa4ce438403d803a345a8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '748151e54ba2ecb435290ffdd979f341') in 0.001084 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.002007 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_FemalePyro.mat
+  artifactKey: Guid(2e4689a309edb8444b920d28c9b1ecd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_FemalePyro.mat using Guid(2e4689a309edb8444b920d28c9b1ecd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1388cb0970beb6dbd72d998ed5597664') in 0.001033 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_Hazard.mat
+  artifactKey: Guid(43fbf0c3a85be124186e14b33f658522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_Hazard.mat using Guid(43fbf0c3a85be124186e14b33f658522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cef7acb9fbf542684a30222f2d68560') in 0.001101 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_MaleSurvivor02.mat
+  artifactKey: Guid(aa3bf6c6b6d585b44aa372b34cbf948b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_MaleSurvivor02.mat using Guid(aa3bf6c6b6d585b44aa372b34cbf948b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2430120e969fc58a922578011b8bfec5') in 0.001085 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_MaleSurvivor03.mat
+  artifactKey: Guid(394c086367e935840965a57deec8ed7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_MaleSurvivor03.mat using Guid(394c086367e935840965a57deec8ed7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '510f9ed6934ae01687c6ebbb6806c7d5') in 0.001252 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_FemaleTrenchcoat.mat
+  artifactKey: Guid(7e30f370eea8d8f4592944ff37500f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_FemaleTrenchcoat.mat using Guid(7e30f370eea8d8f4592944ff37500f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6c52ac845e1c51e018a2d747244bf12') in 0.001306 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_MaleTrenchcoat.mat
+  artifactKey: Guid(565a36848934faa4db08756381f0ec23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_MaleTrenchcoat.mat using Guid(565a36848934faa4db08756381f0ec23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a81122d9f9590b57d9fcb1f0ccf6c0fa') in 0.001211 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_MaleSurvivorHunter.mat
+  artifactKey: Guid(b4590bd08a4e55d4cba6716fe121eb66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_MaleSurvivorHunter.mat using Guid(b4590bd08a4e55d4cba6716fe121eb66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cb925ecf4d6daf30f6199612ba513b3') in 0.001260 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_Survivor_02.mat
+  artifactKey: Guid(67693494296a5a74fb90edd013c0b0b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_Survivor_02.mat using Guid(67693494296a5a74fb90edd013c0b0b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c31772f94045a5327be78cc514e9a58') in 0.001150 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/SimpleApocalypse/Materials/Characters/SA_Character_Scout.mat
+  artifactKey: Guid(70535cd9e2b507c45b018cfd9adec4e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Characters/SA_Character_Scout.mat using Guid(70535cd9e2b507c45b018cfd9adec4e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab768366dcef5ab52b37beb88ad4d6f3') in 0.001256 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.003074 seconds.
+  path: Assets/SimpleApocalypse/Materials/Bodies/SA_DeadBody_02.mat
+  artifactKey: Guid(a2ddc97a73c8810468c1016f0005bab1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SimpleApocalypse/Materials/Bodies/SA_DeadBody_02.mat using Guid(a2ddc97a73c8810468c1016f0005bab1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0a84164f86a5c2aa1268fee1fced811') in 0.001269 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: Operazione di I/O terminata a causa dell'uscita dal thread oppure della richiesta di un'applicazione.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
