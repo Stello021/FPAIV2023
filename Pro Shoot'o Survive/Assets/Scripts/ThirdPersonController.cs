@@ -24,6 +24,7 @@ public class ThirdPersonController : MonoBehaviour
 
     public Transform cam;
 
+    public LayerMask aimMask;
 
     private void Awake()
     {
@@ -73,7 +74,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y); // Create a movement vector from the input values.
         Vector3 movementNormalized = Vector3.Normalize(movement);
-        if (movement != Vector3.zero)
+        if (movementNormalized != Vector3.zero)
         {
             float targetAngle = Mathf.Atan2(movementNormalized.x, movementNormalized.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             Quaternion angle = Quaternion.Euler(0, targetAngle, 0);
@@ -131,10 +132,22 @@ public class ThirdPersonController : MonoBehaviour
 
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
+        Debug.Log("shoot");
+        Vector2 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
+        Ray rayToCenter = new Ray(cam.position, cam.forward);
 
+        Vector3 shootDir = Vector3.zero;
 
+        if (Physics.Raycast(rayToCenter, out RaycastHit target, Mathf.Infinity, aimMask))
+        {
+            shootDir = (target.point - BulletSpawn.position).normalized;
+        }
+        else
+        {
+            shootDir = (cam.position + cam.forward * 1000) - BulletSpawn.position;
+        }
 
-        Vector3 shootDir = (CentreCameraTarget.position - BulletSpawn.position).normalized; // Calculate the shooting direction
+        //Vector3 shootDir = (CentreCameraTarget.position - BulletSpawn.position).normalized; // Calculate the shooting direction
 
         GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
 
