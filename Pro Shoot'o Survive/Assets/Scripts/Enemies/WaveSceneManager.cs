@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveSceneManager : MonoBehaviour
 {
@@ -57,5 +58,9 @@ public class WaveSceneManager : MonoBehaviour
             spawners[i].DestroyEnemies();
         }
         waveNumber++;
+    }
+    public void Menu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
