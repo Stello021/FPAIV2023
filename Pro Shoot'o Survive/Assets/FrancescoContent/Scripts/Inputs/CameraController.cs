@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
 {
     [Header("Player references")]
     [SerializeField] private GameObject player;
+    //[SerializeField] private GameObject lookTarget;
     [SerializeField] private float playerMoveSpeed;
     [SerializeField] private float playerRotationSpeed;
 
@@ -32,8 +33,8 @@ public class CameraController : MonoBehaviour
 
         //cameraPosOffset = newOffset;
         cameraPosOffset = cameraStartPosOffset;
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void MoveCamera()
@@ -49,7 +50,7 @@ public class CameraController : MonoBehaviour
         //}
 
         //player.transform.position += playerVelocity * Time.deltaTime;
-        transform.position = player.transform.position + cameraPosOffset;
+        transform.position = Vector3.Lerp(transform.position, player.transform.position + cameraPosOffset, 5 * Time.deltaTime);
     }
 
     public void MoveCameraOrbitally()
@@ -135,7 +136,7 @@ public class CameraController : MonoBehaviour
     public void RotateCamera()
     {
         Vector3 cameraToTarget = player.transform.position - transform.position;
-
+        cameraToTarget = new Vector3(cameraToTarget.x + 2, cameraToTarget.y + 2, cameraToTarget.z);
         transform.rotation = Quaternion.LookRotation(cameraToTarget, Vector3.up);
     }
 

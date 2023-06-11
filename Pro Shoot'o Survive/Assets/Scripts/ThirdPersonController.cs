@@ -19,7 +19,7 @@ public class ThirdPersonController : MonoBehaviour
     private Vector2 movementInput; // Player movement input values.
     private Vector3 velocity; // Player's current velocity.
 
-    private bool isGrounded; // Flag indicating if the player is grounded.
+    [SerializeField] bool isGrounded; // Flag indicating if the player is grounded.
     private bool isJumping; // Flag indicating if the player is currently jumping.
 
     public Transform cam;
@@ -73,21 +73,25 @@ public class ThirdPersonController : MonoBehaviour
     private void MovePlayer()
     {
         Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y); // Create a movement vector from the input values.
-        Vector3 movementNormalized = Vector3.Normalize(movement);
-        if (movementNormalized != Vector3.zero)
-        {
-            float targetAngle = Mathf.Atan2(movementNormalized.x, movementNormalized.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            Quaternion angle = Quaternion.Euler(0, targetAngle, 0);
-            transform.rotation = Quaternion.Slerp(transform.rotation, angle, 100 * Time.deltaTime);
-            Vector3 rotatedMovement = angle * Vector3.forward;
-            controller.Move(rotatedMovement * 10 * Time.deltaTime);
-        }
 
+        // movement influenced by camera forward (added by Giulio)
+        //Vector3 movementNormalized = Vector3.Normalize(movement);
+        //if (movementNormalized != Vector3.zero)
+        //{
+        //    float targetAngle = Mathf.Atan2(movementNormalized.x, movementNormalized.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+        //    Quaternion angle = Quaternion.Euler(0, targetAngle, 0);
+        //    transform.rotation = Quaternion.Slerp(transform.rotation, angle, 100 * Time.deltaTime);
+        //    Vector3 rotatedMovement = angle * Vector3.forward;
+        //    controller.Move(rotatedMovement * 10 * Time.deltaTime);
+        //}
 
+        //// apply gravity
+        //controller.Move(velocity * Time.deltaTime);
 
-        //movement = transform.TransformDirection(movement); // Transform the movement vector relative to the player's orientation.
-        //movement *= movementSpeed; // Scale the movement vector by the movement speed.
-        //controller.Move((movement + velocity) * Time.deltaTime); // Move the player using the CharacterController component.
+        // added by Alessio
+        movement = transform.TransformDirection(movement); // Transform the movement vector relative to the player's orientation.
+        movement *= movementSpeed; // Scale the movement vector by the movement speed.
+        controller.Move((movement + velocity) * Time.deltaTime); // Move the player using the CharacterController component.
 
         if (isGrounded && velocity.y < 0f)
         {
@@ -120,6 +124,8 @@ public class ThirdPersonController : MonoBehaviour
 
     private void OnJumpPerformed(InputAction.CallbackContext context)
     {
+        Debug.Log("jump");
+
         if (isGrounded)
         {
             velocity.y = jumpForce; // Apply the jump force to the player's velocity.
