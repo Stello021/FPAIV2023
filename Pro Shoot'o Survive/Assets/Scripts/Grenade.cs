@@ -45,7 +45,7 @@ public class Grenade : MonoBehaviour
             if (enemy != null)
             {
                 enemy.DisableAgent();
-                enemy.rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, -1);
+                enemy.rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
                 Debug.Log("Esploso");
             }
 
