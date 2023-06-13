@@ -20,17 +20,14 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Vector3 cameraPosOffset;
     [SerializeField] private float cameraCollisionOffsetMagnitude;
 
-    private Vector3 playerVelocity;
-    private RaycastHit cameraHitInfo;
+    [Header("\nCrossHair variables")]
+    [SerializeField] private RectTransform crossHairTransform;
 
+    private RaycastHit cameraHitInfo;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Vector3 newOffset = new Vector3(cameraPosOffset.x, 0, cameraPosOffset.z).magnitude * -player.transform.forward;
-        //newOffset.y = cameraPosOffset.y;
-
-        //cameraPosOffset = newOffset;
         cameraPosOffset = cameraStartPosOffset;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -38,6 +35,13 @@ public class CameraController : MonoBehaviour
 
     private void MoveCamera()
     {
+        if (IsCameraColliding())
+        {
+            transform.position = player.transform.position + cameraPosOffset;
+
+            return;
+        }
+
         transform.position = Vector3.Lerp(transform.position, player.transform.position + cameraPosOffset, lerpToPLayerPositionAndCameraPosOffsetSpeed * Time.deltaTime);
     }
 
@@ -46,7 +50,9 @@ public class CameraController : MonoBehaviour
         //this movement will happen when we rotate camera yaw (y axis)
 
         float currentRotationY = 0;
+        float cameraEulerAnglesY = 0;
         Vector3 newOffset = Vector3.zero;
+        Vector3 crossHairPosition = Vector3.zero;
 
         if (IsCameraColliding())
         {
@@ -71,8 +77,17 @@ public class CameraController : MonoBehaviour
             newOffset *= new Vector3(cameraStartPosOffset.x, 0, cameraStartPosOffset.z).magnitude;
         }
 
-        newOffset.y = cameraPosOffset.y;
+        cameraEulerAnglesY = transform.eulerAngles.y;
 
+        if (cameraEulerAnglesY > 180)
+        {
+            cameraEulerAnglesY = 360 - cameraEulerAnglesY;
+        }
+
+        crossHairPosition.x = cameraEulerAnglesY;
+        crossHairTransform.localPosition = crossHairPosition;
+
+        newOffset.y = cameraPosOffset.y;
         cameraPosOffset = newOffset;
     }
 

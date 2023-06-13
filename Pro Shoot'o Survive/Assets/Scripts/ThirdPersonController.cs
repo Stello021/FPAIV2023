@@ -125,8 +125,6 @@ public class ThirdPersonController : MonoBehaviour
             transform.forward = Vector3.Lerp(transform.forward, playerVelocity, playerRotationSpeed * Time.deltaTime);
         }
 
-        UI_Mngr.Instance.TextSprites["TextInfo"].text = cam.transform.forward.ToString();
-
         float currentSpeed = moveDir.magnitude; // Calculate the magnitude of the movement vector.
         animator.SetFloat("Speed_f", currentSpeed); // Set the "Speed_f" parameter in the animator based on the current speed.
 
@@ -185,6 +183,7 @@ public class ThirdPersonController : MonoBehaviour
 
         GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
 
+        Destroy(bullet, 10);
         bullet.GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction
     }
 
