@@ -94,6 +94,34 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""JumpInput"",
+            ""id"": ""b9e3f3ba-d282-4938-ae2a-3d009374a33d"",
+            ""actions"": [
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Value"",
+                    ""id"": ""91f40adf-7424-4675-a013-bd9fb0ffef44"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""abc1c5eb-0c26-4d55-aadf-fc2e77032973"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -101,6 +129,9 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
         // MouseDelta
         m_MouseDelta = asset.FindActionMap("MouseDelta", throwIfNotFound: true);
         m_MouseDelta_MouseDeltaDir = m_MouseDelta.FindAction("MouseDeltaDir", throwIfNotFound: true);
+        // JumpInput
+        m_JumpInput = asset.FindActionMap("JumpInput", throwIfNotFound: true);
+        m_JumpInput_Jump = m_JumpInput.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -204,8 +235,58 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
         }
     }
     public MouseDeltaActions @MouseDelta => new MouseDeltaActions(this);
+
+    // JumpInput
+    private readonly InputActionMap m_JumpInput;
+    private List<IJumpInputActions> m_JumpInputActionsCallbackInterfaces = new List<IJumpInputActions>();
+    private readonly InputAction m_JumpInput_Jump;
+    public struct JumpInputActions
+    {
+        private @PlayerInputSys m_Wrapper;
+        public JumpInputActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Jump => m_Wrapper.m_JumpInput_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_JumpInput; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(JumpInputActions set) { return set.Get(); }
+        public void AddCallbacks(IJumpInputActions instance)
+        {
+            if (instance == null || m_Wrapper.m_JumpInputActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_JumpInputActionsCallbackInterfaces.Add(instance);
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+        }
+
+        private void UnregisterCallbacks(IJumpInputActions instance)
+        {
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+        }
+
+        public void RemoveCallbacks(IJumpInputActions instance)
+        {
+            if (m_Wrapper.m_JumpInputActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IJumpInputActions instance)
+        {
+            foreach (var item in m_Wrapper.m_JumpInputActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_JumpInputActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public JumpInputActions @JumpInput => new JumpInputActions(this);
     public interface IMouseDeltaActions
     {
         void OnMouseDeltaDir(InputAction.CallbackContext context);
+    }
+    public interface IJumpInputActions
+    {
+        void OnJump(InputAction.CallbackContext context);
     }
 }

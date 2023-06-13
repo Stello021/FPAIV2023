@@ -72,6 +72,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "JumpInput",
+            "id": "b9e3f3ba-d282-4938-ae2a-3d009374a33d",
+            "actions": [
+                {
+                    "name": "Jump",
+                    "type": "Value",
+                    "id": "91f40adf-7424-4675-a013-bd9fb0ffef44",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "abc1c5eb-0c26-4d55-aadf-fc2e77032973",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
