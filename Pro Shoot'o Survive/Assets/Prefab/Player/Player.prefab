@@ -271,7 +271,7 @@ Transform:
   - {fileID: 5556613329380079112}
   - {fileID: 866391988763072698}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3047167158606249523
 Animator:
@@ -332,11 +332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e858918bbcd6c4f8e2b42f499225a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 5272992674238247438}
   playerMoveSpeed: 10
   playerRotationSpeed: 10
   jumpForce: 5
-  gravity: 9.8
   Bullet: {fileID: 2405495413867421730, guid: 84cfd7d88325e044c8b71077cb2d4dcc, type: 3}
   BulletSpawn: {fileID: 5831531739084673375}
   CentreCameraTarget: {fileID: 0}
@@ -345,10 +343,24 @@ MonoBehaviour:
   aimMask:
     serializedVersion: 2
     m_Bits: 1
-  hp: 0
+  hp: 100
   armour: 0
-  activateHoming: 0
   grenades: 0
+  grenadePrefab: {fileID: 8416421997194633816, guid: 5d863161cd4c0184eb5d7da647ce12e4,
+    type: 3}
+  grenadeSpawnPoint: {fileID: 866391988763072698}
+  activeHoming: 0
+  homingTimer: 0
+  homingTime: 60
+  viewRadius: 300
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 256
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 512
+  rotSpeed: 10
+  angleOfVision: 180
 --- !u!1 &1109565101684327897
 GameObject:
   m_ObjectHideFlags: 0

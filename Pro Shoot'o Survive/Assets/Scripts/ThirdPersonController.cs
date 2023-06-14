@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.GraphicsBuffer;
 
 public class ThirdPersonController : MonoBehaviour
 {
@@ -25,6 +27,26 @@ public class ThirdPersonController : MonoBehaviour
     [HideInInspector] public Transform cam;
 
     public LayerMask aimMask;
+
+    [Header("PowerUp variables")]
+    public float hp;
+    public float armour;
+    public int grenades;
+
+    [SerializeField] GameObject grenadePrefab;
+    [SerializeField] Transform grenadeSpawnPoint;
+
+    [Header("Homing variables")]
+    public bool activeHoming;
+    [SerializeField] float homingTimer;
+    [SerializeField] float homingTime;
+    [SerializeField] float viewRadius = 300;
+    [SerializeField] LayerMask enemyMask;
+    [SerializeField] LayerMask obstacleMask;
+    [SerializeField] float rotSpeed;
+    [SerializeField] float angleOfVision = 180;
+
+
 
     private void Awake()
     {
@@ -76,6 +98,24 @@ public class ThirdPersonController : MonoBehaviour
         CheckIsOnGround();
 
         MovePlayer();
+
+        if (activeHoming)
+        {
+            homingTimer = homingTime;
+            homingTimer -= Time.deltaTime;
+
+            if (homingTimer <= 0)
+            {
+                activeHoming = false;
+            }
+        }
+
+        // implementare il tasto per lanciare la granata col nuovo input system
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            GameObject grenade = Instantiate(grenadePrefab, grenadeSpawnPoint.position, grenadeSpawnPoint.rotation);
+            grenade.GetComponent<Grenade>().Throw(transform.forward);
+        }
     }
 
     public void Jump()
@@ -164,27 +204,34 @@ public class ThirdPersonController : MonoBehaviour
 
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
-        Debug.Log("shoot");
-        Vector2 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
-        Ray rayToCenter = new Ray(cam.position, cam.forward);
-
-        Vector3 shootDir = Vector3.zero;
-
-        if (Physics.Raycast(rayToCenter, out RaycastHit target, Mathf.Infinity, aimMask))
+        if (!activeHoming)
         {
-            shootDir = (target.point - BulletSpawn.position).normalized;
+            Ray rayToCenter = new Ray(cam.position, cam.forward);
+
+            Vector3 shootDir = Vector3.zero;
+
+            if (Physics.Raycast(rayToCenter, out RaycastHit target, Mathf.Infinity, aimMask))
+            {
+                shootDir = (target.point - BulletSpawn.position).normalized;
+            }
+            else
+            {
+                shootDir = (cam.position + cam.forward * 1000) - BulletSpawn.position;
+            }
+
+            GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
+
+            //Destroy(bullet, 10);
+            bullet.GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction 
         }
         else
         {
-            shootDir = (cam.position + cam.forward * 1000) - BulletSpawn.position;
+            GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
+            BulletLogic bullet = go.GetComponent<BulletLogic>();
+            bullet.target = SetTarget();
+            StartCoroutine(bullet.WaitToEnableHoming());
+
         }
-
-        //Vector3 shootDir = (CentreCameraTarget.position - BulletSpawn.position).normalized; // Calculate the shooting direction
-
-        GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
-
-        Destroy(bullet, 10);
-        bullet.GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction
     }
 
     private void ApplyGravity()
@@ -200,5 +247,65 @@ public class ThirdPersonController : MonoBehaviour
         {
             isGrounded = false; // Set the grounded flag to false if the player is not on the ground.
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PowerUp"))
+        {
+            other.GetComponent<PowerUp>().PickUp(gameObject);
+        }
+    }
+
+    internal void UpdateHPText()
+    {
+        throw new NotImplementedException();
+    }
+
+    internal void UpdateArmourText()
+    {
+        throw new NotImplementedException();
+    }
+
+    private Transform SetTarget()
+    {
+        Transform target = null;
+        Collider[] enemyTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
+        //Debug.Log("Detected enemies: " + enemyTargets.Length);
+        if (enemyTargets.Length > 0)
+        {
+            Transform nextTarget = null;
+            Vector3 lowestDist = Vector3.zero;
+
+            for (int i = 0; i < enemyTargets.Length; i++)
+            {
+                Transform possibleTarget = enemyTargets[i].transform;
+                Vector3 distToTarget = possibleTarget.position - transform.position;
+                float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
+                // check if enemy is within angle of vision
+                if (angleToTarget < angleOfVision * 0.5f)
+                {
+                    // check if enemy is NOT behind a wall
+                    if (!Physics.Raycast(transform.position, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
+                    {
+                        if (nextTarget == null)
+                        {
+                            lowestDist = distToTarget;
+                            nextTarget = possibleTarget;
+                        }
+                        else if (distToTarget.magnitude < lowestDist.magnitude)
+                        {
+                            lowestDist = distToTarget;
+                            nextTarget = possibleTarget;
+                        }
+                    }
+                }
+            }
+
+            target = nextTarget;
+            Debug.Log(target);
+        }
+
+        return target;
     }
 }
