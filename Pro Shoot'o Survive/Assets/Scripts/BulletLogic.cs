@@ -25,14 +25,23 @@ public class BulletLogic : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (IsHoming) HomingMovement();
-        else StandardMovement();
-    }
+    //void FixedUpdate()
+    //{
+    //    if (IsHoming) HomingMovement();
+    //    else StandardMovement();
+    //}
 
     private void Update()
     {
+        if (IsHoming)
+        {
+            HomingMovement();
+        }
+        else
+        {
+            StandardMovement();
+        }
+
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
         {
@@ -60,7 +69,8 @@ public class BulletLogic : MonoBehaviour
     {
         if (target != null)
         {
-            Vector3 distance = target.position - transform.position;
+            Vector3 targetAdjust = new Vector3(target.position.x, target.position.y + 1.2f, target.position.z);
+            Vector3 distance = targetAdjust - transform.position;
             Quaternion rotationDir = Quaternion.LookRotation(distance);
             Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotationDir, rotSpeed * Time.deltaTime);
             transform.rotation = newRotation;
