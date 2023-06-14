@@ -18,33 +18,21 @@ public class BulletLogic : MonoBehaviour
     [SerializeField] float rotSpeed;
     //[SerializeField] float angleOfVision = 180;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
-        //dir = transform.forward;
-        //SetTarget();
+
     }
 
     // Update is called once per frame
-    //void FixedUpdate()
-    //{
-    //    if (IsHoming) HomingMovement();
-    //    else StandardMovement();
-    //}
+    void FixedUpdate()
+    {
+        if (IsHoming) HomingMovement();
+        else StandardMovement();
+    }
 
     private void Update()
     {
-        if (!IsHoming)
-        {
-            StandardMovement();
-        }
-        else
-        {
-            HomingMovement();
-        }
-
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
         {
@@ -75,8 +63,8 @@ public class BulletLogic : MonoBehaviour
             Vector3 distance = target.position - transform.position;
             Quaternion rotationDir = Quaternion.LookRotation(distance);
             Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotationDir, rotSpeed * Time.deltaTime);
-            transform.position += distance.normalized * bulletSpeed * Time.deltaTime;
-            transform.rotation = newRotation; 
+            transform.rotation = newRotation;
+            transform.position += transform.forward * bulletSpeed * Time.deltaTime;
         }
         else
         {
@@ -84,47 +72,15 @@ public class BulletLogic : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
 
+    public IEnumerator WaitToEnableHoming()
+    {
+        yield return new WaitForSeconds(Time.deltaTime);
+        IsHoming = true;
+    }
 
-    // set target for homing projectile (this method must be in the player)
-    //public void SetTarget()
-    //{
-    //    Collider[] enemyTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
-    //    //Debug.Log("Detected enemies: " + enemyTargets.Length);
-    //    if (enemyTargets.Length > 0)
-    //    {
-    //        Transform nextTarget = null;
-    //        Vector3 lowestDist = Vector3.zero;
-
-    //        for (int i = 0; i < enemyTargets.Length; i++)
-    //        {
-    //            Transform possibleTarget = enemyTargets[i].transform;
-    //            Vector3 distToTarget = possibleTarget.position - transform.position;
-    //            float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
-    //            //Debug.Log("ANGOLO: " + angleToTarget);
-    //            // check if enemy is within angle of vision
-    //            if (angleToTarget < angleOfVision * 0.5f)
-    //            {
-                    
-    //                // check if enemy is NOT behind a wall
-    //                if (!Physics.Raycast(transform.position, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
-    //                {
-    //                    if (nextTarget == null)
-    //                    {
-    //                        lowestDist = distToTarget;
-    //                        nextTarget = possibleTarget;
-    //                    }
-    //                    else if (distToTarget.magnitude < lowestDist.magnitude)
-    //                    {
-    //                        lowestDist = distToTarget;
-    //                        nextTarget = possibleTarget;
-    //                    }
-    //                }
-    //            }
-    //        }
-
-    //        target = nextTarget;
-    //        Debug.Log(target);
-    //    }
-    //}
 }

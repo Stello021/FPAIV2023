@@ -226,10 +226,10 @@ public class ThirdPersonController : MonoBehaviour
         }
         else
         {
-            GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
-
-            bullet.GetComponent<BulletLogic>().IsHoming = true; 
-            bullet.GetComponent<BulletLogic>().target = SetTarget(); // Set the bullet direction 
+            GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
+            BulletLogic bullet = go.GetComponent<BulletLogic>();
+            bullet.target = SetTarget();
+            StartCoroutine(bullet.WaitToEnableHoming());
 
         }
     }
