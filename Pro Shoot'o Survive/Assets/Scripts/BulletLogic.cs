@@ -12,11 +12,11 @@ public class BulletLogic : MonoBehaviour
 
     // homing variables
     public Transform target;
-    [SerializeField] float viewRadius = 300;
-    [SerializeField] LayerMask enemyMask;
-    [SerializeField] LayerMask obstacleMask;
+    //[SerializeField] float viewRadius = 300;
+    //[SerializeField] LayerMask enemyMask;
+    //[SerializeField] LayerMask obstacleMask;
     [SerializeField] float rotSpeed;
-    [SerializeField] float angleOfVision = 180;
+    //[SerializeField] float angleOfVision = 180;
 
 
 
@@ -24,18 +24,27 @@ public class BulletLogic : MonoBehaviour
     void Start()
     {
         //dir = transform.forward;
-        SetTarget();
+        //SetTarget();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (IsHoming) HomingMovement();
-        else StandardMovement();
-    }
+    //void FixedUpdate()
+    //{
+    //    if (IsHoming) HomingMovement();
+    //    else StandardMovement();
+    //}
 
     private void Update()
     {
+        if (!IsHoming)
+        {
+            StandardMovement();
+        }
+        else
+        {
+            HomingMovement();
+        }
+
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
         {
@@ -51,7 +60,6 @@ public class BulletLogic : MonoBehaviour
 
     private void StandardMovement()
     {
-
         if (dir == Vector3.zero)
         {
             dir = transform.forward;
@@ -74,51 +82,49 @@ public class BulletLogic : MonoBehaviour
         {
             StandardMovement();
         }
-
-
     }
 
 
 
     // set target for homing projectile (this method must be in the player)
-    public void SetTarget()
-    {
-        Collider[] enemyTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
-        //Debug.Log("Detected enemies: " + enemyTargets.Length);
-        if (enemyTargets.Length > 0)
-        {
-            Transform nextTarget = null;
-            Vector3 lowestDist = Vector3.zero;
+    //public void SetTarget()
+    //{
+    //    Collider[] enemyTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
+    //    //Debug.Log("Detected enemies: " + enemyTargets.Length);
+    //    if (enemyTargets.Length > 0)
+    //    {
+    //        Transform nextTarget = null;
+    //        Vector3 lowestDist = Vector3.zero;
 
-            for (int i = 0; i < enemyTargets.Length; i++)
-            {
-                Transform possibleTarget = enemyTargets[i].transform;
-                Vector3 distToTarget = possibleTarget.position - transform.position;
-                float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
-                //Debug.Log("ANGOLO: " + angleToTarget);
-                // check if enemy is within angle of vision
-                if (angleToTarget < angleOfVision * 0.5f)
-                {
+    //        for (int i = 0; i < enemyTargets.Length; i++)
+    //        {
+    //            Transform possibleTarget = enemyTargets[i].transform;
+    //            Vector3 distToTarget = possibleTarget.position - transform.position;
+    //            float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
+    //            //Debug.Log("ANGOLO: " + angleToTarget);
+    //            // check if enemy is within angle of vision
+    //            if (angleToTarget < angleOfVision * 0.5f)
+    //            {
                     
-                    // check if enemy is NOT behind a wall
-                    if (!Physics.Raycast(transform.position, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
-                    {
-                        if (nextTarget == null)
-                        {
-                            lowestDist = distToTarget;
-                            nextTarget = possibleTarget;
-                        }
-                        else if (distToTarget.magnitude < lowestDist.magnitude)
-                        {
-                            lowestDist = distToTarget;
-                            nextTarget = possibleTarget;
-                        }
-                    }
-                }
-            }
+    //                // check if enemy is NOT behind a wall
+    //                if (!Physics.Raycast(transform.position, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
+    //                {
+    //                    if (nextTarget == null)
+    //                    {
+    //                        lowestDist = distToTarget;
+    //                        nextTarget = possibleTarget;
+    //                    }
+    //                    else if (distToTarget.magnitude < lowestDist.magnitude)
+    //                    {
+    //                        lowestDist = distToTarget;
+    //                        nextTarget = possibleTarget;
+    //                    }
+    //                }
+    //            }
+    //        }
 
-            target = nextTarget;
-            Debug.Log(target);
-        }
-    }
+    //        target = nextTarget;
+    //        Debug.Log(target);
+    //    }
+    //}
 }
