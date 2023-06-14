@@ -8,8 +8,8 @@ public class PowerUpArmor : PowerUp
     public override void PickUp(GameObject owner)
     {
         ThirdPersonController player = owner.GetComponent<ThirdPersonController>();
-        player.armour += armourAmount;
-        player.UpdateArmourText();
+        //player.armour += armourAmount;
+        //player.UpdateArmourText();
         Destroy(gameObject);
     }
 }

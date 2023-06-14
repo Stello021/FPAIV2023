@@ -483,12 +483,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &1455399742 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6127826821187222149, guid: 285734cbbc31c9149881524fdd95894a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5204926208267059511}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2065391255
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,28 +631,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 547434509561185464, guid: 285734cbbc31c9149881524fdd95894a,
         type: 3}
-      propertyPath: OwnWeapon
-      value: 
-      objectReference: {fileID: 1455399742}
-    - target: {fileID: 547434509561185464, guid: 285734cbbc31c9149881524fdd95894a,
-        type: 3}
       propertyPath: PlayerTransform
       value: 
       objectReference: {fileID: 5834721}
-    - target: {fileID: 547434509561185464, guid: 285734cbbc31c9149881524fdd95894a,
-        type: 3}
-      propertyPath: PlayerMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a,
         type: 3}
       propertyPath: m_Name
       value: SA_Character_MaleSurvivorHunter
-      objectReference: {fileID: 0}
-    - target: {fileID: 2515234307171907312, guid: 285734cbbc31c9149881524fdd95894a,
-        type: 3}
-      propertyPath: m_Speed
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6092548633087904813, guid: 285734cbbc31c9149881524fdd95894a,
         type: 3}
@@ -714,31 +693,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7780033942896603832, guid: 285734cbbc31c9149881524fdd95894a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7780033942896603832, guid: 285734cbbc31c9149881524fdd95894a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7780033942896603832, guid: 285734cbbc31c9149881524fdd95894a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7780033942896603832, guid: 285734cbbc31c9149881524fdd95894a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7780033942896603832, guid: 285734cbbc31c9149881524fdd95894a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

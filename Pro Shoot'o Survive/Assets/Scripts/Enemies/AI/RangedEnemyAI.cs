@@ -9,6 +9,7 @@ public class RangedEnemyAI : EnemyAI
     [SerializeField] LayerMask PlayerMask; //Layer mask to recognize Player Layer
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] GameObject OwnWeapon;
+    public int WeaponTypeIndex;
     public Transform BulletStartingPoint; //Bullets Spawn Point
     private float startingEnemySpeed;
     //Shooting
@@ -69,7 +70,7 @@ public class RangedEnemyAI : EnemyAI
         if (!alreadyShooted)
         {
             //Animator settings
-            enemyAnimator.SetInteger("WeaponType_int", 1);
+            enemyAnimator.SetInteger("WeaponType_int", WeaponTypeIndex);
             enemyAnimator.SetBool("Shoot_b", true);
             OwnWeapon.SetActive(true);
             Invoke(nameof(SpawnBullet), TimeBetweenShoots);

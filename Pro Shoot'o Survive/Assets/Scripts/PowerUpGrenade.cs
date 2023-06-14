@@ -18,8 +18,8 @@ public class PowerUpGrenade : PowerUp
 
     public override void PickUp(GameObject owner)
     {
-        owner.GetComponent<ThirdPersonController>().grenades++;
-        Debug.Log("Granate: " + owner.GetComponent<ThirdPersonController>().grenades);
+        //owner.GetComponent<ThirdPersonController>().grenades++;
+        //Debug.Log("Granate: " + owner.GetComponent<ThirdPersonController>().grenades);
         Destroy(gameObject);
         
     }

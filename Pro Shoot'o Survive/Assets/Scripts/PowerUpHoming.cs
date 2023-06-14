@@ -29,7 +29,7 @@ public class PowerUpHoming : PowerUp
 
     public override void PickUp(GameObject owner)
     {
-        owner.GetComponent<ThirdPersonController>().activeHoming = true;
+        //owner.GetComponent<ThirdPersonController>().activeHoming = true;
         Debug.Log("Sei homing");
         Destroy(gameObject);
 
