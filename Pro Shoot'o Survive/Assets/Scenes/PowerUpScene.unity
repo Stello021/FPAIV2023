@@ -260,10 +260,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpList:
-  - {fileID: -1206354946916644688, guid: c3014ecd07b2a8f43a354c3bce382000, type: 3}
-  - {fileID: 6728034419829360224, guid: f75951d987719fc4f9366a5fa19d5838, type: 3}
-  - {fileID: 6162392173209767480, guid: b2a996988e036394f8c80f56629fd01b, type: 3}
-  - {fileID: 3050420314483124246, guid: b7786c297dc311f4cbfd2e145d9bc86b, type: 3}
+  - {fileID: 3698646129451350875, guid: c3014ecd07b2a8f43a354c3bce382000, type: 3}
+  - {fileID: 1013063701163195187, guid: f75951d987719fc4f9366a5fa19d5838, type: 3}
+  - {fileID: 3359611174380732495, guid: b2a996988e036394f8c80f56629fd01b, type: 3}
+  - {fileID: 3085823566150596696, guid: b7786c297dc311f4cbfd2e145d9bc86b, type: 3}
 --- !u!1 &1062234081
 GameObject:
   m_ObjectHideFlags: 0
