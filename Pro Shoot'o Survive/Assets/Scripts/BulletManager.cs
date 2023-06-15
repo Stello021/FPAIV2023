@@ -66,7 +66,7 @@ public class BulletManager : MonoBehaviour
         {
             GameObject go = Instantiate(bulletPrefab, transform.position, transform.rotation); // Instantiate the bullet
             BulletLogic bullet = go.GetComponent<BulletLogic>();
-            bullet.target = GameObject.FindGameObjectWithTag("Standard").transform;
+            bullet.target = GameObject.FindGameObjectWithTag("Standard").transform.GetChild(2);
             Debug.Log(bullet.target);
             StartCoroutine(bullet.WaitToEnableHoming());
         }

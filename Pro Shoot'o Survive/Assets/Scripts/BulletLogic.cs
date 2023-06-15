@@ -5,8 +5,6 @@ using UnityEngine;
 public class BulletLogic : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
-    [SerializeField] float speedBeforeHoming = 5;
-    [SerializeField] float normalSpeed;
     [SerializeField] float raycastDistance;
     public Vector3 dir;
 
@@ -15,9 +13,9 @@ public class BulletLogic : MonoBehaviour
     public Transform target;
     [SerializeField] float rotSpeed;
 
-    [SerializeField] float angleOfVision = 180;
-
     public float DamageDealt;
+
+    [SerializeField] Rigidbody rb;
 
     // Start is called before the first frame update
 
@@ -27,46 +25,58 @@ public class BulletLogic : MonoBehaviour
     }
 
     // Update is called once per frame
-    //void FixedUpdate()
-    //{
-    //    if (IsHoming) HomingMovement();
-    //    else StandardMovement();
-    //}
+    void FixedUpdate()
+    {
+        if (IsHoming) HomingMovement();
+        else StandardMovement();
+    }
 
     private void Update()
     {
-        if (IsHoming)
-        {
-            HomingMovement();
-        }
-        else
-        {
-            StandardMovement();
-        }
+        //if (IsHoming)
+        //{
+        //    HomingMovement();
+        //}
+        //else
+        //{
+        //    StandardMovement();
+        //}
+
+        //RaycastHit hit;
+        //if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
+        //{
+        //    if (hit.collider.tag == "Standard" || hit.collider.tag == "Ranged")
+        //    {
+        //        //enemy damage
+        //        EnemyLogic enemy = hit.collider.gameObject.GetComponent<EnemyLogic>();
+        //        enemy.currentHP -= DamageDealt;
+        //    }
+        //    Destroy(gameObject);
+        //}
     }
 
     private void StandardMovement()
     {
-        if (dir == Vector3.zero)
+        if (dir == null)
         {
             dir = transform.forward;
         }
 
-        transform.localPosition += dir * bulletSpeed * Time.deltaTime;
-
-        
+        rb.velocity = dir * bulletSpeed * Time.fixedDeltaTime;
     }
 
     private void HomingMovement() 
     {
         if (target != null)
         {
-            Vector3 targetAdjust = new Vector3(target.position.x, target.position.y + 1.2f, target.position.z);
-            Vector3 distance = targetAdjust - transform.position;
+            Vector3 distance = target.position - transform.position;
             Quaternion rotationDir = Quaternion.LookRotation(distance);
             Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotationDir, rotSpeed * Time.deltaTime);
-            transform.rotation = newRotation;
-            transform.position += transform.forward * bulletSpeed * Time.deltaTime;
+            rb.MoveRotation(newRotation);
+            rb.velocity = transform.forward * bulletSpeed * Time.fixedDeltaTime;
+
+            //transform.rotation = newRotation;
+            //transform.position += transform.forward * bulletSpeed * Time.deltaTime;
         }
         else
         {
@@ -76,21 +86,20 @@ public class BulletLogic : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Standard" || collision.collider.tag == "Ranged")
-        {
-            //enemy damage
-            EnemyLogic enemy = collision.collider.gameObject.GetComponent<EnemyLogic>();
-            enemy.currentHP -= DamageDealt;
-        }
+        //if (collision.collider.tag == "Standard" || collision.collider.tag == "Ranged")
+        //{
+        //    //enemy damage
+        //    EnemyLogic enemy = collision.collider.gameObject.GetComponent<EnemyLogic>();
+        //    enemy.currentHP -= DamageDealt;
+        //}
+        Debug.Log("Collision");
         Destroy(gameObject);
     }
 
     public IEnumerator WaitToEnableHoming()
     {
-        bulletSpeed = speedBeforeHoming;
-        yield return new WaitForSeconds(Time.deltaTime);
+        yield return new WaitForSeconds(Time.fixedDeltaTime);
         IsHoming = true;
-        bulletSpeed = normalSpeed;
     }
 
 }

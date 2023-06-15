@@ -295,12 +295,12 @@ public class ThirdPersonController : MonoBehaviour
                         if (nextTarget == null)
                         {
                             lowestDist = distToTarget;
-                            nextTarget = possibleTarget;
+                            nextTarget = possibleTarget.GetChild(2);
                         }
                         else if (distToTarget.sqrMagnitude < lowestDist.sqrMagnitude)
                         {
                             lowestDist = distToTarget;
-                            nextTarget = possibleTarget;
+                            nextTarget = possibleTarget.GetChild(2);
                         }
                     }
                 }

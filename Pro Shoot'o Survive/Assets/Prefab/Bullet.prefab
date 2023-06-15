@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7062079418282254446}
   - component: {fileID: 6084153059396015175}
   - component: {fileID: 5796680479976532668}
+  - component: {fileID: 7830725081317375426}
+  - component: {fileID: 1068186847411687055}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2405495413867421730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.287967, y: -2.5716405, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.064}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46,14 +48,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fdff9919ff0b5e4690f55bfab619cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 50
-  speedBeforeHoming: 5
-  normalSpeed: 50
+  bulletSpeed: 2000
+  speedBeforeHoming: 50
+  normalSpeed: 2000
   raycastDistance: 0.4
   dir: {x: 0, y: 0, z: 0}
   IsHoming: 0
   target: {fileID: 0}
   rotSpeed: 10
+  DamageDealt: 0
+  rb: {fileID: 1068186847411687055}
 --- !u!96 &5796680479976532668
 TrailRenderer:
   serializedVersion: 3
@@ -167,6 +171,56 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!136 &7830725081317375426
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2405495413867421730}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Height: 0.4
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1068186847411687055
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2405495413867421730}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6079692056677599391
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +232,6 @@ GameObject:
   - component: {fileID: 8566440723524754477}
   - component: {fileID: 6020243048895927024}
   - component: {fileID: 5938881790059630835}
-  - component: {fileID: 1614867706071189736}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -251,24 +304,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1614867706071189736
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6079692056677599391}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
