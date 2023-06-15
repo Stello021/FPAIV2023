@@ -46,6 +46,7 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] float rotSpeed;
     [SerializeField] float angleOfVision = 180;
 
+    float damageDealt;
 
 
     private void Awake()
@@ -93,6 +94,7 @@ public class ThirdPersonController : MonoBehaviour
 
     private void Update()
     {
+        updateStats();
         Jump();
         ApplyGravity();
         CheckIsOnGround();
@@ -223,12 +225,14 @@ public class ThirdPersonController : MonoBehaviour
 
             //Destroy(bullet, 10);
             bullet.GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction 
+            bullet.GetComponent<BulletLogic>().DamageDealt = damageDealt;  
         }
         else
         {
             GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
             BulletLogic bullet = go.GetComponent<BulletLogic>();
             bullet.target = SetTarget();
+            bullet.DamageDealt = damageDealt;
             StartCoroutine(bullet.WaitToEnableHoming());
 
         }
@@ -307,4 +311,11 @@ public class ThirdPersonController : MonoBehaviour
 
         return target;
     }
+
+    void updateStats()
+    {
+        damageDealt = PlayerLogic.Instance.damage;
+        playerMoveSpeed = PlayerLogic.Instance.speed;
+    }
+
 }

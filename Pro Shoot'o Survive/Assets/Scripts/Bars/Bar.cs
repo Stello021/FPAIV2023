@@ -11,6 +11,8 @@ public class Bar : MonoBehaviour
 
     float value;
     float time;
+    
+    public float amount { get { return bar.fillAmount; } set { bar.fillAmount = value; } }
 
     public bool isFull { get { return isFull; } set { value = bar.fillAmount >= 1; } }
     public bool isEmpty { get { return isEmpty; } set { value = bar.fillAmount <= 0; } }

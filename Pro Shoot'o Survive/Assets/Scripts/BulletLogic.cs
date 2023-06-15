@@ -15,7 +15,12 @@ public class BulletLogic : MonoBehaviour
     public Transform target;
     [SerializeField] float rotSpeed;
 
+    [SerializeField] float angleOfVision = 180;
+
+    public float DamageDealt;
+
     // Start is called before the first frame update
+
     void Start()
     {
 
@@ -37,18 +42,6 @@ public class BulletLogic : MonoBehaviour
         else
         {
             StandardMovement();
-        }
-
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
-        {
-            if (hit.collider.tag == "Standard" || hit.collider.tag == "Ranged")
-            {
-                //enemy damage
-                EnemyLogic enemy = hit.collider.gameObject.GetComponent<EnemyLogic>();
-                enemy.currentHP = 0;
-            }
-            Destroy(gameObject);
         }
     }
 
@@ -83,6 +76,12 @@ public class BulletLogic : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.collider.tag == "Standard" || collision.collider.tag == "Ranged")
+        {
+            //enemy damage
+            EnemyLogic enemy = collision.collider.gameObject.GetComponent<EnemyLogic>();
+            enemy.currentHP -= DamageDealt;
+        }
         Destroy(gameObject);
     }
 
