@@ -32,11 +32,14 @@ public class Spawner : MonoBehaviour
         
     }
 
-    public void SpawnEnemy()
+    public void SpawnEnemy(float speedMultiplier, float hpMultiplier)
     {
         int randomIndex = Random.Range(0, EnemiesPrefabs.Count);
         GameObject go = Instantiate(EnemiesPrefabs[randomIndex], transform.position, Quaternion.identity);
         EnemyAI e = go.GetComponent<EnemyAI>();
+        EnemyLogic enemyLogic = go.GetComponent<EnemyLogic>();
+        e.enemyAgent.speed = e.enemyAgent.speed * speedMultiplier;
+        enemyLogic.MaxHP = enemyLogic.MaxHP * hpMultiplier;
         e.PlayerTransform = Target;
         EnemiesSpawned.Add(go);
         //StartCoroutine(SpawnRoutine(enemiesToSpawn));

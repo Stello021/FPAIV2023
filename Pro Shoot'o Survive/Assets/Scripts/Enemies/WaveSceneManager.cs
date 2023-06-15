@@ -34,7 +34,9 @@ public class WaveSceneManager : MonoBehaviour
                 int randomIndex = Random.Range(0, spawners.Length);
                 if (spawners[randomIndex].type == SpawnerType.Standard)
                 {
-                    spawners[randomIndex].SpawnEnemy();
+                    float speedMultiplier = waves[waveNumber].EnemiesSpeedMultiplier;
+                    float hpMultiplier = waves[waveNumber].EnemiesHpMultiplier;
+                    spawners[randomIndex].SpawnEnemy(speedMultiplier, hpMultiplier);
                     standardSpawned++;
                 }
             }
@@ -43,7 +45,9 @@ public class WaveSceneManager : MonoBehaviour
                 int randomIndex = Random.Range(0, spawners.Length);
                 if (spawners[randomIndex].type == SpawnerType.Ranged && rangedSpawned < waves[waveNumber].RangedEnemiesToSpawn)
                 {
-                    spawners[randomIndex].SpawnEnemy();
+                    float speedMultiplier = waves[waveNumber].EnemiesSpeedMultiplier;
+                    float hpMultiplier = waves[waveNumber].EnemiesHpMultiplier;
+                    spawners[randomIndex].SpawnEnemy(speedMultiplier, hpMultiplier);
                     rangedSpawned++;
                 }
             }

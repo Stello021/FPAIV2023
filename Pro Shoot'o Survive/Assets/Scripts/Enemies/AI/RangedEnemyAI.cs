@@ -11,7 +11,7 @@ public class RangedEnemyAI : EnemyAI
     [SerializeField] GameObject OwnWeapon;
     public int WeaponTypeIndex;
     public Transform BulletStartingPoint; //Bullets Spawn Point
-    private float startingEnemySpeed;
+    public float startingEnemySpeed;
     //Shooting
     public float TimeBetweenShoots;
     private bool alreadyShooted;
@@ -20,7 +20,7 @@ public class RangedEnemyAI : EnemyAI
 
     //PROVA
 
-    private void Awake()
+    void Start()
     {
         enemyAgent = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponent<Animator>();
@@ -51,7 +51,7 @@ public class RangedEnemyAI : EnemyAI
         enemyAgent.speed = startingEnemySpeed;
         if (enemyAgent.isOnNavMesh)
         {
-            enemyAgent.SetDestination(PlayerTransform.position); 
+            enemyAgent.SetDestination(PlayerTransform.position);
         }
         //Animation settings
         enemyAnimator.SetInteger("WeaponType_int", 0);
@@ -64,7 +64,7 @@ public class RangedEnemyAI : EnemyAI
         enemyAgent.speed = 0;
         if (enemyAgent.isOnNavMesh)
         {
-            enemyAgent.SetDestination(transform.position); 
+            enemyAgent.SetDestination(transform.position);
         }
 
         if (!alreadyShooted)
@@ -76,7 +76,7 @@ public class RangedEnemyAI : EnemyAI
             Invoke(nameof(SpawnBullet), TimeBetweenShoots);
             alreadyShooted = true;
             Invoke(nameof(ResetAttack), TimeBetweenShoots);
-            
+
         }
     }
     private void SpawnBullet()

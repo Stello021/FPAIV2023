@@ -7,7 +7,7 @@ public class EnemyAI : MonoBehaviour
 {
     public Transform PlayerTransform; //enemy destination transform
     protected Animator enemyAnimator;
-    protected NavMeshAgent enemyAgent;
+    public NavMeshAgent enemyAgent;
     public Rigidbody rb;
     protected float reactivationTime = 3f;
 
@@ -21,11 +21,11 @@ public class EnemyAI : MonoBehaviour
         enemyAgent = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        enemyAnimator.speed = enemyAgent.speed;
     }
     // Update is called once per frame
     void Update()
     {
+        enemyAnimator.SetFloat("Speed_f", enemyAgent.speed);//Associate animator's speed parameter with agent speed
         if (enemyAgent.isOnNavMesh)
         {
             enemyAgent.SetDestination(PlayerTransform.position); 
