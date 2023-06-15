@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class RotatingManager : MonoBehaviour
 {
+    static private RotatingManager instance;
+    static public RotatingManager Instance { get { return instance; } }
+
     [SerializeField]
     public List<Transform> rotatingObjects;
     [SerializeField]
     private Vector3 rotSpeed;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,5 +44,10 @@ public class RotatingManager : MonoBehaviour
             }
         }
         
+    }
+
+    public void AddRotatingObject(Transform obj)
+    {
+        rotatingObjects.Add(obj);
     }
 }
