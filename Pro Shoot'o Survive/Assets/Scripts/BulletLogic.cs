@@ -14,8 +14,20 @@ public class BulletLogic : MonoBehaviour
     [SerializeField] bool IsHoming;
     public Transform target;
     [SerializeField] float rotSpeed;
+<<<<<<< Updated upstream
+=======
+    [SerializeField] float angleOfVision = 180;
+
+    public float DamageDealt;
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
+
+    public BulletLogic(float damage = 1)
+    {
+        DamageDealt = damage;
+    }
+
     void Start()
     {
 
@@ -46,7 +58,7 @@ public class BulletLogic : MonoBehaviour
             {
                 //enemy damage
                 EnemyLogic enemy = hit.collider.gameObject.GetComponent<EnemyLogic>();
-                enemy.currentHP = 0;
+                enemy.currentHP -= DamageDealt;
             }
             Destroy(gameObject);
         }
