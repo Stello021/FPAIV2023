@@ -74,14 +74,14 @@
             ]
         },
         {
-            "name": "PlayerMovement",
-            "id": "2d83c5c6-68bf-4421-ba63-f04f9ef73a30",
+            "name": "JumpInput",
+            "id": "b9e3f3ba-d282-4938-ae2a-3d009374a33d",
             "actions": [
                 {
-                    "name": "PlayerMoveDir",
+                    "name": "Jump",
                     "type": "Value",
-                    "id": "76bcd015-a7aa-411b-acc3-1c863a7209e1",
-                    "expectedControlType": "Vector2",
+                    "id": "91f40adf-7424-4675-a013-bd9fb0ffef44",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -89,59 +89,15 @@
             ],
             "bindings": [
                 {
-                    "name": "Dir",
-                    "id": "63e57b8b-a465-4fa1-83da-b9d5c24c8694",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "abc1c5eb-0c26-4d55-aadf-fc2e77032973",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PlayerMoveDir",
-                    "isComposite": true,
+                    "action": "Jump",
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "a8ceb23c-6882-4616-8dbe-e8e71b180eab",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PlayerMoveDir",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "5180de39-1d5b-4d8e-b21e-58bf096f5dcf",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PlayerMoveDir",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "8b8fa26c-093f-4089-8dab-d04d8c139297",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PlayerMoveDir",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "1826765c-e535-4d09-8bde-325a4309dd31",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PlayerMoveDir",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         }

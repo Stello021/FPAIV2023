@@ -5,112 +5,92 @@ using UnityEngine;
 public class BulletLogic : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
+    [SerializeField] float speedBeforeHoming = 5;
+    [SerializeField] float normalSpeed;
     [SerializeField] float raycastDistance;
     public Vector3 dir;
 
-    public bool IsHoming;
-
     // homing variables
+    [SerializeField] bool IsHoming;
     public Transform target;
-    [SerializeField] float viewRadius = 300;
-    [SerializeField] LayerMask enemyMask;
-    [SerializeField] LayerMask obstacleMask;
     [SerializeField] float rotSpeed;
+
     [SerializeField] float angleOfVision = 180;
 
-
+    public float DamageDealt;
 
     // Start is called before the first frame update
+
     void Start()
     {
-        //dir = transform.forward;
-        SetTarget();
+
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (IsHoming) HomingMovement();
-        else StandardMovement();
-    }
+    //void FixedUpdate()
+    //{
+    //    if (IsHoming) HomingMovement();
+    //    else StandardMovement();
+    //}
 
     private void Update()
     {
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.forward,out hit, raycastDistance))
+        if (IsHoming)
         {
-            if(hit.collider.tag == "Enemy" || hit.collider.tag == "Default")
-            {
-                //enemy damaged
-            }
-            Destroy(gameObject);
+            HomingMovement();
+        }
+        else
+        {
+            StandardMovement();
         }
     }
 
     private void StandardMovement()
     {
+        if (dir == Vector3.zero)
+        {
+            dir = transform.forward;
+        }
+
         transform.localPosition += dir * bulletSpeed * Time.deltaTime;
+
+        
     }
 
     private void HomingMovement() 
     {
         if (target != null)
         {
-            Vector3 distance = target.position - transform.position;
+            Vector3 targetAdjust = new Vector3(target.position.x, target.position.y + 1.2f, target.position.z);
+            Vector3 distance = targetAdjust - transform.position;
             Quaternion rotationDir = Quaternion.LookRotation(distance);
             Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotationDir, rotSpeed * Time.deltaTime);
-            transform.position += distance.normalized * bulletSpeed * Time.deltaTime;
-            transform.rotation = newRotation; 
+            transform.rotation = newRotation;
+            transform.position += transform.forward * bulletSpeed * Time.deltaTime;
         }
         else
         {
             StandardMovement();
         }
-
-
     }
 
-
-
-    // set target for homing projectile (this method must be in the player)
-    public void SetTarget()
+    private void OnCollisionEnter(Collision collision)
     {
-        Collider[] enemyTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
-        //Debug.Log("Detected enemies: " + enemyTargets.Length);
-        if (enemyTargets.Length > 0)
+        if (collision.collider.tag == "Standard" || collision.collider.tag == "Ranged")
         {
-            Transform nextTarget = null;
-            Vector3 lowestDist = Vector3.zero;
-
-            for (int i = 0; i < enemyTargets.Length; i++)
-            {
-                Transform possibleTarget = enemyTargets[i].transform;
-                Vector3 distToTarget = possibleTarget.position - transform.position;
-                float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
-                //Debug.Log("ANGOLO: " + angleToTarget);
-                // check if enemy is within angle of vision
-                if (angleToTarget < angleOfVision * 0.5f)
-                {
-                    
-                    // check if enemy is NOT behind a wall
-                    if (!Physics.Raycast(transform.position, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
-                    {
-                        if (nextTarget == null)
-                        {
-                            lowestDist = distToTarget;
-                            nextTarget = possibleTarget;
-                        }
-                        else if (distToTarget.magnitude < lowestDist.magnitude)
-                        {
-                            lowestDist = distToTarget;
-                            nextTarget = possibleTarget;
-                        }
-                    }
-                }
-            }
-
-            target = nextTarget;
-            Debug.Log(target);
+            //enemy damage
+            EnemyLogic enemy = collision.collider.gameObject.GetComponent<EnemyLogic>();
+            enemy.currentHP -= DamageDealt;
         }
+        Destroy(gameObject);
     }
+
+    public IEnumerator WaitToEnableHoming()
+    {
+        bulletSpeed = speedBeforeHoming;
+        yield return new WaitForSeconds(Time.deltaTime);
+        IsHoming = true;
+        bulletSpeed = normalSpeed;
+    }
+
 }

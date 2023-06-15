@@ -101,4 +101,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a218dcdd1dbfde42a11d796278f7198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpRecovery: 0
+  hpRecovery: 50

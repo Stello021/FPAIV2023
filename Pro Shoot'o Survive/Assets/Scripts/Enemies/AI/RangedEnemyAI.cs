@@ -9,17 +9,18 @@ public class RangedEnemyAI : EnemyAI
     [SerializeField] LayerMask PlayerMask; //Layer mask to recognize Player Layer
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] GameObject OwnWeapon;
+    public int WeaponTypeIndex;
     public Transform BulletStartingPoint; //Bullets Spawn Point
-    private float startingEnemySpeed;
+    public float startingEnemySpeed;
     //Shooting
     public float TimeBetweenShoots;
     private bool alreadyShooted;
     public float ShootRange;
     private bool playerInShootRange;
 
-    
+    //PROVA
 
-    private void Awake()
+    void Start()
     {
         enemyAgent = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponent<Animator>();
@@ -50,7 +51,7 @@ public class RangedEnemyAI : EnemyAI
         enemyAgent.speed = startingEnemySpeed;
         if (enemyAgent.isOnNavMesh)
         {
-            enemyAgent.SetDestination(PlayerTransform.position); 
+            enemyAgent.SetDestination(PlayerTransform.position);
         }
         //Animation settings
         enemyAnimator.SetInteger("WeaponType_int", 0);
@@ -63,19 +64,19 @@ public class RangedEnemyAI : EnemyAI
         enemyAgent.speed = 0;
         if (enemyAgent.isOnNavMesh)
         {
-            enemyAgent.SetDestination(transform.position); 
+            enemyAgent.SetDestination(transform.position);
         }
 
         if (!alreadyShooted)
         {
             //Animator settings
-            enemyAnimator.SetInteger("WeaponType_int", 1);
+            enemyAnimator.SetInteger("WeaponType_int", WeaponTypeIndex);
             enemyAnimator.SetBool("Shoot_b", true);
             OwnWeapon.SetActive(true);
             Invoke(nameof(SpawnBullet), TimeBetweenShoots);
             alreadyShooted = true;
             Invoke(nameof(ResetAttack), TimeBetweenShoots);
-            
+
         }
     }
     private void SpawnBullet()

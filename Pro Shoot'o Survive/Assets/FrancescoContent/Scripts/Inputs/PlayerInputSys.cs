@@ -96,14 +96,14 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""PlayerMovement"",
-            ""id"": ""2d83c5c6-68bf-4421-ba63-f04f9ef73a30"",
+            ""name"": ""JumpInput"",
+            ""id"": ""b9e3f3ba-d282-4938-ae2a-3d009374a33d"",
             ""actions"": [
                 {
-                    ""name"": ""PlayerMoveDir"",
+                    ""name"": ""Jump"",
                     ""type"": ""Value"",
-                    ""id"": ""76bcd015-a7aa-411b-acc3-1c863a7209e1"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""91f40adf-7424-4675-a013-bd9fb0ffef44"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -111,59 +111,15 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""Dir"",
-                    ""id"": ""63e57b8b-a465-4fa1-83da-b9d5c24c8694"",
-                    ""path"": ""2DVector"",
+                    ""name"": """",
+                    ""id"": ""abc1c5eb-0c26-4d55-aadf-fc2e77032973"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PlayerMoveDir"",
-                    ""isComposite"": true,
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""a8ceb23c-6882-4616-8dbe-e8e71b180eab"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerMoveDir"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""5180de39-1d5b-4d8e-b21e-58bf096f5dcf"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerMoveDir"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""8b8fa26c-093f-4089-8dab-d04d8c139297"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerMoveDir"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""1826765c-e535-4d09-8bde-325a4309dd31"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerMoveDir"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -173,9 +129,9 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
         // MouseDelta
         m_MouseDelta = asset.FindActionMap("MouseDelta", throwIfNotFound: true);
         m_MouseDelta_MouseDeltaDir = m_MouseDelta.FindAction("MouseDeltaDir", throwIfNotFound: true);
-        // PlayerMovement
-        m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
-        m_PlayerMovement_PlayerMoveDir = m_PlayerMovement.FindAction("PlayerMoveDir", throwIfNotFound: true);
+        // JumpInput
+        m_JumpInput = asset.FindActionMap("JumpInput", throwIfNotFound: true);
+        m_JumpInput_Jump = m_JumpInput.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -280,57 +236,57 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
     }
     public MouseDeltaActions @MouseDelta => new MouseDeltaActions(this);
 
-    // PlayerMovement
-    private readonly InputActionMap m_PlayerMovement;
-    private List<IPlayerMovementActions> m_PlayerMovementActionsCallbackInterfaces = new List<IPlayerMovementActions>();
-    private readonly InputAction m_PlayerMovement_PlayerMoveDir;
-    public struct PlayerMovementActions
+    // JumpInput
+    private readonly InputActionMap m_JumpInput;
+    private List<IJumpInputActions> m_JumpInputActionsCallbackInterfaces = new List<IJumpInputActions>();
+    private readonly InputAction m_JumpInput_Jump;
+    public struct JumpInputActions
     {
         private @PlayerInputSys m_Wrapper;
-        public PlayerMovementActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
-        public InputAction @PlayerMoveDir => m_Wrapper.m_PlayerMovement_PlayerMoveDir;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
+        public JumpInputActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Jump => m_Wrapper.m_JumpInput_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_JumpInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerMovementActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerMovementActions instance)
+        public static implicit operator InputActionMap(JumpInputActions set) { return set.Get(); }
+        public void AddCallbacks(IJumpInputActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerMovementActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerMovementActionsCallbackInterfaces.Add(instance);
-            @PlayerMoveDir.started += instance.OnPlayerMoveDir;
-            @PlayerMoveDir.performed += instance.OnPlayerMoveDir;
-            @PlayerMoveDir.canceled += instance.OnPlayerMoveDir;
+            if (instance == null || m_Wrapper.m_JumpInputActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_JumpInputActionsCallbackInterfaces.Add(instance);
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
-        private void UnregisterCallbacks(IPlayerMovementActions instance)
+        private void UnregisterCallbacks(IJumpInputActions instance)
         {
-            @PlayerMoveDir.started -= instance.OnPlayerMoveDir;
-            @PlayerMoveDir.performed -= instance.OnPlayerMoveDir;
-            @PlayerMoveDir.canceled -= instance.OnPlayerMoveDir;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
-        public void RemoveCallbacks(IPlayerMovementActions instance)
+        public void RemoveCallbacks(IJumpInputActions instance)
         {
-            if (m_Wrapper.m_PlayerMovementActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_JumpInputActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerMovementActions instance)
+        public void SetCallbacks(IJumpInputActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerMovementActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_JumpInputActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerMovementActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_JumpInputActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
+    public JumpInputActions @JumpInput => new JumpInputActions(this);
     public interface IMouseDeltaActions
     {
         void OnMouseDeltaDir(InputAction.CallbackContext context);
     }
-    public interface IPlayerMovementActions
+    public interface IJumpInputActions
     {
-        void OnPlayerMoveDir(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }

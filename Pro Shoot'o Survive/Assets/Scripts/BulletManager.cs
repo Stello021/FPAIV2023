@@ -9,6 +9,8 @@ public class BulletManager : MonoBehaviour
     
     public int Ammo;
 
+    public GameObject bulletPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +43,6 @@ public class BulletManager : MonoBehaviour
         if (Ammo > 0)
         {
             BulletLogic b = bullet;
-            b.IsHoming = true;
             Instantiate(bullet, PlayerTransform.position + offset, PlayerTransform.rotation);
             Ammo--;
         }
@@ -57,20 +58,17 @@ public class BulletManager : MonoBehaviour
     }
 
 
-    // ContextMenu non accetta funzioni con parametri
+    // Debug function
     [ContextMenu("Sparo Bullet Homing")]
     public void InstantiateHomingBullet()
     {
         if (Ammo > 0)
         {
-            BulletLogic b = bullet;
-            b.IsHoming = true;
-            Instantiate(bullet, transform.position, transform.rotation);
-            Ammo--;
-        }
-        else
-        {
-            //Show that u need a reload on screen
+            GameObject go = Instantiate(bulletPrefab, transform.position, transform.rotation); // Instantiate the bullet
+            BulletLogic bullet = go.GetComponent<BulletLogic>();
+            bullet.target = GameObject.FindGameObjectWithTag("Standard").transform;
+            Debug.Log(bullet.target);
+            StartCoroutine(bullet.WaitToEnableHoming());
         }
     }
 }

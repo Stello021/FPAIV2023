@@ -5,8 +5,9 @@ using UnityEngine.AI;
 
 public class EnemyLogic : MonoBehaviour
 {
-    [SerializeField] float MaxHP; //Starting HP
-    private float currentHP;
+    public float MaxHP; //Starting HP
+    [HideInInspector]public float currentHP;
+    [SerializeField] GameObject OwnWeapon;
     private NavMeshAgent enemyAgent; 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,12 @@ public class EnemyLogic : MonoBehaviour
     {
         if(currentHP <= 0) 
         {
+            if(OwnWeapon != null)
+            {
+                OwnWeapon.transform.parent = null;
+                OwnWeapon.transform.position = new Vector3(transform.position.x, 1.5f, transform.position.y);
+                OwnWeapon.transform.rotation = Quaternion.identity;
+            }
             Destroy(gameObject);
         }
     }
