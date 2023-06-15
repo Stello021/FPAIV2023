@@ -6,7 +6,7 @@ public class BulletLogic : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
     [SerializeField] float raycastDistance;
-    public Vector3 dir;
+    public Vector3 dir = Vector3.forward;
 
     // homing variables
     [SerializeField] bool IsHoming;
@@ -15,13 +15,12 @@ public class BulletLogic : MonoBehaviour
 
     public float DamageDealt;
 
-    [SerializeField] Rigidbody rb;
+    //[SerializeField] Rigidbody rb;
 
     // Start is called before the first frame update
-
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -57,12 +56,10 @@ public class BulletLogic : MonoBehaviour
 
     private void StandardMovement()
     {
-        if (dir == null)
-        {
-            dir = transform.forward;
-        }
+        //rb.velocity = dir * bulletSpeed;
+        
+        transform.position += dir * bulletSpeed * Time.fixedDeltaTime;
 
-        rb.velocity = dir * bulletSpeed * Time.fixedDeltaTime;
     }
 
     private void HomingMovement() 
@@ -72,20 +69,20 @@ public class BulletLogic : MonoBehaviour
             Vector3 distance = target.position - transform.position;
             Quaternion rotationDir = Quaternion.LookRotation(distance);
             Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotationDir, rotSpeed * Time.deltaTime);
-            rb.MoveRotation(newRotation);
-            rb.velocity = transform.forward * bulletSpeed * Time.fixedDeltaTime;
+            //rb.MoveRotation(newRotation);
+            //rb.velocity = transform.forward * bulletSpeed * Time.fixedDeltaTime;
 
-            //transform.rotation = newRotation;
-            //transform.position += transform.forward * bulletSpeed * Time.deltaTime;
+            transform.rotation = newRotation;
+            transform.position += transform.forward * bulletSpeed * Time.fixedDeltaTime;
         }
         else
         {
             StandardMovement();
         }
     }
-
     private void OnCollisionEnter(Collision collision)
     {
+        
         //if (collision.collider.tag == "Standard" || collision.collider.tag == "Ranged")
         //{
         //    //enemy damage
