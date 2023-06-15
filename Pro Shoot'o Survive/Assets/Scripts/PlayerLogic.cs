@@ -8,7 +8,14 @@ public class PlayerLogic : MonoBehaviour
     static public PlayerLogic Instance { get { return instance; } }
 
     [SerializeField] float hpMax;
-    float hp;
+    [HideInInspector] public float actuallyMaxHp;
+    [HideInInspector] public float hp;
+
+    [SerializeField] float damageMax;
+    [HideInInspector] public float damage;
+
+    [SerializeField] float speedMax;
+    [HideInInspector] public float speed;
     
     public float speedBarValue;     //value from 0 to 1
     public float healthBarValue;    //value from 0 to 1
@@ -22,6 +29,7 @@ public class PlayerLogic : MonoBehaviour
 
     private void Start()
     {
+        actuallyMaxHp = hpMax;
         BarsManager.Instance.playerRef = this;
     }
 
@@ -42,12 +50,13 @@ public class PlayerLogic : MonoBehaviour
         
         }
         
-        BarsManager.Instance.setHpBar(hp / hpMax);
+        BarsManager.Instance.setHpBar(hp / actuallyMaxHp);
     }
 
     public void Heal(float HealAmount)
     {
-        hp = Mathf.Clamp(hp + healthBarValue, 0, hpMax);
-        BarsManager.Instance.setHpBar(hp / hpMax);
+        hp = Mathf.Clamp(hp + healthBarValue, 0, actuallyMaxHp);
+        BarsManager.Instance.setHpBar(hp / actuallyMaxHp);
     }
+
 }

@@ -14,19 +14,12 @@ public class BulletLogic : MonoBehaviour
     [SerializeField] bool IsHoming;
     public Transform target;
     [SerializeField] float rotSpeed;
-<<<<<<< Updated upstream
-=======
+
     [SerializeField] float angleOfVision = 180;
 
     public float DamageDealt;
->>>>>>> Stashed changes
 
     // Start is called before the first frame update
-
-    public BulletLogic(float damage = 1)
-    {
-        DamageDealt = damage;
-    }
 
     void Start()
     {
@@ -49,18 +42,6 @@ public class BulletLogic : MonoBehaviour
         else
         {
             StandardMovement();
-        }
-
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
-        {
-            if (hit.collider.tag == "Standard" || hit.collider.tag == "Ranged")
-            {
-                //enemy damage
-                EnemyLogic enemy = hit.collider.gameObject.GetComponent<EnemyLogic>();
-                enemy.currentHP -= DamageDealt;
-            }
-            Destroy(gameObject);
         }
     }
 
@@ -95,6 +76,12 @@ public class BulletLogic : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.collider.tag == "Standard" || collision.collider.tag == "Ranged")
+        {
+            //enemy damage
+            EnemyLogic enemy = collision.collider.gameObject.GetComponent<EnemyLogic>();
+            enemy.currentHP -= DamageDealt;
+        }
         Destroy(gameObject);
     }
 
