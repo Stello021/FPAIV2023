@@ -43,7 +43,6 @@ public class BulletManager : MonoBehaviour
         if (Ammo > 0)
         {
             BulletLogic b = bullet;
-            b.IsHoming = true;
             Instantiate(bullet, PlayerTransform.position + offset, PlayerTransform.rotation);
             Ammo--;
         }
