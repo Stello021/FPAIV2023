@@ -8,6 +8,7 @@ TagManager:
   - Standard
   - Ranged
   - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX

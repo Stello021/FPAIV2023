@@ -216,7 +216,7 @@ public class ThirdPersonController : MonoBehaviour
             }
             else
             {
-                shootDir = (cam.position + cam.forward * 1000) - BulletSpawn.position;
+                shootDir = ((cam.position + cam.forward * 1000) - BulletSpawn.position).normalized;
             }
 
             GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
@@ -271,7 +271,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         Transform target = null;
         Collider[] enemyTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
-        //Debug.Log("Detected enemies: " + enemyTargets.Length);
+
         if (enemyTargets.Length > 0)
         {
             Transform nextTarget = null;
@@ -293,7 +293,7 @@ public class ThirdPersonController : MonoBehaviour
                             lowestDist = distToTarget;
                             nextTarget = possibleTarget;
                         }
-                        else if (distToTarget.magnitude < lowestDist.magnitude)
+                        else if (distToTarget.sqrMagnitude < lowestDist.sqrMagnitude)
                         {
                             lowestDist = distToTarget;
                             nextTarget = possibleTarget;
@@ -301,9 +301,8 @@ public class ThirdPersonController : MonoBehaviour
                     }
                 }
             }
-
+            Debug.Log(nextTarget);
             target = nextTarget;
-            Debug.Log(target);
         }
 
         return target;
