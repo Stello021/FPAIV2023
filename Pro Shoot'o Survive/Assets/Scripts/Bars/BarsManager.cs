@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class BarsManager : MonoBehaviour
 {
+    static private BarsManager instance;
+    static public BarsManager Instance { get { return instance; } }
+
     [SerializeField] Bar healthBar;
     [SerializeField] Bar speedBar;
     [SerializeField] Bar damageBar;
 
-    // Add a player reference
+    [SerializeField] Bar HpBar;
 
-
+    public PlayerLogic playerRef;
+    
+    void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -20,37 +28,13 @@ public class BarsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (healthBar.isFull)
-        {
-            // buff player
-            // make PowerUp spawnable
-        }
-        else if (healthBar.isEmpty)
-        {
-            // debuff player
-            // make powerUp not spawnable
-        }
+        playerRef.speedBarValue = speedBar.amount;
+        playerRef.healthBarValue = healthBar.amount;
+        playerRef.damageBarValue = damageBar.amount;
+    }
 
-        if (speedBar.isFull)
-        {
-            // buff player
-            // make PowerUp spawnable
-        }
-        else if (speedBar.isEmpty)
-        {
-            // debuff player
-            // make powerUp not spawnable
-        }
-
-        if (damageBar.isFull)
-        {
-            // buff player
-            // make PowerUp spawnable
-        }
-        else if (damageBar.isEmpty)
-        {
-            // debuff player
-            // make powerUp not spawnable
-        }
+    public void setHpBar(float fillAmount)
+    {
+        HpBar.amount = fillAmount;
     }
 }
