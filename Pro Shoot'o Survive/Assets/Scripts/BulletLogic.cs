@@ -5,18 +5,15 @@ using UnityEngine;
 public class BulletLogic : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
+    [SerializeField] float speedBeforeHoming = 5;
+    [SerializeField] float normalSpeed;
     [SerializeField] float raycastDistance;
     public Vector3 dir;
 
-    public bool IsHoming;
-
     // homing variables
+    [SerializeField] bool IsHoming;
     public Transform target;
-    //[SerializeField] float viewRadius = 300;
-    //[SerializeField] LayerMask enemyMask;
-    //[SerializeField] LayerMask obstacleMask;
     [SerializeField] float rotSpeed;
-    //[SerializeField] float angleOfVision = 180;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +60,8 @@ public class BulletLogic : MonoBehaviour
         }
 
         transform.localPosition += dir * bulletSpeed * Time.deltaTime;
+
+        
     }
 
     private void HomingMovement() 
@@ -89,8 +88,10 @@ public class BulletLogic : MonoBehaviour
 
     public IEnumerator WaitToEnableHoming()
     {
+        bulletSpeed = speedBeforeHoming;
         yield return new WaitForSeconds(Time.deltaTime);
         IsHoming = true;
+        bulletSpeed = normalSpeed;
     }
 
 }
