@@ -96,9 +96,12 @@ public class BulletLogic : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+
     public IEnumerator WaitToEnableHoming()
     {
         bulletSpeed = speedBeforeHoming;
+        dir = transform.forward;
         yield return new WaitForSeconds(Time.deltaTime);
         IsHoming = true;
         bulletSpeed = normalSpeed;
