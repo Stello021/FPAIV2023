@@ -228,6 +228,37 @@ Transform:
   m_Father: {fileID: 2106242658}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &67105643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67105644}
+  m_Layer: 0
+  m_Name: Spawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &67105644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67105643}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.77, z: 1.16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 662170627}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &75107425
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +390,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SA_Character_MaleSurvivorHunter
       objectReference: {fileID: 0}
+    - target: {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6092548633087904813, guid: 285734cbbc31c9149881524fdd95894a,
         type: 3}
       propertyPath: m_RootOrder
@@ -428,6 +464,12 @@ GameObject:
 --- !u!143 &662170624 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: 5272992674238247438, guid: 4030413b0c7bd744db811e22c994e5cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 7172659309501183705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &662170627 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3165855469058822974, guid: 4030413b0c7bd744db811e22c994e5cb,
     type: 3}
   m_PrefabInstance: {fileID: 7172659309501183705}
   m_PrefabAsset: {fileID: 0}
@@ -729,6 +771,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SE_Pimp
       objectReference: {fileID: 0}
+    - target: {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7191507007221227975, guid: ef0d6741634238645b3c86f1c6167050,
         type: 3}
       propertyPath: m_RootOrder
@@ -801,6 +848,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SE_AirportWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6110337654910159497, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2,
         type: 3}
@@ -1092,6 +1144,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2937389559105038557, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: BulletSpawn
+      value: 
+      objectReference: {fileID: 67105644}
     - target: {fileID: 3047167158606249523, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: m_CullingMode
@@ -1244,7 +1301,11 @@ PrefabInstance:
       objectReference: {fileID: 10779492}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3165855469058822974, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 67105644}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4030413b0c7bd744db811e22c994e5cb, type: 3}
 --- !u!1001 &8064746799043023262

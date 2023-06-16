@@ -36,9 +36,7 @@ public class PlayerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        damage = damageMax * damageBarValue + 1;
-        speed = speedMax * speedBarValue + 1;
-        actuallyMaxHp = hpMax * healthBarValue + 1;
+            
     }
 
     public void TakeDamage(float damage)
@@ -60,7 +58,5 @@ public class PlayerLogic : MonoBehaviour
         hp = Mathf.Clamp(hp + healthBarValue, 0, actuallyMaxHp);
         BarsManager.Instance.setHpBar(hp / actuallyMaxHp);
     }
-
-
 
 }

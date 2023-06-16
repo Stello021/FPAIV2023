@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 3165855469058822974}
   - component: {fileID: 3047167158606249523}
   - component: {fileID: 5272992674238247438}
-  - component: {fileID: 9055578811663944636}
+  - component: {fileID: 2937389559105038557}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -320,7 +320,7 @@ CharacterController:
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1.44, z: 0}
---- !u!114 &9055578811663944636
+--- !u!114 &2937389559105038557
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 891540131985990547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25e858918bbcd6c4f8e2b42f499225a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3eff353c04107f6438ac65ed7a6e9f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerMoveSpeed: 10
@@ -337,13 +337,13 @@ MonoBehaviour:
   jumpForce: 5
   Bullet: {fileID: 2405495413867421730, guid: 84cfd7d88325e044c8b71077cb2d4dcc, type: 3}
   BulletSpawn: {fileID: 5831531739084673375}
-  CentreCameraTarget: {fileID: 0}
+  CentreCameraTarget: {fileID: 5556613329380079112}
   isGrounded: 0
   cam: {fileID: 0}
   aimMask:
     serializedVersion: 2
     m_Bits: 1
-  hp: 100
+  hp: 0
   armour: 0
   grenades: 0
   grenadePrefab: {fileID: 8416421997194633816, guid: 5d863161cd4c0184eb5d7da647ce12e4,
@@ -351,15 +351,15 @@ MonoBehaviour:
   grenadeSpawnPoint: {fileID: 866391988763072698}
   activeHoming: 0
   homingTimer: 0
-  homingTime: 60
+  homingTime: 0
   viewRadius: 300
   enemyMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 512
-  rotSpeed: 10
+    m_Bits: 0
+  rotSpeed: 0
   angleOfVision: 180
 --- !u!1 &1109565101684327897
 GameObject:
