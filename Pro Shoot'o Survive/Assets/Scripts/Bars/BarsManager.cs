@@ -28,9 +28,12 @@ public class BarsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerRef.speedBarValue = speedBar.amount;
-        playerRef.healthBarValue = healthBar.amount;
-        playerRef.damageBarValue = damageBar.amount;
+        if (playerRef != null)
+        {
+            playerRef.speedBarValue = speedBar.amount;
+            playerRef.healthBarValue = healthBar.amount;
+            playerRef.damageBarValue = damageBar.amount;
+        }
     }
 
     public void setHpBar(float fillAmount)

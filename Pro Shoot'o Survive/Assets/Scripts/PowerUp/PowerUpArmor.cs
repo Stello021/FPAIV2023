@@ -7,7 +7,7 @@ public class PowerUpArmor : PowerUp
     [SerializeField] float armourAmount = 25;
     public override void PickUp(GameObject owner)
     {
-        ThirdPersonController player = owner.GetComponent<ThirdPersonController>();
+        PlayerController player = owner.GetComponent<PlayerController>();
         player.armour += armourAmount;
         //player.UpdateArmourText();
         Destroy(gameObject);

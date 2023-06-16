@@ -5,6 +5,8 @@ using UnityEngine;
 public class BulletLogic : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
+    [SerializeField] float speedBeforeHoming;
+    [SerializeField] float normalSpeed;
     [SerializeField] float raycastDistance;
     public Vector3 dir;
 
@@ -15,32 +17,31 @@ public class BulletLogic : MonoBehaviour
 
     public float DamageDealt;
 
-    [SerializeField] Rigidbody rb;
+    //[SerializeField] Rigidbody rb;
 
     // Start is called before the first frame update
-
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (IsHoming) HomingMovement();
-        else StandardMovement();
-    }
+    //void FixedUpdate()
+    //{
+    //    if (IsHoming) HomingMovement();
+    //    else StandardMovement();
+    //}
 
     private void Update()
     {
-        //if (IsHoming)
-        //{
-        //    HomingMovement();
-        //}
-        //else
-        //{
-        //    StandardMovement();
-        //}
+        if (IsHoming)
+        {
+            HomingMovement();
+        }
+        else
+        {
+            StandardMovement();
+        }
 
         //RaycastHit hit;
         //if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
@@ -57,12 +58,9 @@ public class BulletLogic : MonoBehaviour
 
     private void StandardMovement()
     {
-        if (dir == null)
-        {
-            dir = transform.forward;
-        }
-
-        rb.velocity = dir * bulletSpeed * Time.fixedDeltaTime;
+        //rb.velocity = dir * bulletSpeed;
+        
+        transform.position += dir * bulletSpeed * Time.deltaTime;
     }
 
     private void HomingMovement() 
@@ -72,17 +70,19 @@ public class BulletLogic : MonoBehaviour
             Vector3 distance = target.position - transform.position;
             Quaternion rotationDir = Quaternion.LookRotation(distance);
             Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotationDir, rotSpeed * Time.deltaTime);
-            rb.MoveRotation(newRotation);
-            rb.velocity = transform.forward * bulletSpeed * Time.fixedDeltaTime;
+            //rb.MoveRotation(newRotation);
+            //rb.velocity = transform.forward * bulletSpeed * Time.fixedDeltaTime;
 
-            //transform.rotation = newRotation;
-            //transform.position += transform.forward * bulletSpeed * Time.deltaTime;
+            transform.rotation = newRotation;
+            transform.position += transform.forward * bulletSpeed * Time.deltaTime;
         }
         else
         {
             StandardMovement();
         }
     }
+
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -96,10 +96,15 @@ public class BulletLogic : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+
     public IEnumerator WaitToEnableHoming()
     {
-        yield return new WaitForSeconds(Time.fixedDeltaTime);
+        bulletSpeed = speedBeforeHoming;
+        dir = transform.forward;
+        yield return new WaitForSeconds(Time.deltaTime);
         IsHoming = true;
+        bulletSpeed = normalSpeed;
     }
 
 }

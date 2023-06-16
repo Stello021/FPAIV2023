@@ -24,7 +24,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
     ""name"": ""PlayerInputSystem"",
     ""maps"": [
         {
-            ""name"": ""MouseDelta"",
+            ""name"": ""CameraMoveInput"",
             ""id"": ""8b445174-f6d1-4a54-ba59-537134e83e28"",
             ""actions"": [
                 {
@@ -96,6 +96,78 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
             ]
         },
         {
+            ""name"": ""MovePlayerInput"",
+            ""id"": ""bd41497c-efa8-4b82-af88-2c5a65ccc313"",
+            ""actions"": [
+                {
+                    ""name"": ""MoveDir"",
+                    ""type"": ""Value"",
+                    ""id"": ""89435154-3218-4814-ac58-471a894c28eb"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Dir"",
+                    ""id"": ""8ce8562f-c5e1-4856-afc0-537a935cb7a3"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveDir"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""d8aa8038-af15-4e97-8092-f2ebd9246f69"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveDir"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""cd05cfd4-3f5d-4fb3-af03-5c3f8f1eb62a"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveDir"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""0ada5d0f-f5ac-4273-a7fa-c46ee05c0cf4"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveDir"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""e7eef1cb-8d20-4d4a-9ad1-473cac73c07d"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveDir"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
             ""name"": ""JumpInput"",
             ""id"": ""b9e3f3ba-d282-4938-ae2a-3d009374a33d"",
             ""actions"": [
@@ -122,16 +194,92 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""ShootInput"",
+            ""id"": ""7346e121-fd62-4ca3-b266-3d52edd47f19"",
+            ""actions"": [
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Value"",
+                    ""id"": ""301824b1-f33a-45a7-bc92-291180604bb6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""aaec6664-d2c7-4950-b211-7d1834ef55d5"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""ThrowGrenade"",
+            ""id"": ""466d5e32-2b97-4a96-a645-78251b902bd9"",
+            ""actions"": [
+                {
+                    ""name"": ""ThrowGrenade"",
+                    ""type"": ""Value"",
+                    ""id"": ""7a37c636-7d54-402b-b618-2b3ea2b3ae66"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2087ec77-5776-4336-a809-f4dea0bba116"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThrowGrenade"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37b82d6d-af88-4a84-a014-cf7c3d86f043"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThrowGrenade"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // MouseDelta
-        m_MouseDelta = asset.FindActionMap("MouseDelta", throwIfNotFound: true);
-        m_MouseDelta_MouseDeltaDir = m_MouseDelta.FindAction("MouseDeltaDir", throwIfNotFound: true);
+        // CameraMoveInput
+        m_CameraMoveInput = asset.FindActionMap("CameraMoveInput", throwIfNotFound: true);
+        m_CameraMoveInput_MouseDeltaDir = m_CameraMoveInput.FindAction("MouseDeltaDir", throwIfNotFound: true);
+        // MovePlayerInput
+        m_MovePlayerInput = asset.FindActionMap("MovePlayerInput", throwIfNotFound: true);
+        m_MovePlayerInput_MoveDir = m_MovePlayerInput.FindAction("MoveDir", throwIfNotFound: true);
         // JumpInput
         m_JumpInput = asset.FindActionMap("JumpInput", throwIfNotFound: true);
         m_JumpInput_Jump = m_JumpInput.FindAction("Jump", throwIfNotFound: true);
+        // ShootInput
+        m_ShootInput = asset.FindActionMap("ShootInput", throwIfNotFound: true);
+        m_ShootInput_Shoot = m_ShootInput.FindAction("Shoot", throwIfNotFound: true);
+        // ThrowGrenade
+        m_ThrowGrenade = asset.FindActionMap("ThrowGrenade", throwIfNotFound: true);
+        m_ThrowGrenade_ThrowGrenade = m_ThrowGrenade.FindAction("ThrowGrenade", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -190,51 +338,97 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // MouseDelta
-    private readonly InputActionMap m_MouseDelta;
-    private List<IMouseDeltaActions> m_MouseDeltaActionsCallbackInterfaces = new List<IMouseDeltaActions>();
-    private readonly InputAction m_MouseDelta_MouseDeltaDir;
-    public struct MouseDeltaActions
+    // CameraMoveInput
+    private readonly InputActionMap m_CameraMoveInput;
+    private List<ICameraMoveInputActions> m_CameraMoveInputActionsCallbackInterfaces = new List<ICameraMoveInputActions>();
+    private readonly InputAction m_CameraMoveInput_MouseDeltaDir;
+    public struct CameraMoveInputActions
     {
         private @PlayerInputSys m_Wrapper;
-        public MouseDeltaActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MouseDeltaDir => m_Wrapper.m_MouseDelta_MouseDeltaDir;
-        public InputActionMap Get() { return m_Wrapper.m_MouseDelta; }
+        public CameraMoveInputActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MouseDeltaDir => m_Wrapper.m_CameraMoveInput_MouseDeltaDir;
+        public InputActionMap Get() { return m_Wrapper.m_CameraMoveInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MouseDeltaActions set) { return set.Get(); }
-        public void AddCallbacks(IMouseDeltaActions instance)
+        public static implicit operator InputActionMap(CameraMoveInputActions set) { return set.Get(); }
+        public void AddCallbacks(ICameraMoveInputActions instance)
         {
-            if (instance == null || m_Wrapper.m_MouseDeltaActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_MouseDeltaActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_CameraMoveInputActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CameraMoveInputActionsCallbackInterfaces.Add(instance);
             @MouseDeltaDir.started += instance.OnMouseDeltaDir;
             @MouseDeltaDir.performed += instance.OnMouseDeltaDir;
             @MouseDeltaDir.canceled += instance.OnMouseDeltaDir;
         }
 
-        private void UnregisterCallbacks(IMouseDeltaActions instance)
+        private void UnregisterCallbacks(ICameraMoveInputActions instance)
         {
             @MouseDeltaDir.started -= instance.OnMouseDeltaDir;
             @MouseDeltaDir.performed -= instance.OnMouseDeltaDir;
             @MouseDeltaDir.canceled -= instance.OnMouseDeltaDir;
         }
 
-        public void RemoveCallbacks(IMouseDeltaActions instance)
+        public void RemoveCallbacks(ICameraMoveInputActions instance)
         {
-            if (m_Wrapper.m_MouseDeltaActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_CameraMoveInputActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IMouseDeltaActions instance)
+        public void SetCallbacks(ICameraMoveInputActions instance)
         {
-            foreach (var item in m_Wrapper.m_MouseDeltaActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_CameraMoveInputActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_MouseDeltaActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_CameraMoveInputActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public MouseDeltaActions @MouseDelta => new MouseDeltaActions(this);
+    public CameraMoveInputActions @CameraMoveInput => new CameraMoveInputActions(this);
+
+    // MovePlayerInput
+    private readonly InputActionMap m_MovePlayerInput;
+    private List<IMovePlayerInputActions> m_MovePlayerInputActionsCallbackInterfaces = new List<IMovePlayerInputActions>();
+    private readonly InputAction m_MovePlayerInput_MoveDir;
+    public struct MovePlayerInputActions
+    {
+        private @PlayerInputSys m_Wrapper;
+        public MovePlayerInputActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveDir => m_Wrapper.m_MovePlayerInput_MoveDir;
+        public InputActionMap Get() { return m_Wrapper.m_MovePlayerInput; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MovePlayerInputActions set) { return set.Get(); }
+        public void AddCallbacks(IMovePlayerInputActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MovePlayerInputActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MovePlayerInputActionsCallbackInterfaces.Add(instance);
+            @MoveDir.started += instance.OnMoveDir;
+            @MoveDir.performed += instance.OnMoveDir;
+            @MoveDir.canceled += instance.OnMoveDir;
+        }
+
+        private void UnregisterCallbacks(IMovePlayerInputActions instance)
+        {
+            @MoveDir.started -= instance.OnMoveDir;
+            @MoveDir.performed -= instance.OnMoveDir;
+            @MoveDir.canceled -= instance.OnMoveDir;
+        }
+
+        public void RemoveCallbacks(IMovePlayerInputActions instance)
+        {
+            if (m_Wrapper.m_MovePlayerInputActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMovePlayerInputActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MovePlayerInputActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MovePlayerInputActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MovePlayerInputActions @MovePlayerInput => new MovePlayerInputActions(this);
 
     // JumpInput
     private readonly InputActionMap m_JumpInput;
@@ -281,12 +475,116 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
         }
     }
     public JumpInputActions @JumpInput => new JumpInputActions(this);
-    public interface IMouseDeltaActions
+
+    // ShootInput
+    private readonly InputActionMap m_ShootInput;
+    private List<IShootInputActions> m_ShootInputActionsCallbackInterfaces = new List<IShootInputActions>();
+    private readonly InputAction m_ShootInput_Shoot;
+    public struct ShootInputActions
+    {
+        private @PlayerInputSys m_Wrapper;
+        public ShootInputActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Shoot => m_Wrapper.m_ShootInput_Shoot;
+        public InputActionMap Get() { return m_Wrapper.m_ShootInput; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ShootInputActions set) { return set.Get(); }
+        public void AddCallbacks(IShootInputActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ShootInputActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ShootInputActionsCallbackInterfaces.Add(instance);
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+        }
+
+        private void UnregisterCallbacks(IShootInputActions instance)
+        {
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+        }
+
+        public void RemoveCallbacks(IShootInputActions instance)
+        {
+            if (m_Wrapper.m_ShootInputActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IShootInputActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ShootInputActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ShootInputActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ShootInputActions @ShootInput => new ShootInputActions(this);
+
+    // ThrowGrenade
+    private readonly InputActionMap m_ThrowGrenade;
+    private List<IThrowGrenadeActions> m_ThrowGrenadeActionsCallbackInterfaces = new List<IThrowGrenadeActions>();
+    private readonly InputAction m_ThrowGrenade_ThrowGrenade;
+    public struct ThrowGrenadeActions
+    {
+        private @PlayerInputSys m_Wrapper;
+        public ThrowGrenadeActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ThrowGrenade => m_Wrapper.m_ThrowGrenade_ThrowGrenade;
+        public InputActionMap Get() { return m_Wrapper.m_ThrowGrenade; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ThrowGrenadeActions set) { return set.Get(); }
+        public void AddCallbacks(IThrowGrenadeActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ThrowGrenadeActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ThrowGrenadeActionsCallbackInterfaces.Add(instance);
+            @ThrowGrenade.started += instance.OnThrowGrenade;
+            @ThrowGrenade.performed += instance.OnThrowGrenade;
+            @ThrowGrenade.canceled += instance.OnThrowGrenade;
+        }
+
+        private void UnregisterCallbacks(IThrowGrenadeActions instance)
+        {
+            @ThrowGrenade.started -= instance.OnThrowGrenade;
+            @ThrowGrenade.performed -= instance.OnThrowGrenade;
+            @ThrowGrenade.canceled -= instance.OnThrowGrenade;
+        }
+
+        public void RemoveCallbacks(IThrowGrenadeActions instance)
+        {
+            if (m_Wrapper.m_ThrowGrenadeActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IThrowGrenadeActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ThrowGrenadeActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ThrowGrenadeActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ThrowGrenadeActions @ThrowGrenade => new ThrowGrenadeActions(this);
+    public interface ICameraMoveInputActions
     {
         void OnMouseDeltaDir(InputAction.CallbackContext context);
+    }
+    public interface IMovePlayerInputActions
+    {
+        void OnMoveDir(InputAction.CallbackContext context);
     }
     public interface IJumpInputActions
     {
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IShootInputActions
+    {
+        void OnShoot(InputAction.CallbackContext context);
+    }
+    public interface IThrowGrenadeActions
+    {
+        void OnThrowGrenade(InputAction.CallbackContext context);
     }
 }

@@ -1,25 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
-public class InputSysController : Singleton<InputSysController>
+public class InputSysController
 {
-    [SerializeField] private Vector2 mouseDeltaDir;
-    [SerializeField] private Vector2 playerMoveDir;
-
     private PlayerInputSys playerInputs;
-    public Dictionary<string, InputAction> Inputs { get; private set; }
-
-    public Vector2 MouseDeltaDir { get { return mouseDeltaDir; } }
-    public Vector2 PlayerMoveDir { get { return playerMoveDir; } }
+    private Dictionary<string, InputAction> inputs;
 
     // Start is called before the first frame update
-    void Awake()
+    public InputSysController()
     {
         playerInputs = new PlayerInputSys();
-        Inputs = new Dictionary<string, InputAction>();
+        inputs = new Dictionary<string, InputAction>();
 
         InputSystem.settings.maxEventBytesPerUpdate = 0;
 
@@ -27,27 +22,30 @@ public class InputSysController : Singleton<InputSysController>
         {
             for (int j = 0; j < playerInputs.asset.actionMaps[i].actions.Count; j++)
             {
-                Inputs[playerInputs.asset.actionMaps[i].actions[j].name] = playerInputs.asset.actionMaps[i].actions[j];
+                inputs[playerInputs.asset.actionMaps[i].actions[j].name] = playerInputs.asset.actionMaps[i].actions[j];
             }
         }
 
-        //print(p.asset.actionMaps[0].actions[0].name);
+        EnableInputStsyem();
     }
 
-    private void OnEnable()
+    public void EnableInputStsyem()
     {
         playerInputs.Enable();
     }
 
-    private void OnDisable()
+    public void DisableInputSystem()
     {
         playerInputs.Disable();
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool OnInputTrigger(string inputActionName)
     {
-        mouseDeltaDir = Inputs["MouseDeltaDir"].ReadValue<Vector2>();
-        //playerMoveDir = Inputs["PlayerMoveDir"].ReadValue<Vector2>();
+        return inputs[inputActionName].triggered;
+    }
+
+    public T GetInputValue<T>(string inputActionName) where T : struct
+    {
+        return inputs[inputActionName].ReadValue<T>();
     }
 }

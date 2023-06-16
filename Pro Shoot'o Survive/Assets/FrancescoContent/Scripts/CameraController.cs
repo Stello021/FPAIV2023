@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
 {
     [Header("Player references")]
     [SerializeField] private GameObject player;
+    public InputSysController PlayerInputsController { get { return player.GetComponent<PlayerController>().InputsController; } }
 
     [Header("\nCamera variables")]
     [SerializeField] private float cameraMoveSpeedOnRotation;
@@ -53,6 +54,7 @@ public class CameraController : MonoBehaviour
         float cameraEulerAnglesY = 0;
         Vector3 newOffset = Vector3.zero;
         Vector3 crossHairPosition = Vector3.zero;
+        Vector2 mouseDeltaDir = PlayerInputsController.GetInputValue<Vector2>("MouseDeltaDir");
 
         if (IsCameraColliding())
         {
@@ -60,7 +62,7 @@ public class CameraController : MonoBehaviour
             playerToHitPoint = (playerToHitPoint.magnitude + cameraCollisionOffsetMagnitude) * playerToHitPoint.normalized;
 
             currentRotationY = Mathf.Atan2(playerToHitPoint.z, playerToHitPoint.x);
-            currentRotationY += InputSysController.Instance.MouseDeltaDir.x * (cameraMoveSpeedOnRotation * 0.5f) * Time.deltaTime;
+            currentRotationY += mouseDeltaDir.x * (cameraMoveSpeedOnRotation * 0.5f) * Time.deltaTime;
 
             newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
             newOffset *= new Vector3(playerToHitPoint.x, 0, playerToHitPoint.z).magnitude;
@@ -71,7 +73,7 @@ public class CameraController : MonoBehaviour
         else
         {
             currentRotationY = Mathf.Atan2(cameraPosOffset.z, cameraPosOffset.x);
-            currentRotationY += InputSysController.Instance.MouseDeltaDir.x * (cameraMoveSpeedOnRotation * 0.5f) * Time.deltaTime;
+            currentRotationY += mouseDeltaDir.x * (cameraMoveSpeedOnRotation * 0.5f) * Time.deltaTime;
 
             newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
             newOffset *= new Vector3(cameraStartPosOffset.x, 0, cameraStartPosOffset.z).magnitude;
@@ -97,10 +99,11 @@ public class CameraController : MonoBehaviour
 
         float currentRotationX = Mathf.Atan2(cameraPosOffset.z, cameraPosOffset.y);
         Vector3 newOffset = new Vector3(0, Mathf.Cos(currentRotationX), Mathf.Sin(currentRotationX));
+        Vector2 mouseDeltaDir = PlayerInputsController.GetInputValue<Vector2>("MouseDeltaDir");
 
         newOffset *= new Vector3(0, cameraPosOffset.y, cameraPosOffset.z).magnitude;
 
-        newOffset.y += InputSysController.Instance.MouseDeltaDir.y * cameraMoveSpeedOnRotation * Time.deltaTime;
+        newOffset.y += mouseDeltaDir.y * cameraMoveSpeedOnRotation * Time.deltaTime;
         newOffset.y = Mathf.Clamp(newOffset.y, minCameraOffsetY, maxCameraOffsetY);
 
         newOffset.x = cameraPosOffset.x;
