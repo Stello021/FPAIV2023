@@ -154,17 +154,14 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                shootDir = ((cam.position + cam.forward * 1000) - BulletSpawn.position).normalized;
+                shootDir = ((cam.position + cam.forward * 100) - BulletSpawn.position).normalized;
             }
 
             GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
-            Destroy(bullet, 5);
+            
 
-            //bullet.GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction
-            //bullet.GetComponent<BulletLogic>().DamageDealt = damageDealt;
-
-            bullet.transform.GetChild(0).GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction
-            bullet.transform.GetChild(0).GetComponent<BulletLogic>().DamageDealt = damageDealt;
+            bullet.GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction
+            bullet.GetComponent<BulletLogic>().DamageDealt = damageDealt;
         }
         else
         {

@@ -359,6 +359,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SA_Character_MaleSurvivorHunter
       objectReference: {fileID: 0}
+    - target: {fileID: 1005842482110059738, guid: 285734cbbc31c9149881524fdd95894a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6092548633087904813, guid: 285734cbbc31c9149881524fdd95894a,
         type: 3}
       propertyPath: m_RootOrder
@@ -729,6 +734,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SE_Pimp
       objectReference: {fileID: 0}
+    - target: {fileID: 4276961428923756905, guid: ef0d6741634238645b3c86f1c6167050,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7191507007221227975, guid: ef0d6741634238645b3c86f1c6167050,
         type: 3}
       propertyPath: m_RootOrder
@@ -801,6 +811,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SE_AirportWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: 852849922244661303, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6110337654910159497, guid: 46a7fe3c7844c6347b0b2dcfd04a28c2,
         type: 3}

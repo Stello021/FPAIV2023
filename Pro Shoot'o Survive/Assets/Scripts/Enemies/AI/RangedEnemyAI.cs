@@ -79,10 +79,13 @@ public class RangedEnemyAI : EnemyAI
 
         }
     }
+
     private void SpawnBullet()
     {
-        Instantiate(bulletPrefab, BulletStartingPoint.position, BulletStartingPoint.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, BulletStartingPoint.position, BulletStartingPoint.rotation);
+        bullet.GetComponent<BulletLogic>().dir = transform.forward;
     }
+
     private void ResetAttack()
     {
         alreadyShooted = false;

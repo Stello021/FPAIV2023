@@ -5,8 +5,10 @@ using UnityEngine;
 public class BulletLogic : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
+    [SerializeField] float speedBeforeHoming;
+    [SerializeField] float normalSpeed;
     [SerializeField] float raycastDistance;
-    public Vector3 dir = Vector3.forward;
+    public Vector3 dir;
 
     // homing variables
     [SerializeField] bool IsHoming;
@@ -24,22 +26,22 @@ public class BulletLogic : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (IsHoming) HomingMovement();
-        else StandardMovement();
-    }
+    //void FixedUpdate()
+    //{
+    //    if (IsHoming) HomingMovement();
+    //    else StandardMovement();
+    //}
 
     private void Update()
     {
-        //if (IsHoming)
-        //{
-        //    HomingMovement();
-        //}
-        //else
-        //{
-        //    StandardMovement();
-        //}
+        if (IsHoming)
+        {
+            HomingMovement();
+        }
+        else
+        {
+            StandardMovement();
+        }
 
         //RaycastHit hit;
         //if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
@@ -58,8 +60,7 @@ public class BulletLogic : MonoBehaviour
     {
         //rb.velocity = dir * bulletSpeed;
         
-        transform.position += dir * bulletSpeed * Time.fixedDeltaTime;
-
+        transform.position += dir * bulletSpeed * Time.deltaTime;
     }
 
     private void HomingMovement() 
@@ -73,16 +74,18 @@ public class BulletLogic : MonoBehaviour
             //rb.velocity = transform.forward * bulletSpeed * Time.fixedDeltaTime;
 
             transform.rotation = newRotation;
-            transform.position += transform.forward * bulletSpeed * Time.fixedDeltaTime;
+            transform.position += transform.forward * bulletSpeed * Time.deltaTime;
         }
         else
         {
             StandardMovement();
         }
     }
+
+
+
     private void OnCollisionEnter(Collision collision)
     {
-        
         //if (collision.collider.tag == "Standard" || collision.collider.tag == "Ranged")
         //{
         //    //enemy damage
@@ -95,8 +98,10 @@ public class BulletLogic : MonoBehaviour
 
     public IEnumerator WaitToEnableHoming()
     {
-        yield return new WaitForSeconds(Time.fixedDeltaTime);
+        bulletSpeed = speedBeforeHoming;
+        yield return new WaitForSeconds(Time.deltaTime);
         IsHoming = true;
+        bulletSpeed = normalSpeed;
     }
 
 }

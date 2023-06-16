@@ -48,10 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fdff9919ff0b5e4690f55bfab619cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 4
+  bulletSpeed: 50
+  speedBeforeHoming: 5
+  normalSpeed: 50
   raycastDistance: 0.4
   dir: {x: 0, y: 0, z: 1}
-  IsHoming: 1
+  IsHoming: 0
   target: {fileID: 0}
   rotSpeed: 10
   DamageDealt: 0
