@@ -84,6 +84,7 @@ public class RangedEnemyAI : EnemyAI
     {
         GameObject bullet = Instantiate(bulletPrefab, BulletStartingPoint.position, BulletStartingPoint.rotation);
         bullet.GetComponent<BulletLogic>().dir = transform.forward;
+        bullet.GetComponent<BulletLogic>().DamageDealt = OwnWeapon.GetComponent<WeaponLogic>().Damage;
     }
 
     private void ResetAttack()

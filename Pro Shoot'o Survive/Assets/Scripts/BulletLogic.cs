@@ -86,12 +86,12 @@ public class BulletLogic : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //if (collision.collider.tag == "Standard" || collision.collider.tag == "Ranged")
-        //{
-        //    //enemy damage
-        //    EnemyLogic enemy = collision.collider.gameObject.GetComponent<EnemyLogic>();
-        //    enemy.currentHP -= DamageDealt;
-        //}
+        if (collision.collider.tag == "Standard" || collision.collider.tag == "Ranged")
+        {
+            //enemy damage
+            EnemyLogic enemy = collision.collider.gameObject.GetComponent<EnemyLogic>();
+            enemy.currentHP -= DamageDealt;
+        }
         Debug.Log("Collision");
         Destroy(gameObject);
     }
