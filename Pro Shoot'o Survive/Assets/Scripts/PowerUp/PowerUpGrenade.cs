@@ -6,7 +6,7 @@ public class PowerUpGrenade : PowerUp
 {
     public override void PickUp(GameObject owner)
     {
-        owner.GetComponent<ThirdPersonController>().grenades++;
+        owner.GetComponent<PlayerController>().grenades++;
         Destroy(gameObject);
     }
 

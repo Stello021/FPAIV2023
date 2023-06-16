@@ -6,7 +6,7 @@ public class PowerUpHoming : PowerUp
 {
     public override void PickUp(GameObject owner)
     {
-        owner.GetComponent<ThirdPersonController>().activeHoming = true;
+        owner.GetComponent<PlayerController>().activeHoming = true;
         Destroy(gameObject);
     }
 
