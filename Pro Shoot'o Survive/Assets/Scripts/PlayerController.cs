@@ -45,6 +45,10 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask aimMask;
 
+    [SerializeField] SkinnedMeshRenderer smr;
+    [SerializeField] Material normalMaterial;
+    [SerializeField] Material homingMaterial;
+
 
     private void Awake()
     {
@@ -78,14 +82,22 @@ public class PlayerController : MonoBehaviour
 
         if (activeHoming)
         {
-            homingTimer = homingTime;
             homingTimer -= Time.deltaTime;
 
             if (homingTimer <= 0)
             {
                 activeHoming = false;
+                smr.material = normalMaterial;
             }
         }
+        
+    }
+
+    public void ActiveteHoming()
+    {
+        activeHoming = true;
+        homingTimer = homingTime;
+        smr.material = homingMaterial;
     }
 
     public void CheckIsOnGround()
