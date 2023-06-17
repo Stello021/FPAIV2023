@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform grenadeSpawnPoint;
 
     [Header("Homing variables")]
-    public bool activeHoming;
+    private bool activeHoming;
     [SerializeField] float homingTimer;
     [SerializeField] float homingTime;
     [SerializeField] float viewRadius = 300;
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     //Input system controller
     public InputSysController InputsController { get; private set; }
 
-    public LayerMask aimMask;
+    [SerializeField] LayerMask aimMask;
 
     [SerializeField] SkinnedMeshRenderer smr;
     [SerializeField] Material normalMaterial;

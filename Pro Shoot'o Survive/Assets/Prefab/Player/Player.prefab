@@ -344,22 +344,21 @@ MonoBehaviour:
   grenadePrefab: {fileID: 8416421997194633816, guid: 5d863161cd4c0184eb5d7da647ce12e4,
     type: 3}
   grenadeSpawnPoint: {fileID: 866391988763072698}
-  activeHoming: 0
   homingTimer: 0
   homingTime: 30
   viewRadius: 300
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   rotSpeed: 0
   angleOfVision: 180
   cam: {fileID: 0}
   aimMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 832
   smr: {fileID: 2868627714407516670}
   normalMaterial: {fileID: 2100000, guid: 11473f6bfb61e0245b60784ebb60cfef, type: 2}
   homingMaterial: {fileID: 2100000, guid: 26f3fa9c3bc73444fa542bd796157072, type: 2}
