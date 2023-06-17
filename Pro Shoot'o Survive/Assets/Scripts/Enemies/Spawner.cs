@@ -10,12 +10,12 @@ public class Spawner : MonoBehaviour
 {
     public List<GameObject> EnemiesPrefabs;
     public Transform Target;
-    private List<GameObject> EnemiesSpawned;
     public SpawnerType type;
+
+    private WaveSceneManager wsm;
     // Start is called before the first frame update
     void Start()
     {
-        EnemiesSpawned= new List<GameObject>();
         if (EnemiesPrefabs[0].gameObject.CompareTag("Standard"))
         {
             type = SpawnerType.Standard;
@@ -24,6 +24,7 @@ public class Spawner : MonoBehaviour
         {
             type = SpawnerType.Ranged;
         }
+        wsm = FindFirstObjectByType<WaveSceneManager>();
     }
 
     // Update is called once per frame
@@ -41,28 +42,6 @@ public class Spawner : MonoBehaviour
         e.enemyAgent.speed = e.enemyAgent.speed * speedMultiplier;
         enemyLogic.MaxHP = enemyLogic.MaxHP * hpMultiplier;
         e.PlayerTransform = Target;
-        EnemiesSpawned.Add(go);
-        //StartCoroutine(SpawnRoutine(enemiesToSpawn));
-    }
-
-    public void DestroyEnemies()
-    {
-        for (int i = 0; i < EnemiesSpawned.Count; i++)
-        {
-            Destroy(EnemiesSpawned[i]);
-        }
-    }
-
-    IEnumerator SpawnRoutine(int enemiesToSpawn)
-    {
-        for (int i = 0; i < enemiesToSpawn; i++)
-        {
-            int randomIndex = Random.Range(0, EnemiesPrefabs.Count);
-            GameObject go = Instantiate(EnemiesPrefabs[randomIndex], transform.position, Quaternion.identity);
-            EnemyAI e = go.GetComponent<EnemyAI>();
-            e.PlayerTransform = Target;
-            EnemiesSpawned.Add(go);
-            yield return new WaitForSeconds(5f);
-        }
+        wsm.EnemiesSpawned.Add(go);
     }
 }
