@@ -17,51 +17,53 @@ public class BulletLogic : MonoBehaviour
 
     public float DamageDealt;
 
-    private Rigidbody rb;
+    //[SerializeField] Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (IsHoming) HomingMovement();
-        else StandardMovement();
-    }
-
-    //private void Update()
+    //void FixedUpdate()
     //{
-    //    if (IsHoming)
-    //    {
-    //        HomingMovement();
-    //    }
-    //    else
-    //    {
-    //        StandardMovement();
-    //    }
-
-    //    //RaycastHit hit;
-    //    //if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
-    //    //{
-    //    //    if (hit.collider.tag == "Standard" || hit.collider.tag == "Ranged")
-    //    //    {
-    //    //        //enemy damage
-    //    //        EnemyLogic enemy = hit.collider.gameObject.GetComponent<EnemyLogic>();
-    //    //        enemy.currentHP -= DamageDealt;
-    //    //    }
-    //    //    Destroy(gameObject);
-    //    //}
+    //    if (IsHoming) HomingMovement();
+    //    else StandardMovement();
     //}
+
+    private void Update()
+    {
+        if (IsHoming)
+        {
+            HomingMovement();
+        }
+        else
+        {
+            StandardMovement();
+        }
+
+        //RaycastHit hit;
+        //if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
+        //{
+        //    if (hit.collider.tag == "Standard" || hit.collider.tag == "Ranged")
+        //    {
+        //        //enemy damage
+        //        EnemyLogic enemy = hit.collider.gameObject.GetComponent<EnemyLogic>();
+        //        enemy.currentHP -= DamageDealt;
+        //    }
+        //    Destroy(gameObject);
+        //}
+    }
 
     private void StandardMovement()
     {
-        rb.velocity = bulletSpeed * Time.fixedDeltaTime * dir;
+        //rb.velocity = dir * bulletSpeed;
+        
+        transform.position += dir * bulletSpeed * Time.deltaTime;
     }
 
-    private void HomingMovement()
+    private void HomingMovement() 
     {
         if (target != null)
         {
@@ -84,19 +86,13 @@ public class BulletLogic : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Player"))
-        {
-            return;
-        }
-
-        if (collision.collider.CompareTag("Standard") || collision.collider.CompareTag("Ranged"))
+        if (collision.collider.tag == "Standard" || collision.collider.tag == "Ranged")
         {
             //enemy damage
             EnemyLogic enemy = collision.collider.gameObject.GetComponent<EnemyLogic>();
             enemy.currentHP -= DamageDealt;
             Debug.Log(enemy.currentHP);
         }
-<<<<<<< Updated upstream
 
         if (collision.collider.tag == "Player")
         {
@@ -105,9 +101,6 @@ public class BulletLogic : MonoBehaviour
         }
 
         Debug.Log("Collision");
-=======
-        //Debug.Log("Collision");
->>>>>>> Stashed changes
         Destroy(gameObject);
     }
 
