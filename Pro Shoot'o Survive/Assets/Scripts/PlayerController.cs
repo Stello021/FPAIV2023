@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -266,6 +267,11 @@ public class PlayerController : MonoBehaviour
     {
         //damageDealt = PlayerLogic.Instance.damage;
         //playerMoveSpeed = PlayerLogic.Instance.speed;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene(2);
     }
 
 }
