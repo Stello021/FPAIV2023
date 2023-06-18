@@ -30,7 +30,7 @@ public class PlayerLogic : MonoBehaviour
     private void Start()
     {
         actuallyMaxHp = hpMax;
-        BarsManager.Instance.playerRef = this;
+        //BarsManager.Instance.playerRef = this;
     }
 
     // Update is called once per frame

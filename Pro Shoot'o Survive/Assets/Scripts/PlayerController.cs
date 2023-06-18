@@ -13,7 +13,12 @@ public class PlayerController : MonoBehaviour
     private Animator animator; // Reference to the Animator component for controlling animations.
     private float gravityVelocity; // Player's current velocity.
     private bool isJumping; // Flag indicating if the player is currently jumping.
+<<<<<<< Updated upstream
     [SerializeField] float damageDealt;
+=======
+    public bool IsAiming { get; private set; }
+    private float damageDealt;
+>>>>>>> Stashed changes
 
     [Header("\nBullet reference variables")]
     [SerializeField] private GameObject Bullet; // Reference to Bullet prefab.
@@ -81,6 +86,8 @@ public class PlayerController : MonoBehaviour
         CheckIsOnGround();
 
         ThrowGrenade();
+
+        Aim();
         Shoot();
 
         MovePlayer();
@@ -169,10 +176,43 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Aim()
+    {
+        if (IsAiming)
+        {
+            Vector3 cameraEulerAnglesY = transform.eulerAngles;
+
+            cameraEulerAnglesY.y = cam.transform.eulerAngles.y;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(cameraEulerAnglesY), playerRotationSpeed * Time.deltaTime);
+        }
+
+        if (!InputsController.OnInputTrigger("Aim"))
+        {
+            return;
+        }
+
+        IsAiming = !IsAiming;
+
+        animator.SetInteger("WeaponType_int", Convert.ToInt32(IsAiming));
+        animator.SetBool("Shoot_b", false);
+        animator.SetBool("Reload_b", false);
+    }
+
     private void Shoot()
     {
-        if (!InputsController.OnInputTrigger("Shoot"))
+        if (!InputsController.OnInputTrigger("Shoot") || !IsAiming)
         {
+            if (!IsAiming)
+            {
+                animator.SetInteger("WeaponType_int", 0);
+                animator.SetBool("Shoot_b", false);
+            }
+
+            else
+            {
+                animator.SetBool("Shoot_b", false);
+            }
+
             return;
         }
 
@@ -192,7 +232,12 @@ public class PlayerController : MonoBehaviour
             }
 
             GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
+<<<<<<< Updated upstream
             
+=======
+
+
+>>>>>>> Stashed changes
             bullet.GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction
             bullet.GetComponent<BulletLogic>().DamageDealt = damageDealt;
         }
@@ -203,8 +248,11 @@ public class PlayerController : MonoBehaviour
             bullet.target = SetTarget();
             bullet.DamageDealt = damageDealt;
             StartCoroutine(bullet.WaitToEnableHoming());
-
         }
+
+        animator.SetInteger("WeaponType_int", 1);
+        animator.SetBool("Reload_b", false);
+        animator.SetBool("Shoot_b", true);
     }
 
     public void Jump()

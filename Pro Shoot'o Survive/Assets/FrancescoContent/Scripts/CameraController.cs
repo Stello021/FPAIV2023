@@ -8,7 +8,8 @@ public class CameraController : MonoBehaviour
 {
     [Header("Player references")]
     [SerializeField] private GameObject player;
-    public InputSysController PlayerInputsController { get { return player.GetComponent<PlayerController>().InputsController; } }
+    public PlayerController PlayerController { get { return player.GetComponent<PlayerController>(); } }
+    public InputSysController PlayerInputsController { get { return PlayerController.InputsController; } }
 
     [Header("\nCamera variables")]
     [SerializeField] private float cameraMoveSpeedOnRotation;
@@ -16,20 +17,31 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float cameraRotationSpeed;
     [SerializeField] private float minCameraOffsetY;
     [SerializeField] private float maxCameraOffsetY;
-    [SerializeField] private Vector3 cameraStartPosOffset;
-    [SerializeField] private Vector3 cameraFixedPosOffset;
-    [SerializeField] private Vector3 cameraPosOffset;
+    [SerializeField] private Vector3 cameraMovePosOffset;
+    [SerializeField] private Vector3 cameraAimPosOffset;
+
+    [SerializeField] private Vector3 cameraMoveFixedPosOffsetAsLookRotation;
+    [SerializeField] private Vector3 cameraAimFixedPosOffsetAsLookRotation;
+
     [SerializeField] private float cameraCollisionOffsetMagnitude;
+
+    private Vector3 cameraCurrentPosOffsetAsMagnitude;
+    private Vector3 cameraCurrentPosOffset;
+
+    private Vector3 cameraCurrentFixedPosOffsetAsLookRotation;
 
     [Header("\nCrossHair variables")]
     [SerializeField] private RectTransform crossHairTransform;
+    [SerializeField] private float crossHairPositionX_Offset;
 
     private RaycastHit cameraHitInfo;
 
     // Start is called before the first frame update
     void Start()
     {
-        cameraPosOffset = cameraStartPosOffset;
+        cameraCurrentPosOffset = cameraCurrentPosOffsetAsMagnitude = cameraMovePosOffset;
+        cameraCurrentFixedPosOffsetAsLookRotation = cameraMoveFixedPosOffsetAsLookRotation;
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -38,12 +50,12 @@ public class CameraController : MonoBehaviour
     {
         if (IsCameraColliding())
         {
-            transform.position = player.transform.position + cameraPosOffset;
+            transform.position = player.transform.position + cameraCurrentPosOffset;
 
             return;
         }
 
-        transform.position = Vector3.Lerp(transform.position, player.transform.position + cameraPosOffset, lerpToPLayerPositionAndCameraPosOffsetSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, player.transform.position + cameraCurrentPosOffset, lerpToPLayerPositionAndCameraPosOffsetSpeed * Time.deltaTime);
     }
 
     public void MoveCameraOrbitally()
@@ -72,11 +84,11 @@ public class CameraController : MonoBehaviour
 
         else
         {
-            currentRotationY = Mathf.Atan2(cameraPosOffset.z, cameraPosOffset.x);
+            currentRotationY = Mathf.Atan2(cameraCurrentPosOffset.z, cameraCurrentPosOffset.x);
             currentRotationY += mouseDeltaDir.x * (cameraMoveSpeedOnRotation * 0.5f) * Time.deltaTime;
 
             newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
-            newOffset *= new Vector3(cameraStartPosOffset.x, 0, cameraStartPosOffset.z).magnitude;
+            newOffset *= new Vector3(cameraCurrentPosOffsetAsMagnitude.x, 0, cameraCurrentPosOffsetAsMagnitude.z).magnitude;
         }
 
         cameraEulerAnglesY = transform.eulerAngles.y;
@@ -86,29 +98,29 @@ public class CameraController : MonoBehaviour
             cameraEulerAnglesY = 360 - cameraEulerAnglesY;
         }
 
-        crossHairPosition.x = cameraEulerAnglesY;
+        crossHairPosition.x = cameraEulerAnglesY + crossHairPositionX_Offset;
         crossHairTransform.localPosition = crossHairPosition;
 
-        newOffset.y = cameraPosOffset.y;
-        cameraPosOffset = newOffset;
+        newOffset.y = cameraCurrentPosOffset.y;
+        cameraCurrentPosOffset = newOffset;
     }
 
     public void ConcaveCameraMove()
     {
         //this movement will happen when we rotate camera pitch (x axis)
 
-        float currentRotationX = Mathf.Atan2(cameraPosOffset.z, cameraPosOffset.y);
+        float currentRotationX = Mathf.Atan2(cameraCurrentPosOffset.z, cameraCurrentPosOffset.y);
         Vector3 newOffset = new Vector3(0, Mathf.Cos(currentRotationX), Mathf.Sin(currentRotationX));
         Vector2 mouseDeltaDir = PlayerInputsController.GetInputValue<Vector2>("MouseDeltaDir");
 
-        newOffset *= new Vector3(0, cameraPosOffset.y, cameraPosOffset.z).magnitude;
+        newOffset *= new Vector3(0, cameraCurrentPosOffset.y, cameraCurrentPosOffset.z).magnitude;
 
         newOffset.y += mouseDeltaDir.y * cameraMoveSpeedOnRotation * Time.deltaTime;
         newOffset.y = Mathf.Clamp(newOffset.y, minCameraOffsetY, maxCameraOffsetY);
 
-        newOffset.x = cameraPosOffset.x;
+        newOffset.x = cameraCurrentPosOffset.x;
 
-        cameraPosOffset = newOffset;
+        cameraCurrentPosOffset = newOffset;
     }
 
     public void RotateCamera()
@@ -117,7 +129,7 @@ public class CameraController : MonoBehaviour
         Quaternion previousRotation = transform.rotation;
         Quaternion lastRotation = Quaternion.identity;
 
-        cameraToTarget += cameraFixedPosOffset;
+        cameraToTarget += cameraCurrentFixedPosOffsetAsLookRotation;
 
         transform.rotation = Quaternion.LookRotation(cameraToTarget, Vector3.up);
 
@@ -148,9 +160,25 @@ public class CameraController : MonoBehaviour
         return false;
     }
 
+    public void OnPlayerAim()
+    {
+        if (PlayerController.IsAiming)
+        {
+            cameraCurrentPosOffsetAsMagnitude = cameraAimPosOffset;
+            cameraCurrentFixedPosOffsetAsLookRotation = cameraAimFixedPosOffsetAsLookRotation;
+
+            return;
+        }
+
+        cameraCurrentPosOffsetAsMagnitude = cameraMovePosOffset;
+        cameraCurrentFixedPosOffsetAsLookRotation = cameraMoveFixedPosOffsetAsLookRotation;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        OnPlayerAim();
+
         MoveCamera();
 
         MoveCameraOrbitally();

@@ -271,7 +271,7 @@ Transform:
   - {fileID: 5556613329380079112}
   - {fileID: 866391988763072698}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3047167158606249523
 Animator:
@@ -339,7 +339,11 @@ MonoBehaviour:
   Bullet: {fileID: 2405495413867421730, guid: 84cfd7d88325e044c8b71077cb2d4dcc, type: 3}
   BulletSpawn: {fileID: 5831531739084673375}
   CentreCameraTarget: {fileID: 5556613329380079112}
+<<<<<<< Updated upstream
   hp: 100
+=======
+  hp: 0
+>>>>>>> Stashed changes
   armour: 0
   grenades: 0
   grenadePrefab: {fileID: 8416421997194633816, guid: 5d863161cd4c0184eb5d7da647ce12e4,
@@ -359,10 +363,14 @@ MonoBehaviour:
   cam: {fileID: 0}
   aimMask:
     serializedVersion: 2
+<<<<<<< Updated upstream
     m_Bits: 832
   smr: {fileID: 2868627714407516670}
   normalMaterial: {fileID: 2100000, guid: 11473f6bfb61e0245b60784ebb60cfef, type: 2}
   homingMaterial: {fileID: 2100000, guid: 26f3fa9c3bc73444fa542bd796157072, type: 2}
+=======
+    m_Bits: 1
+>>>>>>> Stashed changes
 --- !u!1 &1109565101684327897
 GameObject:
   m_ObjectHideFlags: 0
