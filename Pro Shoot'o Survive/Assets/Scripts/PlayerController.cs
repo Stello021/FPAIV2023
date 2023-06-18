@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator; // Reference to the Animator component for controlling animations.
     private float gravityVelocity; // Player's current velocity.
     private bool isJumping; // Flag indicating if the player is currently jumping.
-    float damageDealt;
+    [SerializeField] float damageDealt;
 
     [Header("\nBullet reference variables")]
     [SerializeField] private GameObject Bullet; // Reference to Bullet prefab.
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform grenadeSpawnPoint;
 
     [Header("Homing variables")]
-    public bool activeHoming;
+    private bool activeHoming;
     [SerializeField] float homingTimer;
     [SerializeField] float homingTime;
     [SerializeField] float viewRadius = 300;
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
     //Input system controller
     public InputSysController InputsController { get; private set; }
 
-    public LayerMask aimMask;
+    [SerializeField] LayerMask aimMask;
 
     [SerializeField] SkinnedMeshRenderer smr;
     [SerializeField] Material normalMaterial;
@@ -93,7 +94,21 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void ActiveteHoming()
+    public void ReceiveDamage(float damage)
+    {
+        if (armour > 0)
+        {
+            armour -= damage;
+            UpdateArmourText();
+        }
+        else
+        {
+            hp -= damage;
+            UpdateHPText();
+        }
+    }
+
+    public void ActivateHoming()
     {
         activeHoming = true;
         homingTimer = homingTime;
@@ -266,6 +281,11 @@ public class PlayerController : MonoBehaviour
     {
         //damageDealt = PlayerLogic.Instance.damage;
         //playerMoveSpeed = PlayerLogic.Instance.speed;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene(2);
     }
 
 }
