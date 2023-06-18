@@ -24,7 +24,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
     ""name"": ""PlayerInputSystem"",
     ""maps"": [
         {
-            ""name"": ""CameraMoveInput"",
+            ""name"": ""PlayerInputs"",
             ""id"": ""8b445174-f6d1-4a54-ba59-537134e83e28"",
             ""actions"": [
                 {
@@ -32,87 +32,91 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""20c23aac-ef15-4602-a15c-da2ae7705a4b"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
+                    ""processors"": ""NormalizeVector2,StickDeadzone(min=0.5,max=1),InvertVector2"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": ""Dir"",
-                    ""id"": ""0b437d94-fa60-4ca9-81d7-d383b1af60c0"",
-                    ""path"": ""2DVector(mode=2)"",
-                    ""interactions"": """",
-                    ""processors"": ""StickDeadzone(min=0.5,max=1),NormalizeVector2"",
-                    ""groups"": """",
-                    ""action"": ""MouseDeltaDir"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
                 },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""53e328c3-876f-4279-b6a8-eaf22ac34014"",
-                    ""path"": ""<Mouse>/delta/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseDeltaDir"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""8d2ab6ca-8891-4f29-a738-2f420e4832bb"",
-                    ""path"": ""<Mouse>/delta/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseDeltaDir"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""501c025c-f78a-486d-ab6c-9c0dd48298d6"",
-                    ""path"": ""<Mouse>/delta/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseDeltaDir"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""5a7b8cfa-f3b4-4bbe-b199-961be1a4b678"",
-                    ""path"": ""<Mouse>/delta/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseDeltaDir"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                }
-            ]
-        },
-        {
-            ""name"": ""MovePlayerInput"",
-            ""id"": ""bd41497c-efa8-4b82-af88-2c5a65ccc313"",
-            ""actions"": [
                 {
                     ""name"": ""MoveDir"",
                     ""type"": ""Value"",
-                    ""id"": ""89435154-3218-4814-ac58-471a894c28eb"",
+                    ""id"": ""d1c316ee-1649-44d0-8c0e-22e6b090b2fd"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Value"",
+                    ""id"": ""eeeddac3-6a6e-4e8d-96a7-81679c91d520"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""c0f1fc9e-3d4a-426c-8bf5-cbb95d1d0a2b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Value"",
+                    ""id"": ""ed817106-8be4-4574-8fee-c4ab18f2b84c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ThrowGrenade"",
+                    ""type"": ""Value"",
+                    ""id"": ""d90455d8-f6fb-4e1b-91e0-823a717de61a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Value"",
+                    ""id"": ""dab2d8fd-78cf-495d-9f39-2a48cc1da6fd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
+                    ""name"": """",
+                    ""id"": ""301167d8-bf38-4764-9ef3-760dd44bde70"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseDeltaDir"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ffadc8ac-191d-4e4d-90bf-7ae592760faa"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseDeltaDir"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""Dir"",
-                    ""id"": ""8ce8562f-c5e1-4856-afc0-537a935cb7a3"",
+                    ""id"": ""649b0d87-ba8d-49e0-8277-236baebdd1b2"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -123,7 +127,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Up"",
-                    ""id"": ""d8aa8038-af15-4e97-8092-f2ebd9246f69"",
+                    ""id"": ""c406fe01-be87-4556-bb56-f4cefa1356a4"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -134,7 +138,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Down"",
-                    ""id"": ""cd05cfd4-3f5d-4fb3-af03-5c3f8f1eb62a"",
+                    ""id"": ""d98f60e5-8e44-4ce0-9135-05f64583e23e"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -145,7 +149,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Left"",
-                    ""id"": ""0ada5d0f-f5ac-4273-a7fa-c46ee05c0cf4"",
+                    ""id"": ""a059a825-61f7-4625-8bdd-f244b3b70149"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -156,7 +160,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Right"",
-                    ""id"": ""e7eef1cb-8d20-4d4a-9ad1-473cac73c07d"",
+                    ""id"": ""9870d687-2321-455f-9b61-b2f0fa4fad2f"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -164,27 +168,21 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                     ""action"": ""MoveDir"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                }
-            ]
-        },
-        {
-            ""name"": ""JumpInput"",
-            ""id"": ""b9e3f3ba-d282-4938-ae2a-3d009374a33d"",
-            ""actions"": [
-                {
-                    ""name"": ""Jump"",
-                    ""type"": ""Value"",
-                    ""id"": ""91f40adf-7424-4675-a013-bd9fb0ffef44"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""abc1c5eb-0c26-4d55-aadf-fc2e77032973"",
+                    ""id"": ""efff73e4-8a03-44cf-b33d-5be13bd50415"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveDir"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97aa97d6-823c-40af-a845-ce9eae457942"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -192,27 +190,21 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""ShootInput"",
-            ""id"": ""7346e121-fd62-4ca3-b266-3d52edd47f19"",
-            ""actions"": [
-                {
-                    ""name"": ""Shoot"",
-                    ""type"": ""Value"",
-                    ""id"": ""301824b1-f33a-45a7-bc92-291180604bb6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""aaec6664-d2c7-4950-b211-7d1834ef55d5"",
+                    ""id"": ""e8672cca-a649-433c-9a7a-e9225ba20cd5"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c21dcc57-27cd-4f45-bb03-5835767f7381"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -220,27 +212,21 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""ThrowGrenade"",
-            ""id"": ""466d5e32-2b97-4a96-a645-78251b902bd9"",
-            ""actions"": [
-                {
-                    ""name"": ""ThrowGrenade"",
-                    ""type"": ""Value"",
-                    ""id"": ""7a37c636-7d54-402b-b618-2b3ea2b3ae66"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""2087ec77-5776-4336-a809-f4dea0bba116"",
+                    ""id"": ""2522c4ab-dd7e-417f-9224-34f13dac733a"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5405718d-10a9-4e24-8e29-eab6562133cd"",
                     ""path"": ""<Keyboard>/g"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -251,12 +237,67 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""37b82d6d-af88-4a84-a014-cf7c3d86f043"",
+                    ""id"": ""9c7302d2-2350-4e73-be7e-0fe6bfda17ff"",
                     ""path"": ""<Mouse>/middleButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ThrowGrenade"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08e8dd3f-d26a-455e-9f2a-6a1843c81088"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThrowGrenade"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""117df93a-9a90-4d25-81f1-b72e658faaea"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1c68acce-6f82-49de-8798-cc7681bbdfe9"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba1fa025-9be5-42b7-8c96-d732fc18caf0"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d1606f27-3799-46ec-b04f-0b06323da967"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -265,21 +306,15 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // CameraMoveInput
-        m_CameraMoveInput = asset.FindActionMap("CameraMoveInput", throwIfNotFound: true);
-        m_CameraMoveInput_MouseDeltaDir = m_CameraMoveInput.FindAction("MouseDeltaDir", throwIfNotFound: true);
-        // MovePlayerInput
-        m_MovePlayerInput = asset.FindActionMap("MovePlayerInput", throwIfNotFound: true);
-        m_MovePlayerInput_MoveDir = m_MovePlayerInput.FindAction("MoveDir", throwIfNotFound: true);
-        // JumpInput
-        m_JumpInput = asset.FindActionMap("JumpInput", throwIfNotFound: true);
-        m_JumpInput_Jump = m_JumpInput.FindAction("Jump", throwIfNotFound: true);
-        // ShootInput
-        m_ShootInput = asset.FindActionMap("ShootInput", throwIfNotFound: true);
-        m_ShootInput_Shoot = m_ShootInput.FindAction("Shoot", throwIfNotFound: true);
-        // ThrowGrenade
-        m_ThrowGrenade = asset.FindActionMap("ThrowGrenade", throwIfNotFound: true);
-        m_ThrowGrenade_ThrowGrenade = m_ThrowGrenade.FindAction("ThrowGrenade", throwIfNotFound: true);
+        // PlayerInputs
+        m_PlayerInputs = asset.FindActionMap("PlayerInputs", throwIfNotFound: true);
+        m_PlayerInputs_MouseDeltaDir = m_PlayerInputs.FindAction("MouseDeltaDir", throwIfNotFound: true);
+        m_PlayerInputs_MoveDir = m_PlayerInputs.FindAction("MoveDir", throwIfNotFound: true);
+        m_PlayerInputs_Jump = m_PlayerInputs.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerInputs_Aim = m_PlayerInputs.FindAction("Aim", throwIfNotFound: true);
+        m_PlayerInputs_Shoot = m_PlayerInputs.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerInputs_ThrowGrenade = m_PlayerInputs.FindAction("ThrowGrenade", throwIfNotFound: true);
+        m_PlayerInputs_PauseMenu = m_PlayerInputs.FindAction("PauseMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -338,253 +373,107 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // CameraMoveInput
-    private readonly InputActionMap m_CameraMoveInput;
-    private List<ICameraMoveInputActions> m_CameraMoveInputActionsCallbackInterfaces = new List<ICameraMoveInputActions>();
-    private readonly InputAction m_CameraMoveInput_MouseDeltaDir;
-    public struct CameraMoveInputActions
+    // PlayerInputs
+    private readonly InputActionMap m_PlayerInputs;
+    private List<IPlayerInputsActions> m_PlayerInputsActionsCallbackInterfaces = new List<IPlayerInputsActions>();
+    private readonly InputAction m_PlayerInputs_MouseDeltaDir;
+    private readonly InputAction m_PlayerInputs_MoveDir;
+    private readonly InputAction m_PlayerInputs_Jump;
+    private readonly InputAction m_PlayerInputs_Aim;
+    private readonly InputAction m_PlayerInputs_Shoot;
+    private readonly InputAction m_PlayerInputs_ThrowGrenade;
+    private readonly InputAction m_PlayerInputs_PauseMenu;
+    public struct PlayerInputsActions
     {
         private @PlayerInputSys m_Wrapper;
-        public CameraMoveInputActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MouseDeltaDir => m_Wrapper.m_CameraMoveInput_MouseDeltaDir;
-        public InputActionMap Get() { return m_Wrapper.m_CameraMoveInput; }
+        public PlayerInputsActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MouseDeltaDir => m_Wrapper.m_PlayerInputs_MouseDeltaDir;
+        public InputAction @MoveDir => m_Wrapper.m_PlayerInputs_MoveDir;
+        public InputAction @Jump => m_Wrapper.m_PlayerInputs_Jump;
+        public InputAction @Aim => m_Wrapper.m_PlayerInputs_Aim;
+        public InputAction @Shoot => m_Wrapper.m_PlayerInputs_Shoot;
+        public InputAction @ThrowGrenade => m_Wrapper.m_PlayerInputs_ThrowGrenade;
+        public InputAction @PauseMenu => m_Wrapper.m_PlayerInputs_PauseMenu;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerInputs; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(CameraMoveInputActions set) { return set.Get(); }
-        public void AddCallbacks(ICameraMoveInputActions instance)
+        public static implicit operator InputActionMap(PlayerInputsActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerInputsActions instance)
         {
-            if (instance == null || m_Wrapper.m_CameraMoveInputActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_CameraMoveInputActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_PlayerInputsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerInputsActionsCallbackInterfaces.Add(instance);
             @MouseDeltaDir.started += instance.OnMouseDeltaDir;
             @MouseDeltaDir.performed += instance.OnMouseDeltaDir;
             @MouseDeltaDir.canceled += instance.OnMouseDeltaDir;
+            @MoveDir.started += instance.OnMoveDir;
+            @MoveDir.performed += instance.OnMoveDir;
+            @MoveDir.canceled += instance.OnMoveDir;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @Aim.started += instance.OnAim;
+            @Aim.performed += instance.OnAim;
+            @Aim.canceled += instance.OnAim;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @ThrowGrenade.started += instance.OnThrowGrenade;
+            @ThrowGrenade.performed += instance.OnThrowGrenade;
+            @ThrowGrenade.canceled += instance.OnThrowGrenade;
+            @PauseMenu.started += instance.OnPauseMenu;
+            @PauseMenu.performed += instance.OnPauseMenu;
+            @PauseMenu.canceled += instance.OnPauseMenu;
         }
 
-        private void UnregisterCallbacks(ICameraMoveInputActions instance)
+        private void UnregisterCallbacks(IPlayerInputsActions instance)
         {
             @MouseDeltaDir.started -= instance.OnMouseDeltaDir;
             @MouseDeltaDir.performed -= instance.OnMouseDeltaDir;
             @MouseDeltaDir.canceled -= instance.OnMouseDeltaDir;
-        }
-
-        public void RemoveCallbacks(ICameraMoveInputActions instance)
-        {
-            if (m_Wrapper.m_CameraMoveInputActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(ICameraMoveInputActions instance)
-        {
-            foreach (var item in m_Wrapper.m_CameraMoveInputActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_CameraMoveInputActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public CameraMoveInputActions @CameraMoveInput => new CameraMoveInputActions(this);
-
-    // MovePlayerInput
-    private readonly InputActionMap m_MovePlayerInput;
-    private List<IMovePlayerInputActions> m_MovePlayerInputActionsCallbackInterfaces = new List<IMovePlayerInputActions>();
-    private readonly InputAction m_MovePlayerInput_MoveDir;
-    public struct MovePlayerInputActions
-    {
-        private @PlayerInputSys m_Wrapper;
-        public MovePlayerInputActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MoveDir => m_Wrapper.m_MovePlayerInput_MoveDir;
-        public InputActionMap Get() { return m_Wrapper.m_MovePlayerInput; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MovePlayerInputActions set) { return set.Get(); }
-        public void AddCallbacks(IMovePlayerInputActions instance)
-        {
-            if (instance == null || m_Wrapper.m_MovePlayerInputActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_MovePlayerInputActionsCallbackInterfaces.Add(instance);
-            @MoveDir.started += instance.OnMoveDir;
-            @MoveDir.performed += instance.OnMoveDir;
-            @MoveDir.canceled += instance.OnMoveDir;
-        }
-
-        private void UnregisterCallbacks(IMovePlayerInputActions instance)
-        {
             @MoveDir.started -= instance.OnMoveDir;
             @MoveDir.performed -= instance.OnMoveDir;
             @MoveDir.canceled -= instance.OnMoveDir;
-        }
-
-        public void RemoveCallbacks(IMovePlayerInputActions instance)
-        {
-            if (m_Wrapper.m_MovePlayerInputActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IMovePlayerInputActions instance)
-        {
-            foreach (var item in m_Wrapper.m_MovePlayerInputActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_MovePlayerInputActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public MovePlayerInputActions @MovePlayerInput => new MovePlayerInputActions(this);
-
-    // JumpInput
-    private readonly InputActionMap m_JumpInput;
-    private List<IJumpInputActions> m_JumpInputActionsCallbackInterfaces = new List<IJumpInputActions>();
-    private readonly InputAction m_JumpInput_Jump;
-    public struct JumpInputActions
-    {
-        private @PlayerInputSys m_Wrapper;
-        public JumpInputActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Jump => m_Wrapper.m_JumpInput_Jump;
-        public InputActionMap Get() { return m_Wrapper.m_JumpInput; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(JumpInputActions set) { return set.Get(); }
-        public void AddCallbacks(IJumpInputActions instance)
-        {
-            if (instance == null || m_Wrapper.m_JumpInputActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_JumpInputActionsCallbackInterfaces.Add(instance);
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
-        }
-
-        private void UnregisterCallbacks(IJumpInputActions instance)
-        {
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
-        }
-
-        public void RemoveCallbacks(IJumpInputActions instance)
-        {
-            if (m_Wrapper.m_JumpInputActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IJumpInputActions instance)
-        {
-            foreach (var item in m_Wrapper.m_JumpInputActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_JumpInputActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public JumpInputActions @JumpInput => new JumpInputActions(this);
-
-    // ShootInput
-    private readonly InputActionMap m_ShootInput;
-    private List<IShootInputActions> m_ShootInputActionsCallbackInterfaces = new List<IShootInputActions>();
-    private readonly InputAction m_ShootInput_Shoot;
-    public struct ShootInputActions
-    {
-        private @PlayerInputSys m_Wrapper;
-        public ShootInputActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Shoot => m_Wrapper.m_ShootInput_Shoot;
-        public InputActionMap Get() { return m_Wrapper.m_ShootInput; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ShootInputActions set) { return set.Get(); }
-        public void AddCallbacks(IShootInputActions instance)
-        {
-            if (instance == null || m_Wrapper.m_ShootInputActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_ShootInputActionsCallbackInterfaces.Add(instance);
-            @Shoot.started += instance.OnShoot;
-            @Shoot.performed += instance.OnShoot;
-            @Shoot.canceled += instance.OnShoot;
-        }
-
-        private void UnregisterCallbacks(IShootInputActions instance)
-        {
+            @Aim.started -= instance.OnAim;
+            @Aim.performed -= instance.OnAim;
+            @Aim.canceled -= instance.OnAim;
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
-        }
-
-        public void RemoveCallbacks(IShootInputActions instance)
-        {
-            if (m_Wrapper.m_ShootInputActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IShootInputActions instance)
-        {
-            foreach (var item in m_Wrapper.m_ShootInputActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_ShootInputActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public ShootInputActions @ShootInput => new ShootInputActions(this);
-
-    // ThrowGrenade
-    private readonly InputActionMap m_ThrowGrenade;
-    private List<IThrowGrenadeActions> m_ThrowGrenadeActionsCallbackInterfaces = new List<IThrowGrenadeActions>();
-    private readonly InputAction m_ThrowGrenade_ThrowGrenade;
-    public struct ThrowGrenadeActions
-    {
-        private @PlayerInputSys m_Wrapper;
-        public ThrowGrenadeActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
-        public InputAction @ThrowGrenade => m_Wrapper.m_ThrowGrenade_ThrowGrenade;
-        public InputActionMap Get() { return m_Wrapper.m_ThrowGrenade; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ThrowGrenadeActions set) { return set.Get(); }
-        public void AddCallbacks(IThrowGrenadeActions instance)
-        {
-            if (instance == null || m_Wrapper.m_ThrowGrenadeActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_ThrowGrenadeActionsCallbackInterfaces.Add(instance);
-            @ThrowGrenade.started += instance.OnThrowGrenade;
-            @ThrowGrenade.performed += instance.OnThrowGrenade;
-            @ThrowGrenade.canceled += instance.OnThrowGrenade;
-        }
-
-        private void UnregisterCallbacks(IThrowGrenadeActions instance)
-        {
             @ThrowGrenade.started -= instance.OnThrowGrenade;
             @ThrowGrenade.performed -= instance.OnThrowGrenade;
             @ThrowGrenade.canceled -= instance.OnThrowGrenade;
+            @PauseMenu.started -= instance.OnPauseMenu;
+            @PauseMenu.performed -= instance.OnPauseMenu;
+            @PauseMenu.canceled -= instance.OnPauseMenu;
         }
 
-        public void RemoveCallbacks(IThrowGrenadeActions instance)
+        public void RemoveCallbacks(IPlayerInputsActions instance)
         {
-            if (m_Wrapper.m_ThrowGrenadeActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerInputsActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IThrowGrenadeActions instance)
+        public void SetCallbacks(IPlayerInputsActions instance)
         {
-            foreach (var item in m_Wrapper.m_ThrowGrenadeActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerInputsActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_ThrowGrenadeActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerInputsActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public ThrowGrenadeActions @ThrowGrenade => new ThrowGrenadeActions(this);
-    public interface ICameraMoveInputActions
+    public PlayerInputsActions @PlayerInputs => new PlayerInputsActions(this);
+    public interface IPlayerInputsActions
     {
         void OnMouseDeltaDir(InputAction.CallbackContext context);
-    }
-    public interface IMovePlayerInputActions
-    {
         void OnMoveDir(InputAction.CallbackContext context);
-    }
-    public interface IJumpInputActions
-    {
         void OnJump(InputAction.CallbackContext context);
-    }
-    public interface IShootInputActions
-    {
+        void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
-    }
-    public interface IThrowGrenadeActions
-    {
         void OnThrowGrenade(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
     }
 }
