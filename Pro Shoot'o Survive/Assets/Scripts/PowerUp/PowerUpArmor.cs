@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PowerUpArmor : PowerUp
 {
-    [SerializeField] float armourAmount = 25;
+    [SerializeField] float armorAmount = 25;
     public override void PickUp(GameObject owner)
     {
         PlayerController player = owner.GetComponent<PlayerController>();
-        player.armour += armourAmount;
-        //player.UpdateArmourText();
+        player.Armor += armorAmount;
+        //player.UpdateArmorText();
         Destroy(gameObject);
     }
 }
