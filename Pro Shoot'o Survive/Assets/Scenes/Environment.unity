@@ -7205,7 +7205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1378514513
 Transform:
   m_ObjectHideFlags: 0
@@ -7313,7 +7313,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 1383079909}
   reloadTime: 3
-  reloadElapsedTime: 0
 --- !u!1001 &1395485461
 PrefabInstance:
   m_ObjectHideFlags: 0

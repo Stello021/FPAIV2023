@@ -13,12 +13,10 @@ public class PlayerController : MonoBehaviour
     private Animator animator; // Reference to the Animator component for controlling animations.
     private float gravityVelocity; // Player's current velocity.
     private bool isJumping; // Flag indicating if the player is currently jumping.
-<<<<<<< Updated upstream
     [SerializeField] float damageDealt;
-=======
+
     public bool IsAiming { get; private set; }
-    private float damageDealt;
->>>>>>> Stashed changes
+
 
     [Header("\nBullet reference variables")]
     [SerializeField] private GameObject Bullet; // Reference to Bullet prefab.
@@ -232,12 +230,6 @@ public class PlayerController : MonoBehaviour
             }
 
             GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
-<<<<<<< Updated upstream
-            
-=======
-
-
->>>>>>> Stashed changes
             bullet.GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction
             bullet.GetComponent<BulletLogic>().DamageDealt = damageDealt;
         }
