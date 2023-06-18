@@ -347,7 +347,7 @@ MonoBehaviour:
   grenadeSpawnPoint: {fileID: 866391988763072698}
   homingTimer: 0
   homingTime: 30
-  viewRadius: 300
+  viewRadius: 100
   enemyMask:
     serializedVersion: 2
     m_Bits: 256
@@ -1047,7 +1047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108920, guid: 57ae198be80db0142a758aa602e644ed, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 108920, guid: 57ae198be80db0142a758aa602e644ed, type: 3}
       propertyPath: m_TagString
