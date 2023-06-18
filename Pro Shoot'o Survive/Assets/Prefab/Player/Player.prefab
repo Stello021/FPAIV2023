@@ -335,10 +335,11 @@ MonoBehaviour:
   playerMoveSpeed: 10
   playerRotationSpeed: 10
   jumpForce: 5
+  damageDealt: 25
   Bullet: {fileID: 2405495413867421730, guid: 84cfd7d88325e044c8b71077cb2d4dcc, type: 3}
   BulletSpawn: {fileID: 5831531739084673375}
   CentreCameraTarget: {fileID: 5556613329380079112}
-  hp: 0
+  hp: 100
   armour: 0
   grenades: 0
   grenadePrefab: {fileID: 8416421997194633816, guid: 5d863161cd4c0184eb5d7da647ce12e4,

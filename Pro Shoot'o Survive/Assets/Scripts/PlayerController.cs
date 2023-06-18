@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator; // Reference to the Animator component for controlling animations.
     private float gravityVelocity; // Player's current velocity.
     private bool isJumping; // Flag indicating if the player is currently jumping.
-    float damageDealt;
+    [SerializeField] float damageDealt;
 
     [Header("\nBullet reference variables")]
     [SerializeField] private GameObject Bullet; // Reference to Bullet prefab.
