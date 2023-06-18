@@ -26,13 +26,6 @@ public class Spawner : MonoBehaviour
         }
         wsm = FindFirstObjectByType<WaveSceneManager>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SpawnEnemy(float speedMultiplier, float hpMultiplier)
     {
         int randomIndex = Random.Range(0, EnemiesPrefabs.Count);

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class WaveSceneManager : MonoBehaviour
 {
-    [Range(0, 4)] private int waveNumber; 
+    [Range(0, 4)] private int waveNumber = -1; 
     private Spawner[] spawners;
     public List<Wave> waves;
     [HideInInspector]public List<GameObject> EnemiesSpawned;
@@ -25,7 +25,12 @@ public class WaveSceneManager : MonoBehaviour
     {
         if(EnemiesSpawned.Count <= 0)
         {
+            waveNumber++;
             Spawn();
+        }
+        if(waveNumber > waves.Count)
+        {
+            SceneManager.LoadScene("VictoryScene");
         }
     }
     public void Spawn()
