@@ -94,7 +94,21 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void ActiveteHoming()
+    public void ReceiveDamage(float damage)
+    {
+        if (armour > 0)
+        {
+            armour -= damage;
+            UpdateArmourText();
+        }
+        else
+        {
+            hp -= damage;
+            UpdateHPText();
+        }
+    }
+
+    public void ActivateHoming()
     {
         activeHoming = true;
         homingTimer = homingTime;

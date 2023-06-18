@@ -94,7 +94,11 @@ public class BulletLogic : MonoBehaviour
             Debug.Log(enemy.currentHP);
         }
 
-
+        if (collision.collider.tag == "Player")
+        {
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            player.ReceiveDamage(DamageDealt);
+        }
 
         Debug.Log("Collision");
         Destroy(gameObject);
