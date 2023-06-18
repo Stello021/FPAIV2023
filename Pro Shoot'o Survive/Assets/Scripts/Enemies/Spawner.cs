@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
 {
     public List<GameObject> EnemiesPrefabs;
     public Transform Target;
-    public SpawnerType type;
+    [HideInInspector] public SpawnerType type;
 
     private WaveSceneManager wsm;
     // Start is called before the first frame update
