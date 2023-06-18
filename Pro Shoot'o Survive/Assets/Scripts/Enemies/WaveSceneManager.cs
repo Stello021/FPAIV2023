@@ -5,21 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class WaveSceneManager : MonoBehaviour
 {
-    [Range(0, 4)] private int waveNumber; 
+    [Range(0, 4)] private int waveNumber = -1; 
     private Spawner[] spawners;
     public List<Wave> waves;
+    [HideInInspector]public List<GameObject> EnemiesSpawned;
+
     private int enemiesToSpawn;
 
     // Start is called before the first frame update
     void Start()
     {
         spawners = FindObjectsByType<Spawner>(FindObjectsSortMode.None);
+        EnemiesSpawned = new List<GameObject>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(EnemiesSpawned.Count <= 0)
+        {
+            waveNumber++;
+            Spawn();
+        }
+        if(waveNumber > waves.Count)
+        {
+            SceneManager.LoadScene("VictoryScene");
+        }
     }
     public void Spawn()
     {
@@ -54,17 +66,5 @@ public class WaveSceneManager : MonoBehaviour
             
             
         }
-    }
-    public void Destroy()
-    {
-        for (int i = 0; i < spawners.Length; i++)
-        {
-            spawners[i].DestroyEnemies();
-        }
-        waveNumber++;
-    }
-    public void Menu()
-    {
-        SceneManager.LoadScene(0);
     }
 }

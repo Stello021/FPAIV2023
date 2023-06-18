@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator; // Reference to the Animator component for controlling animations.
     private float gravityVelocity; // Player's current velocity.
     private bool isJumping; // Flag indicating if the player is currently jumping.
-    float damageDealt;
+    [SerializeField] float damageDealt;
 
     [Header("\nBullet reference variables")]
     [SerializeField] private GameObject Bullet; // Reference to Bullet prefab.
@@ -20,15 +21,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform CentreCameraTarget; // Reference to the transform of an EmptyObject located in the center of the camera frame. 
 
     [Header("PowerUp variables")]
-    public float hp;
-    public float armour;
-    public int grenades;
+    [SerializeField] private float hp = 100;
+    public float HP { get { return hp; } set { hp = Mathf.Clamp(hp + value, 0, 100); UpdateHPText(); } }
+    [SerializeField] private float armor = 0;
+    public float Armor { get { return armor; } set { armor += value; UpdateArmorText(); } }
+
+    private int granades;
+    public int Grenades { get { return granades; } set { granades++; UpdateGrenadeText(); } }
 
     [SerializeField] GameObject grenadePrefab;
     [SerializeField] Transform grenadeSpawnPoint;
 
     [Header("Homing variables")]
-    public bool activeHoming;
+    private bool activeHoming;
     [SerializeField] float homingTimer;
     [SerializeField] float homingTime;
     [SerializeField] float viewRadius = 300;
@@ -43,7 +48,11 @@ public class PlayerController : MonoBehaviour
     //Input system controller
     public InputSysController InputsController { get; private set; }
 
-    public LayerMask aimMask;
+    [SerializeField] LayerMask aimMask;
+
+    [SerializeField] SkinnedMeshRenderer smr;
+    [SerializeField] Material normalMaterial;
+    [SerializeField] Material homingMaterial;
 
 
     private void Awake()
@@ -78,14 +87,39 @@ public class PlayerController : MonoBehaviour
 
         if (activeHoming)
         {
-            homingTimer = homingTime;
             homingTimer -= Time.deltaTime;
 
             if (homingTimer <= 0)
             {
                 activeHoming = false;
+                smr.material = normalMaterial;
             }
         }
+        
+    }
+
+    public void ReceiveDamage(float damage)
+    {
+        if (Armor > 0)
+        {
+            Armor += -damage;
+        }
+        else
+        {
+            HP += -damage;
+        }
+
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void ActivateHoming()
+    {
+        activeHoming = true;
+        homingTimer = homingTime;
+        smr.material = homingMaterial;
     }
 
     public void CheckIsOnGround()
@@ -159,7 +193,6 @@ public class PlayerController : MonoBehaviour
 
             GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
             
-
             bullet.GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction
             bullet.GetComponent<BulletLogic>().DamageDealt = damageDealt;
         }
@@ -201,12 +234,17 @@ public class PlayerController : MonoBehaviour
 
     internal void UpdateHPText()
     {
-        throw new NotImplementedException();
+
     }
 
-    internal void UpdateArmourText()
+    internal void UpdateArmorText()
     {
-        throw new NotImplementedException();
+
+    }
+
+    internal void UpdateGrenadeText()
+    {
+
     }
 
     private Transform SetTarget()
@@ -254,6 +292,11 @@ public class PlayerController : MonoBehaviour
     {
         //damageDealt = PlayerLogic.Instance.damage;
         //playerMoveSpeed = PlayerLogic.Instance.speed;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene(2);
     }
 
 }

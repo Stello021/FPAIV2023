@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 50
-  speedBeforeHoming: 5
+  speedBeforeHoming: 7
   normalSpeed: 50
   raycastDistance: 0.4
   dir: {x: 0, y: 0, z: 1}

@@ -8,7 +8,7 @@ public class PowerUpMedikit : PowerUp
     public override void PickUp(GameObject owner)
     {
         PlayerController player = owner.GetComponent<PlayerController>();
-        player.hp += hpRecovery;
+        player.HP += hpRecovery;
         //player.UpdateHPText();
         Destroy(gameObject);
 
