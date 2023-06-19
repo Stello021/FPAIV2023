@@ -424,12 +424,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 285734cbbc31c9149881524fdd95894a, type: 3}
---- !u!1 &662170622 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 891540131985990547, guid: 4030413b0c7bd744db811e22c994e5cb,
-    type: 3}
-  m_PrefabInstance: {fileID: 7172659309501183705}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &896079934 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2918493917785922022, guid: 7cb2f7de69eb9c342ba111fec7edf0b9,
@@ -1022,7 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa33451c275f1b4ca5eb552500872f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 662170622}
+  player: {fileID: 8058352217040672074}
   cameraMoveSpeedOnRotation: 10
   lerpToPLayerPositionAndCameraPosOffsetSpeed: 10
   cameraRotationSpeed: 10
@@ -1035,7 +1029,7 @@ MonoBehaviour:
   cameraCollisionOffsetMagnitude: 0.1
   crossHairTransform: {fileID: 896079934}
   crossHairPositionX_Offset: 0
---- !u!1001 &7172659309501183705
+--- !u!1001 &3170044246121883692
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1103,11 +1097,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5272992674238247438, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382984336669105017, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812989879420169857, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4030413b0c7bd744db811e22c994e5cb, type: 3}
+--- !u!1 &8058352217040672074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 891540131985990547, guid: 4030413b0c7bd744db811e22c994e5cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3170044246121883692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8064746799043023262
 PrefabInstance:
   m_ObjectHideFlags: 0
