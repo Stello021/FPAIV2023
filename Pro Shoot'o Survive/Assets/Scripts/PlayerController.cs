@@ -271,7 +271,6 @@ public class PlayerController : MonoBehaviour
             isJumping = true; // Set the jumping flag to true.
             animator.SetBool("Jump_b", true); // Set the "Jump_b" parameter in the animator to true.
             animator.SetBool("Jump_b", false); // Set the "Jump_b" parameter in the animator to false in order to prevent a doublejump.
-
         }
     }
 
