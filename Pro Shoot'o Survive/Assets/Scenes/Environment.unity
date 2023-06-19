@@ -4297,7 +4297,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1226845531}
+      objectReference: {fileID: 614902940}
     - target: {fileID: 7804379022255774706, guid: 18fd9c6d6b43c8746b38504bd5734e29,
         type: 3}
       propertyPath: crossHairTransform
@@ -6691,12 +6691,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225220080}
   m_CullTransparentMesh: 1
---- !u!1 &1226845531 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 891540131985990547, guid: 4030413b0c7bd744db811e22c994e5cb,
-    type: 3}
-  m_PrefabInstance: {fileID: 521345678}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1230652610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6925,7 +6919,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 1241555902}
-  TotalValue: 60
+  TotalValue: 100
+  StartingValue: 50
   decreaseValuePerSecond: 1
 --- !u!1001 &1295345461
 PrefabInstance:
@@ -9415,6 +9410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 1684159850}
   TotalValue: 100
+  StartingValue: 100
   decreaseValuePerSecond: 0
 --- !u!1 &1694199741 stripped
 GameObject:
@@ -10997,7 +10993,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 1966763812}
-  TotalValue: 60
+  TotalValue: 100
+  StartingValue: 50
   decreaseValuePerSecond: 1
 --- !u!1001 &1972515339
 PrefabInstance:

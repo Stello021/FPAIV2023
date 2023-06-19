@@ -40,4 +40,12 @@ public class BarsManager : MonoBehaviour
     {
         HpBar.amount = fillAmount;
     }
+    public void setSpeedBar(float fillAmount)
+    {
+        speedBar.amount += fillAmount;
+    }
+    public void setDamageBar(float fillAmount)
+    {
+        damageBar.amount += fillAmount;
+    }
 }

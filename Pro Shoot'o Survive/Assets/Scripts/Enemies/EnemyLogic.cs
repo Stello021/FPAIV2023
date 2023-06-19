@@ -26,6 +26,14 @@ public class EnemyLogic : MonoBehaviour
                 OwnWeapon.transform.position = new Vector3(transform.position.x, 1.5f, transform.position.y);
                 OwnWeapon.transform.rotation = Quaternion.identity;
             }
+            if(gameObject.tag == "Standard")
+            {
+                BarsManager.Instance.setSpeedBar(0.05f);
+            }
+            else if(gameObject.tag == "Ranged")
+            {
+                BarsManager.Instance.setDamageBar(0.05f);
+            }
             Destroy(gameObject);
         }
     }

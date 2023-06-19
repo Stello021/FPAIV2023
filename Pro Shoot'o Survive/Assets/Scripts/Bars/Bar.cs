@@ -7,6 +7,7 @@ public class Bar : MonoBehaviour
 {
     [SerializeField] Image bar;
     [SerializeField] float TotalValue;
+    [SerializeField] float StartingValue;
     [SerializeField] float decreaseValuePerSecond;
 
     float value;
@@ -20,20 +21,23 @@ public class Bar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time -= Time.deltaTime;
-        if (time <= 0)
-        {
-            AddAmount(-decreaseValuePerSecond);
-            time = 1f;
-        }
+        value = StartingValue;
+
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        value = TotalValue / 2f;
+        time -= Time.deltaTime;
+        if (time <= 0)
+        {
+            AddAmount(-decreaseValuePerSecond);
+            time = 1f;
+        }
     }
+
 
     public void AddAmount(float amount)
     {
