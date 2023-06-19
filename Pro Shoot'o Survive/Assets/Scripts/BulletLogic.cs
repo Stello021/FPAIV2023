@@ -5,15 +5,15 @@ using UnityEngine;
 public class BulletLogic : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
-    [SerializeField] float speedBeforeHoming;
-    [SerializeField] float normalSpeed;
     [SerializeField] float raycastDistance;
     public Vector3 dir;
 
-    // homing variables
+    [Header("Homing variables")]
     [SerializeField] bool IsHoming;
     public Transform target;
     [SerializeField] float rotSpeed;
+    [SerializeField] float speedBeforeHoming;
+    [SerializeField] float normalSpeed;
 
     public float DamageDealt;
 
@@ -58,7 +58,7 @@ public class BulletLogic : MonoBehaviour
 
     private void StandardMovement()
     {
-        rb.velocity = bulletSpeed * Time.fixedDeltaTime * dir;
+        rb.velocity = dir * bulletSpeed * Time.fixedDeltaTime;
     }
 
     private void HomingMovement()
@@ -68,11 +68,11 @@ public class BulletLogic : MonoBehaviour
             Vector3 distance = target.position - transform.position;
             Quaternion rotationDir = Quaternion.LookRotation(distance);
             Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotationDir, rotSpeed * Time.deltaTime);
-            //rb.MoveRotation(newRotation);
-            //rb.velocity = transform.forward * bulletSpeed * Time.fixedDeltaTime;
+            rb.MoveRotation(newRotation);
+            rb.velocity = transform.forward * bulletSpeed * Time.fixedDeltaTime;
 
-            transform.rotation = newRotation;
-            transform.position += transform.forward * bulletSpeed * Time.deltaTime;
+            //transform.rotation = newRotation;
+            //transform.position += transform.forward * bulletSpeed * Time.deltaTime;
         }
         else
         {
@@ -109,7 +109,7 @@ public class BulletLogic : MonoBehaviour
     {
         bulletSpeed = speedBeforeHoming;
         dir = transform.forward;
-        yield return new WaitForSeconds(Time.deltaTime);
+        yield return new WaitForSeconds(Time.fixedDeltaTime);
         IsHoming = true;
         bulletSpeed = normalSpeed;
     }
