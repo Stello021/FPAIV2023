@@ -2127,6 +2127,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 449722686}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &456891554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 456891555}
+  - component: {fileID: 456891556}
+  m_Layer: 0
+  m_Name: BarManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &456891555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456891554}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1378514513}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &456891556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456891554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede0e1d4e0561704a82c642765aabb95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedBar: {fileID: 1966763814}
+  damageBar: {fileID: 1241555904}
+  HpBar: {fileID: 1684159852}
+  playerRef: {fileID: 0}
 --- !u!1001 &467381693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2607,7 +2655,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 891540131985990547, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 614902941}
   m_SourcePrefab: {fileID: 100100000, guid: 4030413b0c7bd744db811e22c994e5cb, type: 3}
 --- !u!4 &531964723 stripped
 Transform:
@@ -3236,6 +3288,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 609099457}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &614902940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 891540131985990547, guid: 4030413b0c7bd744db811e22c994e5cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 521345678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &614902941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614902940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674d42f320ec8ae4ebcf0a693f002691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpMax: 100
+  actuallyMaxHp: 0
+  hp: 0
+  damageMax: 0
+  damage: 0
+  speedMax: 0
+  speed: 0
+  speedBarValue: 0
+  healthBarValue: 0
+  damageBarValue: 0
 --- !u!1001 &620886852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6808,6 +6888,7 @@ GameObject:
   - component: {fileID: 1241555901}
   - component: {fileID: 1241555903}
   - component: {fileID: 1241555902}
+  - component: {fileID: 1241555904}
   m_Layer: 5
   m_Name: 'Damage Bar '
   m_TagString: Untagged
@@ -6873,6 +6954,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241555900}
   m_CullTransparentMesh: 1
+--- !u!114 &1241555904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241555900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ab17210d9f83142a3fcb3e3b5bb5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar: {fileID: 1241555902}
+  TotalValue: 60
+  decreaseValuePerSecond: 1
 --- !u!1001 &1295345461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7316,6 +7412,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 531964723}
+  - {fileID: 456891555}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9156,6 +9253,7 @@ GameObject:
   - component: {fileID: 1684159849}
   - component: {fileID: 1684159851}
   - component: {fileID: 1684159850}
+  - component: {fileID: 1684159852}
   m_Layer: 5
   m_Name: HP Bar
   m_TagString: Untagged
@@ -9222,6 +9320,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684159848}
   m_CullTransparentMesh: 1
+--- !u!114 &1684159852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684159848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ab17210d9f83142a3fcb3e3b5bb5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar: {fileID: 1684159850}
+  TotalValue: 100
+  decreaseValuePerSecond: 0
 --- !u!1 &1694199741 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 184882, guid: c9b696e74ed996c4ea0947725a459f6f,
@@ -10724,6 +10837,7 @@ GameObject:
   - component: {fileID: 1966763811}
   - component: {fileID: 1966763813}
   - component: {fileID: 1966763812}
+  - component: {fileID: 1966763814}
   m_Layer: 5
   m_Name: Movement Bar
   m_TagString: Untagged
@@ -10789,6 +10903,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966763810}
   m_CullTransparentMesh: 1
+--- !u!114 &1966763814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966763810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ab17210d9f83142a3fcb3e3b5bb5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar: {fileID: 1966763812}
+  TotalValue: 60
+  decreaseValuePerSecond: 1
 --- !u!1001 &1972515339
 PrefabInstance:
   m_ObjectHideFlags: 0

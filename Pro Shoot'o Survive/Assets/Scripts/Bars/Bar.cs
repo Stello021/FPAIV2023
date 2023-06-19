@@ -32,12 +32,26 @@ public class Bar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        value = TotalValue / 2f;
     }
 
     public void AddAmount(float amount)
     {
         value += amount;
         bar.fillAmount = value / TotalValue;
+    }
+
+    public void setFullBar()
+    {
+        value = TotalValue;
+        bar.fillAmount = value / TotalValue;
+
+    }
+
+    public void setEmptyBar()
+    {
+        value = 0;
+        bar.fillAmount = value / TotalValue;
+
     }
 }

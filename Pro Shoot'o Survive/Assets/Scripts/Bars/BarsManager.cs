@@ -7,7 +7,7 @@ public class BarsManager : MonoBehaviour
     static private BarsManager instance;
     static public BarsManager Instance { get { return instance; } }
 
-    [SerializeField] Bar healthBar;
+    //[SerializeField] Bar healthBar;
     [SerializeField] Bar speedBar;
     [SerializeField] Bar damageBar;
 
@@ -22,7 +22,7 @@ public class BarsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        HpBar.setFullBar();
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class BarsManager : MonoBehaviour
         if (playerRef != null)
         {
             playerRef.speedBarValue = speedBar.amount;
-            playerRef.healthBarValue = healthBar.amount;
+            //playerRef.healthBarValue = healthBar.amount;
             playerRef.damageBarValue = damageBar.amount;
         }
     }
