@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
                 smr.material = normalMaterial;
             }
         }
-        
+
     }
 
     public void ReceiveDamage(float damage)
@@ -153,7 +153,23 @@ public class PlayerController : MonoBehaviour
 
         if (playerVelocity != Vector3.zero)
         {
-            transform.forward = Vector3.Lerp(transform.forward, playerVelocity, playerRotationSpeed * Time.deltaTime);
+            Vector3 playerForward = playerVelocity;
+
+            if (IsAiming)
+            {
+                playerForward = Vector3.zero;
+
+                if (moveDir.y != 0)
+                {
+                    playerForward += cam.transform.right * moveDir.x * playerMoveSpeed;
+                }
+
+                playerForward += cam.transform.forward * Mathf.Abs(moveDir.y) * playerMoveSpeed;
+                playerForward *= 0.5f;
+                playerForward.y = 0;
+            }
+
+            transform.forward = Vector3.Lerp(transform.forward, playerForward, playerRotationSpeed * Time.deltaTime);
         }
 
         float idleMoveBlender = moveDir.magnitude; // Calculate the magnitude of the movement vector.
