@@ -16,7 +16,7 @@ public class PlayerLogic : MonoBehaviour
 
     [SerializeField] float speedMax;
     [HideInInspector] public float speed;
-    
+
     public float speedBarValue;     //value from 0 to 1
     public float healthBarValue;    //value from 0 to 1
     public float damageBarValue;    //value from 0 to 1
@@ -30,27 +30,27 @@ public class PlayerLogic : MonoBehaviour
     private void Start()
     {
         actuallyMaxHp = hpMax;
-        //BarsManager.Instance.playerRef = this;
+        hp = actuallyMaxHp;
+        BarsManager.Instance.playerRef = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-            
+        BarsManager.Instance.setHpBar(hp / actuallyMaxHp);
     }
 
     public void TakeDamage(float damage)
     {
         hp -= damage;
-        
+
         if (hp <= 0)
         {
 
             //player is dead
-        
+
         }
-        
-        BarsManager.Instance.setHpBar(hp / actuallyMaxHp);
+
     }
 
     public void Heal(float HealAmount)

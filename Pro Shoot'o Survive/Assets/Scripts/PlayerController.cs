@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
 
     public bool IsAiming { get; private set; }
 
+    [Header("\nWeapon reference variables")]
+    [SerializeField] private GameObject defaultWeapon;
+    [SerializeField] private GameObject assaultWeapon;
 
     [Header("\nBullet reference variables")]
     [SerializeField] private GameObject Bullet; // Reference to Bullet prefab.
@@ -287,6 +290,15 @@ public class PlayerController : MonoBehaviour
         {
             other.GetComponent<PowerUp>().PickUp(gameObject);
         }
+        else if (other.CompareTag("Weapon"))
+        {
+            // Disattiva l'arma di default
+            defaultWeapon.SetActive(false);
+
+            // Attiva l'arma d'assalto
+            assaultWeapon.SetActive(true);
+            //set the parameters for the animation------------------------------------------------------------
+        }
     }
 
     internal void UpdateHPText()
@@ -355,5 +367,4 @@ public class PlayerController : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
-
 }

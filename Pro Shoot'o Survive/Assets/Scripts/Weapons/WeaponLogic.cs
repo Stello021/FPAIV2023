@@ -8,7 +8,7 @@ public class WeaponLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameObject.tag = "Weapon";
     }
 
     // Update is called once per frame

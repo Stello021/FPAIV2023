@@ -12,7 +12,7 @@ public class Bar : MonoBehaviour
 
     float value;
     float time;
-    
+
     public float amount { get { return bar.fillAmount; } set { bar.fillAmount = value; } }
 
     public bool isFull { get { return isFull; } set { value = bar.fillAmount >= 1; } }
@@ -22,13 +22,16 @@ public class Bar : MonoBehaviour
     void Start()
     {
         value = StartingValue;
-
-        
-
     }
 
     // Update is called once per frame
     void Update()
+    {
+
+    }
+
+
+    public void DecreaseinTime()
     {
         time -= Time.deltaTime;
         if (time <= 0)
@@ -37,8 +40,6 @@ public class Bar : MonoBehaviour
             time = 1f;
         }
     }
-
-
     public void AddAmount(float amount)
     {
         value += amount;

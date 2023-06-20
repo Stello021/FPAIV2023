@@ -3227,13 +3227,13 @@ MonoBehaviour:
   hpMax: 100
   actuallyMaxHp: 0
   hp: 0
-  damageMax: 0
+  damageMax: 100
   damage: 0
-  speedMax: 0
+  speedMax: 100
   speed: 0
-  speedBarValue: 0
+  speedBarValue: 0.5
   healthBarValue: 0
-  damageBarValue: 0
+  damageBarValue: 0.5
 --- !u!1001 &620886852
 PrefabInstance:
   m_ObjectHideFlags: 0
