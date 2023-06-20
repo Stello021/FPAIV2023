@@ -22,9 +22,9 @@ public class EnemyLogic : MonoBehaviour
         {
             if(OwnWeapon != null)
             {
-                OwnWeapon.transform.parent = null;
-                OwnWeapon.transform.position = new Vector3(transform.position.x, 1.5f, transform.position.y);
+               // OwnWeapon.transform.position = new Vector3(transform.position.x, 1.5f, transform.position.y);
                 OwnWeapon.transform.rotation = Quaternion.identity;
+                OwnWeapon.transform.parent = null;
             }
             if(gameObject.tag == "Standard")
             {

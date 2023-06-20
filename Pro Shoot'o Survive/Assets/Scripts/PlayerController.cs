@@ -188,6 +188,7 @@ public class PlayerController : MonoBehaviour
     {
         if (InputsController.OnInputTrigger("ThrowGrenade"))
         {
+            animator.SetInteger("WeaponType_int", 10);
             GameObject grenade = Instantiate(grenadePrefab, grenadeSpawnPoint.position, grenadeSpawnPoint.rotation);
             grenade.GetComponent<Grenade>().Throw(transform.forward);
         }
@@ -295,7 +296,7 @@ public class PlayerController : MonoBehaviour
 
             // Attiva l'arma d'assalto
             assaultWeapon.SetActive(true);
-            //set the parameters for the animation------------------------------------------------------------
+            animator.SetInteger("WeaponType_int", 2);
         }
     }
 
