@@ -79,11 +79,6 @@ public class PlayerLogic : MonoBehaviour
     {
         armorValueText.text = armor.ToString();
     }
-
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     private void OnDestroy()
     {
         Cursor.visible = true;
