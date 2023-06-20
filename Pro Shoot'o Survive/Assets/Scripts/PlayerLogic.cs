@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLogic : MonoBehaviour
 {
@@ -17,10 +18,10 @@ public class PlayerLogic : MonoBehaviour
     public float Armor { get { return armor; } set { armor += value; UpdateArmorText(); } }
 
     [SerializeField] float damageMax;
-    [HideInInspector] public float damage;
+    public float damage;
 
     [SerializeField] float speedMax;
-    [HideInInspector] public float speed;
+    public float speed;
 
     public float speedBarValue;     //value from 0 to 1
     public float healthBarValue;    //value from 0 to 1
@@ -77,6 +78,13 @@ public class PlayerLogic : MonoBehaviour
     public void UpdateArmorText()
     {
         armorValueText.text = armor.ToString();
+    }
+
+    private void OnDestroy()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene(2);
     }
 
 }

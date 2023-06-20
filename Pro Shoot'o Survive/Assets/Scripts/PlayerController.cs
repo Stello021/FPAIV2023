@@ -321,7 +321,7 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-            Debug.Log(nextTarget);
+            //Debug.Log(nextTarget);
             target = nextTarget;
         }
 
@@ -334,8 +334,4 @@ public class PlayerController : MonoBehaviour
         //playerMoveSpeed = PlayerLogic.Instance.speed;
     }
 
-    private void OnDestroy()
-    {
-        SceneManager.LoadScene(2);
-    }
 }
