@@ -22,7 +22,7 @@ public class BarsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        HpBar.setFullBar();
+
     }
 
     // Update is called once per frame
@@ -31,8 +31,9 @@ public class BarsManager : MonoBehaviour
         if (playerRef != null)
         {
             playerRef.speedBarValue = speedBar.amount;
-            //playerRef.healthBarValue = healthBar.amount;
             playerRef.damageBarValue = damageBar.amount;
+            speedBar.DecreaseinTime();
+            damageBar.DecreaseinTime();
         }
     }
 
