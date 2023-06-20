@@ -9,7 +9,11 @@ public class PlayerLogic : MonoBehaviour
 
     [SerializeField] float hpMax;
     [HideInInspector] public float actuallyMaxHp;
-    [HideInInspector] public float hp;
+
+    [SerializeField] private float hp;
+    public float HP { get { return hp; } set { hp = Mathf.Clamp(hp + value, 0, hpMax); } }
+    [SerializeField] private float armor = 0;
+    public float Armor { get { return armor; } set { armor += value; } }
 
     [SerializeField] float damageMax;
     [HideInInspector] public float damage;
@@ -42,13 +46,20 @@ public class PlayerLogic : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        hp -= damage;
+        if (armor > 0)
+        {
+            armor -= damage;
+        }
+        else
+        {
+            hp -= damage;
+        }
+
+        Debug.Log("Hp: " + hp);
 
         if (hp <= 0)
         {
-
-            //player is dead
-
+            Destroy(gameObject);
         }
 
     }

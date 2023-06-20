@@ -7,10 +7,8 @@ public class PowerUpMedikit : PowerUp
     [SerializeField] float hpRecovery = 50;
     public override void PickUp(GameObject owner)
     {
-        PlayerController player = owner.GetComponent<PlayerController>();
+        PlayerLogic player = owner.GetComponent<PlayerLogic>();
         player.HP += hpRecovery;
-        //player.UpdateHPText();
         Destroy(gameObject);
-
     }
 }
