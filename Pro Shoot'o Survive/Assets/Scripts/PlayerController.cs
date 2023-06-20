@@ -330,8 +330,8 @@ public class PlayerController : MonoBehaviour
 
     void updateStats()
     {
-        //damageDealt = PlayerLogic.Instance.damage;
-        //playerMoveSpeed = PlayerLogic.Instance.speed;
+        damageDealt = PlayerLogic.Instance.damage;
+        playerMoveSpeed = PlayerLogic.Instance.speed;
     }
 
 }
