@@ -155,7 +155,7 @@ MonoBehaviour:
   bullet: {fileID: 6084153059396015175, guid: 84cfd7d88325e044c8b71077cb2d4dcc, type: 3}
   TotalAmmo: 100
   Ammo: 0
-  bulletPrefab: {fileID: 2405495413867421730, guid: 84cfd7d88325e044c8b71077cb2d4dcc,
+  bulletPrefab: {fileID: 2405495413867421730, guid: 70743bf4717711046be45b32b6933d3b,
     type: 3}
 --- !u!4 &34074019
 Transform:

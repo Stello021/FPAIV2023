@@ -108,14 +108,16 @@ public class PlayerController : MonoBehaviour
 
     public void ReceiveDamage(float damage)
     {
-        if (Armor > 0)
+        if (armor > 0)
         {
-            Armor += -damage;
+            armor -= damage;
         }
         else
         {
-            HP += -damage;
+            hp -= damage;
         }
+
+        Debug.Log("Hp: " + hp);
 
         if (HP <= 0)
         {

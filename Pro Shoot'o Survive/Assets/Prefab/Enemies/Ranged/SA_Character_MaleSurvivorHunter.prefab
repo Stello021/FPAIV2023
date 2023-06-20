@@ -220,7 +220,7 @@ MonoBehaviour:
   PlayerMask:
     serializedVersion: 2
     m_Bits: 128
-  bulletPrefab: {fileID: 2405495413867421730, guid: 84cfd7d88325e044c8b71077cb2d4dcc,
+  bulletPrefab: {fileID: 2405495413867421730, guid: 55e296f3bd557094f89462310c1dad66,
     type: 3}
   OwnWeapon: {fileID: 7892383639195193910}
   WeaponTypeIndex: 3
@@ -1081,6 +1081,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AssaultRifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496259313088172248, guid: cb70310fde27c154093d230626cd0cee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
