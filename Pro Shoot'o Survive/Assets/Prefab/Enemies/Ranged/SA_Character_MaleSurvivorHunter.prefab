@@ -241,8 +241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 100
-  currentHP: 0
   OwnWeapon: {fileID: 7892383639195193910}
+  meleeDamage: 10
 --- !u!54 &5300890679074815323
 Rigidbody:
   m_ObjectHideFlags: 0
