@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
 
     public void ReceiveDamage(float damage)
     {
-        if (Armor > 0)
+        if (armor > 0)
         {
             armor -= damage;
         }
@@ -113,6 +113,8 @@ public class PlayerController : MonoBehaviour
         {
             hp -= damage;
         }
+
+        Debug.Log("Hp: " + hp);
 
         if (HP <= 0)
         {
