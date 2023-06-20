@@ -79,7 +79,7 @@ public class CameraController : MonoBehaviour
             newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
             newOffset *= new Vector3(playerToHitPoint.x, 0, playerToHitPoint.z).magnitude;
 
-            print(cameraHitInfo.transform.name);
+            //print(cameraHitInfo.transform.name);
         }
 
         else
