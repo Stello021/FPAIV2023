@@ -82,10 +82,6 @@ public class BulletLogic : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Player"))
-        {
-            return;
-        }
 
         if (collision.collider.CompareTag("Standard") || collision.collider.CompareTag("Ranged"))
         {
@@ -95,10 +91,10 @@ public class BulletLogic : MonoBehaviour
             Debug.Log(enemy.currentHP);
         }
 
-        if (collision.collider.tag == "Player")
+        if (collision.collider.CompareTag("Player"))
         {
-            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-            player.ReceiveDamage(DamageDealt);
+            PlayerLogic player = collision.gameObject.GetComponent<PlayerLogic>();
+            player.TakeDamage(DamageDealt);
         }
 
         //Debug.Log("Collision");
