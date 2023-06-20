@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLogic : MonoBehaviour
 {
@@ -77,6 +78,13 @@ public class PlayerLogic : MonoBehaviour
     public void UpdateArmorText()
     {
         armorValueText.text = armor.ToString();
+    }
+
+    private void OnDestroy()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene(2);
     }
 
 }

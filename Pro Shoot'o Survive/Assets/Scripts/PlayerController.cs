@@ -334,8 +334,5 @@ public class PlayerController : MonoBehaviour
         //playerMoveSpeed = PlayerLogic.Instance.speed;
     }
 
-    private void OnDestroy()
-    {
-        SceneManager.LoadScene(2);
-    }
+
 }
