@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -26,14 +27,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform BulletSpawn; // Reference to BulletSpown transform.
     [SerializeField] private Transform CentreCameraTarget; // Reference to the transform of an EmptyObject located in the center of the camera frame. 
 
-    [Header("Grenades")]
-    private int granades;
-    public int Grenades { get { return granades; } set { granades++; UpdateGrenadeText(); } }
+    [Header("\nGrenade variables")]
+    private int grenades;
+    public int Grenades { get { return grenades; } set { grenades++; UpdateGrenadeText(); } }
 
     [SerializeField] GameObject grenadePrefab;
     [SerializeField] Transform grenadeSpawnPoint;
+    [SerializeField] TMP_Text grenadeNumberText;
 
-    [Header("Homing variables")]
+    [Header("\nHoming variables")]
     private bool activeHoming;
     [SerializeField] float homingTimer;
     [SerializeField] float homingTime;
@@ -169,6 +171,8 @@ public class PlayerController : MonoBehaviour
             animator.SetInteger("WeaponType_int", 10);
             GameObject grenade = Instantiate(grenadePrefab, grenadeSpawnPoint.position, grenadeSpawnPoint.rotation);
             grenade.GetComponent<Grenade>().Throw(transform.forward);
+            grenades--;
+            UpdateGrenadeText();
         }
     }
 
@@ -278,19 +282,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    internal void UpdateHPText()
-    {
-
-    }
-
-    internal void UpdateArmorText()
-    {
-
-    }
-
     internal void UpdateGrenadeText()
     {
-
+        grenadeNumberText.text = grenades.ToString();
     }
 
     private Transform SetTarget()

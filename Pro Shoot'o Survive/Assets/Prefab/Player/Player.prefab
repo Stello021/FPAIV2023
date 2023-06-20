@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 3047167158606249523}
   - component: {fileID: 5272992674238247438}
   - component: {fileID: 2937389559105038557}
+  - component: {fileID: 6680636118048746160}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -271,7 +272,7 @@ Transform:
   - {fileID: 5556613329380079112}
   - {fileID: 866391988763072698}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3047167158606249523
 Animator:
@@ -362,6 +363,29 @@ MonoBehaviour:
   smr: {fileID: 2868627714407516670}
   normalMaterial: {fileID: 2100000, guid: 11473f6bfb61e0245b60784ebb60cfef, type: 2}
   homingMaterial: {fileID: 2100000, guid: 26f3fa9c3bc73444fa542bd796157072, type: 2}
+--- !u!114 &6680636118048746160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891540131985990547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674d42f320ec8ae4ebcf0a693f002691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpMax: 100
+  actuallyMaxHp: 0
+  hp: 0
+  armor: 0
+  damageMax: 100
+  damage: 0
+  speedMax: 100
+  speed: 0
+  speedBarValue: 0.5
+  healthBarValue: 0
+  damageBarValue: 0.5
 --- !u!1 &1100766843599463601
 GameObject:
   m_ObjectHideFlags: 0

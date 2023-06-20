@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerLogic : MonoBehaviour
@@ -12,8 +13,8 @@ public class PlayerLogic : MonoBehaviour
 
     [SerializeField] private float hp;
     public float HP { get { return hp; } set { hp = Mathf.Clamp(hp + value, 0, hpMax); } }
-    [SerializeField] private float armor = 0;
-    public float Armor { get { return armor; } set { armor += value; } }
+    [SerializeField] private float armor;
+    public float Armor { get { return armor; } set { armor += value; UpdateArmorText(); } }
 
     [SerializeField] float damageMax;
     [HideInInspector] public float damage;
@@ -24,6 +25,8 @@ public class PlayerLogic : MonoBehaviour
     public float speedBarValue;     //value from 0 to 1
     public float healthBarValue;    //value from 0 to 1
     public float damageBarValue;    //value from 0 to 1
+
+    [SerializeField] TMP_Text armorValueText;
 
     // Start is called before the first frame update
     void Awake()
@@ -49,6 +52,7 @@ public class PlayerLogic : MonoBehaviour
         if (armor > 0)
         {
             armor -= damage;
+            UpdateArmorText();
         }
         else
         {
@@ -68,6 +72,11 @@ public class PlayerLogic : MonoBehaviour
     {
         hp = Mathf.Clamp(hp + healthBarValue, 0, actuallyMaxHp);
         BarsManager.Instance.setHpBar(hp / actuallyMaxHp);
+    }
+
+    public void UpdateArmorText()
+    {
+        armorValueText.text = armor.ToString();
     }
 
 }

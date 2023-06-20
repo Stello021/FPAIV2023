@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         enemyAnimator.SetFloat("Speed_f", enemyAgent.speed);//Associate animator's speed parameter with agent speed
-        if (enemyAgent.isOnNavMesh)
+        if (enemyAgent.isOnNavMesh && PlayerTransform != null)
         {
             enemyAgent.SetDestination(PlayerTransform.position); 
         }
