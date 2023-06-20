@@ -8,7 +8,7 @@ public class WaveSceneManager : MonoBehaviour
     [Range(0, 4)] private int waveNumber = -1; 
     private Spawner[] spawners;
     public List<Wave> waves;
-    [HideInInspector]public List<GameObject> EnemiesSpawned;
+    public List<GameObject> EnemiesSpawned;
 
     private int enemiesToSpawn;
 
