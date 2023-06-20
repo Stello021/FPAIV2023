@@ -237,7 +237,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
+            GameObject go = Instantiate(Bullet, BulletSpawn.position, Quaternion.identity); // Instantiate the bullet
             PlayerBullet bullet = go.GetComponent<PlayerBullet>();
             bullet.target = SetTarget();
             bullet.DamageDealt = damageDealt;
@@ -330,8 +330,8 @@ public class PlayerController : MonoBehaviour
 
     void updateStats()
     {
-        //damageDealt = PlayerLogic.Instance.damage;
-        //playerMoveSpeed = PlayerLogic.Instance.speed;
+        damageDealt = PlayerLogic.Instance.damage;
+        playerMoveSpeed = PlayerLogic.Instance.speed;
     }
 
 

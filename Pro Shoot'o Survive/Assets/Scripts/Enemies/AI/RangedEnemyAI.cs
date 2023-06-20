@@ -49,7 +49,7 @@ public class RangedEnemyAI : EnemyAI
     {
         OwnWeapon.SetActive(false); //Deactivate Weapon
         enemyAgent.speed = startingEnemySpeed;
-        if (enemyAgent.isOnNavMesh)
+        if (enemyAgent.isOnNavMesh && PlayerTransform != null)
         {
             enemyAgent.SetDestination(PlayerTransform.position);
         }
