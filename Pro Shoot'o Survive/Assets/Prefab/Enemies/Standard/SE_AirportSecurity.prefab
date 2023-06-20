@@ -451,8 +451,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 3.0565588, z: 1}
-  m_Center: {x: 0, y: 1.5377437, z: 0}
+  m_Size: {x: 1.5, y: 3.0565588, z: 1.114599}
+  m_Center: {x: 0, y: 1.5377437, z: 0.0572989}
 --- !u!95 &6436699831706909602
 Animator:
   serializedVersion: 5
@@ -511,6 +511,7 @@ MonoBehaviour:
   PlayerTransform: {fileID: 0}
   enemyAgent: {fileID: 0}
   rb: {fileID: 0}
+  meleeDamage: 10
 --- !u!114 &1364094032878804937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,8 +525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 100
-  currentHP: 0
   OwnWeapon: {fileID: 0}
+  meleeDamage: 10
 --- !u!54 &4208671294045329953
 Rigidbody:
   m_ObjectHideFlags: 0

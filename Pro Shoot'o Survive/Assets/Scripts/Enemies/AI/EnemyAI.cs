@@ -11,6 +11,8 @@ public class EnemyAI : MonoBehaviour
     public Rigidbody rb;
     protected float reactivationTime = 3f;
 
+    [SerializeField] public float meleeDamage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,12 @@ public class EnemyAI : MonoBehaviour
         enemyAnimator.SetFloat("Speed_f", enemyAgent.speed);//Associate animator's speed parameter with agent speed
         if (enemyAgent.isOnNavMesh && PlayerTransform != null)
         {
-            enemyAgent.SetDestination(PlayerTransform.position); 
+            enemyAgent.SetDestination(PlayerTransform.position);
+            Debug.Log(enemyAgent.destination);
+            if (enemyAgent.remainingDistance <= 0.01f)
+            {
+                PlayerTransform.GetComponent<PlayerLogic>().TakeDamage(meleeDamage);
+            }
         }
     }
 

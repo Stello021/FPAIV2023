@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected Rigidbody rb;
 
     // Start is called before the first frame update
-    protected void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
     }

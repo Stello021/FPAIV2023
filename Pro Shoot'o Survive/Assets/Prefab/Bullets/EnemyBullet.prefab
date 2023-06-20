@@ -213,8 +213,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 2000
   dir: {x: 0, y: 0, z: 1}
-  DamageDealt: 10
+  DamageDealt: 0
   rb: {fileID: 0}
+  enemyDamage: 10
 --- !u!1 &6079692056677599391
 GameObject:
   m_ObjectHideFlags: 0

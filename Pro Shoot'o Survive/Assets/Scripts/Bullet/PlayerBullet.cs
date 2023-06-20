@@ -43,6 +43,7 @@ public class PlayerBullet : Bullet
             //enemy damage
             EnemyLogic enemy = collision.collider.gameObject.GetComponent<EnemyLogic>();
             enemy.ReceiveDamage(DamageDealt);
+            Debug.Log("Danni al nemico:" + DamageDealt);
         }
 
         base.OnCollisionEnter(collision);

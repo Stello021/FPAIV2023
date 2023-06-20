@@ -80,6 +80,18 @@ public class PlayerLogic : MonoBehaviour
         armorValueText.text = armor.ToString();
     }
 
+
+
+    //private void OnControllerColliderHit(ControllerColliderHit hit)
+    //{
+    //    if (hit.collider.CompareTag("Enemy"))
+    //    {
+    //        TakeDamage(hit.collider.GetComponent<EnemyLogic>().meleeDamage);
+    //        Debug.Log("Collision detection");
+
+    //    }
+    //}
+
     private void OnDestroy()
     {
         Cursor.visible = true;

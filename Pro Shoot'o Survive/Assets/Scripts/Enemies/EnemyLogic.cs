@@ -8,7 +8,9 @@ public class EnemyLogic : MonoBehaviour
     public float MaxHP; //Starting HP
     [HideInInspector] private float currentHP;
     [SerializeField] GameObject OwnWeapon;
-    private NavMeshAgent enemyAgent; 
+    private NavMeshAgent enemyAgent;
+
+    [SerializeField] public float meleeDamage;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,15 @@ public class EnemyLogic : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.collider.CompareTag("Player"))
+    //    {
+    //        PlayerLogic player = collision.gameObject.GetComponent<PlayerLogic>();
+    //        player.TakeDamage(meleeDamage);
+    //    }
+    //}
 
     private void OnDestroy()
     {

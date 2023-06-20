@@ -28,6 +28,7 @@ public class WaveSceneManager : MonoBehaviour
             waveNumber++;
             Spawn();
         }
+
         if(waveNumber > waves.Count)
         {
             SceneManager.LoadScene("VictoryScene");
