@@ -43,7 +43,8 @@ public class EnemyLogic : MonoBehaviour
             {
                 BarsManager.Instance.setDamageBar(0.05f);
             }
-
+            WaveSceneManager wsm = FindFirstObjectByType<WaveSceneManager>();
+            wsm.EnemiesSpawned.Remove(gameObject);
             Destroy(gameObject);
         }
     }

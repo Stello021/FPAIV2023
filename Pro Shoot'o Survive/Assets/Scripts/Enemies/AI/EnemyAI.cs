@@ -11,12 +11,16 @@ public class EnemyAI : MonoBehaviour
     public Rigidbody rb;
     protected float reactivationTime = 3f;
 
+<<<<<<< Updated upstream
+=======
     [SerializeField] public float meleeDamage;
+    private float meleeElapsedTime;
 
+>>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
     private void Awake()
     {
@@ -30,12 +34,22 @@ public class EnemyAI : MonoBehaviour
         enemyAnimator.SetFloat("Speed_f", enemyAgent.speed);//Associate animator's speed parameter with agent speed
         if (enemyAgent.isOnNavMesh && PlayerTransform != null)
         {
+<<<<<<< Updated upstream
+            enemyAgent.SetDestination(PlayerTransform.position); 
+=======
             enemyAgent.SetDestination(PlayerTransform.position);
-            Debug.Log(enemyAgent.destination);
-            if (enemyAgent.remainingDistance <= 0.01f)
+            float targetDistance = Vector3.Distance(transform.position, PlayerTransform.position);
+            if(targetDistance <= 3f)
             {
-                PlayerTransform.GetComponent<PlayerLogic>().TakeDamage(meleeDamage);
+                float timer = 1f;
+                meleeElapsedTime += Time.deltaTime;
+                if(meleeElapsedTime >= timer)
+                {
+                    PlayerTransform.GetComponent<PlayerLogic>().TakeDamage(meleeDamage);
+                    meleeElapsedTime = 0f;
+                }
             }
+>>>>>>> Stashed changes
         }
     }
 
@@ -53,4 +67,5 @@ public class EnemyAI : MonoBehaviour
         rb.isKinematic = true;
         enemyAnimator.enabled = true;
     }
+
 }
