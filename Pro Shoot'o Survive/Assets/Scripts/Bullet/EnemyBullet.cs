@@ -8,8 +8,8 @@ public class EnemyBullet : Bullet
     {
         if (collision.collider.tag == "Player")
         {
-            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-            player.ReceiveDamage(DamageDealt);
+            PlayerLogic player = collision.gameObject.GetComponent<PlayerLogic>();
+            player.TakeDamage(DamageDealt);
         }
 
         base.OnCollisionEnter(collision);

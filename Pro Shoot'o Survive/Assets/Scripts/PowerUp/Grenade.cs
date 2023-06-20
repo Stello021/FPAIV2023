@@ -48,7 +48,7 @@ public class Grenade : MonoBehaviour
             {
                 enemy.DisableAgent();
                 enemy.rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-                collider.GetComponent<EnemyLogic>().currentHP -= damage;
+                collider.GetComponent<EnemyLogic>().ReceiveDamage(damage);
                 Debug.Log("Esploso");
             }
             

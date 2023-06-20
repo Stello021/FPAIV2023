@@ -87,8 +87,8 @@ public class BulletLogic : MonoBehaviour
         {
             //enemy damage
             EnemyLogic enemy = collision.collider.gameObject.GetComponent<EnemyLogic>();
-            enemy.currentHP -= DamageDealt;
-            Debug.Log(enemy.currentHP);
+            //enemy.currentHP -= DamageDealt;
+            //Debug.Log(enemy.currentHP);
         }
 
         if (collision.collider.CompareTag("Player"))

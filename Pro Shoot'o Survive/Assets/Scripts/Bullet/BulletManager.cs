@@ -65,7 +65,7 @@ public class BulletManager : MonoBehaviour
         if (Ammo > 0)
         {
             GameObject go = Instantiate(bulletPrefab, transform.position, transform.rotation); // Instantiate the bullet
-            BulletLogic bullet = go.GetComponent<BulletLogic>();
+            PlayerBullet bullet = go.GetComponent<PlayerBullet>();
             bullet.target = GameObject.FindGameObjectWithTag("Standard").transform.GetChild(2);
             Debug.Log(bullet.target);
             StartCoroutine(bullet.WaitToEnableHoming());
