@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyLogic : MonoBehaviour
 {
     public float MaxHP; //Starting HP
-    [HideInInspector]public float currentHP;
+    [HideInInspector] private float currentHP;
     [SerializeField] GameObject OwnWeapon;
     private NavMeshAgent enemyAgent; 
     // Start is called before the first frame update
@@ -18,22 +18,30 @@ public class EnemyLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentHP <= 0) 
+
+    }
+
+    public void ReceiveDamage(float damage)
+    {
+        currentHP -= damage;
+
+        if (currentHP <= 0)
         {
-            if(OwnWeapon != null)
+            if (OwnWeapon != null)
             {
                // OwnWeapon.transform.position = new Vector3(transform.position.x, 1.5f, transform.position.y);
                 OwnWeapon.transform.rotation = Quaternion.identity;
                 OwnWeapon.transform.parent = null;
             }
-            if(gameObject.tag == "Standard")
+            if (gameObject.tag == "Standard")
             {
                 BarsManager.Instance.setSpeedBar(0.05f);
             }
-            else if(gameObject.tag == "Ranged")
+            else if (gameObject.tag == "Ranged")
             {
                 BarsManager.Instance.setDamageBar(0.05f);
             }
+
             Destroy(gameObject);
         }
     }

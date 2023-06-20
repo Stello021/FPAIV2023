@@ -26,12 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform BulletSpawn; // Reference to BulletSpown transform.
     [SerializeField] private Transform CentreCameraTarget; // Reference to the transform of an EmptyObject located in the center of the camera frame. 
 
-    [Header("PowerUp variables")]
-    [SerializeField] private float hp = 100;
-    public float HP { get { return hp; } set { hp = Mathf.Clamp(hp + value, 0, 100); UpdateHPText(); } }
-    [SerializeField] private float armor = 0;
-    public float Armor { get { return armor; } set { armor += value; UpdateArmorText(); } }
-
+    [Header("Grenades")]
     private int granades;
     public int Grenades { get { return granades; } set { granades++; UpdateGrenadeText(); } }
 
@@ -106,23 +101,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void ReceiveDamage(float damage)
-    {
-        if (Armor > 0)
-        {
-            Armor += -damage;
-        }
-        else
-        {
-            HP += -damage;
-        }
-
-        if (HP <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
     public void ActivateHoming()
     {
         activeHoming = true;
@@ -186,7 +164,7 @@ public class PlayerController : MonoBehaviour
 
     private void ThrowGrenade()
     {
-        if (InputsController.OnInputTrigger("ThrowGrenade"))
+        if (InputsController.OnInputTrigger("ThrowGrenade") && Grenades > 0)
         {
             animator.SetInteger("WeaponType_int", 10);
             GameObject grenade = Instantiate(grenadePrefab, grenadeSpawnPoint.position, grenadeSpawnPoint.rotation);
@@ -250,13 +228,13 @@ public class PlayerController : MonoBehaviour
             }
 
             GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
-            bullet.GetComponent<BulletLogic>().dir = shootDir; // Set the bullet direction
-            bullet.GetComponent<BulletLogic>().DamageDealt = damageDealt;
+            bullet.GetComponent<PlayerBullet>().dir = shootDir; // Set the bullet direction
+            bullet.GetComponent<PlayerBullet>().DamageDealt = damageDealt;
         }
         else
         {
             GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
-            BulletLogic bullet = go.GetComponent<BulletLogic>();
+            PlayerBullet bullet = go.GetComponent<PlayerBullet>();
             bullet.target = SetTarget();
             bullet.DamageDealt = damageDealt;
             StartCoroutine(bullet.WaitToEnableHoming());

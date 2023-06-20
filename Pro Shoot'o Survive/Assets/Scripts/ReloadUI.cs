@@ -23,6 +23,7 @@ public class ReloadUI : MonoBehaviour
             if (image.fillAmount >= 1)
             {
                 gameObject.SetActive(false);
+                image.fillAmount = 0;
                 Debug.Log(Time.time);
             }
         }

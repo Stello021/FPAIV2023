@@ -155,4 +155,5 @@ MonoBehaviour:
     m_Bits: 256
   explosionForce: 1000
   rb: {fileID: 9172492341976094191}
+  damage: 75
   explosionFX: {fileID: 191186, guid: f90e42cfac6401a42af4c10707545dd8, type: 3}
