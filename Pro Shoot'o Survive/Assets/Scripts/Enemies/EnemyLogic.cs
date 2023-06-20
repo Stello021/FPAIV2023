@@ -49,7 +49,7 @@ public class EnemyLogic : MonoBehaviour
     private void OnDestroy()
     {
         int probability = Random.Range(0, 100);
-        if (probability < 30 && PowerUpManager.Instance != null)
+        if (probability < 30)
         {
             PowerUpManager.Instance.SpawnRandomPowerUp(transform.position);
         }

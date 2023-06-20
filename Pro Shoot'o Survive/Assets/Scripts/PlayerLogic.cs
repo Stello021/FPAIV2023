@@ -18,10 +18,10 @@ public class PlayerLogic : MonoBehaviour
     public float Armor { get { return armor; } set { armor += value; UpdateArmorText(); } }
 
     [SerializeField] float damageMax;
-    [HideInInspector] public float damage;
+    public float damage;
 
     [SerializeField] float speedMax;
-    [HideInInspector] public float speed;
+    public float speed;
 
     public float speedBarValue;     //value from 0 to 1
     public float healthBarValue;    //value from 0 to 1
