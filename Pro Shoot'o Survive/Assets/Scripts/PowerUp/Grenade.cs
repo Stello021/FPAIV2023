@@ -14,6 +14,8 @@ public class Grenade : MonoBehaviour
     [SerializeField] float explosionForce;
     [SerializeField] Rigidbody rb;
 
+    [SerializeField] float damage;
+
     public GameObject explosionFX;
     // Start is called before the first frame update
     void Start()
@@ -46,13 +48,9 @@ public class Grenade : MonoBehaviour
             {
                 enemy.DisableAgent();
                 enemy.rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+                collider.GetComponent<EnemyLogic>().currentHP -= damage;
                 Debug.Log("Esploso");
             }
-
-            //collider.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, -1);
-            
-            //EnemyLogic enemy = collider.GetComponent<EnemyLogic>();
-            //enemyMask.currentHP--;
             
         }
 

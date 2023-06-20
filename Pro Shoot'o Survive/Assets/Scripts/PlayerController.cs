@@ -107,11 +107,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Armor > 0)
         {
-            Armor += -damage;
+            armor -= damage;
         }
         else
         {
-            HP += -damage;
+            hp -= damage;
         }
 
         if (HP <= 0)
