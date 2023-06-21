@@ -170,7 +170,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: dbbc53a6bc8f5c64bb234194ce1380aa, type: 3}
   m_Controller: {fileID: 9100000, guid: afec2cc25e3439e4bb1b43e7c09f6503, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
@@ -217,6 +217,7 @@ MonoBehaviour:
   PlayerTransform: {fileID: 0}
   enemyAgent: {fileID: 0}
   rb: {fileID: 0}
+  meleeDamage: 0
   PlayerMask:
     serializedVersion: 2
     m_Bits: 128
