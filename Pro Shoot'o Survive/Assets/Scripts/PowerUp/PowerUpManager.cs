@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PowerUpManager : MonoBehaviour
 {
-    static private PowerUpManager instance;
-    static public PowerUpManager Instance { get { return instance; } }
+    //static private PowerUpManager instance;
+    //static public PowerUpManager Instance { get { return instance; } }
 
     [SerializeField] List<GameObject> powerUpList;
+
+    private void Start()
+    {
+        //instance = this;
+    }
 
     public void SpawnMedikit(Vector3 position)
     {

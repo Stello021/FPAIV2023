@@ -337,8 +337,8 @@ MonoBehaviour:
   playerRotationSpeed: 10
   jumpForce: 5
   damageDealt: 25
-  defaultWeapon: {fileID: 0}
-  assaultWeapon: {fileID: 0}
+  defaultWeapon: {fileID: 8382984336669105017}
+  assaultWeapon: {fileID: 8812989879420169857}
   Bullet: {fileID: 2405495413867421730, guid: 70743bf4717711046be45b32b6933d3b, type: 3}
   BulletSpawn: {fileID: 9036672456228282861}
   CentreCameraTarget: {fileID: 5556613329380079112}
@@ -1183,6 +1183,12 @@ PrefabInstance:
       addedObject: {fileID: 9036672456228282861}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57ae198be80db0142a758aa602e644ed, type: 3}
+--- !u!1 &8382984336669105017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 108920, guid: 57ae198be80db0142a758aa602e644ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 8382984336669078017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8382984336669237365 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 496244, guid: 57ae198be80db0142a758aa602e644ed,
@@ -1287,6 +1293,12 @@ PrefabInstance:
       addedObject: {fileID: 989528393095569095}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c28bd5bb9c5724da72bfd765a054d7, type: 3}
+--- !u!1 &8812989879420169857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 145888, guid: 77c28bd5bb9c5724da72bfd765a054d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8812989879420032865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8812989879420433029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 402916, guid: 77c28bd5bb9c5724da72bfd765a054d7,

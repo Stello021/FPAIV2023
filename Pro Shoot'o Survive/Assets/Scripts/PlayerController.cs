@@ -279,6 +279,8 @@ public class PlayerController : MonoBehaviour
             // Attiva l'arma d'assalto
             assaultWeapon.SetActive(true);
             animator.SetInteger("WeaponType_int", 2);
+
+            other.gameObject.SetActive(false);
         }
     }
 

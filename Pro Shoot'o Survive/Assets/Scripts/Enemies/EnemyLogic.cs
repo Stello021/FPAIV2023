@@ -11,9 +11,12 @@ public class EnemyLogic : MonoBehaviour
     private NavMeshAgent enemyAgent;
 
     [SerializeField] public float meleeDamage;
+    [SerializeField] Vector3 PowerUpSpawnPos;
+    [SerializeField] PowerUpManager powerUpManager;
     // Start is called before the first frame update
     void Start()
     {
+        powerUpManager = GameObject.FindObjectOfType<PowerUpManager>();
         currentHP = MaxHP;
         enemyAgent = GetComponent<NavMeshAgent>();
     }
@@ -45,6 +48,7 @@ public class EnemyLogic : MonoBehaviour
             }
             WaveSceneManager wsm = FindFirstObjectByType<WaveSceneManager>();
             wsm.EnemiesSpawned.Remove(gameObject);
+            PowerUpSpawnPos = transform.position;
             Destroy(gameObject);
         }
     }
@@ -61,9 +65,11 @@ public class EnemyLogic : MonoBehaviour
     private void OnDestroy()
     {
         int probability = Random.Range(0, 100);
-        if (probability < 30)
+        if (probability < 35)
         {
-            PowerUpManager.Instance.SpawnRandomPowerUp(transform.position);
+            powerUpManager.SpawnRandomPowerUp(PowerUpSpawnPos);
+            //Debug.Log(PowerUpManager.Instance);
+            //PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
         }
     }
 }
