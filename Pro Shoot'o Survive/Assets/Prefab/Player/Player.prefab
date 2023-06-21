@@ -272,7 +272,7 @@ Transform:
   - {fileID: 5556613329380079112}
   - {fileID: 866391988763072698}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3047167158606249523
 Animator:
@@ -317,7 +317,7 @@ CharacterController:
   m_Height: 2.85
   m_Radius: 0.7
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 1
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1.44, z: 0}
@@ -345,6 +345,7 @@ MonoBehaviour:
   grenadePrefab: {fileID: 8416421997194633816, guid: 5d863161cd4c0184eb5d7da647ce12e4,
     type: 3}
   grenadeSpawnPoint: {fileID: 866391988763072698}
+  grenadeNumberText: {fileID: 0}
   homingTimer: 0
   homingTime: 30
   viewRadius: 100
@@ -386,6 +387,7 @@ MonoBehaviour:
   speedBarValue: 0.5
   healthBarValue: 0
   damageBarValue: 0.5
+  armorValueText: {fileID: 0}
 --- !u!1 &1100766843599463601
 GameObject:
   m_ObjectHideFlags: 0

@@ -139,7 +139,7 @@ Transform:
   m_Children:
   - {fileID: 6517757522671465701}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 8.183, y: -180, z: 0}
 --- !u!20 &5706361793732414728
 Camera:
@@ -267,5 +267,8 @@ MonoBehaviour:
   cameraMoveFixedPosOffsetAsLookRotation: {x: 2, y: 2, z: 0}
   cameraAimFixedPosOffsetAsLookRotation: {x: 2, y: 2, z: 0}
   cameraCollisionOffsetMagnitude: 0.1
+  cameraToPlayerMaxDistanceOnCollision: 200
+  cameraRaycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
   crossHairTransform: {fileID: 0}
-  crossHairPositionX_Offset: 0
