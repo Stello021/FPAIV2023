@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -58,6 +59,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Material normalMaterial;
     [SerializeField] Material homingMaterial;
 
+    [SerializeField] GameObject pausePanel;
+
 
     private void Awake()
     {
@@ -78,6 +81,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Time.timeScale = 0f;
+            pausePanel.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         updateStats();
 
         Jump();

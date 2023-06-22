@@ -67,6 +67,9 @@ public class PlayerLogic : MonoBehaviour
 
         if (hp <= 0)
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene(2);
             Destroy(gameObject);
         }
 
@@ -84,9 +87,9 @@ public class PlayerLogic : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene(2);
+        //Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
+        //SceneManager.LoadScene(2);
     }
 
 }
