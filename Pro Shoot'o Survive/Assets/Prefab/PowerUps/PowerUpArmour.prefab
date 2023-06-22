@@ -22,7 +22,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: 1c6c35831574ca744a1199c6079f2eea, type: 3}
+      objectReference: {fileID: 4300000, guid: ba3866cfd7f96494283a99ee20d47985, type: 3}
     - target: {fileID: 8032132720332899389, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
       propertyPath: m_RootOrder
@@ -95,8 +95,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637180802472821081, guid: d7a3215ffb6a808459d6558b35225f7a,
         type: 3}
+      propertyPath: m_Size.y
+      value: 0.79842514
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637180802472821081, guid: d7a3215ffb6a808459d6558b35225f7a,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.2541136
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637180802472821081, guid: d7a3215ffb6a808459d6558b35225f7a,
+        type: 3}
       propertyPath: m_Center.y
-      value: 1.88
+      value: 0.2507874
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637180802472821081, guid: d7a3215ffb6a808459d6558b35225f7a,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.022943199
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2223877926405725992, guid: d7a3215ffb6a808459d6558b35225f7a, type: 3}

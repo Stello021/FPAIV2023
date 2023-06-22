@@ -381,6 +381,7 @@ MonoBehaviour:
   actuallyMaxHp: 0
   hp: 0
   armor: 0
+  armorMax: 200
   damageMax: 100
   damage: 0
   speedMax: 100

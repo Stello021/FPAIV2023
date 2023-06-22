@@ -15,7 +15,9 @@ public class PlayerLogic : MonoBehaviour
     [SerializeField] private float hp;
     public float HP { get { return hp; } set { hp = Mathf.Clamp(hp + value, 0, hpMax); } }
     [SerializeField] private float armor;
-    public float Armor { get { return armor; } set { armor += value; UpdateArmorText(); } }
+    [SerializeField] private float armorMax;
+    public float Armor { get { return armor; } set { armor = Mathf.Clamp(armor + value, 0, armorMax); UpdateArmorText(); } }
+
 
     [SerializeField] float damageMax;
     public float damage;
@@ -53,6 +55,7 @@ public class PlayerLogic : MonoBehaviour
         if (armor > 0)
         {
             armor -= damage;
+            armor = Mathf.Clamp(armor, 0, armorMax);
             UpdateArmorText();
         }
         else

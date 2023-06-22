@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] protected Rigidbody rb;
 
+    [SerializeField] protected float lifetime;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -20,6 +22,15 @@ public class Bullet : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         StandardMovement();
+    }
+
+    private void Update()
+    {
+        lifetime -= Time.deltaTime;
+        if (lifetime <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     protected void StandardMovement()
