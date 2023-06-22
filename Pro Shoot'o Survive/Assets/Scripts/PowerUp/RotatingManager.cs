@@ -8,7 +8,7 @@ public class RotatingManager : MonoBehaviour
     static public RotatingManager Instance { get { return instance; } }
 
     [SerializeField]
-    public List<Transform> rotatingObjects;
+    private List<Transform> rotatingObjects;
     [SerializeField]
     private Vector3 rotSpeed;
 
@@ -17,6 +17,7 @@ public class RotatingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         GameObject[] powerUps = GameObject.FindGameObjectsWithTag("PowerUp");
         foreach (GameObject powerUp in powerUps)
         {
@@ -42,12 +43,11 @@ public class RotatingManager : MonoBehaviour
             {
                 rotatingObjects.Remove(rotatingObjects[i]);
             }
-        }
-        
-    }
+        }    }
 
     public void AddRotatingObject(Transform obj)
     {
+        Debug.Log(obj);
         rotatingObjects.Add(obj);
     }
 }

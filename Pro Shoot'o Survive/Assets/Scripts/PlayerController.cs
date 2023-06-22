@@ -349,15 +349,15 @@ public class PlayerController : MonoBehaviour
                 // check if enemy is inside the player viewRadius
                 if (angleToTarget < angleOfVision * 0.5f)
                 {
-                    Debug.Log("Enemy angle: " + angleToTarget);
+                    //Debug.Log("Enemy angle: " + angleToTarget);
                     Vector3 raycastStart = transform.GetChild(0).position;
-                    Debug.DrawRay(raycastStart, distToTarget, Color.red, 10);
-                    Debug.Log(Physics.Raycast(transform.GetChild(0).position, distToTarget.normalized, distToTarget.magnitude, obstacleMask));
+                    //Debug.DrawRay(raycastStart, distToTarget, Color.red, 10);
+                    //Debug.Log(Physics.Raycast(transform.GetChild(0).position, distToTarget.normalized, distToTarget.magnitude, obstacleMask));
                     //check if enemy is not behind a wall
                     if (!Physics.Raycast(transform.GetChild(0).position, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
                     {
                         target = possibleTarget;
-                        Debug.Log(target);
+                        //Debug.Log(target);
                         return target;
                     }
                 }

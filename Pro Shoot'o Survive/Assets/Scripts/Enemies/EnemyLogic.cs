@@ -48,7 +48,7 @@ public class EnemyLogic : MonoBehaviour
             }
             WaveSceneManager wsm = FindFirstObjectByType<WaveSceneManager>();
             wsm.EnemiesSpawned.Remove(gameObject);
-            PowerUpSpawnPos = transform.position;
+            PowerUpSpawnPos = transform.GetChild(2).position;
             Destroy(gameObject);
         }
     }
@@ -65,11 +65,10 @@ public class EnemyLogic : MonoBehaviour
     private void OnDestroy()
     {
         int probability = Random.Range(0, 100);
-        if (probability < 35)
+        if (probability < 80)
         {
             //powerUpManager.SpawnRandomPowerUp(PowerUpSpawnPos);
-            //Debug.Log(PowerUpManager.Instance);
-            //PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
+            PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
         }
     }
 }

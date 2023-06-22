@@ -348,7 +348,7 @@ MonoBehaviour:
   grenadeSpawnPoint: {fileID: 866391988763072698}
   grenadeNumberText: {fileID: 0}
   homingTimer: 0
-  homingTime: 100
+  homingTime: 30
   viewRadius: 200
   enemyMask:
     serializedVersion: 2
