@@ -267,6 +267,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 59426163582677020}
   - {fileID: 5635976305557439872}
   - {fileID: 1508352175758956729}
   - {fileID: 5556613329380079112}
@@ -347,8 +348,8 @@ MonoBehaviour:
   grenadeSpawnPoint: {fileID: 866391988763072698}
   grenadeNumberText: {fileID: 0}
   homingTimer: 0
-  homingTime: 30
-  viewRadius: 100
+  homingTime: 100
+  viewRadius: 200
   enemyMask:
     serializedVersion: 2
     m_Bits: 256
@@ -356,7 +357,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   rotSpeed: 0
-  angleOfVision: 180
+  angleOfVision: 140
   cam: {fileID: 0}
   aimMask:
     serializedVersion: 2
@@ -641,6 +642,37 @@ Transform:
   - {fileID: 1194645342367207907}
   m_Father: {fileID: 6406549711968212592}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3012734315082319110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59426163582677020}
+  m_Layer: 7
+  m_Name: RaycastStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &59426163582677020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3012734315082319110}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3165855469058822974}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3582605705240358975
 GameObject:

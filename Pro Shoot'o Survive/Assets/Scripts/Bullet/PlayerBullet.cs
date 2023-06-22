@@ -13,8 +13,14 @@ public class PlayerBullet : Bullet
 
     protected override void FixedUpdate()
     {
-        if (IsHoming) HomingMovement();
-        else StandardMovement();
+        if (IsHoming)
+        {
+            HomingMovement();
+        }
+        else
+        {
+            StandardMovement();
+        }
     }
 
     private void HomingMovement()
@@ -22,13 +28,11 @@ public class PlayerBullet : Bullet
         if (target != null)
         {
             Vector3 distance = target.position - transform.position;
-            Quaternion rotationDir = Quaternion.LookRotation(distance);
-            Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotationDir, rotSpeed * Time.deltaTime);
+            Quaternion rotation = Quaternion.LookRotation(distance);
+            //Quaternion newRotation = Quaternion.RotateTowards(transform.rotation, rotation, rotSpeed * Time.fixedDeltaTime);
+            Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotation, rotSpeed * Time.deltaTime);
             rb.MoveRotation(newRotation);
             rb.velocity = transform.forward * bulletSpeed * Time.fixedDeltaTime;
-
-            //transform.rotation = newRotation;
-            //transform.position += transform.forward * bulletSpeed * Time.deltaTime;
         }
         else
         {

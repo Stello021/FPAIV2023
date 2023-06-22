@@ -67,7 +67,7 @@ public class EnemyLogic : MonoBehaviour
         int probability = Random.Range(0, 100);
         if (probability < 35)
         {
-            powerUpManager.SpawnRandomPowerUp(PowerUpSpawnPos);
+            //powerUpManager.SpawnRandomPowerUp(PowerUpSpawnPos);
             //Debug.Log(PowerUpManager.Instance);
             //PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
         }

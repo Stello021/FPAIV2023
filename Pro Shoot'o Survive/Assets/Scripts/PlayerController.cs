@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.Versioning;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -239,7 +240,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
             PlayerBullet bullet = go.GetComponent<PlayerBullet>();
-            bullet.target = SetTarget();
+            bullet.target = SetFirstTarget();
             bullet.DamageDealt = damageDealt;
             StartCoroutine(bullet.WaitToEnableHoming());
         }
@@ -293,7 +294,7 @@ public class PlayerController : MonoBehaviour
     {
         Transform target = null;
         Collider[] enemyTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
-
+        Debug.Log("Enemies detected: " + enemyTargets.Length);
         if (enemyTargets.Length > 0)
         {
             Transform nextTarget = null;
@@ -301,32 +302,69 @@ public class PlayerController : MonoBehaviour
 
             for (int i = 0; i < enemyTargets.Length; i++)
             {
-                Transform possibleTarget = enemyTargets[i].transform;
-                Vector3 distToTarget = possibleTarget.position - transform.position;
-                float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
+                Transform possibleTarget = enemyTargets[i].transform.GetChild(2);
+                Vector3 distToTarget = possibleTarget.position - transform.GetChild(0).position;
+                float angleToTarget = Vector3.Angle(transform.forward, distToTarget);
                 // check if enemy is within angle of vision
                 if (angleToTarget < angleOfVision * 0.5f)
                 {
-                    // check if enemy is NOT behind a wall
-                    if (!Physics.Raycast(transform.position, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
+                    Debug.Log("Enemy angle: " + angleToTarget);
+                    Vector3 raycastStart = transform.GetChild(0).position;
+                    Debug.DrawRay(raycastStart, distToTarget, Color.red, 10);
+                    // check if enemy is NOT behind an obstacle
+                    if (!Physics.Raycast(transform.GetChild(0).position, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
                     {
                         if (nextTarget == null)
                         {
                             lowestDist = distToTarget;
-                            nextTarget = possibleTarget.GetChild(2);
+                            nextTarget = possibleTarget;
                         }
                         else if (distToTarget.sqrMagnitude < lowestDist.sqrMagnitude)
                         {
                             lowestDist = distToTarget;
-                            nextTarget = possibleTarget.GetChild(2);
+                            nextTarget = possibleTarget;
                         }
                     }
                 }
             }
-            //Debug.Log(nextTarget);
+            Debug.Log(nextTarget);
             target = nextTarget;
         }
 
+        return target;
+    }
+
+    private Transform SetFirstTarget()
+    {
+        Transform target = null;
+        Collider[] enemyTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
+
+        if (enemyTargets.Length > 0)
+        {
+            for (int i = 0; i < enemyTargets.Length; i++)
+            {
+                Transform possibleTarget = enemyTargets[i].transform.GetChild(2);
+                Vector3 distToTarget = possibleTarget.position - transform.GetChild(0).position;
+                float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
+                // check if enemy is inside the player viewRadius
+                if (angleToTarget < angleOfVision * 0.5f)
+                {
+                    Debug.Log("Enemy angle: " + angleToTarget);
+                    Vector3 raycastStart = transform.GetChild(0).position;
+                    Debug.DrawRay(raycastStart, distToTarget, Color.red, 10);
+                    Debug.Log(Physics.Raycast(transform.GetChild(0).position, distToTarget.normalized, distToTarget.magnitude, obstacleMask));
+                    //check if enemy is not behind a wall
+                    if (!Physics.Raycast(transform.GetChild(0).position, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
+                    {
+                        target = possibleTarget;
+                        Debug.Log(target);
+                        return target;
+                    }
+                }
+            }
+        }
+
+        Debug.Log(target);
         return target;
     }
 
