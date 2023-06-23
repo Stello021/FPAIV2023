@@ -19,10 +19,10 @@ public class PlayerLogic : MonoBehaviour
     public float Armor { get { return armor; } set { armor = Mathf.Clamp(armor + value, 0, armorMax); UpdateArmorText(); } }
 
 
-    [SerializeField] float damageMax;
+    private float damageMultiplier = 1f;
     public float damage;
 
-    [SerializeField] float speedMax;
+    public float speedMultiplier = 1f;
     public float speed;
 
     public float speedBarValue;     //value from 0 to 1
@@ -48,48 +48,80 @@ public class PlayerLogic : MonoBehaviour
     void Update()
     {
         BarsManager.Instance.setHpBar(hp / actuallyMaxHp);
+        UpdateStatsMultiplier();
     }
 
-    public void TakeDamage(float damage)
-    {
-        if (armor > 0)
+        public void TakeDamage(float damage)
         {
-            armor -= damage;
-            armor = Mathf.Clamp(armor, 0, armorMax);
-            UpdateArmorText();
+            if (armor > 0)
+            {
+                armor -= damage * damageMultiplier;
+                armor = Mathf.Clamp(armor, 0, armorMax);
+                UpdateArmorText();
+            }
+            else
+            {
+                hp -= damage * damageMultiplier;
+            }
+
+            Debug.Log("Hp: " + hp);
+
+            if (hp <= 0)
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                SceneManager.LoadScene(2);
+                Destroy(gameObject);
+            }
+
+        }
+
+        public void Heal(float HealAmount)
+        {
+            hp = Mathf.Clamp(hp + healthBarValue, 0, actuallyMaxHp);
+            BarsManager.Instance.setHpBar(hp / actuallyMaxHp);
+        }
+
+        public void UpdateArmorText()
+        {
+            armorValueText.text = armor.ToString();
+        }
+    public void UpdateStatsMultiplier()
+    {
+        //multipliers affects player' speed or damage taken
+        if (damageBarValue <= 0)
+        {
+            damageMultiplier = 2f;
+        }
+        else if (damageBarValue >= 1)
+        {
+            damageMultiplier = 0.5f;
         }
         else
         {
-            hp -= damage;
+            damageMultiplier = 1f;
         }
 
-        Debug.Log("Hp: " + hp);
-
-        if (hp <= 0)
+        if (speedBarValue <= 0)
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene(2);
-            Destroy(gameObject);
+            speedMultiplier = 0.5f;
+        }
+        else if (speedBarValue >= 1)
+        {
+            speedMultiplier = 2f;
+        }
+        else
+        {
+            speedMultiplier = 1f;
         }
 
     }
 
-    public void Heal(float HealAmount)
-    {
-        hp = Mathf.Clamp(hp + healthBarValue, 0, actuallyMaxHp);
-        BarsManager.Instance.setHpBar(hp / actuallyMaxHp);
-    }
-
-    public void UpdateArmorText()
-    {
-        armorValueText.text = armor.ToString();
-    }
     private void OnDestroy()
-    {
-        //Cursor.visible = true;
-        //Cursor.lockState = CursorLockMode.None;
-        //SceneManager.LoadScene(2);
-    }
+        {
+            //Cursor.visible = true;
+            //Cursor.lockState = CursorLockMode.None;
+            //SceneManager.LoadScene(2);
+        }
 
-}
+    }

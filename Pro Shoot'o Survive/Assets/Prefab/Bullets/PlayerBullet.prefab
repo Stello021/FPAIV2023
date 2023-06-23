@@ -215,6 +215,7 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 1}
   DamageDealt: 25
   rb: {fileID: 0}
+  lifetime: 1
   IsHoming: 0
   target: {fileID: 0}
   rotSpeed: 50
