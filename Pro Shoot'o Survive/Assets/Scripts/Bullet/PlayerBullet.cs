@@ -8,8 +8,7 @@ public class PlayerBullet : Bullet
     [SerializeField] public bool IsHoming;
     public Transform target;
     [SerializeField] float rotSpeed;
-    [SerializeField] float speedBeforeHoming;
-    [SerializeField] float normalSpeed;
+    [SerializeField] float homingTimer;
 
     //protected override void FixedUpdate()
     //{
@@ -29,6 +28,7 @@ public class PlayerBullet : Bullet
 
         if (IsHoming)
         {
+            homingTimer -= Time.deltaTime;
             HomingMovement();
         }
         else
@@ -41,19 +41,15 @@ public class PlayerBullet : Bullet
     {
         if (target != null)
         {
-            Vector3 distance = target.position - transform.position;
-
-            if (distance.magnitude <= 20f)
+            if (homingTimer <= 0)
             {
-                rotSpeed = 50;
+                Vector3 distance = target.position - transform.position;
+                Quaternion rotation = Quaternion.LookRotation(distance);
+                Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotation, rotSpeed * Time.deltaTime);
+                transform.rotation = newRotation;
             }
 
-            Quaternion rotation = Quaternion.LookRotation(distance);
-            Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotation, rotSpeed * Time.deltaTime);
-            transform.rotation = newRotation;
             transform.position += transform.forward * bulletSpeed * Time.deltaTime;
-            //rb.MoveRotation(newRotation);
-            //rb.velocity = transform.forward * bulletSpeed * Time.fixedDeltaTime;
         }
         else
         {
@@ -72,17 +68,6 @@ public class PlayerBullet : Bullet
         }
         
         base.OnTriggerEnter(other);
-    }
-
-
-    
-    public IEnumerator WaitToEnableHoming()
-    {
-        bulletSpeed = speedBeforeHoming;
-        dir = transform.forward;
-        yield return new WaitForSeconds(Time.fixedDeltaTime);
-        IsHoming = true;
-        bulletSpeed = normalSpeed;
     }
 
 }

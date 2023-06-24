@@ -253,7 +253,7 @@ public class PlayerController : MonoBehaviour
             PlayerBullet bullet = go.GetComponent<PlayerBullet>();
             bullet.target = SetFirstTarget();
             bullet.DamageDealt = damageDealt;
-            StartCoroutine(bullet.WaitToEnableHoming());
+            bullet.IsHoming = true;
         }
 
         animator.SetInteger("WeaponType_int", 1);

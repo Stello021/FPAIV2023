@@ -217,9 +217,8 @@ MonoBehaviour:
   lifetime: 5
   IsHoming: 0
   target: {fileID: 0}
-  rotSpeed: 2
-  speedBeforeHoming: 200
-  normalSpeed: 2500
+  rotSpeed: 50
+  homingTimer: 0.2
 --- !u!1 &6079692056677599391
 GameObject:
   m_ObjectHideFlags: 0
