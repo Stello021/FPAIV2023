@@ -67,8 +67,9 @@ public class BulletManager : MonoBehaviour
             GameObject go = Instantiate(bulletPrefab, transform.position, transform.rotation); // Instantiate the bullet
             PlayerBullet bullet = go.GetComponent<PlayerBullet>();
             bullet.target = GameObject.FindGameObjectWithTag("Standard").transform.GetChild(2);
+            bullet.IsHoming = true;
             Debug.Log(bullet.target);
-            StartCoroutine(bullet.WaitToEnableHoming());
+            //StartCoroutine(bullet.WaitToEnableHoming());
         }
     }
 }

@@ -5,14 +5,28 @@ using UnityEngine;
 public class PlayerBullet : Bullet
 {
     [Header("Homing variables")]
-    [SerializeField] bool IsHoming;
+    [SerializeField] public bool IsHoming;
     public Transform target;
     [SerializeField] float rotSpeed;
     [SerializeField] float speedBeforeHoming;
     [SerializeField] float normalSpeed;
 
-    protected override void FixedUpdate()
+    //protected override void FixedUpdate()
+    //{
+    //    if (IsHoming)
+    //    {
+    //        HomingMovement();
+    //    }
+    //    else
+    //    {
+    //        StandardMovement();
+    //    }
+    //}
+
+    protected override void Update()
     {
+        base.Update();
+
         if (IsHoming)
         {
             HomingMovement();
@@ -28,11 +42,18 @@ public class PlayerBullet : Bullet
         if (target != null)
         {
             Vector3 distance = target.position - transform.position;
+
+            if (distance.magnitude <= 20f)
+            {
+                rotSpeed = 50;
+            }
+
             Quaternion rotation = Quaternion.LookRotation(distance);
-            //Quaternion newRotation = Quaternion.RotateTowards(transform.rotation, rotation, rotSpeed * Time.fixedDeltaTime);
             Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotation, rotSpeed * Time.deltaTime);
-            rb.MoveRotation(newRotation);
-            rb.velocity = transform.forward * bulletSpeed * Time.fixedDeltaTime;
+            transform.rotation = newRotation;
+            transform.position += transform.forward * bulletSpeed * Time.deltaTime;
+            //rb.MoveRotation(newRotation);
+            //rb.velocity = transform.forward * bulletSpeed * Time.fixedDeltaTime;
         }
         else
         {
@@ -40,7 +61,7 @@ public class PlayerBullet : Bullet
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Standard") || other.CompareTag("Ranged"))
         {
@@ -49,10 +70,12 @@ public class PlayerBullet : Bullet
             enemy.ReceiveDamage(DamageDealt);
             Debug.Log("Danni al nemico:" + DamageDealt);
         }
+        
         base.OnTriggerEnter(other);
     }
 
 
+    
     public IEnumerator WaitToEnableHoming()
     {
         bulletSpeed = speedBeforeHoming;

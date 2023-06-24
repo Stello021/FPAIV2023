@@ -9,22 +9,22 @@ public class Bullet : MonoBehaviour
 
     public float DamageDealt;
 
-    [SerializeField] protected Rigidbody rb;
+    //[SerializeField] protected Rigidbody rb;
 
     [SerializeField] protected float lifetime;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
     }
 
-    protected virtual void FixedUpdate()
-    {
-        StandardMovement();
-    }
+    //protected virtual void FixedUpdate()
+    //{
+    //    StandardMovement();
+    //}
 
-    private void Update()
+    protected virtual void Update()
     {
         lifetime -= Time.deltaTime;
         if (lifetime <= 0)
@@ -35,9 +35,11 @@ public class Bullet : MonoBehaviour
 
     protected void StandardMovement()
     {
-        rb.velocity = dir * bulletSpeed * Time.fixedDeltaTime;
+        //rb.velocity = dir * bulletSpeed * Time.fixedDeltaTime;
+        transform.position += dir * bulletSpeed * Time.deltaTime;
     }
-    protected void OnTriggerEnter(Collider other)
+
+    protected virtual void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
 

@@ -211,14 +211,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae68a4158363a6e428846c2835456eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 2500
+  bulletSpeed: 25
   dir: {x: 0, y: 0, z: 1}
   DamageDealt: 25
-  rb: {fileID: 0}
-  lifetime: 1
+  lifetime: 5
   IsHoming: 0
   target: {fileID: 0}
-  rotSpeed: 50
+  rotSpeed: 2
   speedBeforeHoming: 200
   normalSpeed: 2500
 --- !u!1 &6079692056677599391
