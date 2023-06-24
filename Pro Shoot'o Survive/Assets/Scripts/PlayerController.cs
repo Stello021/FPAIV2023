@@ -381,7 +381,6 @@ public class PlayerController : MonoBehaviour
 
     void updateStats()
     {
-        damageDealt = PlayerLogic.Instance.damage;
         playerMoveSpeed = PlayerLogic.Instance.speed * PlayerLogic.Instance.speedMultiplier;
     }
 

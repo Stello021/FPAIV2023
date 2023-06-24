@@ -20,7 +20,6 @@ public class PlayerLogic : MonoBehaviour
 
 
     private float damageMultiplier = 1f;
-    public float damage;
 
     public float speedMultiplier = 1f;
     public float speed;
