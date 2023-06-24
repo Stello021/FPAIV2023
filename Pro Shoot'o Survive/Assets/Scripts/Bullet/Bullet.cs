@@ -37,9 +37,9 @@ public class Bullet : MonoBehaviour
     {
         rb.velocity = dir * bulletSpeed * Time.fixedDeltaTime;
     }
-
-    protected virtual void OnCollisionEnter(Collision collision)
+    protected void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
+
     }
 }

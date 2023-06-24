@@ -40,17 +40,16 @@ public class PlayerBullet : Bullet
         }
     }
 
-    protected override void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.CompareTag("Standard") || collision.collider.CompareTag("Ranged"))
+        if (other.CompareTag("Standard") || other.CompareTag("Ranged"))
         {
             //enemy damage
-            EnemyLogic enemy = collision.collider.gameObject.GetComponent<EnemyLogic>();
+            EnemyLogic enemy = other.gameObject.GetComponent<EnemyLogic>();
             enemy.ReceiveDamage(DamageDealt);
             Debug.Log("Danni al nemico:" + DamageDealt);
         }
-
-        base.OnCollisionEnter(collision);
+        base.OnTriggerEnter(other);
     }
 
 

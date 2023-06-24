@@ -79,21 +79,19 @@ public class BulletLogic : MonoBehaviour
             StandardMovement();
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-
-        if (collision.collider.CompareTag("Standard") || collision.collider.CompareTag("Ranged"))
+        if (other.CompareTag("Standard") || other.CompareTag("Ranged"))
         {
             //enemy damage
-            EnemyLogic enemy = collision.collider.gameObject.GetComponent<EnemyLogic>();
+            EnemyLogic enemy = other.gameObject.GetComponent<EnemyLogic>();
             //enemy.currentHP -= DamageDealt;
             //Debug.Log(enemy.currentHP);
         }
 
-        if (collision.collider.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            PlayerLogic player = collision.gameObject.GetComponent<PlayerLogic>();
+            PlayerLogic player = other.GetComponent<PlayerLogic>();
             player.TakeDamage(DamageDealt);
         }
 

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class EnemyBullet : Bullet
 {
-    protected override void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.tag == "Player")
+        if (other.tag == "Player")
         {
             Debug.Log("Damage of enemy bullet: " + DamageDealt);
-            PlayerLogic player = collision.gameObject.GetComponent<PlayerLogic>();
+            PlayerLogic player = other.gameObject.GetComponent<PlayerLogic>();
             player.TakeDamage(DamageDealt);
         }
 
-        base.OnCollisionEnter(collision);
+        base.OnTriggerEnter(other);
     }
 }
