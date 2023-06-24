@@ -43,7 +43,8 @@ public class RotatingManager : MonoBehaviour
             {
                 rotatingObjects.Remove(rotatingObjects[i]);
             }
-        }    }
+        }    
+    }
 
     public void AddRotatingObject(Transform obj)
     {

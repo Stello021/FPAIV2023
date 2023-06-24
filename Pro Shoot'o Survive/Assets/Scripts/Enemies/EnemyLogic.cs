@@ -29,7 +29,7 @@ public class EnemyLogic : MonoBehaviour
     public void ReceiveDamage(float damage)
     {
         currentHP -= damage;
-
+        Debug.Log("Current HP: " + currentHP);  
         if (currentHP <= 0)
         {
             if (OwnWeapon != null)
@@ -64,11 +64,10 @@ public class EnemyLogic : MonoBehaviour
 
     private void OnDestroy()
     {
-        int probability = Random.Range(0, 100);
-        if (probability < 80)
-        {
-            //powerUpManager.SpawnRandomPowerUp(PowerUpSpawnPos);
-            PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
-        }
+        //int probability = Random.Range(0, 100);
+        //if (probability < 80)
+        //{
+        //    PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
+        //}
     }
 }
