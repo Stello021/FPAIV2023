@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
 
     [Header("\nCamera variables")]
     [SerializeField] private float cameraMoveSpeedOnRotation;
-    [SerializeField] private float lerpToPLayerPositionAndCameraPosOffsetSpeed;
+    [SerializeField] private float lerpCameraPositionSpeed;
     [SerializeField] private float cameraRotationSpeed;
     [SerializeField] private float minCameraOffsetY;
     [SerializeField] private float maxCameraOffsetY;
@@ -24,7 +24,10 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] private float cameraCollisionOffsetMagnitude;
     [SerializeField] private float cameraToPlayerMaxDistanceOnCollision;
+    [SerializeField] private float cameraToImpactPointMaxDistance;
     [SerializeField] private LayerMask cameraRaycastLayerMask;
+
+    private bool hasCameraCollided;
 
     private Vector3 cameraCurrentPosOffsetAsMagnitude;
     private Vector3 cameraCurrentPosOffset;
@@ -64,9 +67,6 @@ public class CameraController : MonoBehaviour
 
     private RaycastHit cameraHitInfo;
 
-    [Header("\nCrossHair variables")]
-    [SerializeField] private RectTransform crossHairTransform;
-
 
     // Start is called before the first frame update
     void Start()
@@ -80,51 +80,92 @@ public class CameraController : MonoBehaviour
 
     private void MoveCamera()
     {
-        transform.position = Vector3.Lerp(transform.position, player.transform.position + cameraCurrentPosOffset, lerpToPLayerPositionAndCameraPosOffsetSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, player.transform.position + cameraCurrentPosOffset, lerpCameraPositionSpeed * Time.deltaTime);
     }
 
     public void MoveCameraOrbitally()
     {
         //this movement will happen when we rotate camera yaw (y axis)
 
-        float currentRotationY = 0;
         Vector3 cameraToPlayer = player.transform.position - transform.position;
         Vector3 newOffset = Vector3.zero;
-        Vector3 crossHairPosition = Vector3.zero;
-        Vector2 mouseDeltaDir = PlayerInputsController.GetInputValue<Vector2>("MouseDeltaDir");
+        Vector3 playerToHitPoint = cameraHitInfo.point - player.transform.position;
+
+        playerToHitPoint = (playerToHitPoint.magnitude + cameraCollisionOffsetMagnitude) * playerToHitPoint.normalized;
 
         if (IsCameraColliding() && cameraToPlayer.sqrMagnitude <= cameraToPlayerMaxDistanceOnCollision)
         {
-            Vector3 playerToHitPoint = cameraHitInfo.point - player.transform.position;
-            float cameraMoveSpeed = IsCameraColliding() ? cameraMoveSpeedOnRotation * 5 : (cameraMoveSpeedOnRotation * 0.5f);
-
-            playerToHitPoint = (playerToHitPoint.magnitude + cameraCollisionOffsetMagnitude) * playerToHitPoint.normalized;
-
-            currentRotationY = Mathf.Atan2(playerToHitPoint.z, playerToHitPoint.x);
-            currentRotationY += mouseDeltaDir.x * cameraMoveSpeed * Time.fixedDeltaTime;
-
-            newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
-            newOffset *= new Vector3(playerToHitPoint.x, 0, playerToHitPoint.z).magnitude;
-
-            //print("Is colliding");
+            newOffset = GetCameraOrbitalMovementOnImpactPoint(playerToHitPoint);
+            hasCameraCollided = true;
         }
 
         else
         {
-            currentRotationY = Mathf.Atan2(cameraCurrentPosOffset.z, cameraCurrentPosOffset.x);
-            currentRotationY += mouseDeltaDir.x * (cameraMoveSpeedOnRotation * 0.5f) * Time.fixedDeltaTime;
+            float cameraPosOffsetToHitPointDist = (playerToHitPoint - cameraCurrentPosOffset).magnitude;
 
-            newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
-            newOffset *= new Vector3(cameraCurrentPosOffsetAsMagnitude.x, 0, cameraCurrentPosOffsetAsMagnitude.z).magnitude;
+            if (cameraPosOffsetToHitPointDist <= cameraToImpactPointMaxDistance && hasCameraCollided && cameraToPlayer.sqrMagnitude <= cameraToPlayerMaxDistanceOnCollision)
+            {
+                newOffset = GetCameraOrbitalMovementOnImpactPoint(playerToHitPoint);
 
-            //print("Is not colliding");
+                Vector3 currentPosOffset = cameraCurrentPosOffset;
+                Vector3 newPosOffset = newOffset;
+                Vector2 mouseDeltaDir = PlayerInputsController.GetInputValue<Vector2>("MouseDeltaDir");
+
+                currentPosOffset.y = 0;
+                newPosOffset.y = 0;
+
+                float posOffsetDeltaDist = Vector3.Distance(currentPosOffset, newPosOffset);
+
+                if (posOffsetDeltaDist <= 4 && mouseDeltaDir.x != 0)
+                {
+                    newOffset = GetCameraOrbitalMovementOnCurrentPosOffset();
+                    hasCameraCollided = false;
+                }
+            }
+
+            else
+            {
+                newOffset = GetCameraOrbitalMovementOnCurrentPosOffset();
+                hasCameraCollided = false;
+            }
         }
-
-        crossHairPosition.x = CameraEulerAnglesY;
-        crossHairTransform.localPosition = crossHairPosition;
 
         newOffset.y = cameraCurrentPosOffset.y;
         cameraCurrentPosOffset = newOffset;
+    }
+
+    private Vector3 GetCameraOrbitalMovementOnImpactPoint(Vector3 hitPointOffset)
+    {
+        float currentRotationY = 0;
+        Vector3 newOffset = Vector3.zero;
+        Vector2 mouseDeltaDir = PlayerInputsController.GetInputValue<Vector2>("MouseDeltaDir");
+
+        currentRotationY = Mathf.Atan2(hitPointOffset.z, hitPointOffset.x);
+        currentRotationY += mouseDeltaDir.x * cameraMoveSpeedOnRotation * 5 * Time.fixedDeltaTime;
+
+        newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
+        newOffset *= new Vector3(hitPointOffset.x, 0, hitPointOffset.z).magnitude;
+
+        //print("Is colliding");
+
+        return newOffset;
+    }
+
+    private Vector3 GetCameraOrbitalMovementOnCurrentPosOffset()
+    {
+        float currentRotationY = 0;
+        Vector3 newOffset = Vector3.zero;
+        Vector2 mouseDeltaDir = PlayerInputsController.GetInputValue<Vector2>("MouseDeltaDir");
+
+        currentRotationY = Mathf.Atan2(cameraCurrentPosOffset.z, cameraCurrentPosOffset.x);
+        currentRotationY += mouseDeltaDir.x * (cameraMoveSpeedOnRotation * 0.5f) * Time.fixedDeltaTime;
+
+        newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
+        newOffset *= new Vector3(cameraCurrentPosOffsetAsMagnitude.x, 0, cameraCurrentPosOffsetAsMagnitude.z).magnitude;
+
+        //print("Is not colliding");
+
+        return newOffset;
     }
 
     public void ConcaveCameraMove()
@@ -150,15 +191,25 @@ public class CameraController : MonoBehaviour
         Vector3 cameraToTarget = player.transform.position - transform.position;
         Quaternion previousRotation = transform.rotation;
         Quaternion lastRotation = Quaternion.identity;
+        float angle = Mathf.Cos(Mathf.Atan(player.transform.position.x + cameraCurrentFixedPosOffsetAsLookRotation.x));
+        //float angle = Mathf.Cos(Mathf.Atan2(player.transform.position.x + cameraCurrentFixedPosOffsetAsLookRotation.x, player.transform.position.z + cameraCurrentFixedPosOffsetAsLookRotation.z));
+        //float angle = Mathf.Sin(Mathf.Atan(transform.eulerAngles.y));
+        Vector3 newOffset = cameraCurrentFixedPosOffsetAsLookRotation * angle;
+
+        newOffset.y = cameraCurrentFixedPosOffsetAsLookRotation.y;
+        //newOffset.z = cameraCurrentFixedPosOffsetAsLookRotation.z;
+
+        //cameraCurrentFixedPosOffsetAsLookRotation = newOffset;
 
         cameraToTarget += cameraCurrentFixedPosOffsetAsLookRotation;
+        //cameraToTarget += newOffset;
 
         //if (PlayerController.IsAiming)
         //{
         //    float currentRotationY = Mathf.Atan2(cameraCurrentPosOffset.z, cameraCurrentPosOffset.x);
         //    Vector3 currentPosOffsetSinAndCos = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
 
-        //    cameraToTarget += cameraCurrentFixedPosOffsetAsLookRotation;
+        //    cameraToTarget += cameraCurrentFixedPosOffsetAsLookRotation * currentRotationY;
 
         //    //if (CameraEulerAnglesY >= 170 && CameraEulerAnglesY <= 180)
         //    //{
@@ -171,7 +222,7 @@ public class CameraController : MonoBehaviour
 
 
         //    //cameraToTarget.x += currentRotationY * -Math.Sign(transform.forward.z);
-        //    cameraToTarget.x += currentRotationY * -transform.forward.z;
+        //    //cameraToTarget.x += currentRotationY * -transform.forward.z;
         //}
 
         //else
@@ -183,7 +234,7 @@ public class CameraController : MonoBehaviour
         // UI_Mngr.Instance.TextSprites["TextInfo"].text += "\nCamera yaw with negative value: " + CameraEulerAnglesY_WithNegativeValue.ToString();
         // UI_Mngr.Instance.TextSprites["TextInfo"].text += "\nCamera forward: " + transform.forward.ToString();
 
-        transform.rotation = Quaternion.LookRotation(cameraToTarget, Vector3.up);
+        transform.rotation = Quaternion.LookRotation(cameraToTarget.normalized, Vector3.up);
 
         lastRotation = transform.rotation;
         transform.rotation = previousRotation;
@@ -207,7 +258,7 @@ public class CameraController : MonoBehaviour
         return false;
     }
 
-    public void OnPlayerAim()
+    public void ToggleCameraOffsets()
     {
         if (PlayerController.IsAiming)
         {
@@ -224,17 +275,17 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OnPlayerAim();
-
-        MoveCamera();
-
         ConcaveCameraMove();
-
-        RotateCamera();
     }
 
     private void FixedUpdate()
     {
         MoveCameraOrbitally();
+    }
+
+    private void LateUpdate()
+    {
+        MoveCamera();
+        RotateCamera();
     }
 }
