@@ -37,12 +37,12 @@ public class MusicManager : MonoBehaviour
         StartCoroutine(AudioManager.Instance.AdjustVolumeRoutine(startType, fadeInTime, 1));
     }
 
-    public void ChangeMusic(MusicType newType, float fadeDuration)
+    public void ChangeMusic(MusicType newType, float fadeDuration, float targetVolume)
     {
         if (newType != currentType)
         {
             StartCoroutine(AudioManager.Instance.AdjustVolumeRoutine(currentType, fadeDuration, 0));
-            StartCoroutine(AudioManager.Instance.AdjustVolumeRoutine(newType, fadeDuration, 1));
+            StartCoroutine(AudioManager.Instance.AdjustVolumeRoutine(newType, fadeDuration, targetVolume));
             currentType = newType;
         }
     }

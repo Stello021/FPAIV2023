@@ -247,14 +247,12 @@ public class PlayerController : MonoBehaviour
 
             GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
             bullet.GetComponent<PlayerBullet>().dir = shootDir; // Set the bullet direction
-            bullet.GetComponent<PlayerBullet>().DamageDealt = damageDealt;
         }
         else
         {
             GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
             PlayerBullet bullet = go.GetComponent<PlayerBullet>();
             bullet.target = SetFirstTarget();
-            bullet.DamageDealt = damageDealt;
             bullet.IsHoming = true;
         }
 

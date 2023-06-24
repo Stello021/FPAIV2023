@@ -28,9 +28,9 @@ public class AudioManager : MonoBehaviour
         musicMngr.MusicStart();
     }
 
-    public void ChangeMusic(MusicType newType, float fadeDuration)
+    public void ChangeMusic(MusicType newType, float fadeDuration, float targetVolume)
     {
-        musicMngr.ChangeMusic(newType, fadeDuration);
+        musicMngr.ChangeMusic(newType, fadeDuration, targetVolume);
     }
 
     private void Update()

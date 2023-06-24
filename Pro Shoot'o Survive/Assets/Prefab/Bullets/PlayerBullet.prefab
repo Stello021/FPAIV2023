@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 25
   dir: {x: 0, y: 0, z: 1}
-  DamageDealt: 25
+  DamageDealt: 2000
   lifetime: 5
   IsHoming: 0
   target: {fileID: 0}
