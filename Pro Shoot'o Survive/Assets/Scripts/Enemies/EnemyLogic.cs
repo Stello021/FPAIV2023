@@ -29,12 +29,12 @@ public class EnemyLogic : MonoBehaviour
     public void ReceiveDamage(float damage)
     {
         currentHP -= damage;
-        Debug.Log("Current HP: " + currentHP);  
+        Debug.Log("Current HP: " + currentHP);
         if (currentHP <= 0)
         {
             if (OwnWeapon != null)
             {
-               // OwnWeapon.transform.position = new Vector3(transform.position.x, 1.5f, transform.position.y);
+                // OwnWeapon.transform.position = new Vector3(transform.position.x, 1.5f, transform.position.y);
                 OwnWeapon.transform.rotation = Quaternion.identity;
                 OwnWeapon.transform.parent = null;
             }
@@ -49,18 +49,16 @@ public class EnemyLogic : MonoBehaviour
             WaveSceneManager wsm = FindFirstObjectByType<WaveSceneManager>();
             wsm.EnemiesSpawned.Remove(gameObject);
             PowerUpSpawnPos = transform.GetChild(2).position;
-            Destroy(gameObject);
+            Animator enemyAnimator = GetComponent<Animator>();
+            enemyAnimator.SetBool("Death_b", true);
+            Invoke(nameof(DestroyEnemy), 2f);
+
         }
     }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.collider.CompareTag("Player"))
-    //    {
-    //        PlayerLogic player = collision.gameObject.GetComponent<PlayerLogic>();
-    //        player.TakeDamage(meleeDamage);
-    //    }
-    //}
+    public void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
 
     private void OnDestroy()
     {
