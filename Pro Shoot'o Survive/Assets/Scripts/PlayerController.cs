@@ -1,4 +1,5 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.Versioning;
 using TMPro;
 using UnityEngine;
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isInPause = false;
 
-
+    [SerializeField] List<AudioClip> shootClips;
     private void Awake()
     {
         //inputSysController = new InputSysController();
@@ -92,7 +93,6 @@ public class PlayerController : MonoBehaviour
                 pausePanel.SetActive(true);
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
-                //AudioManager.Instance.OnPause(isInPause);
             }
             else
             {
@@ -101,7 +101,6 @@ public class PlayerController : MonoBehaviour
                 pausePanel.SetActive(false);
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
-                //AudioManager.Instance.OnPause(isInPause);
             }
         }
 
@@ -221,7 +220,7 @@ public class PlayerController : MonoBehaviour
 
         IsAiming = !IsAiming;
 
-        animator.SetInteger("WeaponType_int", Convert.ToInt32(IsAiming));
+        animator.SetInteger("WeaponType_int", System.Convert.ToInt32(IsAiming));
         animator.SetBool("Shoot_b", false);
         animator.SetBool("Reload_b", false);
     }
@@ -244,6 +243,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        PlayShootClip();
+
         if (!activeHoming)
         {
             Ray rayToCenter = new Ray(cam.position, cam.forward);
@@ -256,7 +257,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                shootDir = ((cam.position + cam.forward * 100) - BulletSpawn.position).normalized;
+                //shoots to a distant point in space
+                shootDir = ((cam.position + cam.forward * 100) - BulletSpawn.position).normalized;  
             }
 
             GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
@@ -273,6 +275,13 @@ public class PlayerController : MonoBehaviour
         animator.SetInteger("WeaponType_int", 1);
         animator.SetBool("Reload_b", false);
         animator.SetBool("Shoot_b", true);
+    }
+
+    private void PlayShootClip()
+    {
+        int randIndex = Random.Range(0, shootClips.Count);
+        float randVolume = Random.Range(0.8f, 1.0f);
+        AudioSource.PlayClipAtPoint(shootClips[randIndex], BulletSpawn.position, randVolume);
     }
 
     public void Jump()
@@ -315,6 +324,7 @@ public class PlayerController : MonoBehaviour
         grenadeNumberText.text = grenades.ToString();
     }
 
+    // da cancellare?
     private Transform SetTarget()
     {
         Transform target = null;
@@ -375,24 +385,22 @@ public class PlayerController : MonoBehaviour
                 if (angleToTarget < angleOfVision * 0.5f)
                 {
                     //Debug.Log("Enemy angle: " + angleToTarget);
-                    Vector3 raycastStart = transform.GetChild(0).position;
                     //Debug.DrawRay(raycastStart, distToTarget, Color.red, 10);
                     //Debug.Log(Physics.Raycast(transform.GetChild(0).position, distToTarget.normalized, distToTarget.magnitude, obstacleMask));
                     //check if enemy is not behind a wall
                     if (!Physics.Raycast(myPosition, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
                     {
                         target = possibleTarget;
-                        //Debug.Log(target);
                         return target;
                     }
                 }
             }
         }
-
-        //Debug.Log(target);
         return target;
     }
 
+
+    // da vedere se mettere la variabile qui nel controller?
     void updateStats()
     {
         playerMoveSpeed = PlayerLogic.Instance.speed * PlayerLogic.Instance.speedMultiplier;
