@@ -14,6 +14,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!245 &-7698536735827778220
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pause
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: bad29438fa26ddc4bb364f7cf91f25f2
+  m_FloatValues:
+    571475616ef4e2945b123e5dbcf54c3b: -80
+    fd10c7545c448aa43954b333dd6f8df4: -80
+    2f0c10a6f15efaa44bb5a9f9aebafdf9: -16.035946
+  m_TransitionOverrides: {}
 --- !u!243 &-6621317827882230475
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -77,11 +91,14 @@ AudioMixerController:
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
   - {fileID: 24500006}
+  - {fileID: -7698536735827778220}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 2f0c10a6f15efaa44bb5a9f9aebafdf9
+    name: MyExposedParam
   - guid: fd10c7545c448aa43954b333dd6f8df4
     name: T1_Vol
   - guid: 571475616ef4e2945b123e5dbcf54c3b
@@ -137,7 +154,7 @@ AudioMixerSnapshotController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Snapshot
+  m_Name: Main
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: b76f1cb62fe90e944b14bb1a151e92ea
   m_FloatValues:

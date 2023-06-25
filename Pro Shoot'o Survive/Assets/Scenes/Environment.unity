@@ -1308,6 +1308,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 641599926}
+    - targetCorrespondingSourceObject: {fileID: 155732, guid: 916341e2ae5be5348a18c36602fa75fb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 641599927}
   m_SourcePrefab: {fileID: 100100000, guid: 916341e2ae5be5348a18c36602fa75fb, type: 3}
 --- !u!1 &194550755 stripped
 GameObject:
@@ -2747,7 +2751,7 @@ PrefabInstance:
     - target: {fileID: 5272992674238247438, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: m_StepOffset
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6680636118048746160, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
@@ -4036,6 +4040,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Size: {x: 12.890075, y: 3, z: 22.995573}
   m_Center: {x: -0.017221928, y: 1, z: 0.009314537}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &641599927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641599921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 2.4401493, y: 1.8068022, z: 3.4247437}
+  m_Center: {x: -8.250535, y: 0.5965989, z: 6.737339}
   m_Area: 1
   m_AffectedAgents: ffffffff
 --- !u!1 &660113991 stripped
@@ -7958,8 +7978,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicMngr: {fileID: 1202973018}
   mixer: {fileID: 24100000, guid: 2f03f67a25e5caa4896baadf30f16145, type: 2}
-  mainSnap: {fileID: 0}
-  pauseSnap: {fileID: 0}
+  mainSnap: {fileID: 24500006, guid: 2f03f67a25e5caa4896baadf30f16145, type: 2}
+  pauseSnap: {fileID: -7698536735827778220, guid: 2f03f67a25e5caa4896baadf30f16145,
+    type: 2}
 --- !u!1001 &1395485461
 PrefabInstance:
   m_ObjectHideFlags: 0

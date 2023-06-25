@@ -18,15 +18,11 @@ public class PlayerController : MonoBehaviour
     private bool isJumping; // Flag indicating if the player is currently jumping.
     [SerializeField] float damageDealt;
 
-    public bool IsAiming { get { return isAiming; } private set { isAiming = value; crossHairTransform.gameObject.SetActive(value); } }
-    private bool isAiming;
+    public bool IsAiming { get; private set; }
 
     [Header("\nWeapon reference variables")]
     [SerializeField] private GameObject defaultWeapon;
     [SerializeField] private GameObject assaultWeapon;
-
-    [Header("\nCrossHair variables")]
-    [SerializeField] private RectTransform crossHairTransform;
 
     [Header("\nBullet reference variables")]
     [SerializeField] private GameObject Bullet; // Reference to Bullet prefab.
@@ -65,6 +61,17 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject pausePanel;
 
+    private bool isInPause = false;
+
+
+    private void Awake()
+    {
+        //inputSysController = new InputSysController();
+
+        //animator = GetComponent<Animator>(); // Get the Animator component attached to the same GameObject.
+        //cam = Camera.main.transform;
+    }
+
     private void Start()
     {
         InputsController = new InputSysController();
@@ -72,18 +79,30 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>(); // Get the Animator component attached to the same GameObject.
         charController = GetComponent<CharacterController>();
         cam = Camera.main.transform;
-
-        IsAiming = false;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Time.timeScale = 0f;
-            pausePanel.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            if (!isInPause)
+            {
+                isInPause = true;
+                Time.timeScale = 0f;
+                pausePanel.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                //AudioManager.Instance.OnPause(isInPause);
+            }
+            else
+            {
+                isInPause = false;
+                Time.timeScale = 1f;
+                pausePanel.SetActive(false);
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                //AudioManager.Instance.OnPause(isInPause);
+            }
         }
 
         updateStats();
@@ -97,6 +116,8 @@ public class PlayerController : MonoBehaviour
         Aim();
         Shoot();
 
+        MovePlayer();
+
         if (activeHoming)
         {
             homingTimer -= Time.deltaTime;
@@ -108,11 +129,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-    }
-
-    private void LateUpdate()
-    {
-        MovePlayer();
     }
 
     public void ActivateHoming()
@@ -204,8 +220,6 @@ public class PlayerController : MonoBehaviour
         }
 
         IsAiming = !IsAiming;
-
-        cam.GetComponent<CameraController>().ToggleCameraOffsets();
 
         animator.SetInteger("WeaponType_int", Convert.ToInt32(IsAiming));
         animator.SetBool("Shoot_b", false);
