@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject pausePanel;
 
+    private bool isInPause = false;
+
 
     private void Awake()
     {
@@ -83,10 +85,24 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Time.timeScale = 0f;
-            pausePanel.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            if (!isInPause)
+            {
+                isInPause = true;
+                Time.timeScale = 0f;
+                pausePanel.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                //AudioManager.Instance.OnPause(isInPause);
+            }
+            else
+            {
+                isInPause = false;
+                Time.timeScale = 1f;
+                pausePanel.SetActive(false);
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                //AudioManager.Instance.OnPause(isInPause);
+            }
         }
 
         updateStats();

@@ -35,22 +35,24 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (!isInPause)
-            {
-                OnPause(isInPause);
-                isInPause = true;
-            }
-            else
-            {
-                OnPause(isInPause);
-                isInPause = false;
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    if (!isInPause)
+        //    {
+        //        OnPause(isInPause);
+        //        isInPause = true;
+        //    }
+        //    else
+        //    {
+        //        OnPause(isInPause);
+        //        isInPause = false;
+        //    }
+        //}
     }
 
-    private void OnPause(bool pause)
+
+
+    public void OnPause(bool pause)
     {
         if (pause)
         {
@@ -61,6 +63,8 @@ public class AudioManager : MonoBehaviour
             mainSnap.TransitionTo(0.2f);
         }
     }
+
+
 
     public void FadeIn(MusicType type, float duration, float targetVolume, float startDelay = 0)
     {
