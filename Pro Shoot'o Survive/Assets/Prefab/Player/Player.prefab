@@ -366,6 +366,11 @@ MonoBehaviour:
   normalMaterial: {fileID: 2100000, guid: 11473f6bfb61e0245b60784ebb60cfef, type: 2}
   homingMaterial: {fileID: 2100000, guid: 26f3fa9c3bc73444fa542bd796157072, type: 2}
   pausePanel: {fileID: 0}
+  shootClips:
+  - {fileID: 8300000, guid: 457b0051f3ddae24796697ef6087819f, type: 3}
+  - {fileID: 8300000, guid: c619dc38ee762954ca151335ffb2c969, type: 3}
+  - {fileID: 8300000, guid: 9f866410361b4ad419f7ab89c5b06228, type: 3}
+  - {fileID: 8300000, guid: bf617168ae656d2468e9bff57bc9699b, type: 3}
 --- !u!114 &6680636118048746160
 MonoBehaviour:
   m_ObjectHideFlags: 0

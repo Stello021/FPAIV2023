@@ -50,41 +50,41 @@ public class PlayerLogic : MonoBehaviour
         UpdateStatsMultiplier();
     }
 
-        public void TakeDamage(float damage)
+    public void TakeDamage(float damage)
+    {
+        if (armor > 0)
         {
-            if (armor > 0)
-            {
-                armor -= damage * damageMultiplier;
-                armor = Mathf.Clamp(armor, 0, armorMax);
-                UpdateArmorText();
-            }
-            else
-            {
-                hp -= damage * damageMultiplier;
-            }
-
-            Debug.Log("Hp: " + hp);
-
-            if (hp <= 0)
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                SceneManager.LoadScene(2);
-                Destroy(gameObject);
-            }
-
+            armor -= damage * damageMultiplier;
+            armor = Mathf.Clamp(armor, 0, armorMax);
+            UpdateArmorText();
+        }
+        else
+        {
+            hp -= damage * damageMultiplier;
         }
 
-        public void Heal(float HealAmount)
+        Debug.Log("Hp: " + hp);
+
+        if (hp <= 0)
         {
-            hp = Mathf.Clamp(hp + healthBarValue, 0, actuallyMaxHp);
-            BarsManager.Instance.setHpBar(hp / actuallyMaxHp);
+            Destroy(gameObject);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene(2);
         }
 
-        public void UpdateArmorText()
-        {
-            armorValueText.text = armor.ToString();
-        }
+    }
+
+    public void Heal(float HealAmount)
+    {
+        hp = Mathf.Clamp(hp + healthBarValue, 0, actuallyMaxHp);
+        BarsManager.Instance.setHpBar(hp / actuallyMaxHp);
+    }
+
+    public void UpdateArmorText()
+    {
+        armorValueText.text = armor.ToString();
+    }
     public void UpdateStatsMultiplier()
     {
         //multipliers affects player' speed or damage taken
@@ -117,10 +117,10 @@ public class PlayerLogic : MonoBehaviour
     }
 
     private void OnDestroy()
-        {
+    {
             //Cursor.visible = true;
             //Cursor.lockState = CursorLockMode.None;
             //SceneManager.LoadScene(2);
-        }
-
     }
+
+}

@@ -49,7 +49,6 @@ public class Grenade : MonoBehaviour
                 enemy.DisableAgent();
                 enemy.rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
                 collider.GetComponent<EnemyLogic>().ReceiveDamage(damage);
-                Debug.Log("Esploso");
             }
             
         }
@@ -60,7 +59,6 @@ public class Grenade : MonoBehaviour
 
     public void Throw(Vector3 dir)
     {
-        Debug.Log(throwForceValue);
         rb.AddForce(dir * throwForceValue * Time.deltaTime, ForceMode.Impulse);
     }
 }

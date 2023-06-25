@@ -244,6 +244,8 @@ MonoBehaviour:
   MaxHP: 100
   OwnWeapon: {fileID: 7892383639195193910}
   meleeDamage: 10
+  PowerUpSpawnPos: {x: 0, y: 0, z: 0}
+  powerUpProbability: 30
 --- !u!54 &5300890679074815323
 Rigidbody:
   m_ObjectHideFlags: 0

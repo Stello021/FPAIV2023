@@ -9,5 +9,4 @@ public class PowerUpHoming : PowerUp
         owner.GetComponent<PlayerController>().ActivateHoming();
         Destroy(gameObject);
     }
-
 }
