@@ -18,15 +18,11 @@ public class PlayerController : MonoBehaviour
     private bool isJumping; // Flag indicating if the player is currently jumping.
     [SerializeField] float damageDealt;
 
-    public bool IsAiming { get { return isAiming; } private set { isAiming = value; crossHairTransform.gameObject.SetActive(value); } }
-    private bool isAiming;
+    public bool IsAiming { get; private set; }
 
     [Header("\nWeapon reference variables")]
     [SerializeField] private GameObject defaultWeapon;
     [SerializeField] private GameObject assaultWeapon;
-
-    [Header("\nCrossHair variables")]
-    [SerializeField] private RectTransform crossHairTransform;
 
     [Header("\nBullet reference variables")]
     [SerializeField] private GameObject Bullet; // Reference to Bullet prefab.
@@ -64,7 +60,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Material homingMaterial;
 
     [SerializeField] GameObject pausePanel;
-    private bool isInPause;
+
+    private bool isInPause = false;
+
+
+    private void Awake()
+    {
+        //inputSysController = new InputSysController();
+
+        //animator = GetComponent<Animator>(); // Get the Animator component attached to the same GameObject.
+        //cam = Camera.main.transform;
+    }
 
     private void Start()
     {
@@ -73,45 +79,56 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>(); // Get the Animator component attached to the same GameObject.
         charController = GetComponent<CharacterController>();
         cam = Camera.main.transform;
-
-        IsAiming = false;
     }
 
     private void Update()
     {
-        TogglePauseMenu();
-
-        ThrowGrenade();
-        Aim();
-        Shoot();
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (!isInPause)
+            {
+                isInPause = true;
+                Time.timeScale = 0f;
+                pausePanel.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                //AudioManager.Instance.OnPause(isInPause);
+            }
+            else
+            {
+                isInPause = false;
+                Time.timeScale = 1f;
+                pausePanel.SetActive(false);
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                //AudioManager.Instance.OnPause(isInPause);
+            }
+        }
 
         updateStats();
 
-        //Jump();
+        Jump();
         ApplyGravity();
         CheckIsOnGround();
-    }
 
-    private void LateUpdate()
-    {
+        ThrowGrenade();
+
+        Aim();
+        Shoot();
+
         MovePlayer();
-    }
 
-    private void TogglePauseMenu()
-    {
-        if (!InputsController.OnInputTrigger("PauseMenu"))
+        if (activeHoming)
         {
-            return;
+            homingTimer -= Time.deltaTime;
+
+            if (homingTimer <= 0)
+            {
+                activeHoming = false;
+                smr.material = normalMaterial;
+            }
         }
 
-        isInPause = !isInPause;
-
-        Time.timeScale = Convert.ToInt32(!isInPause);
-        pausePanel.SetActive(isInPause);
-        Cursor.visible = isInPause;
-        Cursor.lockState = isInPause? CursorLockMode.Confined: CursorLockMode.Locked;
-
-        //AudioManager.Instance.OnPause(isInPause);
     }
 
     public void ActivateHoming()
@@ -121,7 +138,7 @@ public class PlayerController : MonoBehaviour
         smr.material = homingMaterial;
     }
 
-    private void CheckIsOnGround()
+    public void CheckIsOnGround()
     {
         if (charController.isGrounded && gravityVelocity < 0f)
         {
@@ -187,7 +204,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Aim()
+    public void Aim()
     {
         if (IsAiming)
         {
@@ -204,8 +221,6 @@ public class PlayerController : MonoBehaviour
 
         IsAiming = !IsAiming;
 
-        cam.GetComponent<CameraController>().ToggleCameraOffsets();
-
         animator.SetInteger("WeaponType_int", Convert.ToInt32(IsAiming));
         animator.SetBool("Shoot_b", false);
         animator.SetBool("Reload_b", false);
@@ -213,17 +228,6 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        if (activeHoming)
-        {
-            homingTimer -= Time.deltaTime;
-
-            if (homingTimer <= 0)
-            {
-                activeHoming = false;
-                smr.material = normalMaterial;
-            }
-        }
-
         if (!InputsController.OnInputTrigger("Shoot") || !IsAiming)
         {
             if (!IsAiming)
@@ -257,14 +261,12 @@ public class PlayerController : MonoBehaviour
 
             GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
             bullet.GetComponent<PlayerBullet>().dir = shootDir; // Set the bullet direction
-            bullet.GetComponent<PlayerBullet>().DamageDealt = damageDealt;
         }
         else
         {
             GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
             PlayerBullet bullet = go.GetComponent<PlayerBullet>();
             bullet.target = SetFirstTarget();
-            bullet.DamageDealt = damageDealt;
             bullet.IsHoming = true;
         }
 
@@ -273,7 +275,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Shoot_b", true);
     }
 
-    private void Jump()
+    public void Jump()
     {
         if (charController.isGrounded && InputsController.OnInputTrigger("Jump"))
         {
@@ -391,8 +393,9 @@ public class PlayerController : MonoBehaviour
         return target;
     }
 
-    private void updateStats()
+    void updateStats()
     {
         playerMoveSpeed = PlayerLogic.Instance.speed * PlayerLogic.Instance.speedMultiplier;
     }
+
 }

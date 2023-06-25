@@ -46,6 +46,15 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Jump"",
+                    ""type"": ""Value"",
+                    ""id"": ""eeeddac3-6a6e-4e8d-96a7-81679c91d520"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Aim"",
                     ""type"": ""Value"",
                     ""id"": ""c0f1fc9e-3d4a-426c-8bf5-cbb95d1d0a2b"",
@@ -173,6 +182,28 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""97aa97d6-823c-40af-a845-ce9eae457942"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e8672cca-a649-433c-9a7a-e9225ba20cd5"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c21dcc57-27cd-4f45-bb03-5835767f7381"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -229,17 +260,6 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""117df93a-9a90-4d25-81f1-b72e658faaea"",
-                    ""path"": ""<Keyboard>/p"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PauseMenu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2a374f0e-1a10-487c-a959-519887aa7e8a"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -290,6 +310,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
         m_PlayerInputs = asset.FindActionMap("PlayerInputs", throwIfNotFound: true);
         m_PlayerInputs_MouseDeltaDir = m_PlayerInputs.FindAction("MouseDeltaDir", throwIfNotFound: true);
         m_PlayerInputs_MoveDir = m_PlayerInputs.FindAction("MoveDir", throwIfNotFound: true);
+        m_PlayerInputs_Jump = m_PlayerInputs.FindAction("Jump", throwIfNotFound: true);
         m_PlayerInputs_Aim = m_PlayerInputs.FindAction("Aim", throwIfNotFound: true);
         m_PlayerInputs_Shoot = m_PlayerInputs.FindAction("Shoot", throwIfNotFound: true);
         m_PlayerInputs_ThrowGrenade = m_PlayerInputs.FindAction("ThrowGrenade", throwIfNotFound: true);
@@ -357,6 +378,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
     private List<IPlayerInputsActions> m_PlayerInputsActionsCallbackInterfaces = new List<IPlayerInputsActions>();
     private readonly InputAction m_PlayerInputs_MouseDeltaDir;
     private readonly InputAction m_PlayerInputs_MoveDir;
+    private readonly InputAction m_PlayerInputs_Jump;
     private readonly InputAction m_PlayerInputs_Aim;
     private readonly InputAction m_PlayerInputs_Shoot;
     private readonly InputAction m_PlayerInputs_ThrowGrenade;
@@ -367,6 +389,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
         public PlayerInputsActions(@PlayerInputSys wrapper) { m_Wrapper = wrapper; }
         public InputAction @MouseDeltaDir => m_Wrapper.m_PlayerInputs_MouseDeltaDir;
         public InputAction @MoveDir => m_Wrapper.m_PlayerInputs_MoveDir;
+        public InputAction @Jump => m_Wrapper.m_PlayerInputs_Jump;
         public InputAction @Aim => m_Wrapper.m_PlayerInputs_Aim;
         public InputAction @Shoot => m_Wrapper.m_PlayerInputs_Shoot;
         public InputAction @ThrowGrenade => m_Wrapper.m_PlayerInputs_ThrowGrenade;
@@ -386,6 +409,9 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
             @MoveDir.started += instance.OnMoveDir;
             @MoveDir.performed += instance.OnMoveDir;
             @MoveDir.canceled += instance.OnMoveDir;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
             @Aim.started += instance.OnAim;
             @Aim.performed += instance.OnAim;
             @Aim.canceled += instance.OnAim;
@@ -408,6 +434,9 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
             @MoveDir.started -= instance.OnMoveDir;
             @MoveDir.performed -= instance.OnMoveDir;
             @MoveDir.canceled -= instance.OnMoveDir;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
             @Aim.started -= instance.OnAim;
             @Aim.performed -= instance.OnAim;
             @Aim.canceled -= instance.OnAim;
@@ -441,6 +470,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
     {
         void OnMouseDeltaDir(InputAction.CallbackContext context);
         void OnMoveDir(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnThrowGrenade(InputAction.CallbackContext context);
