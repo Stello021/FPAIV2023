@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.Versioning;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
@@ -65,6 +67,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject pausePanel;
     private bool isInPause;
+    [SerializeField] List<AudioClip> shootClips;
 
     private void Start()
     {
@@ -240,6 +243,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        PlayShootClip();
+
         if (!activeHoming)
         {
             Ray rayToCenter = new Ray(cam.position, cam.forward);
@@ -271,6 +276,13 @@ public class PlayerController : MonoBehaviour
         animator.SetInteger("WeaponType_int", 1);
         animator.SetBool("Reload_b", false);
         animator.SetBool("Shoot_b", true);
+    }
+
+    private void PlayShootClip()
+    {
+        int randIndex = Random.Range(0, shootClips.Count);
+        float randVolume = Random.Range(0.8f, 1.0f);
+        AudioSource.PlayClipAtPoint(shootClips[randIndex], BulletSpawn.position, randVolume);
     }
 
     private void Jump()
@@ -373,21 +385,17 @@ public class PlayerController : MonoBehaviour
                 if (angleToTarget < angleOfVision * 0.5f)
                 {
                     //Debug.Log("Enemy angle: " + angleToTarget);
-                    Vector3 raycastStart = transform.GetChild(0).position;
                     //Debug.DrawRay(raycastStart, distToTarget, Color.red, 10);
                     //Debug.Log(Physics.Raycast(transform.GetChild(0).position, distToTarget.normalized, distToTarget.magnitude, obstacleMask));
                     //check if enemy is not behind a wall
                     if (!Physics.Raycast(myPosition, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
                     {
                         target = possibleTarget;
-                        //Debug.Log(target);
                         return target;
                     }
                 }
             }
         }
-
-        //Debug.Log(target);
         return target;
     }
 

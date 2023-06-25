@@ -13,10 +13,10 @@ public class PlayerLogic : MonoBehaviour
     [HideInInspector] public float actuallyMaxHp;
 
     [SerializeField] private float hp;
-    public float HP { get { return hp; } set { hp = Mathf.Clamp(hp + value, 0, hpMax); } }
+    public float HP { get { return hp; } set { hp = Mathf.Clamp(value, 0, hpMax); } }
     [SerializeField] private float armor;
     [SerializeField] private float armorMax;
-    public float Armor { get { return armor; } set { armor = Mathf.Clamp(armor + value, 0, armorMax); UpdateArmorText(); } }
+    public float Armor { get { return armor; } set { armor = Mathf.Clamp(value, 0, armorMax); UpdateArmorText(); } }
 
 
     private float damageMultiplier = 1f;
@@ -52,20 +52,31 @@ public class PlayerLogic : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (armor > 0)
+        float excessDamage = Armor - damage;
+
+        if (Armor > 0)
         {
-            armor -= damage * damageMultiplier;
-            armor = Mathf.Clamp(armor, 0, armorMax);
-            UpdateArmorText();
+            if (excessDamage < 0)
+            {
+                Armor = 0;
+                excessDamage = Mathf.Abs(excessDamage);
+                Debug.Log("Excess damage: " + excessDamage);
+                HP -= excessDamage * damageMultiplier;
+            }
+            else
+            {
+                Armor -= damage * damageMultiplier;
+            }
         }
         else
         {
-            hp -= damage * damageMultiplier;
+            HP -= damage * damageMultiplier;
         }
 
-        Debug.Log("Hp: " + hp);
+        Debug.Log("armor: " + Armor);
+        Debug.Log("Hp: " + HP);
 
-        if (hp <= 0)
+        if (HP <= 0)
         {
             Destroy(gameObject);
             Cursor.visible = true;
