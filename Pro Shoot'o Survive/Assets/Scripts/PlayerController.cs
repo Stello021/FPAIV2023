@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.Versioning;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,11 +20,15 @@ public class PlayerController : MonoBehaviour
     private bool isJumping; // Flag indicating if the player is currently jumping.
     [SerializeField] float damageDealt;
 
-    public bool IsAiming { get; private set; }
+    public bool IsAiming { get { return isAiming; } private set { isAiming = value; crossHairTransform.gameObject.SetActive(value); } }
+    private bool isAiming;
 
     [Header("\nWeapon reference variables")]
     [SerializeField] private GameObject defaultWeapon;
     [SerializeField] private GameObject assaultWeapon;
+
+    [Header("\nCrossHair variables")]
+    [SerializeField] private RectTransform crossHairTransform;
 
     [Header("\nBullet reference variables")]
     [SerializeField] private GameObject Bullet; // Reference to Bullet prefab.
@@ -60,17 +66,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Material homingMaterial;
 
     [SerializeField] GameObject pausePanel;
-
-    private bool isInPause = false;
-
-
-    private void Awake()
-    {
-        //inputSysController = new InputSysController();
-
-        //animator = GetComponent<Animator>(); // Get the Animator component attached to the same GameObject.
-        //cam = Camera.main.transform;
-    }
+    private bool isInPause;
+    [SerializeField] List<AudioClip> shootClips;
 
     private void Start()
     {
@@ -79,56 +76,45 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>(); // Get the Animator component attached to the same GameObject.
         charController = GetComponent<CharacterController>();
         cam = Camera.main.transform;
+
+        IsAiming = false;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (!isInPause)
-            {
-                isInPause = true;
-                Time.timeScale = 0f;
-                pausePanel.SetActive(true);
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                //AudioManager.Instance.OnPause(isInPause);
-            }
-            else
-            {
-                isInPause = false;
-                Time.timeScale = 1f;
-                pausePanel.SetActive(false);
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                //AudioManager.Instance.OnPause(isInPause);
-            }
-        }
-
-        updateStats();
-
-        Jump();
-        ApplyGravity();
-        CheckIsOnGround();
+        TogglePauseMenu();
 
         ThrowGrenade();
-
         Aim();
         Shoot();
 
+        updateStats();
+
+        //Jump();
+        ApplyGravity();
+        CheckIsOnGround();
+    }
+
+    private void LateUpdate()
+    {
         MovePlayer();
+    }
 
-        if (activeHoming)
+    private void TogglePauseMenu()
+    {
+        if (!InputsController.OnInputTrigger("PauseMenu"))
         {
-            homingTimer -= Time.deltaTime;
-
-            if (homingTimer <= 0)
-            {
-                activeHoming = false;
-                smr.material = normalMaterial;
-            }
+            return;
         }
 
+        isInPause = !isInPause;
+
+        Time.timeScale = Convert.ToInt32(!isInPause);
+        pausePanel.SetActive(isInPause);
+        Cursor.visible = isInPause;
+        Cursor.lockState = isInPause? CursorLockMode.Confined: CursorLockMode.Locked;
+
+        //AudioManager.Instance.OnPause(isInPause);
     }
 
     public void ActivateHoming()
@@ -138,7 +124,7 @@ public class PlayerController : MonoBehaviour
         smr.material = homingMaterial;
     }
 
-    public void CheckIsOnGround()
+    private void CheckIsOnGround()
     {
         if (charController.isGrounded && gravityVelocity < 0f)
         {
@@ -204,7 +190,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Aim()
+    private void Aim()
     {
         if (IsAiming)
         {
@@ -221,6 +207,8 @@ public class PlayerController : MonoBehaviour
 
         IsAiming = !IsAiming;
 
+        cam.GetComponent<CameraController>().ToggleCameraOffsets();
+
         animator.SetInteger("WeaponType_int", Convert.ToInt32(IsAiming));
         animator.SetBool("Shoot_b", false);
         animator.SetBool("Reload_b", false);
@@ -228,6 +216,17 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
+        if (activeHoming)
+        {
+            homingTimer -= Time.deltaTime;
+
+            if (homingTimer <= 0)
+            {
+                activeHoming = false;
+                smr.material = normalMaterial;
+            }
+        }
+
         if (!InputsController.OnInputTrigger("Shoot") || !IsAiming)
         {
             if (!IsAiming)
@@ -243,6 +242,8 @@ public class PlayerController : MonoBehaviour
 
             return;
         }
+
+        PlayShootClip();
 
         if (!activeHoming)
         {
@@ -261,12 +262,14 @@ public class PlayerController : MonoBehaviour
 
             GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
             bullet.GetComponent<PlayerBullet>().dir = shootDir; // Set the bullet direction
+            bullet.GetComponent<PlayerBullet>().DamageDealt = damageDealt;
         }
         else
         {
             GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
             PlayerBullet bullet = go.GetComponent<PlayerBullet>();
             bullet.target = SetFirstTarget();
+            bullet.DamageDealt = damageDealt;
             bullet.IsHoming = true;
         }
 
@@ -275,7 +278,14 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Shoot_b", true);
     }
 
-    public void Jump()
+    private void PlayShootClip()
+    {
+        int randIndex = Random.Range(0, shootClips.Count);
+        float randVolume = Random.Range(0.8f, 1.0f);
+        AudioSource.PlayClipAtPoint(shootClips[randIndex], BulletSpawn.position, randVolume);
+    }
+
+    private void Jump()
     {
         if (charController.isGrounded && InputsController.OnInputTrigger("Jump"))
         {
@@ -375,27 +385,22 @@ public class PlayerController : MonoBehaviour
                 if (angleToTarget < angleOfVision * 0.5f)
                 {
                     //Debug.Log("Enemy angle: " + angleToTarget);
-                    Vector3 raycastStart = transform.GetChild(0).position;
                     //Debug.DrawRay(raycastStart, distToTarget, Color.red, 10);
                     //Debug.Log(Physics.Raycast(transform.GetChild(0).position, distToTarget.normalized, distToTarget.magnitude, obstacleMask));
                     //check if enemy is not behind a wall
                     if (!Physics.Raycast(myPosition, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
                     {
                         target = possibleTarget;
-                        //Debug.Log(target);
                         return target;
                     }
                 }
             }
         }
-
-        //Debug.Log(target);
         return target;
     }
 
-    void updateStats()
+    private void updateStats()
     {
         playerMoveSpeed = PlayerLogic.Instance.speed * PlayerLogic.Instance.speedMultiplier;
     }
-
 }

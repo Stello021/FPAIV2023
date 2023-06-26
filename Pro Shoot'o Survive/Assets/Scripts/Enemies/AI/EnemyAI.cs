@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     protected Animator enemyAnimator;
     public NavMeshAgent enemyAgent;
     public Rigidbody rb;
-    protected float reactivationTime = 3f;
+    protected float reactivationTime = 2f;
 
 
     [SerializeField] public float meleeDamage;
@@ -19,12 +19,14 @@ public class EnemyAI : MonoBehaviour
     {
 
     }
+
     private void Awake()
     {
         enemyAgent = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -45,7 +47,6 @@ public class EnemyAI : MonoBehaviour
                     meleeElapsedTime = 0f;
                 }
             }
-
         }
     }
 

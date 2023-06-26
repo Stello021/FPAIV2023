@@ -12,11 +12,11 @@ public class EnemyLogic : MonoBehaviour
 
     [SerializeField] public float meleeDamage;
     [SerializeField] Vector3 PowerUpSpawnPos;
-    [SerializeField] PowerUpManager powerUpManager;
+    [SerializeField] float powerUpProbability;
+
     // Start is called before the first frame update
     void Start()
     {
-        powerUpManager = GameObject.FindObjectOfType<PowerUpManager>();
         currentHP = MaxHP;
         enemyAgent = GetComponent<NavMeshAgent>();
     }
@@ -62,10 +62,10 @@ public class EnemyLogic : MonoBehaviour
 
     private void OnDestroy()
     {
-        //int probability = Random.Range(0, 100);
-        //if (probability < 80)
-        //{
-        //    PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
-        //}
+        int probability = Random.Range(0, 100);
+        if (probability < powerUpProbability)
+        {
+            PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
+        }
     }
 }

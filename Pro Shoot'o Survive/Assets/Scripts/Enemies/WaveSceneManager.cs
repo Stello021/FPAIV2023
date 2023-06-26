@@ -28,7 +28,7 @@ public class WaveSceneManager : MonoBehaviour
             waveNumber++;
             if (waveNumber == 1)
             {
-                AudioManager.Instance.ChangeMusic(MusicType.T2, 3, 0.5f);
+                AudioManager.Instance.ChangeMusic(MusicType.T2, 3, 0.15f);
             }
 
             Spawn();
