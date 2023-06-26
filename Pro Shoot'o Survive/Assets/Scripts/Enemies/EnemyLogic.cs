@@ -62,10 +62,17 @@ public class EnemyLogic : MonoBehaviour
         }
         WaveSceneManager wsm = FindFirstObjectByType<WaveSceneManager>();
         wsm.EnemiesSpawned.Remove(gameObject);
-        PowerUpSpawnPos = transform.GetChild(2).position;
         Animator enemyAnimator = GetComponent<Animator>();
         enemyAnimator.SetBool("Death_b", true);
         Rigidbody rb = GetComponent<Rigidbody>();
+
+        PowerUpSpawnPos = transform.GetChild(2).position;
+        int probability = Random.Range(0, 100);
+        if (probability < powerUpProbability)
+        {
+            PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
+        }
+
         Destroy(rb);
         Collider c = GetComponent<Collider>();
         Destroy(c);
@@ -74,14 +81,6 @@ public class EnemyLogic : MonoBehaviour
         yield return null;
 
 
-    }
-    private void OnDestroy()
-    {
-        int probability = Random.Range(0, 100);
-        if (probability < powerUpProbability)
-        {
-            PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
-        }
     }
 
 }

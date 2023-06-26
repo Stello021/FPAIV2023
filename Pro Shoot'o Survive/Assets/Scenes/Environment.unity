@@ -719,7 +719,7 @@ PrefabInstance:
     - target: {fileID: 7276423404278587353, guid: b2a996988e036394f8c80f56629fd01b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.15682411
+      value: 1.96
       objectReference: {fileID: 0}
     - target: {fileID: 7276423404278587353, guid: b2a996988e036394f8c80f56629fd01b,
         type: 3}
@@ -2360,7 +2360,7 @@ PrefabInstance:
     - target: {fileID: 7276423404278587353, guid: b2a996988e036394f8c80f56629fd01b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.15682411
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 7276423404278587353, guid: b2a996988e036394f8c80f56629fd01b,
         type: 3}
@@ -2706,6 +2706,11 @@ PrefabInstance:
       propertyPath: pausePanel
       value: 
       objectReference: {fileID: 1771554893}
+    - target: {fileID: 2937389559105038557, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: aimMask.m_Bits
+      value: 768
+      objectReference: {fileID: 0}
     - target: {fileID: 2937389559105038557, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: grenadeNumberText
@@ -6870,7 +6875,7 @@ PrefabInstance:
     - target: {fileID: 6898950479190497061, guid: 646e762b1a3744b448924435303a252f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11405,7 +11410,7 @@ PrefabInstance:
     - target: {fileID: 7276423404278587353, guid: b2a996988e036394f8c80f56629fd01b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.08670521
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 7276423404278587353, guid: b2a996988e036394f8c80f56629fd01b,
         type: 3}

@@ -66,8 +66,8 @@ public class PlayerBullet : Bullet
             enemy.ReceiveDamage(DamageDealt);
             //Debug.Log("Danni al nemico:" + DamageDealt);
         }
-        
-        base.OnTriggerEnter(other);
+
+        Destroy(gameObject);
     }
 
 }

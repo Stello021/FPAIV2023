@@ -19,8 +19,7 @@ public class EnemyBullet : Bullet
             PlayerLogic player = other.gameObject.GetComponent<PlayerLogic>();
             player.TakeDamage(DamageDealt);
         }
-
-        base.OnTriggerEnter(other);
+        Destroy(gameObject);
     }
     
 }
