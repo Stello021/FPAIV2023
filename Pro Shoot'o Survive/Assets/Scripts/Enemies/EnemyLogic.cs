@@ -29,7 +29,7 @@ public class EnemyLogic : MonoBehaviour
     public void ReceiveDamage(float damage)
     {
         currentHP -= damage;
-        Debug.Log("Current HP: " + currentHP);
+        //Debug.Log("Current HP: " + currentHP);
         if (currentHP <= 0)
         {
             if (OwnWeapon != null)
@@ -48,24 +48,24 @@ public class EnemyLogic : MonoBehaviour
             }
             WaveSceneManager wsm = FindFirstObjectByType<WaveSceneManager>();
             wsm.EnemiesSpawned.Remove(gameObject);
-            PowerUpSpawnPos = transform.GetChild(2).position;
             Animator enemyAnimator = GetComponent<Animator>();
             enemyAnimator.SetBool("Death_b", true);
+
+            PowerUpSpawnPos = transform.GetChild(2).position;
+            int probability = Random.Range(0, 100);
+            if (probability < powerUpProbability)
+            {
+                PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
+            }
+
             Invoke(nameof(DestroyEnemy), 2f);
 
         }
     }
+
     public void DestroyEnemy()
     {
         Destroy(gameObject);
     }
 
-    private void OnDestroy()
-    {
-        int probability = Random.Range(0, 100);
-        if (probability < powerUpProbability)
-        {
-            PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
-        }
-    }
 }

@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'congratulations, you survived and found a nomadic community of survivors
+  m_text: 'congratulations, you escaped and found a nomadic community of survivors
 
 '
   m_isRightToLeft: 0

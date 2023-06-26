@@ -6,7 +6,8 @@ public class PowerUpGrenade : PowerUp
 {
     public override void PickUp(GameObject owner)
     {
-        owner.GetComponent<PlayerController>().Grenades++;
+        PlayerController player = owner.GetComponent<PlayerController>();
+        player.Grenades++;
         Destroy(gameObject);
     }
 

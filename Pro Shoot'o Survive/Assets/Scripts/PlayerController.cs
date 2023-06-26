@@ -36,22 +36,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform CentreCameraTarget; // Reference to the transform of an EmptyObject located in the center of the camera frame. 
 
     [Header("\nGrenade variables")]
-    private int grenades;
-    public int Grenades { get { return grenades; } set { grenades++; UpdateGrenadeText(); } }
-
     [SerializeField] GameObject grenadePrefab;
+    public int Grenades { get { return grenades; } set { grenades = value; UpdateGrenadeText(); } }
+    private int grenades;
     [SerializeField] Transform grenadeSpawnPoint;
     [SerializeField] TMP_Text grenadeNumberText;
 
+
+
     [Header("\nHoming variables")]
-    private bool activeHoming;
     [SerializeField] float homingTimer;
     [SerializeField] float homingTime;
-    [SerializeField] float viewRadius = 300;
+    [SerializeField] float viewRadius;
     [SerializeField] LayerMask enemyMask;
     [SerializeField] LayerMask obstacleMask;
-    [SerializeField] float rotSpeed;
-    [SerializeField] float angleOfVision = 180;
+    [SerializeField] float angleOfVision;
+    [SerializeField] SkinnedMeshRenderer smr;
+    [SerializeField] Material normalMaterial;
+    [SerializeField] Material homingMaterial;
+    private bool activeHoming;
 
     [Header("Camera reference variables")]
     [HideInInspector] public Transform cam;
@@ -60,11 +63,6 @@ public class PlayerController : MonoBehaviour
     public InputSysController InputsController { get; private set; }
 
     [SerializeField] LayerMask aimMask;
-
-    [SerializeField] SkinnedMeshRenderer smr;
-    [SerializeField] Material normalMaterial;
-    [SerializeField] Material homingMaterial;
-
     [SerializeField] GameObject pausePanel;
     private bool isInPause;
     [SerializeField] List<AudioClip> shootClips;
@@ -185,8 +183,11 @@ public class PlayerController : MonoBehaviour
             animator.SetInteger("WeaponType_int", 10);
             GameObject grenade = Instantiate(grenadePrefab, grenadeSpawnPoint.position, grenadeSpawnPoint.rotation);
             grenade.GetComponent<Grenade>().Throw(transform.forward);
-            grenades--;
-            UpdateGrenadeText();
+            Debug.Log("Prima di lanciare la granata: " + Grenades);
+            Grenades--;
+            Debug.Log("Dopo aver lanciato la granata: " + Grenades);
+            //grenades--;
+            //UpdateGrenadeText();
         }
     }
 

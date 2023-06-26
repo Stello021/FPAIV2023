@@ -9,7 +9,6 @@ public class PowerUpArmor : PowerUp
     {
         PlayerLogic player = owner.GetComponent<PlayerLogic>();
         player.Armor += armorAmount;
-        player.UpdateArmorText();
         Destroy(gameObject);
     }
 }

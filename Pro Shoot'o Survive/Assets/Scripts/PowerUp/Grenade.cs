@@ -18,7 +18,7 @@ public class Grenade : MonoBehaviour
 
     public GameObject explosionFX;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         timeToExplosion = explosionDelay;
         rb = GetComponent<Rigidbody>();
@@ -54,11 +54,11 @@ public class Grenade : MonoBehaviour
         }
 
         Destroy(gameObject);
-        Destroy(go, 3f);
+        Destroy(go, 2f);
     }
 
     public void Throw(Vector3 dir)
     {
-        rb.AddForce(dir * throwForceValue * Time.deltaTime, ForceMode.Impulse);
+        rb.AddForce(dir * throwForceValue, ForceMode.Impulse);
     }
 }

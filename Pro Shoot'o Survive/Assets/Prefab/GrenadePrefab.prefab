@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be797a14bcf9a74fb2675a9c2219d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForceValue: 2000
+  throwForceValue: 20
   explosionDelay: 5
   timeToExplosion: 0
   explosionRadius: 30

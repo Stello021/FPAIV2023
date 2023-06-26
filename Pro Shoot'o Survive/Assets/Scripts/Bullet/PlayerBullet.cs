@@ -64,7 +64,7 @@ public class PlayerBullet : Bullet
             //enemy damage
             EnemyLogic enemy = other.gameObject.GetComponent<EnemyLogic>();
             enemy.ReceiveDamage(DamageDealt);
-            Debug.Log("Danni al nemico:" + DamageDealt);
+            //Debug.Log("Danni al nemico:" + DamageDealt);
         }
         
         base.OnTriggerEnter(other);

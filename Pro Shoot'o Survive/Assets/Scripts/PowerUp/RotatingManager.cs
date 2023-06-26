@@ -48,7 +48,6 @@ public class RotatingManager : MonoBehaviour
 
     public void AddRotatingObject(Transform obj)
     {
-        Debug.Log(obj);
         rotatingObjects.Add(obj);
     }
 }
