@@ -51,7 +51,7 @@ public class EnemyLogic : MonoBehaviour
             PowerUpSpawnPos = transform.GetChild(2).position;
             Animator enemyAnimator = GetComponent<Animator>();
             enemyAnimator.SetBool("Death_b", true);
-            Invoke(nameof(DestroyEnemy), 2f);
+            Invoke(nameof(DestroyEnemy), 3f);
 
         }
     }
