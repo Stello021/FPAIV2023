@@ -262,13 +262,14 @@ MonoBehaviour:
   cameraRotationSpeed: 10
   minCameraOffsetY: 0.5
   maxCameraOffsetY: 5.5
-  cameraMovePosOffset: {x: 0, y: 2, z: -10}
-  cameraAimPosOffset: {x: 0, y: 2, z: -5}
+  cameraMovePosOffsetAsMagnitude: {x: 0, y: 2, z: -10}
+  cameraAimPosOffsetAsMagnitude: {x: 0, y: 2, z: -5}
   cameraMoveFixedPosOffsetAsLookRotation: {x: 2, y: 2, z: 0}
-  cameraAimFixedPosOffsetAsLookRotation: {x: 2, y: 2, z: 0}
+  cameraAimFixedPosOffsetAsLookRotation: {x: 2, y: 2, z: 2}
+  lookRotationAngle: 90
   cameraCollisionOffsetMagnitude: 0.1
   cameraToPlayerMaxDistanceOnCollision: 180
-  cameraToImpactPointMaxDistance: 5
+  cameraToImpactPointMaxDistance: 6
   cameraRaycastLayerMask:
     serializedVersion: 2
     m_Bits: 512

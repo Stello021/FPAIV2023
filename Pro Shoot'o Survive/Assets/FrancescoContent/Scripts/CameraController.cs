@@ -10,68 +10,38 @@ public class CameraController : MonoBehaviour
     public PlayerController PlayerController { get { return player.GetComponent<PlayerController>(); } }
     public InputSysController PlayerInputsController { get { return PlayerController.InputsController; } }
 
-    [Header("\nCamera variables")]
+    [Header("\nCamera speed variables")]
     [SerializeField] private float cameraMoveSpeedOnRotation;
     [SerializeField] private float lerpCameraPositionSpeed;
     [SerializeField] private float cameraRotationSpeed;
+
+    [Header("\nCamera position offset variables")]
     [SerializeField] private float minCameraOffsetY;
     [SerializeField] private float maxCameraOffsetY;
-    [SerializeField] private Vector3 cameraMovePosOffset;
-    [SerializeField] private Vector3 cameraAimPosOffset;
+    [SerializeField] private Vector3 cameraMovePosOffsetAsMagnitude;
+    [SerializeField] private Vector3 cameraAimPosOffsetAsMagnitude;
+    private Vector3 cameraCurrentPosOffsetAsMagnitude;
+    private Vector3 cameraCurrentPosOffset;
 
+    [Header("\nCamera look rotation variables")]
     [SerializeField] private Vector3 cameraMoveFixedPosOffsetAsLookRotation;
     [SerializeField] private Vector3 cameraAimFixedPosOffsetAsLookRotation;
+    [SerializeField] private float lookRotationAngle;
+    private Vector3 cameraCurrentFixedPosOffsetAsLookRotation;
 
+    [Header("\nCamera collision variables")]
     [SerializeField] private float cameraCollisionOffsetMagnitude;
     [SerializeField] private float cameraToPlayerMaxDistanceOnCollision;
     [SerializeField] private float cameraToImpactPointMaxDistance;
     [SerializeField] private LayerMask cameraRaycastLayerMask;
-
     private bool hasCameraCollided;
-
-    private Vector3 cameraCurrentPosOffsetAsMagnitude;
-    private Vector3 cameraCurrentPosOffset;
-
-    private Vector3 cameraCurrentFixedPosOffsetAsLookRotation;
-
-
-    public float CameraEulerAnglesY
-    {
-        get
-        {
-            float cameraEulerAnglesY = transform.eulerAngles.y;
-
-            if (cameraEulerAnglesY > 180)
-            {
-                cameraEulerAnglesY = 360 - cameraEulerAnglesY;
-            }
-
-            return cameraEulerAnglesY;
-        }
-    }
-
-    public float CameraEulerAnglesY_WithNegativeValue
-    {
-        get
-        {
-            float cameraEulerAnglesY = transform.eulerAngles.y;
-
-            if (cameraEulerAnglesY > 180)
-            {
-                cameraEulerAnglesY -= 360;
-            }
-
-            return cameraEulerAnglesY;
-        }
-    }
-
     private RaycastHit cameraHitInfo;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        cameraCurrentPosOffset = cameraCurrentPosOffsetAsMagnitude = cameraMovePosOffset;
+        cameraCurrentPosOffset = cameraCurrentPosOffsetAsMagnitude = cameraMovePosOffsetAsMagnitude;
         cameraCurrentFixedPosOffsetAsLookRotation = cameraMoveFixedPosOffsetAsLookRotation;
 
         Cursor.visible = false;
@@ -131,7 +101,7 @@ public class CameraController : MonoBehaviour
         }
 
         newOffset.y = cameraCurrentPosOffset.y;
-        cameraCurrentPosOffset = newOffset;
+        cameraCurrentPosOffset = Vector3.Lerp(cameraCurrentPosOffset, newOffset, lerpCameraPositionSpeed * Time.fixedDeltaTime);
     }
 
     private Vector3 GetCameraOrbitalMovementOnImpactPoint(Vector3 hitPointOffset)
@@ -141,7 +111,7 @@ public class CameraController : MonoBehaviour
         Vector2 mouseDeltaDir = PlayerInputsController.GetInputValue<Vector2>("MouseDeltaDir");
 
         currentRotationY = Mathf.Atan2(hitPointOffset.z, hitPointOffset.x);
-        currentRotationY += mouseDeltaDir.x * cameraMoveSpeedOnRotation * 5 * Time.fixedDeltaTime;
+        currentRotationY += mouseDeltaDir.x * (cameraMoveSpeedOnRotation * 5) * Time.fixedDeltaTime;
 
         newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
         newOffset *= new Vector3(hitPointOffset.x, 0, hitPointOffset.z).magnitude;
@@ -158,7 +128,7 @@ public class CameraController : MonoBehaviour
         Vector2 mouseDeltaDir = PlayerInputsController.GetInputValue<Vector2>("MouseDeltaDir");
 
         currentRotationY = Mathf.Atan2(cameraCurrentPosOffset.z, cameraCurrentPosOffset.x);
-        currentRotationY += mouseDeltaDir.x * (cameraMoveSpeedOnRotation * 0.5f) * Time.fixedDeltaTime;
+        currentRotationY += mouseDeltaDir.x * (cameraMoveSpeedOnRotation * 2.5f) * Time.fixedDeltaTime;
 
         newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
         newOffset *= new Vector3(cameraCurrentPosOffsetAsMagnitude.x, 0, cameraCurrentPosOffsetAsMagnitude.z).magnitude;
@@ -178,63 +148,30 @@ public class CameraController : MonoBehaviour
 
         newOffset *= new Vector3(0, cameraCurrentPosOffset.y, cameraCurrentPosOffset.z).magnitude;
 
-        newOffset.y += mouseDeltaDir.y * cameraMoveSpeedOnRotation * Time.deltaTime;
+        newOffset.y += mouseDeltaDir.y * (cameraMoveSpeedOnRotation * 5) * Time.fixedDeltaTime;
         newOffset.y = Mathf.Clamp(newOffset.y, minCameraOffsetY, maxCameraOffsetY);
 
         newOffset.x = cameraCurrentPosOffset.x;
 
-        cameraCurrentPosOffset = newOffset;
+        cameraCurrentPosOffset = Vector3.Lerp(cameraCurrentPosOffset, newOffset, lerpCameraPositionSpeed * Time.fixedDeltaTime);
     }
 
     public void RotateCamera()
     {
         Vector3 cameraToTarget = player.transform.position - transform.position;
+        Vector3 newFixedPosOffset = cameraCurrentFixedPosOffsetAsLookRotation;
+
         Quaternion previousRotation = transform.rotation;
         Quaternion lastRotation = Quaternion.identity;
-        float angle = Mathf.Cos(Mathf.Atan(player.transform.position.x + cameraCurrentFixedPosOffsetAsLookRotation.x));
-        //float angle = Mathf.Cos(Mathf.Atan2(player.transform.position.x + cameraCurrentFixedPosOffsetAsLookRotation.x, player.transform.position.z + cameraCurrentFixedPosOffsetAsLookRotation.z));
-        //float angle = Mathf.Sin(Mathf.Atan(transform.eulerAngles.y));
-        Vector3 newOffset = cameraCurrentFixedPosOffsetAsLookRotation * angle;
+        float currentRotationY = Mathf.Atan2(cameraCurrentPosOffset.z, cameraCurrentPosOffset.x) + (lookRotationAngle * Mathf.Deg2Rad);
+        Vector3 currentPosOffsetSinAndCos = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
 
-        newOffset.y = cameraCurrentFixedPosOffsetAsLookRotation.y;
-        //newOffset.z = cameraCurrentFixedPosOffsetAsLookRotation.z;
+        newFixedPosOffset.x *= currentPosOffsetSinAndCos.x;
+        newFixedPosOffset.z *= currentPosOffsetSinAndCos.z;
 
-        //cameraCurrentFixedPosOffsetAsLookRotation = newOffset;
+        cameraToTarget += newFixedPosOffset;
 
-        cameraToTarget += cameraCurrentFixedPosOffsetAsLookRotation;
-        //cameraToTarget += newOffset;
-
-        //if (PlayerController.IsAiming)
-        //{
-        //    float currentRotationY = Mathf.Atan2(cameraCurrentPosOffset.z, cameraCurrentPosOffset.x);
-        //    Vector3 currentPosOffsetSinAndCos = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
-
-        //    cameraToTarget += cameraCurrentFixedPosOffsetAsLookRotation * currentRotationY;
-
-        //    //if (CameraEulerAnglesY >= 170 && CameraEulerAnglesY <= 180)
-        //    //{
-        //    //    cameraToTarget.x *= -1;
-        //    //}
-
-        //    //cameraToTarget.x += -currentPosOffsetSinAndCos.x;
-        //    //cameraToTarget.x += cameraCurrentFixedPosOffsetAsLookRotation.x + transform.forward.x + transform.right.x;
-        //    //cameraToTarget.y += cameraCurrentFixedPosOffsetAsLookRotation.y;
-
-
-        //    //cameraToTarget.x += currentRotationY * -Math.Sign(transform.forward.z);
-        //    //cameraToTarget.x += currentRotationY * -transform.forward.z;
-        //}
-
-        //else
-        //{
-        //    cameraToTarget += cameraCurrentFixedPosOffsetAsLookRotation;
-        //}
-
-        // UI_Mngr.Instance.TextSprites["TextInfo"].text = "Camera yaw: " + CameraEulerAnglesY.ToString();
-        // UI_Mngr.Instance.TextSprites["TextInfo"].text += "\nCamera yaw with negative value: " + CameraEulerAnglesY_WithNegativeValue.ToString();
-        // UI_Mngr.Instance.TextSprites["TextInfo"].text += "\nCamera forward: " + transform.forward.ToString();
-
-        transform.rotation = Quaternion.LookRotation(cameraToTarget.normalized, Vector3.up);
+        transform.rotation = Quaternion.LookRotation(cameraToTarget, Vector3.up);
 
         lastRotation = transform.rotation;
         transform.rotation = previousRotation;
@@ -262,25 +199,20 @@ public class CameraController : MonoBehaviour
     {
         if (PlayerController.IsAiming)
         {
-            cameraCurrentPosOffsetAsMagnitude = cameraAimPosOffset;
+            cameraCurrentPosOffsetAsMagnitude = cameraAimPosOffsetAsMagnitude;
             cameraCurrentFixedPosOffsetAsLookRotation = cameraAimFixedPosOffsetAsLookRotation;
 
             return;
         }
 
-        cameraCurrentPosOffsetAsMagnitude = cameraMovePosOffset;
+        cameraCurrentPosOffsetAsMagnitude = cameraMovePosOffsetAsMagnitude;
         cameraCurrentFixedPosOffsetAsLookRotation = cameraMoveFixedPosOffsetAsLookRotation;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        ConcaveCameraMove();
     }
 
     private void FixedUpdate()
     {
         MoveCameraOrbitally();
+        ConcaveCameraMove();
     }
 
     private void LateUpdate()
