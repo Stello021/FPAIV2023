@@ -32,27 +32,7 @@ public class EnemyLogic : MonoBehaviour
         Debug.Log("Current HP: " + currentHP);
         if (currentHP <= 0)
         {
-            if (OwnWeapon != null)
-            {
-                // OwnWeapon.transform.position = new Vector3(transform.position.x, 1.5f, transform.position.y);
-                OwnWeapon.transform.rotation = Quaternion.identity;
-                OwnWeapon.transform.parent = null;
-            }
-            if (gameObject.tag == "Standard")
-            {
-                BarsManager.Instance.setSpeedBar(0.05f);
-            }
-            else if (gameObject.tag == "Ranged")
-            {
-                BarsManager.Instance.setDamageBar(0.05f);
-            }
-            WaveSceneManager wsm = FindFirstObjectByType<WaveSceneManager>();
-            wsm.EnemiesSpawned.Remove(gameObject);
-            PowerUpSpawnPos = transform.GetChild(2).position;
-            Animator enemyAnimator = GetComponent<Animator>();
-            enemyAnimator.SetBool("Death_b", true);
-            Invoke(nameof(DestroyEnemy), 3f);
-
+            StartCoroutine(Death());
         }
     }
     public void DestroyEnemy()
@@ -60,6 +40,37 @@ public class EnemyLogic : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public IEnumerator Death()
+    {
+        if (OwnWeapon != null)
+        {
+            OwnWeapon.transform.rotation = Quaternion.identity;
+            OwnWeapon.transform.parent = null;
+            RotatingManager.Instance.AddRotatingObject(OwnWeapon.transform);
+        }
+        if (gameObject.tag == "Standard")
+        {
+            BarsManager.Instance.setSpeedBar(0.05f);
+        }
+        else if (gameObject.tag == "Ranged")
+        {
+            BarsManager.Instance.setDamageBar(0.05f);
+        }
+        WaveSceneManager wsm = FindFirstObjectByType<WaveSceneManager>();
+        wsm.EnemiesSpawned.Remove(gameObject);
+        PowerUpSpawnPos = transform.GetChild(2).position;
+        Animator enemyAnimator = GetComponent<Animator>();
+        enemyAnimator.SetBool("Death_b", true);
+        Rigidbody rb = GetComponent<Rigidbody>();
+        Destroy(rb);
+        Collider c = GetComponent<Collider>();
+        Destroy(c);
+        yield return new WaitForSeconds(3f);
+        DestroyEnemy();
+        yield return null;
+
+
+    }
     private void OnDestroy()
     {
         int probability = Random.Range(0, 100);

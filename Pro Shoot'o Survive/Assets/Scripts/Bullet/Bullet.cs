@@ -41,7 +41,10 @@ public class Bullet : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (!other.gameObject.CompareTag("PowerUp"))
+        {
+            Destroy(gameObject);
+        }
 
     }
 }

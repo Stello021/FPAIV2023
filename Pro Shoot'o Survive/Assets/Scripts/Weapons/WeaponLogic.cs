@@ -14,9 +14,6 @@ public class WeaponLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.parent == null)
-        {
-            transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
-        }
+
     }
 }
