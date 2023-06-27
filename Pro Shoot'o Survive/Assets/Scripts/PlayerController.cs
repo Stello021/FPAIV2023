@@ -388,13 +388,13 @@ public class PlayerController : MonoBehaviour
     {
         Transform target = null;
         Collider[] enemyTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
-        Vector3 myPosition = transform.GetChild(0).position;
+        Vector3 myCentralPosition = transform.GetChild(0).position;
         if (enemyTargets.Length > 0)
         {
             for (int i = 0; i < enemyTargets.Length; i++)
             {
-                Transform possibleTarget = enemyTargets[i].transform.GetChild(2);
-                Vector3 distToTarget = possibleTarget.position - myPosition;
+                Transform possibleTarget = enemyTargets[i].GetComponent<EnemyLogic>().Center;
+                Vector3 distToTarget = possibleTarget.position - myCentralPosition;
                 float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
                 // check if enemy is inside the player viewRadius
                 if (angleToTarget < angleOfVision * 0.5f)
@@ -403,7 +403,7 @@ public class PlayerController : MonoBehaviour
                     //Debug.DrawRay(raycastStart, distToTarget, Color.red, 10);
                     //Debug.Log(Physics.Raycast(transform.GetChild(0).position, distToTarget.normalized, distToTarget.magnitude, obstacleMask));
                     //check if enemy is not behind a wall
-                    if (!Physics.Raycast(myPosition, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
+                    if (!Physics.Raycast(myCentralPosition, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
                     {
                         target = possibleTarget;
                         return target;
@@ -411,6 +411,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
         return target;
     }
 

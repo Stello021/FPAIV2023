@@ -529,6 +529,7 @@ MonoBehaviour:
   meleeDamage: 10
   PowerUpSpawnPos: {x: 0, y: 0, z: 0}
   powerUpProbability: 30
+  bloodVFX: {fileID: 194062, guid: bb954c7832c9a9845b017b284d33fbc8, type: 3}
 --- !u!54 &4208671294045329953
 Rigidbody:
   m_ObjectHideFlags: 0

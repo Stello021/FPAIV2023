@@ -13,10 +13,15 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField] public float meleeDamage;
     [SerializeField] Vector3 PowerUpSpawnPos;
     [SerializeField] float powerUpProbability;
+    [SerializeField] GameObject bloodVFX;
+    private Transform center;
+    public Transform Center { get { return center; } }
 
     // Start is called before the first frame update
     void Start()
     {
+        center = transform.GetChild(2);
+        Debug.Log("Center" + Center);
         currentHP = MaxHP;
         enemyAgent = GetComponent<NavMeshAgent>();
     }
@@ -29,6 +34,7 @@ public class EnemyLogic : MonoBehaviour
     public void ReceiveDamage(float damage)
     {
         currentHP -= damage;
+        Instantiate(bloodVFX, Center.position, Quaternion.identity);
         //Debug.Log("Current HP: " + currentHP);
         if (currentHP <= 0)
         {
@@ -66,7 +72,7 @@ public class EnemyLogic : MonoBehaviour
         enemyAnimator.SetBool("Death_b", true);
         Rigidbody rb = GetComponent<Rigidbody>();
 
-        PowerUpSpawnPos = transform.GetChild(2).position;
+        PowerUpSpawnPos = Center.position;
         int probability = Random.Range(0, 100);
         if (probability < powerUpProbability)
         {

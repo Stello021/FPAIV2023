@@ -8,11 +8,11 @@ public class Grenade : MonoBehaviour
 {
     [SerializeField] float throwForceValue;
     [SerializeField] float explosionDelay;
-    [SerializeField] float timeToExplosion;
+    private float timeToExplosion;
     [SerializeField] float explosionRadius;
     [SerializeField] LayerMask enemyMask;
     [SerializeField] float explosionForce;
-    [SerializeField] Rigidbody rb;
+    private Rigidbody rb;
 
     [SerializeField] float damage;
 
@@ -37,7 +37,7 @@ public class Grenade : MonoBehaviour
 
     private void Explode()
     {
-        GameObject go = Instantiate(explosionFX, transform.position, transform.rotation);
+        Instantiate(explosionFX, transform.position, transform.rotation);
 
         Collider[] explodingColliders = Physics.OverlapSphere(transform.position, explosionRadius, enemyMask);
 
@@ -54,7 +54,6 @@ public class Grenade : MonoBehaviour
         }
 
         Destroy(gameObject);
-        Destroy(go, 2f);
     }
 
     public void Throw(Vector3 dir)
