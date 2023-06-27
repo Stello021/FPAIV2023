@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+//using UnityEngine.UIElements;
 
 public class PlayerLogic : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class PlayerLogic : MonoBehaviour
     public float damageBarValue;    //value from 0 to 1
 
     [SerializeField] TMP_Text armorValueText;
+
+    private int points;
 
     // Start is called before the first frame update
     void Awake()
@@ -78,7 +81,8 @@ public class PlayerLogic : MonoBehaviour
 
         if (HP <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            SavePoints();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(2);
@@ -127,11 +131,29 @@ public class PlayerLogic : MonoBehaviour
 
     }
 
-    private void OnDestroy()
+    public void AddPoints(int pointsToAdd)
     {
-            //Cursor.visible = true;
-            //Cursor.lockState = CursorLockMode.None;
-            //SceneManager.LoadScene(2);
+        points += pointsToAdd;
+    }
+
+    private void SavePoints()
+    {
+        points -= (int)Time.timeSinceLevelLoad;
+
+        if (PlayerPrefs.HasKey("Record"))
+        {
+            int record = PlayerPrefs.GetInt("Record");
+            if (points > record)
+            {
+                PlayerPrefs.SetInt("Record", points);
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Record", points);
+        }
+
+        PlayerPrefs.SetInt("Current", points);
     }
 
 }
