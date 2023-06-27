@@ -42,6 +42,8 @@ public class EnemyLogic : MonoBehaviour
 
     public IEnumerator Death()
     {
+        EnemyAI e = GetComponent<EnemyAI>();
+        e.IsAlive = false;
         if (OwnWeapon != null)
         {
             OwnWeapon.transform.rotation = Quaternion.identity;
