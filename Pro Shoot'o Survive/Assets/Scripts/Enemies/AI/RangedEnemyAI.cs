@@ -18,6 +18,7 @@ public class RangedEnemyAI : EnemyAI
     public float ShootRange;
     private bool playerInShootRange;
 
+
     //PROVA
 
     void Start()
@@ -35,14 +36,18 @@ public class RangedEnemyAI : EnemyAI
         playerInShootRange = Physics.CheckSphere(transform.position, ShootRange, PlayerMask);
         enemyAnimator.SetFloat("Speed_f", enemyAgent.speed);//Associate animator's speed parameter with agent speed
         //FSM
-        if (!playerInShootRange)
-        {
-            ChasePlayer();
-        }
-        else
-        {
-            ShootPlayer();
-        }
+        //if(IsAlive)
+        //{
+            if (!playerInShootRange)
+            {
+                ChasePlayer();
+            }
+            else
+            {
+                ShootPlayer();
+            }
+        
+        
 
     }
     private void ChasePlayer()

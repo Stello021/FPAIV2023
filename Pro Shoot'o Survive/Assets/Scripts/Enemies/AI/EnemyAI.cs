@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent enemyAgent;
     public Rigidbody rb;
     protected float reactivationTime = 2f;
+    public bool IsAlive = true;
 
 
     [SerializeField] public float meleeDamage;

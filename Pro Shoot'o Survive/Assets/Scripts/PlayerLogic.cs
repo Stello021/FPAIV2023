@@ -19,14 +19,14 @@ public class PlayerLogic : MonoBehaviour
     public float Armor { get { return armor; } set { armor = Mathf.Clamp(value, 0, armorMax); UpdateArmorText(); } }
 
 
-    private float damageMultiplier = 1f;
+    private float ReloadMultiplier = 1f;
 
     public float speedMultiplier = 1f;
     public float speed;
 
     public float speedBarValue;     //value from 0 to 1
     public float healthBarValue;    //value from 0 to 1
-    public float damageBarValue;    //value from 0 to 1
+    public float ReloadBarValue;    //value from 0 to 1
 
     [SerializeField] TMP_Text armorValueText;
 
@@ -61,16 +61,16 @@ public class PlayerLogic : MonoBehaviour
                 Armor = 0;
                 excessDamage = Mathf.Abs(excessDamage);
                 Debug.Log("Excess damage: " + excessDamage);
-                HP -= excessDamage * damageMultiplier;
+                HP -= excessDamage * ReloadMultiplier;
             }
             else
             {
-                Armor -= damage * damageMultiplier;
+                Armor -= damage * ReloadMultiplier;
             }
         }
         else
         {
-            HP -= damage * damageMultiplier;
+            HP -= damage * ReloadMultiplier;
         }
 
         Debug.Log("armor: " + Armor);
@@ -99,39 +99,24 @@ public class PlayerLogic : MonoBehaviour
     public void UpdateStatsMultiplier()
     {
         //multipliers affects player' speed or damage taken
-        if (damageBarValue <= 0)
+        if (ReloadBarValue <= 0 || ReloadBarValue >= 1)
         {
-            damageMultiplier = 2f;
-        }
-        else if (damageBarValue >= 1)
-        {
-            damageMultiplier = 0.5f;
+            ReloadMultiplier = 2f;
         }
         else
         {
-            damageMultiplier = 1f;
+            ReloadMultiplier = 1f;
         }
 
-        if (speedBarValue <= 0)
+        if (speedBarValue <= 0 || speedBarValue >= 1)
         {
             speedMultiplier = 0.5f;
-        }
-        else if (speedBarValue >= 1)
-        {
-            speedMultiplier = 2f;
         }
         else
         {
             speedMultiplier = 1f;
         }
 
-    }
-
-    private void OnDestroy()
-    {
-            //Cursor.visible = true;
-            //Cursor.lockState = CursorLockMode.None;
-            //SceneManager.LoadScene(2);
     }
 
 }
