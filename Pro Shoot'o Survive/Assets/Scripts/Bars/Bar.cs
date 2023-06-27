@@ -22,6 +22,8 @@ public class Bar : MonoBehaviour
     void Start()
     {
         value = StartingValue;
+        bar.fillAmount = value / TotalValue;
+
     }
 
     // Update is called once per frame

@@ -56,11 +56,15 @@ public class EnemyLogic : MonoBehaviour
         }
         if (gameObject.tag == "Standard")
         {
-            BarsManager.Instance.setSpeedBar(0.05f);
+            BarsManager.Instance.setSpeedBar(0.15f);
+            BarsManager.Instance.setDamageBar(-0.15f);
+
         }
         else if (gameObject.tag == "Ranged")
         {
-            BarsManager.Instance.setDamageBar(0.05f);
+            BarsManager.Instance.setDamageBar(0.15f);
+            BarsManager.Instance.setSpeedBar(-0.15f);
+
         }
         WaveSceneManager wsm = FindFirstObjectByType<WaveSceneManager>();
         wsm.EnemiesSpawned.Remove(gameObject);
