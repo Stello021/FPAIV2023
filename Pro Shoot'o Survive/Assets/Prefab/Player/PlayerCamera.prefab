@@ -264,7 +264,7 @@ MonoBehaviour:
   maxCameraOffsetY: 5.5
   cameraMovePosOffsetAsMagnitude: {x: 0, y: 2, z: -10}
   cameraAimPosOffsetAsMagnitude: {x: 0, y: 2, z: -5}
-  cameraMoveFixedPosOffsetAsLookRotation: {x: 2, y: 2, z: 0}
+  cameraMoveFixedPosOffsetAsLookRotation: {x: 0, y: 2, z: 0}
   cameraAimFixedPosOffsetAsLookRotation: {x: 2, y: 2, z: 2}
   lookRotationAngle: 90
   cameraCollisionOffsetMagnitude: 0.1

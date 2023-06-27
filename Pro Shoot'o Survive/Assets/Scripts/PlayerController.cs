@@ -20,7 +20,21 @@ public class PlayerController : MonoBehaviour
     private bool isJumping; // Flag indicating if the player is currently jumping.
     [SerializeField] float damageDealt;
 
-    public bool IsAiming { get { return isAiming; } private set { isAiming = value; crossHairTransform.gameObject.SetActive(value); } }
+    public bool IsAiming
+    {
+        get
+        {
+            return isAiming;
+        }
+
+        private set
+        {
+            isAiming = value;
+            crossHairTransform.gameObject.SetActive(value);
+            animator.SetBool("IsAiming", value);
+        }
+    }
+
     private bool isAiming;
 
     [Header("\nWeapon reference variables")]
@@ -183,11 +197,8 @@ public class PlayerController : MonoBehaviour
             animator.SetInteger("WeaponType_int", 10);
             GameObject grenade = Instantiate(grenadePrefab, grenadeSpawnPoint.position, grenadeSpawnPoint.rotation);
             grenade.GetComponent<Grenade>().Throw(transform.forward);
-            Debug.Log("Prima di lanciare la granata: " + Grenades);
+
             Grenades--;
-            Debug.Log("Dopo aver lanciato la granata: " + Grenades);
-            //grenades--;
-            //UpdateGrenadeText();
         }
     }
 
