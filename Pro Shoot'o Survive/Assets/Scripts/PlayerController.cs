@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     private Animator animator; // Reference to the Animator component for controlling animations.
     private float gravityVelocity; // Player's current velocity.
     private bool isJumping; // Flag indicating if the player is currently jumping.
-    [SerializeField] float damageDealt;
 
     public bool IsAiming
     {
@@ -40,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [Header("\nWeapon reference variables")]
     [SerializeField] private GameObject defaultWeapon;
     [SerializeField] private GameObject assaultWeapon;
+    private GameObject currentWeapon;
 
     [Header("\nCrossHair variables")]
     [SerializeField] private RectTransform crossHairTransform;
@@ -90,6 +90,9 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main.transform;
 
         IsAiming = false;
+
+        currentWeapon = defaultWeapon;
+        BulletSpawn = currentWeapon.transform;
     }
 
     private void Update()
@@ -277,14 +280,18 @@ public class PlayerController : MonoBehaviour
 
             GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
             bullet.GetComponent<PlayerBullet>().dir = shootDir; // Set the bullet direction
-            bullet.GetComponent<PlayerBullet>().DamageDealt = damageDealt;
+            //Set bullet damage
+            WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
+            bullet.GetComponent<PlayerBullet>().DamageDealt = wL.Damage;
         }
         else
         {
             GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
             PlayerBullet bullet = go.GetComponent<PlayerBullet>();
             bullet.target = bulletTarget;
-            bullet.DamageDealt = damageDealt;
+            //Set bullet damage
+            WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
+            bullet.GetComponent<PlayerBullet>().DamageDealt = wL.Damage;
             bullet.IsHoming = true;
         }
 

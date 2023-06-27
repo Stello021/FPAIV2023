@@ -52,6 +52,8 @@ public class EnemyLogic : MonoBehaviour
 
     public IEnumerator Death()
     {
+        Animator enemyAnimator = GetComponent<Animator>();
+        enemyAnimator.SetBool("Death_b", true);
         EnemyAI e = GetComponent<EnemyAI>();
         e.IsAlive = false;
         if (OwnWeapon != null)
@@ -74,8 +76,7 @@ public class EnemyLogic : MonoBehaviour
         }
         WaveSceneManager wsm = FindFirstObjectByType<WaveSceneManager>();
         wsm.EnemiesSpawned.Remove(gameObject);
-        Animator enemyAnimator = GetComponent<Animator>();
-        enemyAnimator.SetBool("Death_b", true);
+
         Rigidbody rb = GetComponent<Rigidbody>();
 
         PowerUpSpawnPos = Center.position;
