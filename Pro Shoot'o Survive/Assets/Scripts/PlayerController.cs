@@ -231,7 +231,7 @@ public class PlayerController : MonoBehaviour
         if (activeHoming)
         {
             homingTimer -= Time.deltaTime;
-
+            Debug.Log(homingTimer.ToString());
             if (homingTimer <= 0)
             {
                 activeHoming = false;
@@ -257,7 +257,9 @@ public class PlayerController : MonoBehaviour
 
         PlayShootClip();
 
-        if (!activeHoming)
+        Transform bulletTarget = SetFirstTarget();
+
+        if (!activeHoming || bulletTarget == null)
         {
             Ray rayToCenter = new Ray(cam.position, cam.forward);
 
@@ -266,6 +268,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(rayToCenter, out RaycastHit target, Mathf.Infinity, aimMask))
             {
                 shootDir = (target.point - BulletSpawn.position).normalized;
+                Debug.DrawRay(BulletSpawn.position, shootDir, Color.yellow);
             }
             else
             {
@@ -280,7 +283,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
             PlayerBullet bullet = go.GetComponent<PlayerBullet>();
-            bullet.target = SetFirstTarget();
+            bullet.target = bulletTarget;
             bullet.DamageDealt = damageDealt;
             bullet.IsHoming = true;
         }
