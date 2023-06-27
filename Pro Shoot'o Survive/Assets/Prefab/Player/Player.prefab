@@ -340,6 +340,7 @@ MonoBehaviour:
   damageDealt: 25
   defaultWeapon: {fileID: 8382984336669105017}
   assaultWeapon: {fileID: 8812989879420169857}
+  crossHairTransform: {fileID: 0}
   Bullet: {fileID: 2405495413867421730, guid: 70743bf4717711046be45b32b6933d3b, type: 3}
   BulletSpawn: {fileID: 9036672456228282861}
   CentreCameraTarget: {fileID: 5556613329380079112}
@@ -356,15 +357,14 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 512
-  rotSpeed: 0
   angleOfVision: 140
-  cam: {fileID: 0}
-  aimMask:
-    serializedVersion: 2
-    m_Bits: 832
   smr: {fileID: 2868627714407516670}
   normalMaterial: {fileID: 2100000, guid: 11473f6bfb61e0245b60784ebb60cfef, type: 2}
   homingMaterial: {fileID: 2100000, guid: 26f3fa9c3bc73444fa542bd796157072, type: 2}
+  cam: {fileID: 0}
+  aimMask:
+    serializedVersion: 2
+    m_Bits: 768
   pausePanel: {fileID: 0}
   shootClips:
   - {fileID: 8300000, guid: 457b0051f3ddae24796697ef6087819f, type: 3}

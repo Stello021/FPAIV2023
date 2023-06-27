@@ -20,7 +20,21 @@ public class PlayerController : MonoBehaviour
     private bool isJumping; // Flag indicating if the player is currently jumping.
     [SerializeField] float damageDealt;
 
-    public bool IsAiming { get { return isAiming; } private set { isAiming = value; crossHairTransform.gameObject.SetActive(value); } }
+    public bool IsAiming
+    {
+        get
+        {
+            return isAiming;
+        }
+
+        private set
+        {
+            isAiming = value;
+            crossHairTransform.gameObject.SetActive(value);
+            animator.SetBool("IsAiming", value);
+        }
+    }
+
     private bool isAiming;
 
     [Header("\nWeapon reference variables")]
@@ -36,22 +50,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform CentreCameraTarget; // Reference to the transform of an EmptyObject located in the center of the camera frame. 
 
     [Header("\nGrenade variables")]
-    private int grenades;
-    public int Grenades { get { return grenades; } set { grenades++; UpdateGrenadeText(); } }
-
     [SerializeField] GameObject grenadePrefab;
+    public int Grenades { get { return grenades; } set { grenades = value; UpdateGrenadeText(); } }
+    private int grenades;
     [SerializeField] Transform grenadeSpawnPoint;
     [SerializeField] TMP_Text grenadeNumberText;
 
+
+
     [Header("\nHoming variables")]
-    private bool activeHoming;
     [SerializeField] float homingTimer;
     [SerializeField] float homingTime;
-    [SerializeField] float viewRadius = 300;
+    [SerializeField] float viewRadius;
     [SerializeField] LayerMask enemyMask;
     [SerializeField] LayerMask obstacleMask;
-    [SerializeField] float rotSpeed;
-    [SerializeField] float angleOfVision = 180;
+    [SerializeField] float angleOfVision;
+    [SerializeField] SkinnedMeshRenderer smr;
+    [SerializeField] Material normalMaterial;
+    [SerializeField] Material homingMaterial;
+    private bool activeHoming;
 
     [Header("Camera reference variables")]
     [HideInInspector] public Transform cam;
@@ -60,11 +77,6 @@ public class PlayerController : MonoBehaviour
     public InputSysController InputsController { get; private set; }
 
     [SerializeField] LayerMask aimMask;
-
-    [SerializeField] SkinnedMeshRenderer smr;
-    [SerializeField] Material normalMaterial;
-    [SerializeField] Material homingMaterial;
-
     [SerializeField] GameObject pausePanel;
     private bool isInPause;
     [SerializeField] List<AudioClip> shootClips;
@@ -185,8 +197,8 @@ public class PlayerController : MonoBehaviour
             animator.SetInteger("WeaponType_int", 10);
             GameObject grenade = Instantiate(grenadePrefab, grenadeSpawnPoint.position, grenadeSpawnPoint.rotation);
             grenade.GetComponent<Grenade>().Throw(transform.forward);
-            grenades--;
-            UpdateGrenadeText();
+
+            Grenades--;
         }
     }
 
@@ -219,7 +231,7 @@ public class PlayerController : MonoBehaviour
         if (activeHoming)
         {
             homingTimer -= Time.deltaTime;
-
+            Debug.Log(homingTimer.ToString());
             if (homingTimer <= 0)
             {
                 activeHoming = false;
@@ -245,7 +257,9 @@ public class PlayerController : MonoBehaviour
 
         PlayShootClip();
 
-        if (!activeHoming)
+        Transform bulletTarget = SetFirstTarget();
+
+        if (!activeHoming || bulletTarget == null)
         {
             Ray rayToCenter = new Ray(cam.position, cam.forward);
 
@@ -254,6 +268,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(rayToCenter, out RaycastHit target, Mathf.Infinity, aimMask))
             {
                 shootDir = (target.point - BulletSpawn.position).normalized;
+                Debug.DrawRay(BulletSpawn.position, shootDir, Color.yellow);
             }
             else
             {
@@ -268,7 +283,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
             PlayerBullet bullet = go.GetComponent<PlayerBullet>();
-            bullet.target = SetFirstTarget();
+            bullet.target = bulletTarget;
             bullet.DamageDealt = damageDealt;
             bullet.IsHoming = true;
         }
