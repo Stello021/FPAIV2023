@@ -103,6 +103,10 @@ public class PlayerLogic : MonoBehaviour
         {
             ReloadMultiplier = 2f;
         }
+        else if(ReloadBarValue >= 0.6f && ReloadBarValue <= 0.7f)
+        {
+            ReloadMultiplier = 0f;
+        }
         else
         {
             ReloadMultiplier = 1f;
@@ -111,6 +115,10 @@ public class PlayerLogic : MonoBehaviour
         if (speedBarValue <= 0 || speedBarValue >= 1)
         {
             speedMultiplier = 0.5f;
+        }
+        else if (speedBarValue >= 0.6f && speedBarValue <= 0.7f)
+        {
+            speedMultiplier = 2f;
         }
         else
         {
