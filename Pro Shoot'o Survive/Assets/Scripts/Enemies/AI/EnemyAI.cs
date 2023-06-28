@@ -42,7 +42,7 @@ public class EnemyAI : MonoBehaviour
             {
                 float timer = 1f;
                 meleeElapsedTime += Time.deltaTime;
-                if (meleeElapsedTime >= timer)
+                if (meleeElapsedTime >= timer && IsAlive)
                 {
                     PlayerTransform.GetComponent<PlayerLogic>().TakeDamage(meleeDamage);
                     meleeElapsedTime = 0f;
