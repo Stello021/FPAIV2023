@@ -31,7 +31,7 @@ public class BarsManager : MonoBehaviour
         if (playerRef != null)
         {
             playerRef.speedBarValue = speedBar.amount;
-            playerRef.ReloadBarValue = damageBar.amount;
+            //playerRef.ReloadBarValue = damageBar.amount;
         }
     }
 

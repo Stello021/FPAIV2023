@@ -32,6 +32,7 @@ public class PlayerLogic : MonoBehaviour
     [SerializeField] TMP_Text armorValueText;
 
     private int points;
+    private int deathPoints = 500;
 
     // Start is called before the first frame update
     void Awake()
@@ -139,6 +140,11 @@ public class PlayerLogic : MonoBehaviour
     {
         points -= (int)Time.timeSinceLevelLoad;
         points += (int)(HP + Armor);
+
+        if (HP <= 0)
+        {
+            points -= deathPoints;
+        }
 
         if (PlayerPrefs.HasKey("Record"))
         {
