@@ -211,13 +211,27 @@ public class CameraController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveCameraOrbitally();
-        ConcaveCameraMove();
+        try
+        {
+            MoveCameraOrbitally();
+            ConcaveCameraMove();
+        }
+
+        catch
+        {
+        }
     }
 
     private void LateUpdate()
     {
-        MoveCamera();
-        RotateCamera();
+        try
+        {
+            MoveCamera();
+            RotateCamera();
+        }
+
+        catch
+        {
+        }
     }
 }

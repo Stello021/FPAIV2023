@@ -407,6 +407,14 @@ public class PlayerController : MonoBehaviour
 
             for (int i = 0; i < enemyTargets.Length; i++)
             {
+                //sometimes may happen the enemy could get null
+                //'cause killed, so we'll skip the current enemy
+                //if killed
+                if (enemyTargets[i] == null)
+                {
+                    continue;
+                }
+
                 Transform possibleTarget = enemyTargets[i].GetComponent<EnemyLogic>().Center;
                 Vector3 distToTarget = possibleTarget.position - myCentralPosition;
                 float distance = Vector3.Distance(myCentralPosition, possibleTarget.position);

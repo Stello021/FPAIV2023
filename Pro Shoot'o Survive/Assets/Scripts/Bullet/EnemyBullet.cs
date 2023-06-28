@@ -13,13 +13,20 @@ public class EnemyBullet : Bullet
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        try
         {
-            Debug.Log("Damage of enemy bullet: " + DamageDealt);
-            PlayerLogic player = other.gameObject.GetComponent<PlayerLogic>();
-            player.TakeDamage(DamageDealt);
+            if (other.CompareTag("Player"))
+            {
+                Debug.Log("Damage of enemy bullet: " + DamageDealt);
+                PlayerLogic player = other.gameObject.GetComponent<PlayerLogic>();
+                player.TakeDamage(DamageDealt);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+
+        catch
+        {
+        }
     }
     
 }

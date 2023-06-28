@@ -61,9 +61,16 @@ public class EnemyAI : MonoBehaviour
 
     public void EnableAgent()
     {
-        enemyAgent.enabled = true;
-        rb.isKinematic = true;
-        enemyAnimator.enabled = true;
+        try
+        {
+            enemyAgent.enabled = true;
+            rb.isKinematic = true;
+            enemyAnimator.enabled = true;
+        }
+
+        catch //in case the enemy has been killed, we'll catch the exception
+        {
+        }
     }
 
 }
