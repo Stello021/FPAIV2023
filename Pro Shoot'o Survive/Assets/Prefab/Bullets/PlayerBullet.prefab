@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2405495413867421730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.064}
+  m_LocalPosition: {x: 3.7726142, y: -3.281369, z: 0.064}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -218,7 +218,7 @@ MonoBehaviour:
   IsHoming: 0
   target: {fileID: 0}
   rotSpeed: 50
-  homingTimer: 0.2
+  homingTimer: 0.1
 --- !u!1 &6079692056677599391
 GameObject:
   m_ObjectHideFlags: 0

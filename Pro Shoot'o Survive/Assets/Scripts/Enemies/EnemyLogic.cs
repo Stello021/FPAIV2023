@@ -25,7 +25,6 @@ public class EnemyLogic : MonoBehaviour
         Transform playerTransform = GetComponent<EnemyAI>().PlayerTransform;
         player = playerTransform.GetComponent<PlayerLogic>();
         center = transform.GetChild(2);
-        Debug.Log("Center" + Center);
         currentHP = MaxHP;
         enemyAgent = GetComponent<NavMeshAgent>();
     }

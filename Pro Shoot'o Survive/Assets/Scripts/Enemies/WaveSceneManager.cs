@@ -39,6 +39,7 @@ public class WaveSceneManager : MonoBehaviour
             SceneManager.LoadScene(3);
         }
     }
+
     public void Spawn()
     {
         enemiesToSpawn = waves[waveNumber].StandardEnemiesToSpawn + waves[waveNumber].RangedEnemiesToSpawn;

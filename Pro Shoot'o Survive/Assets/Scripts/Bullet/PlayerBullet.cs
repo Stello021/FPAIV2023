@@ -9,7 +9,6 @@ public class PlayerBullet : Bullet
     public Transform target;
     [SerializeField] float rotSpeed;
     [SerializeField] float homingTimer;
-    private int headShotPoints = 20;
 
     //protected override void FixedUpdate()
     //{
@@ -64,11 +63,6 @@ public class PlayerBullet : Bullet
         {
             //enemy damage
             EnemyLogic enemy = other.gameObject.GetComponent<EnemyLogic>();
-            if (true)
-            {
-                // controllo se ho fatto un headshot
-                enemy.UpdatePoints(headShotPoints);
-            }
             enemy.ReceiveDamage(DamageDealt);
             //Debug.Log("Danni al nemico:" + DamageDealt);
         }

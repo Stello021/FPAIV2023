@@ -82,7 +82,6 @@ public class PlayerLogic : MonoBehaviour
         if (HP <= 0)
         {
             //Destroy(gameObject);
-            SavePoints();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(2);
@@ -139,6 +138,7 @@ public class PlayerLogic : MonoBehaviour
     private void SavePoints()
     {
         points -= (int)Time.timeSinceLevelLoad;
+        points += (int)(HP + Armor);
 
         if (PlayerPrefs.HasKey("Record"))
         {
@@ -154,6 +154,11 @@ public class PlayerLogic : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("Current", points);
+    }
+
+    private void OnDestroy()
+    {
+        SavePoints();
     }
 
 }
