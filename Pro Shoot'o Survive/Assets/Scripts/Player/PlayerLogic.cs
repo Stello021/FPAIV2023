@@ -32,6 +32,7 @@ public class PlayerLogic : MonoBehaviour
     [SerializeField] TMP_Text armorValueText;
 
     private int points;
+    private int deathPoints = 500;
 
     // Start is called before the first frame update
     void Awake()
@@ -140,19 +141,33 @@ public class PlayerLogic : MonoBehaviour
         points -= (int)Time.timeSinceLevelLoad;
         points += (int)(HP + Armor);
 
+        //if (HP <= 0)
+        //{
+        //    points -= deathPoints;
+        //}
+
+        Debug.Log("current points: " + points);
+
+
         if (PlayerPrefs.HasKey("Record"))
         {
+            Debug.Log("C'è già un record");
             int record = PlayerPrefs.GetInt("Record");
+            Debug.Log("record points: " + record);
+
             if (points > record)
             {
+                Debug.Log("Aggiorno il record");
                 PlayerPrefs.SetInt("Record", points);
             }
         }
         else
         {
+            Debug.Log("Non c'è un record, mi segno un nuovo record");
             PlayerPrefs.SetInt("Record", points);
         }
 
+        Debug.Log("Assegno i punti della run attuale");
         PlayerPrefs.SetInt("Current", points);
     }
 

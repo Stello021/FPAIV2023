@@ -400,11 +400,12 @@ public class PlayerController : MonoBehaviour
         Transform target = null;
         Collider[] enemyTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
         Vector3 myCentralPosition = transform.GetChild(0).position;
+
         if (enemyTargets.Length > 0)
         {
             Transform closestTarget = null;
             float lowestDist = float.MaxValue;
-
+            Debug.Log("Enemies detected: " + enemyTargets.Length);
             for (int i = 0; i < enemyTargets.Length; i++)
             {
                 //sometimes may happen the enemy could get null
@@ -420,12 +421,13 @@ public class PlayerController : MonoBehaviour
                 float distance = Vector3.Distance(myCentralPosition, possibleTarget.position);
                 float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
 
+                Debug.Log(enemyTargets[i].name);
+                Debug.Log(distance);
+                Debug.DrawRay(myCentralPosition, distToTarget, Color.red, 10);
+
                 // check if enemy is inside the player viewRadius
                 if (angleToTarget < angleOfVision * 0.5f)
                 {
-                    //Debug.Log("Enemy angle: " + angleToTarget);
-                    //Debug.DrawRay(raycastStart, distToTarget, Color.red, 10);
-                    //Debug.Log(Physics.Raycast(transform.GetChild(0).position, distToTarget.normalized, distToTarget.magnitude, obstacleMask));
                     //check if enemy is not behind a wall
                     if (!Physics.Raycast(myCentralPosition, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
                     {
@@ -439,9 +441,6 @@ public class PlayerController : MonoBehaviour
                             lowestDist = distance;
                             closestTarget = possibleTarget;
                         }
-
-                        target = possibleTarget;
-                        return target;
                     }
                 }
             }

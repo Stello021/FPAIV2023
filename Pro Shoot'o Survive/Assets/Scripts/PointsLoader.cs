@@ -10,7 +10,7 @@ public class PointsLoader : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        recordValueText.text = PlayerPrefs.GetInt("Record").ToString();
+        recordValueText.text = PlayerPrefs.GetInt("Current").ToString();
     }
 
 }
