@@ -53,7 +53,7 @@ public class PlayerBullet : Bullet
         }
         else
         {
-            StandardMovement();
+            transform.position += transform.forward * bulletSpeed * Time.deltaTime;
         }
     }
 

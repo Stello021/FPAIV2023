@@ -92,7 +92,7 @@ public class EnemyLogic : MonoBehaviour
         {
             PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
         }
-
+        Destroy(center.gameObject);
         Destroy(rb);
         Collider c = GetComponent<Collider>();
         Destroy(c);
