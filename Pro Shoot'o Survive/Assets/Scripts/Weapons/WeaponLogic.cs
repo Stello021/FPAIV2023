@@ -12,7 +12,7 @@ public class WeaponLogic : MonoBehaviour
     protected bool isReloading;  // Flag to indicate if the weapon is currently reloading
     protected float fireTimer;   // Timer to control the fire rate
 
-    protected float Damage;  // Damage caused by the bullet
+    public float Damage;  // Damage caused by the bullet
 
     protected virtual void Start()
     {
