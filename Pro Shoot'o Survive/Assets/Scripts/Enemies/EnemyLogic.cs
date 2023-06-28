@@ -84,7 +84,6 @@ public class EnemyLogic : MonoBehaviour
         WaveSceneManager wsm = FindFirstObjectByType<WaveSceneManager>();
         wsm.EnemiesSpawned.Remove(gameObject);
 
-        Rigidbody rb = GetComponent<Rigidbody>();
 
         PowerUpSpawnPos = Center.position;
         int probability = Random.Range(0, 100);
@@ -93,7 +92,6 @@ public class EnemyLogic : MonoBehaviour
             PowerUpManager.Instance.SpawnRandomPowerUp(PowerUpSpawnPos);
         }
 
-        Destroy(rb);
         Collider c = GetComponent<Collider>();
         Destroy(c);
         yield return new WaitForSeconds(3f);
