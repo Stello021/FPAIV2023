@@ -49,12 +49,14 @@ public class PlayerBullet : Bullet
                 transform.rotation = newRotation;
             }
 
-            transform.position += transform.forward * bulletSpeed * Time.deltaTime;
+            //transform.position += transform.forward * bulletSpeed * Time.deltaTime;
         }
-        else
-        {
-            transform.position += transform.forward * bulletSpeed * Time.deltaTime;
-        }
+        //else
+        //{
+        //    transform.position += transform.forward * bulletSpeed * Time.deltaTime;
+        //}
+
+        transform.position += transform.forward * bulletSpeed * Time.deltaTime;
     }
 
     protected override void OnTriggerEnter(Collider other)
