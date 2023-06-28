@@ -23,7 +23,11 @@ public class WaveSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(EnemiesSpawned.Count <= 0)
+        if (waveNumber > waves.Count)
+        {
+            SceneManager.LoadScene(3);
+        }
+        if (EnemiesSpawned.Count <= 0)
         {
             waveNumber++;
             if (waveNumber == 1)
@@ -34,10 +38,7 @@ public class WaveSceneManager : MonoBehaviour
             Spawn();
         }
 
-        if(waveNumber > waves.Count)
-        {
-            SceneManager.LoadScene(3);
-        }
+        
     }
 
     public void Spawn()
