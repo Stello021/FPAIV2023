@@ -16,12 +16,15 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField] GameObject bloodVFX;
     private Transform center;
     public Transform Center { get { return center; } }
+    private PlayerLogic player;
+    private int pointsValue = 100;
 
     // Start is called before the first frame update
     void Start()
     {
+        Transform playerTransform = GetComponent<EnemyAI>().PlayerTransform;
+        player = playerTransform.GetComponent<PlayerLogic>();
         center = transform.GetChild(2);
-        Debug.Log("Center" + Center);
         currentHP = MaxHP;
         enemyAgent = GetComponent<NavMeshAgent>();
     }
@@ -38,10 +41,14 @@ public class EnemyLogic : MonoBehaviour
         //Debug.Log("Current HP: " + currentHP);
         if (currentHP <= 0)
         {
-
+            player.AddPoints(pointsValue);
             StartCoroutine(Death());
-
         }
+    }
+
+    public void UpdatePoints(int points)
+    {
+        pointsValue += points;
     }
 
     public void DestroyEnemy()

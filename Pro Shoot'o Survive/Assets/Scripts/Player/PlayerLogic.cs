@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+//using UnityEngine.UIElements;
 
 public class PlayerLogic : MonoBehaviour
 {
@@ -19,16 +20,18 @@ public class PlayerLogic : MonoBehaviour
     public float Armor { get { return armor; } set { armor = Mathf.Clamp(value, 0, armorMax); UpdateArmorText(); } }
 
 
-    private float ReloadMultiplier = 1f;
+    private float damageMultiplier = 1f;
 
     public float speedMultiplier = 1f;
     public float speed;
 
     public float speedBarValue;     //value from 0 to 1
     public float healthBarValue;    //value from 0 to 1
-    public float ReloadBarValue;    //value from 0 to 1
+    public float damageBarValue;    //value from 0 to 1
 
     [SerializeField] TMP_Text armorValueText;
+
+    private int points;
 
     // Start is called before the first frame update
     void Awake()
@@ -61,16 +64,16 @@ public class PlayerLogic : MonoBehaviour
                 Armor = 0;
                 excessDamage = Mathf.Abs(excessDamage);
                 Debug.Log("Excess damage: " + excessDamage);
-                HP -= excessDamage * ReloadMultiplier;
+                HP -= excessDamage * damageMultiplier;
             }
             else
             {
-                Armor -= damage * ReloadMultiplier;
+                Armor -= damage * damageMultiplier;
             }
         }
         else
         {
-            HP -= damage * ReloadMultiplier;
+            HP -= damage * damageMultiplier;
         }
 
         Debug.Log("armor: " + Armor);
@@ -78,7 +81,7 @@ public class PlayerLogic : MonoBehaviour
 
         if (HP <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(2);
@@ -99,24 +102,63 @@ public class PlayerLogic : MonoBehaviour
     public void UpdateStatsMultiplier()
     {
         //multipliers affects player' speed or damage taken
-        if (ReloadBarValue <= 0 || ReloadBarValue >= 1)
+        if (damageBarValue <= 0)
         {
-            ReloadMultiplier = 2f;
+            damageMultiplier = 2f;
+        }
+        else if (damageBarValue >= 1)
+        {
+            damageMultiplier = 0.5f;
         }
         else
         {
-            ReloadMultiplier = 1f;
+            damageMultiplier = 1f;
         }
 
-        if (speedBarValue <= 0 || speedBarValue >= 1)
+        if (speedBarValue <= 0)
         {
             speedMultiplier = 0.5f;
+        }
+        else if (speedBarValue >= 1)
+        {
+            speedMultiplier = 2f;
         }
         else
         {
             speedMultiplier = 1f;
         }
 
+    }
+
+    public void AddPoints(int pointsToAdd)
+    {
+        points += pointsToAdd;
+    }
+
+    private void SavePoints()
+    {
+        points -= (int)Time.timeSinceLevelLoad;
+        points += (int)(HP + Armor);
+
+        if (PlayerPrefs.HasKey("Record"))
+        {
+            int record = PlayerPrefs.GetInt("Record");
+            if (points > record)
+            {
+                PlayerPrefs.SetInt("Record", points);
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Record", points);
+        }
+
+        PlayerPrefs.SetInt("Current", points);
+    }
+
+    private void OnDestroy()
+    {
+        SavePoints();
     }
 
 }

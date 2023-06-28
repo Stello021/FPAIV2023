@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
@@ -234,7 +235,6 @@ public class PlayerController : MonoBehaviour
         if (activeHoming)
         {
             homingTimer -= Time.deltaTime;
-            Debug.Log(homingTimer.ToString());
             if (homingTimer <= 0)
             {
                 activeHoming = false;
@@ -261,6 +261,10 @@ public class PlayerController : MonoBehaviour
         PlayShootClip();
 
         Transform bulletTarget = SetFirstTarget();
+        if (bulletTarget != null)
+        {
+            Debug.Log(bulletTarget.parent.name); 
+        }
 
         if (!activeHoming || bulletTarget == null)
         {
@@ -398,11 +402,16 @@ public class PlayerController : MonoBehaviour
         Vector3 myCentralPosition = transform.GetChild(0).position;
         if (enemyTargets.Length > 0)
         {
+            Transform closestTarget = null;
+            float lowestDist = float.MaxValue;
+
             for (int i = 0; i < enemyTargets.Length; i++)
             {
                 Transform possibleTarget = enemyTargets[i].GetComponent<EnemyLogic>().Center;
                 Vector3 distToTarget = possibleTarget.position - myCentralPosition;
+                float distance = Vector3.Distance(myCentralPosition, possibleTarget.position);
                 float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
+
                 // check if enemy is inside the player viewRadius
                 if (angleToTarget < angleOfVision * 0.5f)
                 {
@@ -412,13 +421,25 @@ public class PlayerController : MonoBehaviour
                     //check if enemy is not behind a wall
                     if (!Physics.Raycast(myCentralPosition, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
                     {
+                        if (closestTarget == null)
+                        {
+                            lowestDist = distance;
+                            closestTarget = possibleTarget;
+                        }
+                        else if(distance < lowestDist)
+                        {
+                            lowestDist = distance;
+                            closestTarget = possibleTarget;
+                        }
+
                         target = possibleTarget;
                         return target;
                     }
                 }
             }
+            target = closestTarget;
         }
-
+        //Debug.Log("Target is: " + target.parent.name);
         return target;
     }
 
