@@ -12360,13 +12360,18 @@ PrefabInstance:
     - target: {fileID: 6680636118048746160, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: speed
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6680636118048746160, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: armorValueText
       value: 
       objectReference: {fileID: 8392194328220826731}
+    - target: {fileID: 7144409925733116861, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: Damage
+      value: 2000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

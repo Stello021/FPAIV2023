@@ -26,7 +26,12 @@ public class WaveSceneManager : MonoBehaviour
         if (waveNumber > waves.Count)
         {
             SceneManager.LoadScene(3);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
+
+
+
         if (EnemiesSpawned.Count <= 0)
         {
             waveNumber++;
