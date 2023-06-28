@@ -9,6 +9,6 @@ public class RecordLoader : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        recordValueText.text = PlayerPrefs.GetInt("Current").ToString();
+        recordValueText.text = PlayerPrefs.GetInt("Record").ToString();
     }
 }
