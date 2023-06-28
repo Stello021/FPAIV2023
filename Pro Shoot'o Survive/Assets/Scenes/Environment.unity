@@ -7238,7 +7238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d95ffb7e01fabd14b8ce9f7798aa07db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d0856dee8d136a41ad7ee84978913dd, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7270,7 +7270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 1241555902}
   TotalValue: 100
-  StartingValue: 50
+  StartingValue: 30
   decreaseValuePerSecond: 1
 --- !u!1 &1284135692 stripped
 GameObject:
@@ -11701,7 +11701,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 13670e655c0a43d498f2aa259ba37433, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d80cf3a744b19b846bb463080730e66a, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11733,7 +11733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 1966763812}
   TotalValue: 100
-  StartingValue: 50
+  StartingValue: 30
   decreaseValuePerSecond: 1
 --- !u!1 &1978674378 stripped
 GameObject:
