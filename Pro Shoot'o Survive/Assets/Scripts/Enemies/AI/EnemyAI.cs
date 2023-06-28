@@ -34,17 +34,11 @@ public class EnemyAI : MonoBehaviour
         enemyAnimator.SetFloat("Speed_f", enemyAgent.speed);//Associate animator's speed parameter with agent speed
         if (enemyAgent.isOnNavMesh && PlayerTransform != null)
         {
-            if(IsAlive) 
+            if (IsAlive)
             {
-<<<<<<< HEAD
-                float timer = 1f;
-                meleeElapsedTime += Time.deltaTime;
-                if (meleeElapsedTime >= timer && IsAlive)
-=======
                 enemyAgent.SetDestination(PlayerTransform.position);
                 float targetDistance = Vector3.Distance(transform.position, PlayerTransform.position);
                 if (targetDistance <= 3f)
->>>>>>> EnvironmentUpdate
                 {
                     float timer = 1f;
                     meleeElapsedTime += Time.deltaTime;

@@ -12262,6 +12262,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: Damage
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 891540131985990547, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: m_Name
@@ -12370,7 +12375,7 @@ PrefabInstance:
     - target: {fileID: 7144409925733116861, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: Damage
-      value: 2000
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
