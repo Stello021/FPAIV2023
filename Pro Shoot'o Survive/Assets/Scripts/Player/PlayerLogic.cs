@@ -141,10 +141,10 @@ public class PlayerLogic : MonoBehaviour
         points -= (int)Time.timeSinceLevelLoad;
         points += (int)(HP + Armor);
 
-        //if (HP <= 0)
-        //{
-        //    points -= deathPoints;
-        //}
+        if (HP <= 0)
+        {
+            points -= deathPoints;
+        }
 
         Debug.Log("current points: " + points);
 

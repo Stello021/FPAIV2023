@@ -33,42 +33,11 @@ public class AudioManager : MonoBehaviour
         musicMngr.ChangeMusic(newType, fadeDuration, targetVolume);
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        //if (Input.GetKeyDown(KeyCode.P))
-        //{
-        //    if (!isInPause)
-        //    {
-        //        OnPause(isInPause);
-        //        isInPause = true;
-        //    }
-        //    else
-        //    {
-        //        OnPause(isInPause);
-        //        isInPause = false;
-        //    }
-        //}
-    }
-
-
-
-    public void OnPause(bool pause)
-    {
-        if (pause)
-        {
-            pauseSnap.TransitionTo(0.2f);
-        }
-        else
-        {
-            mainSnap.TransitionTo(0.2f);
-        }
-    }
-
-
-
-    public void FadeIn(MusicType type, float duration, float targetVolume, float startDelay = 0)
-    {
-
+        float volumeOff = Mathf.Log10(0.0001f) * 20;
+        mixer.SetFloat(GetMixerParamName(MusicType.T1), volumeOff);
+        mixer.SetFloat(GetMixerParamName(MusicType.T2), volumeOff);
     }
 
     public IEnumerator FadeInRoutine(AudioSource source, float duration, float targetVolume, float startDelay = 0)
