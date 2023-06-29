@@ -44,11 +44,11 @@ public class Grenade : MonoBehaviour
         foreach (Collider collider in explodingColliders)
         {
             EnemyAI enemy = collider.GetComponent<EnemyAI>();
+            collider.GetComponent<EnemyLogic>().ReceiveDamage(damage);
             if (enemy != null)
             {
                 enemy.DisableAgent();
                 enemy.rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-                collider.GetComponent<EnemyLogic>().ReceiveDamage(damage);
             }
             
         }

@@ -148,12 +148,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForceValue: 20
   explosionDelay: 5
-  timeToExplosion: 0
-  explosionRadius: 30
+  explosionRadius: 20
   enemyMask:
     serializedVersion: 2
     m_Bits: 256
   explosionForce: 1500
-  rb: {fileID: 0}
   damage: 75
   explosionFX: {fileID: 191186, guid: f90e42cfac6401a42af4c10707545dd8, type: 3}
