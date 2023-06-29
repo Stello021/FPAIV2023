@@ -14,10 +14,14 @@ public class PlayerController : MonoBehaviour
     [Header("Player variables")]
     [SerializeField] private float playerMoveSpeed = 6f; // Speed at which the player moves.
     [SerializeField] private float playerRotationSpeed = 6f; // Speed at which the player moves.
+    [SerializeField] private float playerTurnRate = 6f; // Speed at which the player moves.
+    [SerializeField] private float accelerationSpeed = 2f; // Speed at which the player moves.
     [SerializeField] private float jumpForce = 5f; // Force applied when the player jumps.
+
     private CharacterController charController; // Reference to the CharacterController component for player movement.
     private Animator animator; // Reference to the Animator component for controlling animations.
     private float gravityVelocity; // Player's current velocity.
+    private Vector2 currentMoveDirAccelerated; // Player's move direction multiplied by acceleration.
     private bool isJumping; // Flag indicating if the player is currently jumping.
 
     public bool IsAiming
@@ -128,7 +132,7 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = Convert.ToInt32(!isInPause);
         pausePanel.SetActive(isInPause);
         Cursor.visible = isInPause;
-        Cursor.lockState = isInPause? CursorLockMode.Confined: CursorLockMode.Locked;
+        Cursor.lockState = isInPause ? CursorLockMode.Confined : CursorLockMode.Locked;
 
         //AudioManager.Instance.OnPause(isInPause);
     }
@@ -156,11 +160,13 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector3 moveDir = InputsController.GetInputValue<Vector2>("MoveDir"); // gets normalized input move directions from the input system.
+        Vector2 moveDir = InputsController.GetInputValue<Vector2>("MoveDir"); // gets normalized input move directions from the input system.
         Vector3 playerVelocity = Vector3.zero;
 
-        playerVelocity += cam.transform.right * moveDir.x * playerMoveSpeed;
-        playerVelocity += cam.transform.forward * moveDir.y * playerMoveSpeed;
+        currentMoveDirAccelerated = Vector2.Lerp(currentMoveDirAccelerated, moveDir, accelerationSpeed * Time.deltaTime);
+
+        playerVelocity += cam.transform.right * currentMoveDirAccelerated.x * playerMoveSpeed;
+        playerVelocity += cam.transform.forward * currentMoveDirAccelerated.y * playerMoveSpeed;
         playerVelocity *= 0.5f;
         playerVelocity.y = 0;
 
@@ -170,7 +176,7 @@ public class PlayerController : MonoBehaviour
 
             if (IsAiming)
             {
-                playerForward = Vector3.zero;
+                playerForward = Vector3.forward;
 
                 if (moveDir.y != 0)
                 {
@@ -182,10 +188,10 @@ public class PlayerController : MonoBehaviour
                 playerForward.y = 0;
             }
 
-            transform.forward = Vector3.Lerp(transform.forward, playerForward, playerRotationSpeed * Time.deltaTime);
+            transform.forward = Vector3.Lerp(transform.forward, playerForward, playerTurnRate * Time.deltaTime);
         }
 
-        float idleMoveBlender = moveDir.magnitude; // Calculate the magnitude of the movement vector.
+        float idleMoveBlender = currentMoveDirAccelerated.magnitude; // Calculate the magnitude of the movement vector.
         animator.SetFloat("Speed_f", idleMoveBlender); // Set the "Speed_f" parameter in the animator based on the current speed.
         animator.SetBool("Static_b", !InputsController.OnInputTrigger("MoveDir")); // Set the "Static_b" parameter in the animator based on the movement state.
 
@@ -261,10 +267,11 @@ public class PlayerController : MonoBehaviour
         PlayShootClip();
 
         Transform bulletTarget = SetFirstTarget();
-        if (bulletTarget != null)
-        {
-            Debug.Log(bulletTarget.parent.name); 
-        }
+
+        //if (bulletTarget != null)
+        //{
+        //    Debug.Log(bulletTarget.parent.name); 
+        //}
 
         if (!activeHoming || bulletTarget == null)
         {
@@ -275,7 +282,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(rayToCenter, out RaycastHit target, Mathf.Infinity, aimMask))
             {
                 shootDir = (target.point - BulletSpawn.position).normalized;
-                Debug.DrawRay(BulletSpawn.position, shootDir, Color.yellow);
+                //Debug.DrawRay(BulletSpawn.position, shootDir, Color.yellow);
             }
             else
             {
@@ -351,50 +358,6 @@ public class PlayerController : MonoBehaviour
         grenadeNumberText.text = grenades.ToString();
     }
 
-    private Transform SetTarget()
-    {
-        Transform target = null;
-        Collider[] enemyTargets = Physics.OverlapSphere(transform.position, viewRadius, enemyMask);
-        Debug.Log("Enemies detected: " + enemyTargets.Length);
-        if (enemyTargets.Length > 0)
-        {
-            Transform nextTarget = null;
-            Vector3 lowestDist = Vector3.zero;
-
-            for (int i = 0; i < enemyTargets.Length; i++)
-            {
-                Transform possibleTarget = enemyTargets[i].transform.GetChild(2);
-                Vector3 distToTarget = possibleTarget.position - transform.GetChild(0).position;
-                float angleToTarget = Vector3.Angle(transform.forward, distToTarget);
-                // check if enemy is within angle of vision
-                if (angleToTarget < angleOfVision * 0.5f)
-                {
-                    Debug.Log("Enemy angle: " + angleToTarget);
-                    Vector3 raycastStart = transform.GetChild(0).position;
-                    Debug.DrawRay(raycastStart, distToTarget, Color.red, 10);
-                    // check if enemy is NOT behind an obstacle
-                    if (!Physics.Raycast(transform.GetChild(0).position, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
-                    {
-                        if (nextTarget == null)
-                        {
-                            lowestDist = distToTarget;
-                            nextTarget = possibleTarget;
-                        }
-                        else if (distToTarget.sqrMagnitude < lowestDist.sqrMagnitude)
-                        {
-                            lowestDist = distToTarget;
-                            nextTarget = possibleTarget;
-                        }
-                    }
-                }
-            }
-            Debug.Log(nextTarget);
-            target = nextTarget;
-        }
-
-        return target;
-    }
-
     private Transform SetFirstTarget()
     {
         Transform target = null;
@@ -405,7 +368,8 @@ public class PlayerController : MonoBehaviour
         {
             Transform closestTarget = null;
             float lowestDist = float.MaxValue;
-            Debug.Log("Enemies detected: " + enemyTargets.Length);
+            //Debug.Log("Enemies detected: " + enemyTargets.Length);
+
             for (int i = 0; i < enemyTargets.Length; i++)
             {
                 //sometimes may happen the enemy could get null
@@ -421,9 +385,9 @@ public class PlayerController : MonoBehaviour
                 float distance = Vector3.Distance(myCentralPosition, possibleTarget.position);
                 float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
 
-                Debug.Log(enemyTargets[i].name);
-                Debug.Log(distance);
-                Debug.DrawRay(myCentralPosition, distToTarget, Color.red, 10);
+                //Debug.Log(enemyTargets[i].name);
+                //Debug.Log(distance);
+                //Debug.DrawRay(myCentralPosition, distToTarget, Color.red, 10);
 
                 // check if enemy is inside the player viewRadius
                 if (angleToTarget < angleOfVision * 0.5f)
@@ -436,7 +400,7 @@ public class PlayerController : MonoBehaviour
                             lowestDist = distance;
                             closestTarget = possibleTarget;
                         }
-                        else if(distance < lowestDist)
+                        else if (distance < lowestDist)
                         {
                             lowestDist = distance;
                             closestTarget = possibleTarget;

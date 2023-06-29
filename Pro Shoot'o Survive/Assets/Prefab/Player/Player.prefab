@@ -336,6 +336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMoveSpeed: 10
   playerRotationSpeed: 10
+  playerTurnRate: 6
+  accelerationSpeed: 10
   jumpForce: 5
   defaultWeapon: {fileID: 2749880494084046786}
   assaultWeapon: {fileID: 3869248842696100254}
