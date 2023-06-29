@@ -113,10 +113,7 @@ public class PlayerController : MonoBehaviour
         //Jump();
         ApplyGravity();
         CheckIsOnGround();
-    }
 
-    private void LateUpdate()
-    {
         MovePlayer();
     }
 
