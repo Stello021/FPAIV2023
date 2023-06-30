@@ -140,8 +140,8 @@ public class PlayerLogic : MonoBehaviour
 
     private void SavePoints()
     {
-        points -= (int)Time.timeSinceLevelLoad;
-        points += (int)(HP + Armor);
+        points -= (int)Time.timeSinceLevelLoad * 2;
+        points += (int)(HP + Armor) * 5;
 
         if (HP <= 0)
         {
