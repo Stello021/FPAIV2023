@@ -46,6 +46,9 @@ public class CameraController : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        cameraMoveSpeedOnRotation = PlayerPrefs.GetFloat("Sensitivity");
+        Debug.Log(cameraMoveSpeedOnRotation);
     }
 
     private void MoveCamera()
