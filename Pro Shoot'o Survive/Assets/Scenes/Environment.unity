@@ -4501,8 +4501,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7804379022255774706, guid: 18fd9c6d6b43c8746b38504bd5734e29,
         type: 3}
-      propertyPath: cameraMoveSpeedOnRotation
+      propertyPath: lerpCameraPositionSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804379022255774706, guid: 18fd9c6d6b43c8746b38504bd5734e29,
+        type: 3}
+      propertyPath: cameraMoveSpeedOnRotation
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

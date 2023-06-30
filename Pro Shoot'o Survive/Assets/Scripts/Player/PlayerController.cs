@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = isInPause;
         Cursor.lockState = isInPause ? CursorLockMode.Confined : CursorLockMode.Locked;
 
-        //AudioManager.Instance.OnPause(isInPause);
+        
     }
 
     public void ActivateHoming()

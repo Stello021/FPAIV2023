@@ -47,8 +47,11 @@ public class CameraController : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        cameraMoveSpeedOnRotation = PlayerPrefs.GetFloat("Sensitivity");
-        Debug.Log(cameraMoveSpeedOnRotation);
+        if (PlayerPrefs.GetFloat("Sensitivity") != 0)
+        {
+            cameraMoveSpeedOnRotation = PlayerPrefs.GetFloat("Sensitivity"); 
+        }
+
     }
 
     private void MoveCamera()
@@ -114,7 +117,7 @@ public class CameraController : MonoBehaviour
         Vector2 mouseDeltaDir = PlayerInputsController.GetInputValue<Vector2>("MouseDeltaDir");
 
         currentRotationY = Mathf.Atan2(hitPointOffset.z, hitPointOffset.x);
-        currentRotationY += mouseDeltaDir.x * (cameraMoveSpeedOnRotation * 5) * Time.fixedDeltaTime;
+        currentRotationY += mouseDeltaDir.x * (cameraMoveSpeedOnRotation) * Time.fixedDeltaTime;
 
         newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
         newOffset *= new Vector3(hitPointOffset.x, 0, hitPointOffset.z).magnitude;
@@ -131,7 +134,7 @@ public class CameraController : MonoBehaviour
         Vector2 mouseDeltaDir = PlayerInputsController.GetInputValue<Vector2>("MouseDeltaDir");
 
         currentRotationY = Mathf.Atan2(cameraCurrentPosOffset.z, cameraCurrentPosOffset.x);
-        currentRotationY += mouseDeltaDir.x * (cameraMoveSpeedOnRotation * 2.5f) * Time.fixedDeltaTime;
+        currentRotationY += mouseDeltaDir.x * (cameraMoveSpeedOnRotation) * Time.fixedDeltaTime;
 
         newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
         newOffset *= new Vector3(cameraCurrentPosOffsetAsMagnitude.x, 0, cameraCurrentPosOffsetAsMagnitude.z).magnitude;
