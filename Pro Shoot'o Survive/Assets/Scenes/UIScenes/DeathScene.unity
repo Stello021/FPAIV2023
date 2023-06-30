@@ -158,10 +158,10 @@ RectTransform:
   m_Father: {fileID: 694870496}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -350, y: 250}
-  m_SizeDelta: {x: 180, y: 30}
+  m_AnchorMin: {x: 0.6617085, y: 0.18400002}
+  m_AnchorMax: {x: 0.97368747, y: 0.279}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -420, y: -72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &14920994
 MonoBehaviour:
@@ -292,10 +292,10 @@ RectTransform:
   m_Father: {fileID: 694870496}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -350, y: 100}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.6764792, y: 0.047000002}
+  m_AnchorMax: {x: 0.95800006, y: 0.13900001}
+  m_AnchoredPosition: {x: 0.5, y: 0}
+  m_SizeDelta: {x: -379, y: -70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &163532103
 MonoBehaviour:
@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 694870498}
   - component: {fileID: 694870497}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: DeathPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1218,10 +1218,10 @@ RectTransform:
   m_Father: {fileID: 694870496}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 140}
-  m_SizeDelta: {x: 800, y: 200}
+  m_AnchorMin: {x: 0.2914375, y: 0.53800005}
+  m_AnchorMax: {x: 0.7084792, y: 0.72200006}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2003909880
 MonoBehaviour:
