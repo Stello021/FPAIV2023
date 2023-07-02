@@ -31,11 +31,11 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyAnimator.SetFloat("Speed_f", enemyAgent.speed);//Associate animator's speed parameter with agent speed
         if (enemyAgent.isOnNavMesh && PlayerTransform != null)
         {
             if (IsAlive)
             {
+                enemyAnimator.SetFloat("Speed_f", enemyAgent.speed);//Associate animator's speed parameter with agent speed
                 enemyAgent.SetDestination(PlayerTransform.position);
                 float targetDistance = Vector3.Distance(transform.position, PlayerTransform.position);
                 if (targetDistance <= 3f)

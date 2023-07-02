@@ -32,12 +32,12 @@ public class RangedEnemyAI : EnemyAI
     // Update is called once per frame
     void Update()
     {
-        //Check for shoot range, range is the ray of sphere with origin on enemy position 
-        playerInShootRange = Physics.CheckSphere(transform.position, ShootRange, PlayerMask);
-        enemyAnimator.SetFloat("Speed_f", enemyAgent.speed);//Associate animator's speed parameter with agent speed
-        //FSM
-        if(IsAlive)
+        if (IsAlive)
         {
+            //Check for shoot range, range is the ray of sphere with origin on enemy position 
+            playerInShootRange = Physics.CheckSphere(transform.position, ShootRange, PlayerMask);
+            enemyAnimator.SetFloat("Speed_f", enemyAgent.speed);//Associate animator's speed parameter with agent speed
+                                                                //FSM
             if (!playerInShootRange)
             {
                 ChasePlayer();
@@ -46,7 +46,7 @@ public class RangedEnemyAI : EnemyAI
             {
                 ShootPlayer();
             }
-         }
+        }
     }
     private void ChasePlayer()
     {

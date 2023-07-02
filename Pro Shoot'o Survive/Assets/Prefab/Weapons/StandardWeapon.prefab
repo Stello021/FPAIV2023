@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 80990428845462263}
   - component: {fileID: 80990428848864533}
   - component: {fileID: 80990428847469535}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SA_Wep_RevolverA_Acog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 80990428848851251}
   - component: {fileID: 80990428847923337}
   - component: {fileID: -4318882664763265362}
-  m_Layer: 0
+  - component: {fileID: 1928278377968632705}
+  m_Layer: 12
   m_Name: StandardWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +186,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03aea9ca1cec7db4e86dfc7bfb9a35dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletsPerMagazine: 0
+  totalMagazines: 0
+  fireRate: 0
+  bulletSpawnPoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
   Damage: 15
+--- !u!65 &1928278377968632705
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80990428845718225}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.22226046, y: 0.58920604, z: 1.0377463}
+  m_Center: {x: -0.0003750026, y: 0.124370754, z: 0.42831084}
 --- !u!1 &80990428845736871
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +224,7 @@ GameObject:
   - component: {fileID: 80990428845542987}
   - component: {fileID: 80990428848849333}
   - component: {fileID: 80990428847875019}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SA_Wep_RevolverA_Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +307,7 @@ GameObject:
   - component: {fileID: 80990428845506549}
   - component: {fileID: 80990428848945887}
   - component: {fileID: 80990428847885225}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SA_Wep_RevolverA_Silencer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +390,7 @@ GameObject:
   - component: {fileID: 80990428845441169}
   - component: {fileID: 80990428848950171}
   - component: {fileID: 80990428847451465}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SA_Wep_RevolverA_Reddot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +473,7 @@ GameObject:
   - component: {fileID: 80990428845458225}
   - component: {fileID: 80990428848919733}
   - component: {fileID: 80990428847872195}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SA_Wep_RevolverA_Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +554,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1054778590024237134}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BulletStartingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

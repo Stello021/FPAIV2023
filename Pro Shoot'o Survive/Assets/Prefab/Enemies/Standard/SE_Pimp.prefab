@@ -471,6 +471,7 @@ MonoBehaviour:
   PlayerTransform: {fileID: 0}
   enemyAgent: {fileID: 0}
   rb: {fileID: 0}
+  IsAlive: 1
   meleeDamage: 10
 --- !u!114 &-5122285013143787133
 MonoBehaviour:
