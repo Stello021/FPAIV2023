@@ -37,7 +37,8 @@ public class EnemyLogic : MonoBehaviour
     public void ReceiveDamage(float damage)
     {
         currentHP -= damage;
-        Instantiate(bloodVFX, Center.position, Quaternion.identity);
+        BloodVFXManager.Instance.GetBloodVFX(Center.position);
+        //Instantiate(bloodVFX, Center.position, Quaternion.identity);
         //Debug.Log("Current HP: " + currentHP);
         if (currentHP <= 0)
         {
@@ -55,6 +56,7 @@ public class EnemyLogic : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 
 
     public IEnumerator Death()

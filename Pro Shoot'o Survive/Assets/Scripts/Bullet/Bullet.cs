@@ -33,6 +33,11 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    public void GetPlayerBullet(Vector3 shootDir, bool isHoming = false, Transform target= null)
+    {
+
+    }
+
     protected void StandardMovement()
     {
         //rb.velocity = dir * bulletSpeed * Time.fixedDeltaTime;
