@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BloodVFXManager : MonoBehaviour
 {
-    static private BloodVFXManager instance;
+    private static BloodVFXManager instance;
     public static BloodVFXManager Instance { get { return instance; } }
 
     [SerializeField] Queue<GameObject> bloodVFXPool;
@@ -26,12 +26,6 @@ public class BloodVFXManager : MonoBehaviour
         }
 
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void GetBloodVFX(Vector3 position)
