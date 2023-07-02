@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UI_Mngr : Singleton<UI_Mngr>
+public class UI_MngrDebug : Singleton<UI_MngrDebug>
 {
     public List<string> TextSpritesKeys;
     public List<TextMeshProUGUI> TextSpritesValues;
