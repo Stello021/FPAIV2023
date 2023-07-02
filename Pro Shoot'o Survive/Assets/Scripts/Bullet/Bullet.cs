@@ -26,11 +26,6 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void GetPlayerBullet(Vector3 shootDir, bool isHoming = false, Transform target= null)
-    {
-
-    }
-
     protected void StandardMovement()
     {
         transform.position += dir * bulletSpeed * Time.deltaTime;
