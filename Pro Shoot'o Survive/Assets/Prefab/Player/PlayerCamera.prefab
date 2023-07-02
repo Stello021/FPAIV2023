@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  cameraMoveSpeedOnRotation: 10
+  cameraMoveSpeedOnRotation: 20
   lerpCameraPositionSpeed: 10
   cameraRotationSpeed: 10
   minCameraOffsetY: 0.5
@@ -268,7 +268,7 @@ MonoBehaviour:
   cameraAimFixedPosOffsetAsLookRotation: {x: 2, y: 2, z: 2}
   lookRotationAngle: 90
   cameraCollisionOffsetMagnitude: 0.1
-  cameraToPlayerMaxDistanceOnCollision: 180
+  cameraToPlayerMaxDistanceOnCollision: 100
   cameraToImpactPointMaxDistance: 6
   cameraRaycastLayerMask:
     serializedVersion: 2

@@ -50,3 +50,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 48a70a21bae754b4589d64ac23b41d28, type: 2}
   - {fileID: 11400000, guid: c85c6a24f1689914c87195e56db5a7b2, type: 2}
   - {fileID: 11400000, guid: 355b7393b97384f468e5ccf9074afc56, type: 2}
+  EnemiesSpawned: []
