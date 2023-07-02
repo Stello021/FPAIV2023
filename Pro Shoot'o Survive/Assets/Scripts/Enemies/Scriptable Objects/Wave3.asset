@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543f02c0a5eabc04fb77aeb27aacc74b, type: 3}
   m_Name: Wave3
   m_EditorClassIdentifier: 
-  StandardEnemiesToSpawn: 10
+  StandardEnemiesToSpawn: 7
   RangedEnemiesToSpawn: 5
   EnemiesSpeedMultiplier: 1.5
   EnemiesHpMultiplier: 1.5
