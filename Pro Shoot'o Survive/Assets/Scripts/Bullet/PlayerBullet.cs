@@ -10,6 +10,18 @@ public class PlayerBullet : Bullet
     [SerializeField] float rotSpeed;
     [SerializeField] float homingTimer;
 
+    //protected override void FixedUpdate()
+    //{
+    //    if (IsHoming)
+    //    {
+    //        HomingMovement();
+    //    }
+    //    else
+    //    {
+    //        StandardMovement();
+    //    }
+    //}
+
     protected override void Update()
     {
         base.Update();
@@ -36,8 +48,13 @@ public class PlayerBullet : Bullet
                 Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotation, rotSpeed * Time.deltaTime);
                 transform.rotation = newRotation;
             }
-        }
 
+            //transform.position += transform.forward * bulletSpeed * Time.deltaTime;
+        }
+        //else
+        //{
+        //    transform.position += transform.forward * bulletSpeed * Time.deltaTime;
+        //}
 
         transform.position += transform.forward * bulletSpeed * Time.deltaTime;
     }
