@@ -9630,10 +9630,10 @@ RectTransform:
   m_Father: {fileID: 36785899}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.35662922, y: 0.032}
-  m_AnchorMax: {x: 0.75062084, y: 0.087000005}
-  m_AnchoredPosition: {x: 0, y: -0.00012207031}
-  m_SizeDelta: {x: -2, y: 0}
+  m_AnchorMin: {x: 0.23347917, y: 0.031000001}
+  m_AnchorMax: {x: 0.62943757, y: 0.087000005}
+  m_AnchoredPosition: {x: 0.5000305, y: 0.49987793}
+  m_SizeDelta: {x: -5, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684159850
 MonoBehaviour:
@@ -12570,80 +12570,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 232835584744295874, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 232835584744295874, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 232835584744295874, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
-      objectReference: {fileID: 0}
     - target: {fileID: 232835584744295884, guid: 71da2eeae31907a4a800c9bc565db5cf,
         type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 232835585675100896, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_Name
-      value: Text info
-      objectReference: {fileID: 0}
-    - target: {fileID: 232835585675100902, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_text
-      value: Text info
-      objectReference: {fileID: 0}
-    - target: {fileID: 1680231997977098766, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.6999512
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520027923922939311, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_Name
-      value: PausePanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520027923922939311, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4830983829176597388, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_Name
-      value: CrossHair
-      objectReference: {fileID: 0}
-    - target: {fileID: 6938769742369167378, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_text
-      value: Press Pause button to go back to the game
-      objectReference: {fileID: 0}
-    - target: {fileID: 6938769742369167378, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6938769742369167378, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 7864725700142274446, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.19995117
-      objectReference: {fileID: 0}
-    - target: {fileID: 7864725700142274446, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.099975586
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
