@@ -9,20 +9,13 @@ public class Bullet : MonoBehaviour
 
     public float DamageDealt;
 
-    //[SerializeField] protected Rigidbody rb;
-
     [SerializeField] protected float lifetime;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        //rb = GetComponent<Rigidbody>();
-    }
 
-    //protected virtual void FixedUpdate()
-    //{
-    //    StandardMovement();
-    //}
+    }
 
     protected virtual void Update()
     {
@@ -40,7 +33,6 @@ public class Bullet : MonoBehaviour
 
     protected void StandardMovement()
     {
-        //rb.velocity = dir * bulletSpeed * Time.fixedDeltaTime;
         transform.position += dir * bulletSpeed * Time.deltaTime;
     }
 
