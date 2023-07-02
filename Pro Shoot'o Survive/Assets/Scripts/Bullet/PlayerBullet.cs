@@ -55,7 +55,8 @@ public class PlayerBullet : Bullet
 
         Destroy(gameObject);
         // restoreBullet
-        // se isHoming == true, allora va settato a false e target == null  
+        // se isHoming == true, allora va settato a false, target == null
+        // e resettare il lifetime eventualmente
     }
 
 }
