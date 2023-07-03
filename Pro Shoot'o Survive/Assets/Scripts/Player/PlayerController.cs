@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
@@ -19,10 +18,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 5f; // Force applied when the player jumps.
 
     private CharacterController charController; // Reference to the CharacterController component for player movement.
-    private Animator animator; // Reference to the Animator component for controlling animations.
+    private Animator animatorController; // Reference to the Animator component for controlling animations.
+
     private float gravityVelocity; // Player's current velocity.
     private Vector2 currentMoveDirAccelerated; // Player's move direction multiplied by acceleration.
     private bool isJumping; // Flag indicating if the player is currently jumping.
+
+    [Header("Grenade variables")]
+    private bool isThrowingGrenade; // Flag indicating if the player is currently launching a grenade.
+    private bool hasThrownGrenade; // Flag indicating if the player has thrown a grenade.
+    [SerializeField] private float throwGrenadeTimer;
+    [SerializeField] private float nextGrenadeThrowTimer;
+    private float throwGrenadeElapsedTime;
+    private float nextGrenadeThrowElapsedTime;
 
     public bool IsAiming
     {
@@ -35,7 +43,7 @@ public class PlayerController : MonoBehaviour
         {
             isAiming = value;
             crossHairTransform.gameObject.SetActive(value);
-            animator.SetBool("IsAiming", value);
+            animatorController.SetBool("IsAiming", value);
         }
     }
 
@@ -90,7 +98,7 @@ public class PlayerController : MonoBehaviour
     {
         InputsController = new InputSysController();
 
-        animator = GetComponent<Animator>(); // Get the Animator component attached to the same GameObject.
+        animatorController = GetComponent<Animator>(); // Get the Animator component attached to the same GameObject.
         charController = GetComponent<CharacterController>();
         cam = Camera.main.transform;
 
@@ -110,7 +118,6 @@ public class PlayerController : MonoBehaviour
 
         updateStats();
 
-        //Jump();
         ApplyGravity();
         CheckIsOnGround();
 
@@ -130,8 +137,6 @@ public class PlayerController : MonoBehaviour
         pausePanel.SetActive(isInPause);
         Cursor.visible = isInPause;
         Cursor.lockState = isInPause ? CursorLockMode.Confined : CursorLockMode.Locked;
-
-        
     }
 
     public void ActivateHoming()
@@ -150,7 +155,7 @@ public class PlayerController : MonoBehaviour
             if (isJumping)
             {
                 isJumping = false;
-                animator.SetBool("Jump_b", false); // Set the "Jump_b" parameter in the animator to false.
+                animatorController.SetBool("Jump_b", false); // Set the "Jump_b" parameter in the animator to false.
             }
         }
     }
@@ -189,8 +194,8 @@ public class PlayerController : MonoBehaviour
         }
 
         float idleMoveBlender = currentMoveDirAccelerated.magnitude; // Calculate the magnitude of the movement vector.
-        animator.SetFloat("Speed_f", idleMoveBlender); // Set the "Speed_f" parameter in the animator based on the current speed.
-        animator.SetBool("Static_b", !InputsController.OnInputTrigger("MoveDir")); // Set the "Static_b" parameter in the animator based on the movement state.
+        animatorController.SetFloat("Speed_f", idleMoveBlender); // Set the "Speed_f" parameter in the animator based on the current speed.
+        animatorController.SetBool("Static_b", !InputsController.OnInputTrigger("MoveDir")); // Set the "Static_b" parameter in the animator based on the movement state.
 
         playerVelocity.y = gravityVelocity;
 
@@ -199,13 +204,41 @@ public class PlayerController : MonoBehaviour
 
     private void ThrowGrenade()
     {
-        if (InputsController.OnInputTrigger("ThrowGrenade") && Grenades > 0)
+        if (hasThrownGrenade)
         {
-            animator.SetInteger("WeaponType_int", 10);
+            nextGrenadeThrowElapsedTime -= Time.deltaTime;
+        }
+
+        if (InputsController.OnInputTrigger("ThrowGrenade") && Grenades > 0 && nextGrenadeThrowElapsedTime <= 0)
+        {
+            if (!isThrowingGrenade)
+            {
+                throwGrenadeElapsedTime = isAiming || InputsController.GetInputValue<Vector2>("MoveDir") != Vector2.zero ? throwGrenadeTimer + 0.2f : throwGrenadeTimer;
+            }
+
+            animatorController.SetBool("IsThrowingGrenade", true);
+            isThrowingGrenade = true;
+            hasThrownGrenade = false;
+        }
+
+        if (!isThrowingGrenade)
+        {
+            return;
+        }
+
+        throwGrenadeElapsedTime -= Time.deltaTime;
+
+        if (throwGrenadeElapsedTime <= 0)
+        {
             GameObject grenade = Instantiate(grenadePrefab, grenadeSpawnPoint.position, grenadeSpawnPoint.rotation);
             grenade.GetComponent<Grenade>().Throw(transform.forward);
 
             Grenades--;
+
+            isThrowingGrenade = false;
+            hasThrownGrenade = true;
+
+            nextGrenadeThrowElapsedTime = nextGrenadeThrowTimer;
         }
     }
 
@@ -228,9 +261,9 @@ public class PlayerController : MonoBehaviour
 
         cam.GetComponent<CameraController>().ToggleCameraOffsets();
 
-        animator.SetInteger("WeaponType_int", Convert.ToInt32(IsAiming));
-        animator.SetBool("Shoot_b", false);
-        animator.SetBool("Reload_b", false);
+        animatorController.SetInteger("WeaponType_int", Convert.ToInt32(IsAiming));
+        animatorController.SetBool("Shoot_b", false);
+        animatorController.SetBool("Reload_b", false);
     }
 
     //private void Shoot()
@@ -309,6 +342,11 @@ public class PlayerController : MonoBehaviour
     //}
     private void Shoot()
     {
+        if (animatorController.GetBool("IsThrowingGrenade") || nextGrenadeThrowElapsedTime > 0)
+        {
+            return;
+        }
+
         if (activeHoming)
         {
             homingTimer -= Time.deltaTime;
@@ -323,12 +361,12 @@ public class PlayerController : MonoBehaviour
         {
             if (!IsAiming)
             {
-                animator.SetInteger("WeaponType_int", 0);
-                animator.SetBool("Shoot_b", false);
+                animatorController.SetInteger("WeaponType_int", 0);
+                animatorController.SetBool("Shoot_b", false);
             }
             else
             {
-                animator.SetBool("Shoot_b", false);
+                animatorController.SetBool("Shoot_b", false);
             }
 
             return;
@@ -381,9 +419,9 @@ public class PlayerController : MonoBehaviour
             bullet.SetActive(true);
         }
 
-        animator.SetInteger("WeaponType_int", 1);
-        animator.SetBool("Reload_b", false);
-        animator.SetBool("Shoot_b", true);
+        animatorController.SetInteger("WeaponType_int", 1);
+        animatorController.SetBool("Reload_b", false);
+        animatorController.SetBool("Shoot_b", true);
     }
 
 
@@ -400,8 +438,8 @@ public class PlayerController : MonoBehaviour
         {
             gravityVelocity = jumpForce; // Apply the jump force to the player's velocity.
             isJumping = true; // Set the jumping flag to true.
-            animator.SetBool("Jump_b", true); // Set the "Jump_b" parameter in the animator to true.
-            animator.SetBool("Jump_b", false); // Set the "Jump_b" parameter in the animator to false in order to prevent a doublejump.
+            animatorController.SetBool("Jump_b", true); // Set the "Jump_b" parameter in the animator to true.
+            animatorController.SetBool("Jump_b", false); // Set the "Jump_b" parameter in the animator to false in order to prevent a doublejump.
         }
     }
 
@@ -423,7 +461,7 @@ public class PlayerController : MonoBehaviour
 
             // Attiva l'arma d'assalto
             assaultWeapon.SetActive(true);
-            animator.SetInteger("WeaponType_int", 2);
+            animatorController.SetInteger("WeaponType_int", 2);
 
             other.gameObject.SetActive(false);
         }
