@@ -7,6 +7,7 @@ public class WeaponLogic : MonoBehaviour
 {
     public int bulletsPerMagazine;
     public int totalMagazines;
+    public float currentReloadTime;
     public float reloadTime = 2f;
 
     public Transform bulletSpawnPoint;
@@ -22,12 +23,14 @@ public class WeaponLogic : MonoBehaviour
     [SerializeField] TMP_Text bulletsPerMagazine_text;
     [SerializeField] TMP_Text bulletsRemainingInMagazine_text;
 
-    [SerializeField] GameObject reloadUI;
+    [SerializeField] public GameObject reloadUI;
 
 
 
     void Start()
     {
+        currentReloadTime = reloadTime;
+
         bulletsRemainingInMagazine = bulletsPerMagazine;
         isReloading = false;
         if (reloadUI != null)

@@ -45,7 +45,7 @@ RectTransform:
   - {fileID: 6573760371193252299}
   - {fileID: 453980654043114955}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1141,7 +1141,6 @@ GameObject:
   - component: {fileID: 2412036011982050378}
   - component: {fileID: 7734943036122153975}
   - component: {fileID: 5966301652095602730}
-  - component: {fileID: 5242955509738222677}
   m_Layer: 5
   m_Name: BulletImage
   m_TagString: Untagged
@@ -1207,20 +1206,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5242955509738222677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4611835469043303557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2b949a1d595da0488da9a09e1a41ad7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 5966301652095602730}
-  reloadTime: 3
 --- !u!1 &4830983829176597388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,7 +1618,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97b2b75340b50204586b478f13819910, type: 2}
   m_sharedMaterial: {fileID: 7974340498359354534, guid: 97b2b75340b50204586b478f13819910,
@@ -2010,7 +1995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.90456253, y: 0}
   m_AnchorMax: {x: 1, y: 0.19585186}
-  m_AnchoredPosition: {x: -0.5, y: -30.5}
+  m_AnchoredPosition: {x: -0.5, y: -30.500122}
   m_SizeDelta: {x: 0, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8678449282913460847
@@ -2117,7 +2102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97b2b75340b50204586b478f13819910, type: 2}
   m_sharedMaterial: {fileID: 7974340498359354534, guid: 97b2b75340b50204586b478f13819910,

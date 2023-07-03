@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     [Header("\nWeapon reference variables")]
     [SerializeField] private GameObject defaultWeapon;
     [SerializeField] private GameObject assaultWeapon;
-    private GameObject currentWeapon;
+    public GameObject currentWeapon;
 
     [Header("\nCrossHair variables")]
     [SerializeField] private RectTransform crossHairTransform;

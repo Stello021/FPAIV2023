@@ -13748,20 +13748,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 1669446765140009757, guid: 71da2eeae31907a4a800c9bc565db5cf,
+    - target: {fileID: 9186381038595507991, guid: 71da2eeae31907a4a800c9bc565db5cf,
         type: 3}
-      propertyPath: m_text
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6162127254041516751, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_text
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6371747346528626644, guid: 71da2eeae31907a4a800c9bc565db5cf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -30.500122
+      propertyPath: m_Color.a
+      value: 0.78431374
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

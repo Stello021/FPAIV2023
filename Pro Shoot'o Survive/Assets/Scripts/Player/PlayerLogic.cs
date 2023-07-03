@@ -20,7 +20,7 @@ public class PlayerLogic : MonoBehaviour
     public float Armor { get { return armor; } set { armor = Mathf.Clamp(value, 0, armorMax); UpdateArmorText(); } }
 
 
-    private float ReloadMultiplier = 1f;
+    public float ReloadMultiplier = 1f;
 
     public float speedMultiplier = 1f;
     public float speed;
@@ -66,7 +66,7 @@ public class PlayerLogic : MonoBehaviour
                 excessDamage = Mathf.Abs(excessDamage);
 
                 //Debug.Log("Excess damage: " + excessDamage);
-                
+
                 HP -= excessDamage;
             }
             else
@@ -108,14 +108,20 @@ public class PlayerLogic : MonoBehaviour
         if (ReloadBarValue <= 0 || ReloadBarValue >= 1)
         {
             ReloadMultiplier = 2f;
+
+            ChangeReloadTime();
         }
-        else if(ReloadBarValue >= 0.6f && ReloadBarValue <= 0.7f)
+        else if (ReloadBarValue >= 0.6f && ReloadBarValue <= 0.7f)
         {
             ReloadMultiplier = 0f;
+
+            ChangeReloadTime();
         }
         else
         {
             ReloadMultiplier = 1f;
+
+            ChangeReloadTime();
         }
 
         if (speedBarValue <= 0 || speedBarValue >= 1)
@@ -130,7 +136,6 @@ public class PlayerLogic : MonoBehaviour
         {
             speedMultiplier = 1f;
         }
-
     }
 
     public void AddPoints(int pointsToAdd)
@@ -178,4 +183,13 @@ public class PlayerLogic : MonoBehaviour
         SavePoints();
     }
 
+    private void ChangeReloadTime()
+    {
+        PlayerController playerController = GetComponent<PlayerController>();
+        WeaponLogic weaponLogic = playerController.currentWeapon.GetComponent<WeaponLogic>();
+        ReloadUI reloadUI = weaponLogic.reloadUI.GetComponent<ReloadUI>();
+
+        weaponLogic.reloadTime = weaponLogic.currentReloadTime * ReloadMultiplier;
+        reloadUI.reloadTime = weaponLogic.reloadTime;
+    }
 }
