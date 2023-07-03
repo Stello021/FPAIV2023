@@ -4345,6 +4345,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 687436098}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &699532129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3677726167013228341, guid: 71da2eeae31907a4a800c9bc565db5cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 8392194328220826730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &706404110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7811,6 +7817,18 @@ MonoBehaviour:
   TotalValue: 100
   StartingValue: 30
   decreaseValuePerSecond: 1
+--- !u!114 &1248512209 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2616258118913238747, guid: 71da2eeae31907a4a800c9bc565db5cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 8392194328220826730}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1284135692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 109804, guid: 1a66b70c9aa6fa14d821c2747e7e9ef9,
@@ -9386,6 +9404,18 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &1526159748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3659084376150292813, guid: 71da2eeae31907a4a800c9bc565db5cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 8392194328220826730}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1527301378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13335,6 +13365,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
+      propertyPath: reloadUI
+      value: 
+      objectReference: {fileID: 699532129}
+    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 2405495413867421730, guid: 70743bf4717711046be45b32b6933d3b,
@@ -13354,6 +13389,41 @@ PrefabInstance:
       propertyPath: bulletsPerMagazine
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: shootClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: bulletsPerMagazine_text
+      value: 
+      objectReference: {fileID: 1248512209}
+    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: shootClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 457b0051f3ddae24796697ef6087819f, type: 3}
+    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: shootClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c619dc38ee762954ca151335ffb2c969, type: 3}
+    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: shootClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9f866410361b4ad419f7ab89c5b06228, type: 3}
+    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: shootClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: bf617168ae656d2468e9bff57bc9699b, type: 3}
+    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: bulletsRemainingInMagazine_text
+      value: 
+      objectReference: {fileID: 1526159748}
     - target: {fileID: 891540131985990547, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: m_Name
@@ -13456,6 +13526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
+      propertyPath: reloadUI
+      value: 
+      objectReference: {fileID: 699532129}
+    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 2405495413867421730, guid: 70743bf4717711046be45b32b6933d3b,
@@ -13465,6 +13540,41 @@ PrefabInstance:
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 4121980923265742143}
+    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: shootClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: bulletsPerMagazine_text
+      value: 
+      objectReference: {fileID: 1248512209}
+    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: shootClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 457b0051f3ddae24796697ef6087819f, type: 3}
+    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: shootClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c619dc38ee762954ca151335ffb2c969, type: 3}
+    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: shootClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9f866410361b4ad419f7ab89c5b06228, type: 3}
+    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: shootClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: bf617168ae656d2468e9bff57bc9699b, type: 3}
+    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: bulletsRemainingInMagazine_text
+      value: 
+      objectReference: {fileID: 1526159748}
     - target: {fileID: 6680636118048746160, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: speed
@@ -13647,6 +13757,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371747346528626644, guid: 71da2eeae31907a4a800c9bc565db5cf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.500122
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,9 +1,14 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 public class WeaponLogic : MonoBehaviour
 {
     public int bulletsPerMagazine;
     public int totalMagazines;
+    public float reloadTime = 2f;
+
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
 
@@ -12,60 +17,77 @@ public class WeaponLogic : MonoBehaviour
 
     public float damage;
 
-    protected virtual void Start()
+    [SerializeField] List<AudioClip> shootClips;
+
+    [SerializeField] TMP_Text bulletsPerMagazine_text;
+    [SerializeField] TMP_Text bulletsRemainingInMagazine_text;
+
+    [SerializeField] GameObject reloadUI;
+
+
+
+    void Start()
     {
         bulletsRemainingInMagazine = bulletsPerMagazine;
         isReloading = false;
+        if (reloadUI != null)
+        {
+            reloadUI.GetComponent<ReloadUI>().reloadTime = reloadTime;
+        }
+        if (bulletsPerMagazine_text != null && bulletsRemainingInMagazine_text != null)
+        {
+            bulletsPerMagazine_text.text = bulletsPerMagazine.ToString();
+            bulletsRemainingInMagazine_text.text = bulletsRemainingInMagazine.ToString();
+        }
 
         gameObject.tag = "Weapon";
     }
 
-    public virtual void Fire(Vector3 dir, bool isHoming = false, Transform target = null)
+    public void Fire(Vector3 dir, bool isHoming = false, Transform target = null)
     {
         if (isReloading)
         {
             return;
         }
 
-        if (bulletsRemainingInMagazine > 0)
+        GameObject bullet = WeaponManager.Instance.GetPlayerBullet();
+        bullet.transform.position = bulletSpawnPoint.position;
+
+        PlayerBullet bulletScript = bullet.GetComponent<PlayerBullet>();
+        if (bulletScript != null)
         {
-            GameObject bullet = WeaponManager.Instance.GetPlayerBullet();
-            bullet.transform.position = bulletSpawnPoint.position;
-
-            PlayerBullet bulletScript = bullet.GetComponent<PlayerBullet>();
-            if (bulletScript != null)
+            if (!isHoming)
             {
-                if (!isHoming)
-                {
-                    bulletScript.DamageDealt = damage;
-                    bulletScript.dir = dir;
-                }
-                else
-                {
-                    bulletScript.IsHoming = isHoming;
-                    bulletScript.target = target;
-                    bulletScript.DamageDealt = damage;
-                    bullet.transform.rotation = bulletSpawnPoint.rotation;
-                }
+                bulletScript.DamageDealt = damage;
+                bulletScript.dir = dir;
             }
-
-            bulletsRemainingInMagazine--;
-            Debug.Log(bulletsRemainingInMagazine);
+            else
+            {
+                bulletScript.IsHoming = isHoming;
+                bulletScript.target = target;
+                bulletScript.DamageDealt = damage;
+                bullet.transform.rotation = bulletSpawnPoint.rotation;
+            }
         }
-        else
+
+        PlayShootClip();
+
+        bulletsRemainingInMagazine--;
+        bulletsRemainingInMagazine_text.text = bulletsRemainingInMagazine.ToString();
+        if (bulletsRemainingInMagazine == 0)
         {
             Reload();
-            //immagine attiva
+            reloadUI.SetActive(true);
         }
+
     }
 
-    protected virtual void Reload()
+    void Reload()
     {
         if (totalMagazines > 0)
         {
             isReloading = true;
 
-            float reloadTime = 2f;
             Invoke("FinishReloading", reloadTime);
         }
         else
@@ -74,11 +96,20 @@ public class WeaponLogic : MonoBehaviour
         }
     }
 
-    protected virtual void FinishReloading()
+    void FinishReloading()
     {
         bulletsRemainingInMagazine = bulletsPerMagazine;
         totalMagazines--;
+        bulletsRemainingInMagazine_text.text = bulletsRemainingInMagazine.ToString();
+
 
         isReloading = false;
+    }
+
+    private void PlayShootClip()
+    {
+        int randIndex = Random.Range(0, shootClips.Count);
+        float randVolume = Random.Range(0.8f, 1.0f);
+        AudioSource.PlayClipAtPoint(shootClips[randIndex], bulletSpawnPoint.position, randVolume);
     }
 }

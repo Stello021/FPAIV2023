@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ReloadUI : MonoBehaviour
 {
     [SerializeField] Image image;
-    [SerializeField] float reloadTime;
+    [SerializeField] public float reloadTime;
     // Start is called before the first frame update
     void Start()
     {

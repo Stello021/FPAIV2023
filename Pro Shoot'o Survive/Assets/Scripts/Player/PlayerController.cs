@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerRotationSpeed = 6f; // Speed at which the player moves.
     [SerializeField] private float playerTurnRate = 6f; // Speed at which the player moves.
     [SerializeField] private float accelerationSpeed = 2f; // Speed at which the player moves.
-    [SerializeField] private float jumpForce = 5f; // Force applied when the player jumps.
 
     private CharacterController charController; // Reference to the CharacterController component for player movement.
     private Animator animatorController; // Reference to the Animator component for controlling animations.
@@ -92,7 +91,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask aimMask;
     [SerializeField] GameObject pausePanel;
     private bool isInPause;
-    [SerializeField] List<AudioClip> shootClips;
 
     private void Start()
     {
@@ -266,80 +264,6 @@ public class PlayerController : MonoBehaviour
         animatorController.SetBool("Reload_b", false);
     }
 
-    //private void Shoot()
-    //{
-    //    if (activeHoming)
-    //    {
-    //        homingTimer -= Time.deltaTime;
-    //        if (homingTimer <= 0)
-    //        {
-    //            activeHoming = false;
-    //            smr.material = normalMaterial;
-    //        }
-    //    }
-
-    //    if (!InputsController.OnInputTrigger("Shoot") || !IsAiming)
-    //    {
-    //        if (!IsAiming)
-    //        {
-    //            animator.SetInteger("WeaponType_int", 0);
-    //            animator.SetBool("Shoot_b", false);
-    //        }
-
-    //        else
-    //        {
-    //            animator.SetBool("Shoot_b", false);
-    //        }
-
-    //        return;
-    //    }
-
-    //    PlayShootClip();
-
-    //    Transform bulletTarget = SetFirstTarget();
-
-    //    //if (bulletTarget != null)
-    //    //{
-    //    //    Debug.Log(bulletTarget.parent.name); 
-    //    //}
-
-    //    if (!activeHoming || bulletTarget == null)
-    //    {
-    //        Ray rayToCenter = new Ray(cam.position, cam.forward);
-
-    //        Vector3 shootDir = Vector3.zero;
-
-    //        if (Physics.Raycast(rayToCenter, out RaycastHit target, Mathf.Infinity, aimMask))
-    //        {
-    //            shootDir = (target.point - BulletSpawn.position).normalized;
-    //            //Debug.DrawRay(BulletSpawn.position, shootDir, Color.yellow);
-    //        }
-    //        else
-    //        {
-    //            shootDir = ((cam.position + cam.forward * 100) - BulletSpawn.position).normalized;
-    //        }
-
-    //        GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
-    //        bullet.GetComponent<PlayerBullet>().dir = shootDir; // Set the bullet direction
-    //        //Set bullet damage
-    //        WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
-    //        bullet.GetComponent<PlayerBullet>().DamageDealt = wL.damage;
-    //    }
-    //    else
-    //    {
-    //        GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
-    //        PlayerBullet bullet = go.GetComponent<PlayerBullet>();
-    //        bullet.target = bulletTarget;
-    //        //Set bullet damage
-    //        WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
-    //        bullet.GetComponent<PlayerBullet>().DamageDealt = wL.damage;
-    //        bullet.IsHoming = true;
-    //    }
-
-    //    animator.SetInteger("WeaponType_int", 1);
-    //    animator.SetBool("Reload_b", false);
-    //    animator.SetBool("Shoot_b", true);
-    //}
     private void Shoot()
     {
         if (animatorController.GetBool("IsThrowingGrenade") || nextGrenadeThrowElapsedTime > 0)
@@ -372,7 +296,6 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        PlayShootClip();
 
         Transform bulletTarget = SetFirstTarget();
         GameObject bulletPrefab = currentWeapon.GetComponent<WeaponLogic>().bulletPrefab;
@@ -397,7 +320,7 @@ public class PlayerController : MonoBehaviour
             //bullet.transform.position = BulletSpawn.position;
             //bullet.transform.rotation = BulletSpawn.rotation;
             //bullet.GetComponent<PlayerBullet>().dir = shootDir; // Set the bullet direction
-                                                                
+
             //WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
             //bullet.GetComponent<PlayerBullet>().DamageDealt = wL.damage; // Set bullet damage
             //bullet.SetActive(true);
@@ -419,31 +342,12 @@ public class PlayerController : MonoBehaviour
             //bullet.SetActive(true);
 
             WeaponLogic weaponLogic = currentWeapon.GetComponent<WeaponLogic>();
-            weaponLogic.Fire(transform.forward,activeHoming, bulletTarget);
+            weaponLogic.Fire(transform.forward, activeHoming, bulletTarget);
         }
 
         animatorController.SetInteger("WeaponType_int", 1);
         animatorController.SetBool("Reload_b", false);
         animatorController.SetBool("Shoot_b", true);
-    }
-
-
-    private void PlayShootClip()
-    {
-        int randIndex = Random.Range(0, shootClips.Count);
-        float randVolume = Random.Range(0.8f, 1.0f);
-        AudioSource.PlayClipAtPoint(shootClips[randIndex], BulletSpawn.position, randVolume);
-    }
-
-    private void Jump()
-    {
-        if (charController.isGrounded && InputsController.OnInputTrigger("Jump"))
-        {
-            gravityVelocity = jumpForce; // Apply the jump force to the player's velocity.
-            isJumping = true; // Set the jumping flag to true.
-            animatorController.SetBool("Jump_b", true); // Set the "Jump_b" parameter in the animator to true.
-            animatorController.SetBool("Jump_b", false); // Set the "Jump_b" parameter in the animator to false in order to prevent a doublejump.
-        }
     }
 
     private void ApplyGravity()
@@ -464,6 +368,7 @@ public class PlayerController : MonoBehaviour
 
             // Attiva l'arma d'assalto
             assaultWeapon.SetActive(true);
+            currentWeapon = assaultWeapon;
             animatorController.SetInteger("WeaponType_int", 2);
 
             other.gameObject.SetActive(false);

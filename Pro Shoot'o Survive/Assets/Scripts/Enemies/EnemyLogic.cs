@@ -102,8 +102,5 @@ public class EnemyLogic : MonoBehaviour
 
         DestroyEnemy();
         yield return null;
-
-
     }
-
 }
