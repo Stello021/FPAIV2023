@@ -9,7 +9,7 @@ public class BarsManager : MonoBehaviour
 
     //[SerializeField] Bar healthBar;
     [SerializeField] Bar speedBar;
-    [SerializeField] Bar damageBar;
+    [SerializeField] Bar ReloadBar;
 
     [SerializeField] Bar HpBar;
 
@@ -31,7 +31,7 @@ public class BarsManager : MonoBehaviour
         if (playerRef != null)
         {
             playerRef.speedBarValue = speedBar.amount;
-            //playerRef.ReloadBarValue = damageBar.amount;
+            playerRef.ReloadBarValue = ReloadBar.amount;
         }
     }
 
@@ -45,6 +45,6 @@ public class BarsManager : MonoBehaviour
     }
     public void setDamageBar(float fillAmount)
     {
-        damageBar.amount += fillAmount;
+        ReloadBar.amount += fillAmount;
     }
 }
