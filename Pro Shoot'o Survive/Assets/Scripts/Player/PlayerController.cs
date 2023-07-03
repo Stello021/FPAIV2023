@@ -233,6 +233,80 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Reload_b", false);
     }
 
+    //private void Shoot()
+    //{
+    //    if (activeHoming)
+    //    {
+    //        homingTimer -= Time.deltaTime;
+    //        if (homingTimer <= 0)
+    //        {
+    //            activeHoming = false;
+    //            smr.material = normalMaterial;
+    //        }
+    //    }
+
+    //    if (!InputsController.OnInputTrigger("Shoot") || !IsAiming)
+    //    {
+    //        if (!IsAiming)
+    //        {
+    //            animator.SetInteger("WeaponType_int", 0);
+    //            animator.SetBool("Shoot_b", false);
+    //        }
+
+    //        else
+    //        {
+    //            animator.SetBool("Shoot_b", false);
+    //        }
+
+    //        return;
+    //    }
+
+    //    PlayShootClip();
+
+    //    Transform bulletTarget = SetFirstTarget();
+
+    //    //if (bulletTarget != null)
+    //    //{
+    //    //    Debug.Log(bulletTarget.parent.name); 
+    //    //}
+
+    //    if (!activeHoming || bulletTarget == null)
+    //    {
+    //        Ray rayToCenter = new Ray(cam.position, cam.forward);
+
+    //        Vector3 shootDir = Vector3.zero;
+
+    //        if (Physics.Raycast(rayToCenter, out RaycastHit target, Mathf.Infinity, aimMask))
+    //        {
+    //            shootDir = (target.point - BulletSpawn.position).normalized;
+    //            //Debug.DrawRay(BulletSpawn.position, shootDir, Color.yellow);
+    //        }
+    //        else
+    //        {
+    //            shootDir = ((cam.position + cam.forward * 100) - BulletSpawn.position).normalized;
+    //        }
+
+    //        GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
+    //        bullet.GetComponent<PlayerBullet>().dir = shootDir; // Set the bullet direction
+    //        //Set bullet damage
+    //        WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
+    //        bullet.GetComponent<PlayerBullet>().DamageDealt = wL.damage;
+    //    }
+    //    else
+    //    {
+    //        GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
+    //        PlayerBullet bullet = go.GetComponent<PlayerBullet>();
+    //        bullet.target = bulletTarget;
+    //        //Set bullet damage
+    //        WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
+    //        bullet.GetComponent<PlayerBullet>().DamageDealt = wL.damage;
+    //        bullet.IsHoming = true;
+    //    }
+
+    //    animator.SetInteger("WeaponType_int", 1);
+    //    animator.SetBool("Reload_b", false);
+    //    animator.SetBool("Shoot_b", true);
+    //}
     private void Shoot()
     {
         if (activeHoming)
@@ -252,7 +326,6 @@ public class PlayerController : MonoBehaviour
                 animator.SetInteger("WeaponType_int", 0);
                 animator.SetBool("Shoot_b", false);
             }
-
             else
             {
                 animator.SetBool("Shoot_b", false);
@@ -264,11 +337,7 @@ public class PlayerController : MonoBehaviour
         PlayShootClip();
 
         Transform bulletTarget = SetFirstTarget();
-
-        //if (bulletTarget != null)
-        //{
-        //    Debug.Log(bulletTarget.parent.name); 
-        //}
+        GameObject bulletPrefab = currentWeapon.GetComponent<WeaponLogic>().bulletPrefab;
 
         if (!activeHoming || bulletTarget == null)
         {
@@ -286,27 +355,37 @@ public class PlayerController : MonoBehaviour
                 shootDir = ((cam.position + cam.forward * 100) - BulletSpawn.position).normalized;
             }
 
-            GameObject bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
-            bullet.GetComponent<PlayerBullet>().dir = shootDir; // Set the bullet direction
-            //Set bullet damage
-            WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
-            bullet.GetComponent<PlayerBullet>().DamageDealt = wL.Damage;
+            //GameObject bullet = WeaponManager.Instance.GetPlayerBullet(); // Get a bullet from the pool
+            //bullet.transform.position = BulletSpawn.position;
+            //bullet.transform.rotation = BulletSpawn.rotation;
+            //bullet.GetComponent<PlayerBullet>().dir = shootDir; // Set the bullet direction
+                                                                
+            //WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
+            //bullet.GetComponent<PlayerBullet>().DamageDealt = wL.damage; // Set bullet damage
+            //bullet.SetActive(true);
+
+            WeaponLogic weaponLogic = currentWeapon.GetComponent<WeaponLogic>();
+            weaponLogic.Fire(shootDir);
         }
         else
         {
-            GameObject go = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation); // Instantiate the bullet
-            PlayerBullet bullet = go.GetComponent<PlayerBullet>();
-            bullet.target = bulletTarget;
-            //Set bullet damage
+            GameObject bullet = WeaponManager.Instance.GetPlayerBullet(); // Get a bullet from the pool
+            bullet.transform.position = BulletSpawn.position;
+            bullet.transform.rotation = BulletSpawn.rotation;
+            PlayerBullet playerBullet = bullet.GetComponent<PlayerBullet>();
+            playerBullet.target = bulletTarget;
+            // Set bullet damage
             WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
-            bullet.GetComponent<PlayerBullet>().DamageDealt = wL.Damage;
-            bullet.IsHoming = true;
+            playerBullet.DamageDealt = wL.damage;
+            playerBullet.IsHoming = true;
+            bullet.SetActive(true);
         }
 
         animator.SetInteger("WeaponType_int", 1);
         animator.SetBool("Reload_b", false);
         animator.SetBool("Shoot_b", true);
     }
+
 
     private void PlayShootClip()
     {

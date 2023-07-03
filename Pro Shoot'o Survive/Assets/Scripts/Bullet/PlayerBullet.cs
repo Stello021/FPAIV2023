@@ -12,8 +12,16 @@ public class PlayerBullet : Bullet
 
     protected override void Update()
     {
-        base.Update();
-
+        lifetime -= Time.deltaTime;
+        if (lifetime <= 0)
+        {
+            WeaponManager.Instance.ReturnPlayerBullet(gameObject);
+            if (IsHoming)
+            {
+                IsHoming = false;
+                target = null;
+            }
+        }
         if (IsHoming)
         {
             homingTimer -= Time.deltaTime;
@@ -36,10 +44,7 @@ public class PlayerBullet : Bullet
                 Quaternion newRotation = Quaternion.Lerp(transform.rotation, rotation, rotSpeed * Time.deltaTime);
                 transform.rotation = newRotation;
             }
-
         }
-
-
         transform.position += transform.forward * bulletSpeed * Time.deltaTime;
     }
 
@@ -53,7 +58,11 @@ public class PlayerBullet : Bullet
             //Debug.Log("Danni al nemico:" + DamageDealt);
         }
 
-        Destroy(gameObject);
+        WeaponManager.Instance.ReturnPlayerBullet(gameObject);
+        if (IsHoming)
+        {
+            IsHoming = false;
+            target = null;
+        }
     }
-
 }

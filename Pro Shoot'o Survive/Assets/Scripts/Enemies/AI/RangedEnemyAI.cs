@@ -79,23 +79,23 @@ public class RangedEnemyAI : EnemyAI
             Invoke(nameof(SpawnBullet), TimeBetweenShoots);
             alreadyShooted = true;
             Invoke(nameof(ResetAttack), TimeBetweenShoots);
-
         }
     }
 
     private void SpawnBullet()
     {
-        GameObject bullet = Instantiate(bulletPrefab, BulletStartingPoint.position, BulletStartingPoint.rotation);
+        //GameObject bullet = Instantiate(bulletPrefab, BulletStartingPoint.position, BulletStartingPoint.rotation);
+
+        GameObject bullet = WeaponManager.Instance.GetEnemyBullet();
+        bullet.transform.position = BulletStartingPoint.position;
+        bullet.transform.rotation = BulletStartingPoint.rotation;
+
         bullet.GetComponent<EnemyBullet>().dir = transform.forward;
-        bullet.GetComponent<EnemyBullet>().DamageDealt = OwnWeapon.GetComponent<WeaponLogic>().Damage;
+        bullet.GetComponent<EnemyBullet>().DamageDealt = OwnWeapon.GetComponent<WeaponLogic>().damage;
     }
 
     private void ResetAttack()
     {
         alreadyShooted = false;
     }
-
-
-
-
 }

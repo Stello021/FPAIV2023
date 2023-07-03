@@ -6,27 +6,17 @@ public class EnemyBullet : Bullet
 {
     protected override void Update()
     {
-        base.Update();
-
         StandardMovement();
     }
 
     protected override void OnTriggerEnter(Collider other)
     {
-        try
+        if (other.CompareTag("Player"))
         {
-            if (other.CompareTag("Player"))
-            {
-                //Debug.Log("Damage of enemy bullet: " + DamageDealt);
-                PlayerLogic player = other.gameObject.GetComponent<PlayerLogic>();
-                player.TakeDamage(DamageDealt);
-            }
-            Destroy(gameObject);
+            //Debug.Log("Damage of enemy bullet: " + DamageDealt);
+            PlayerLogic player = other.gameObject.GetComponent<PlayerLogic>();
+            player.TakeDamage(DamageDealt);
         }
-
-        catch
-        {
-        }
+        WeaponManager.Instance.ReturnEnemyBullet(gameObject);
     }
-    
 }

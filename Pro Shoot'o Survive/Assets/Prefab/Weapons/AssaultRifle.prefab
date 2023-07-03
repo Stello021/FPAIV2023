@@ -269,12 +269,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03aea9ca1cec7db4e86dfc7bfb9a35dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletsPerMagazine: 0
-  totalMagazines: 0
-  fireRate: 0
+  bulletsPerMagazine: 5
+  totalMagazines: 8
   bulletSpawnPoint: {fileID: 0}
   bulletPrefab: {fileID: 0}
-  Damage: 10
+  damage: 25
 --- !u!65 &2252135017554809381
 BoxCollider:
   m_ObjectHideFlags: 0

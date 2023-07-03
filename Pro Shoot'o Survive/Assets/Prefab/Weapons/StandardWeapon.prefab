@@ -94,8 +94,8 @@ GameObject:
   - component: {fileID: 80990428845555387}
   - component: {fileID: 80990428848851251}
   - component: {fileID: 80990428847923337}
-  - component: {fileID: -4318882664763265362}
   - component: {fileID: 1928278377968632705}
+  - component: {fileID: 9090831187771853715}
   m_Layer: 12
   m_Name: StandardWeapon
   m_TagString: Untagged
@@ -174,24 +174,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-4318882664763265362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80990428845718225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03aea9ca1cec7db4e86dfc7bfb9a35dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletsPerMagazine: 0
-  totalMagazines: 0
-  fireRate: 0
-  bulletSpawnPoint: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  Damage: 15
 --- !u!65 &1928278377968632705
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -213,6 +195,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.22226046, y: 0.58920604, z: 1.0377463}
   m_Center: {x: -0.0003750026, y: 0.124370754, z: 0.42831084}
+--- !u!114 &9090831187771853715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80990428845718225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03aea9ca1cec7db4e86dfc7bfb9a35dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletsPerMagazine: 12
+  totalMagazines: 1000
+  bulletSpawnPoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  damage: 20
 --- !u!1 &80990428845736871
 GameObject:
   m_ObjectHideFlags: 0

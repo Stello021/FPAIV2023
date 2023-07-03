@@ -67,16 +67,16 @@ public class PlayerLogic : MonoBehaviour
 
                 //Debug.Log("Excess damage: " + excessDamage);
                 
-                HP -= excessDamage * ReloadMultiplier;
+                HP -= excessDamage;
             }
             else
             {
-                Armor -= damage * ReloadMultiplier;
+                Armor -= damage;
             }
         }
         else
         {
-            HP -= damage * ReloadMultiplier;
+            HP -= damage;
         }
 
         //Debug.Log("armor: " + Armor);

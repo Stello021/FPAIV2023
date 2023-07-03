@@ -19,11 +19,6 @@ public class Bullet : MonoBehaviour
 
     protected virtual void Update()
     {
-        lifetime -= Time.deltaTime;
-        if (lifetime <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     protected void StandardMovement()
@@ -33,6 +28,5 @@ public class Bullet : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-
     }
 }
