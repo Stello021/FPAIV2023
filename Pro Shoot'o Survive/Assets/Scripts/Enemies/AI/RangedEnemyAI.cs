@@ -47,6 +47,10 @@ public class RangedEnemyAI : EnemyAI
                 ShootPlayer();
             }
         }
+        else
+        {
+            enemyAnimator.SetFloat("Speed_f", 0.0f);//Associate animator's speed parameter with agent speed
+        }
     }
     private void ChasePlayer()
     {

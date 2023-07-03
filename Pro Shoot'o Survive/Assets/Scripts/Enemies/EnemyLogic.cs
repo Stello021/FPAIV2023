@@ -91,6 +91,8 @@ public class EnemyLogic : MonoBehaviour
         Destroy(center.gameObject);
         Collider c = GetComponent<Collider>();
         Destroy(c);
+        NavMeshAgent nma = GetComponent<NavMeshAgent>();
+        Destroy(nma);
         yield return new WaitForSeconds(3f);
 
         // check if we must spawn a random powerUp
