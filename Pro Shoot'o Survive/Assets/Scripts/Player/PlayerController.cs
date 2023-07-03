@@ -457,7 +457,7 @@ public class PlayerController : MonoBehaviour
         {
             other.GetComponent<PowerUp>().PickUp(gameObject);
         }
-        else if (other.CompareTag("Weapon"))
+        else if (other.CompareTag("Weapon") && other.transform.parent == null)
         {
             // Disattiva l'arma di default
             defaultWeapon.SetActive(false);
