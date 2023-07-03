@@ -24,7 +24,6 @@ public class ReloadUI : MonoBehaviour
             {
                 gameObject.SetActive(false);
                 image.fillAmount = 0;
-                Debug.Log(Time.time);
             }
         }
     }

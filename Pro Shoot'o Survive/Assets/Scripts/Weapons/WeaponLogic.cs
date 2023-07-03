@@ -20,7 +20,7 @@ public class WeaponLogic : MonoBehaviour
         gameObject.tag = "Weapon";
     }
 
-    public virtual void Fire(Vector3 dir)
+    public virtual void Fire(Vector3 dir, bool isHoming = false, Transform target = null)
     {
         if (isReloading)
         {
@@ -35,15 +35,27 @@ public class WeaponLogic : MonoBehaviour
             PlayerBullet bulletScript = bullet.GetComponent<PlayerBullet>();
             if (bulletScript != null)
             {
-                bulletScript.DamageDealt = damage;
-                bulletScript.dir = dir;
+                if (!isHoming)
+                {
+                    bulletScript.DamageDealt = damage;
+                    bulletScript.dir = dir;
+                }
+                else
+                {
+                    bulletScript.IsHoming = isHoming;
+                    bulletScript.target = target;
+                    bulletScript.DamageDealt = damage;
+                    bullet.transform.rotation = bulletSpawnPoint.rotation;
+                }
             }
 
             bulletsRemainingInMagazine--;
+            Debug.Log(bulletsRemainingInMagazine);
         }
         else
         {
             Reload();
+            //immagine attiva
         }
     }
 

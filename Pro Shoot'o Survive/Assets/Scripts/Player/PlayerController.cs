@@ -407,16 +407,19 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            GameObject bullet = WeaponManager.Instance.GetPlayerBullet(); // Get a bullet from the pool
-            bullet.transform.position = BulletSpawn.position;
-            bullet.transform.rotation = BulletSpawn.rotation;
-            PlayerBullet playerBullet = bullet.GetComponent<PlayerBullet>();
-            playerBullet.target = bulletTarget;
-            // Set bullet damage
-            WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
-            playerBullet.DamageDealt = wL.damage;
-            playerBullet.IsHoming = true;
-            bullet.SetActive(true);
+            //GameObject bullet = WeaponManager.Instance.GetPlayerBullet(); // Get a bullet from the pool
+            //bullet.transform.position = BulletSpawn.position;
+            //bullet.transform.rotation = BulletSpawn.rotation;
+            //PlayerBullet playerBullet = bullet.GetComponent<PlayerBullet>();
+            //playerBullet.target = bulletTarget;
+            //// Set bullet damage
+            //WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
+            //playerBullet.DamageDealt = wL.damage;
+            //playerBullet.IsHoming = true;
+            //bullet.SetActive(true);
+
+            WeaponLogic weaponLogic = currentWeapon.GetComponent<WeaponLogic>();
+            weaponLogic.Fire(transform.forward,activeHoming, bulletTarget);
         }
 
         animatorController.SetInteger("WeaponType_int", 1);
