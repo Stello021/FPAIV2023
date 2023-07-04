@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
             ApplyGravity();
             CheckIsOnGround();
 
-            MovePlayer(); 
+            MovePlayer();
         }
     }
 
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        
+
         isInPause = !isInPause;
 
         Time.timeScale = Convert.ToInt32(!isInPause);
@@ -367,13 +367,14 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("Weapon") && other.transform.parent == null)
         {
-            // Disattiva l'arma di default
-            defaultWeapon.SetActive(false);
+            //// Disattiva l'arma di default
+            //defaultWeapon.SetActive(false);
 
-            // Attiva l'arma d'assalto
-            assaultWeapon.SetActive(true);
-            currentWeapon = assaultWeapon;
-            animatorController.SetInteger("WeaponType_int", 2);
+            //// Attiva l'arma d'assalto
+            //assaultWeapon.SetActive(true);
+            //currentWeapon = assaultWeapon;
+            //animatorController.SetInteger("WeaponType_int", 2);
+            switchCurrentWeapon();
 
             other.gameObject.SetActive(false);
         }
@@ -438,6 +439,29 @@ public class PlayerController : MonoBehaviour
         }
         //Debug.Log("Target is: " + target.parent.name);
         return target;
+    }
+    public void switchCurrentWeapon()
+    {
+        if (currentWeapon = defaultWeapon)
+        {
+            // Disattiva l'arma di default
+            defaultWeapon.SetActive(false);
+
+            // Attiva l'arma d'assalto
+            assaultWeapon.SetActive(true);
+            currentWeapon = assaultWeapon;
+            animatorController.SetInteger("WeaponType_int", 2);
+        }
+        else
+        {
+            // Disattiva l'arma d'assalto
+            assaultWeapon.SetActive(false);
+
+            // Attiva l'arma di dedfault
+            defaultWeapon.SetActive(true);
+            currentWeapon = defaultWeapon;
+            animatorController.SetInteger("WeaponType_int", 1);
+        }
     }
 
     private void updateStats()

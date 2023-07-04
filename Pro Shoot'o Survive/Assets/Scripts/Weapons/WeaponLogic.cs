@@ -25,6 +25,8 @@ public class WeaponLogic : MonoBehaviour
 
     [SerializeField] public GameObject reloadUI;
 
+    public PlayerController playerController;
+
 
 
     void Start()
@@ -97,6 +99,7 @@ public class WeaponLogic : MonoBehaviour
         }
         else
         {
+            playerController.switchCurrentWeapon();
             Debug.Log("Weapon is empty!");
         }
     }
