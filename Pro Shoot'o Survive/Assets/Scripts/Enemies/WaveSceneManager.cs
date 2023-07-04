@@ -35,7 +35,7 @@ public class WaveSceneManager : MonoBehaviour
         if (EnemiesSpawned.Count <= 0)
         {
             waveNumber++;
-            if (waveNumber == 1)
+            if (waveNumber == 4)
             {
                 AudioManager.Instance.ChangeMusic(MusicType.T2, 3, 0.15f);
             }

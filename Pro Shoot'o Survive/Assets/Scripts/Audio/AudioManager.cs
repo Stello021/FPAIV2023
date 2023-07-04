@@ -40,54 +40,6 @@ public class AudioManager : MonoBehaviour
         mixer.SetFloat(GetMixerParamName(MusicType.T2), volumeOff);
     }
 
-    public IEnumerator FadeInRoutine(AudioSource source, float duration, float targetVolume, float startDelay = 0)
-    {
-        yield return new WaitForSeconds(startDelay);
-
-        float currentTime = 0;
-        float currentVolume = source.volume = 0;
-        source.Play();
-
-        while (currentTime < duration)
-        {
-            currentTime += Time.deltaTime;
-
-            float newVolume = Mathf.Lerp(currentVolume, targetVolume, currentTime / duration);
-            source.volume = newVolume;
-            yield return null; // ci fa attendere il frame successivo, senza di questo currentTime arriverebbe 
-                               // subito al valore duration
-        }
-
-        source.volume = targetVolume;
-
-
-        yield break;
-    }
-
-    public IEnumerator FadeOutRoutine(AudioSource source, float duration, float startDelay = 0)
-    {
-        yield return new WaitForSeconds(startDelay);
-
-        float currentTime = 0;
-        float currentVolume = source.volume;
-
-        while (currentTime < duration)
-        {
-            currentTime += Time.deltaTime;
-
-            float newVolume = Mathf.Lerp(currentVolume, 0, currentTime / duration);
-
-            source.volume = newVolume;
-
-            yield return null;
-        }
-
-        source.volume = 0;
-        source.Stop();
-
-        yield break;
-    }
-
     public IEnumerator AdjustVolumeRoutine(MusicType type, float duration, float targetVolume, float startDelay = 0)
     {
         yield return new WaitForSeconds(startDelay);
