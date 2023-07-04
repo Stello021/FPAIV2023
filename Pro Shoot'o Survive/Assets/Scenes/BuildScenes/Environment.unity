@@ -4343,29 +4343,9 @@ PrefabInstance:
       objectReference: {fileID: 614902940}
     - target: {fileID: 7804379022255774706, guid: 18fd9c6d6b43c8746b38504bd5734e29,
         type: 3}
-      propertyPath: cameraMoveSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7804379022255774706, guid: 18fd9c6d6b43c8746b38504bd5734e29,
-        type: 3}
       propertyPath: crossHairTransform
       value: 
       objectReference: {fileID: 1125230745}
-    - target: {fileID: 7804379022255774706, guid: 18fd9c6d6b43c8746b38504bd5734e29,
-        type: 3}
-      propertyPath: cameraRotationSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7804379022255774706, guid: 18fd9c6d6b43c8746b38504bd5734e29,
-        type: 3}
-      propertyPath: cameraMoveSpeedOnAim
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7804379022255774706, guid: 18fd9c6d6b43c8746b38504bd5734e29,
-        type: 3}
-      propertyPath: lerpCameraPositionSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7804379022255774706, guid: 18fd9c6d6b43c8746b38504bd5734e29,
         type: 3}
       propertyPath: cameraMoveSpeedOnRotation
