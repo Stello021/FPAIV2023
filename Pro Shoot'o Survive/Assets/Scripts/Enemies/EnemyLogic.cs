@@ -28,17 +28,11 @@ public class EnemyLogic : MonoBehaviour
         currentHP = MaxHP;
         enemyAgent = GetComponent<NavMeshAgent>();
     }
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void ReceiveDamage(float damage)
     {
         currentHP -= damage;
         BloodVFXManager.Instance.GetBloodVFX(Center.position);
-        //Instantiate(bloodVFX, Center.position, Quaternion.identity);
         //Debug.Log("Current HP: " + currentHP);
         if (currentHP <= 0)
         {
@@ -65,24 +59,28 @@ public class EnemyLogic : MonoBehaviour
         enemyAnimator.SetBool("Death_b", true);
         EnemyAI e = GetComponent<EnemyAI>();
         e.IsAlive = false;
+
         if (OwnWeapon != null)
         {
             OwnWeapon.transform.rotation = Quaternion.identity;
             OwnWeapon.transform.parent = null;
             RotatingManager.Instance.AddRotatingObject(OwnWeapon.transform);
         }
+
         if (gameObject.tag == "Standard")
         {
             BarsManager.Instance.setSpeedBar(0.15f);
             BarsManager.Instance.setDamageBar(-0.10f);
 
         }
+
         else if (gameObject.tag == "Ranged")
         {
             BarsManager.Instance.setDamageBar(0.15f);
             BarsManager.Instance.setSpeedBar(-0.10f);
 
         }
+
         WaveSceneManager wsm = FindFirstObjectByType<WaveSceneManager>();
         wsm.EnemiesSpawned.Remove(gameObject);
 

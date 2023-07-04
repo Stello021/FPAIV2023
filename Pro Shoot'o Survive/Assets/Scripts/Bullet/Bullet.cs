@@ -5,9 +5,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] protected float bulletSpeed;
-    [SerializeField] public Vector3 dir;
+    public Vector3 dir;
 
-    public float DamageDealt;
+    [HideInInspector] public float DamageDealt;
 
     [SerializeField] protected float lifetime;
 

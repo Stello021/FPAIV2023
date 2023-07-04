@@ -96,6 +96,7 @@ public class RangedEnemyAI : EnemyAI
 
         bullet.GetComponent<EnemyBullet>().dir = transform.forward;
         bullet.GetComponent<EnemyBullet>().DamageDealt = OwnWeapon.GetComponent<WeaponLogic>().damage;
+        // togliere weapon logic al nemico?
     }
 
     private void ResetAttack()

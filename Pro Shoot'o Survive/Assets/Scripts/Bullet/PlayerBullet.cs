@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBullet : Bullet
 {
     [Header("Homing variables")]
-    [SerializeField] public bool IsHoming;
+    public bool IsHoming;
     public Transform target;
     [SerializeField] float rotSpeed;
     [SerializeField] float homingTimer;

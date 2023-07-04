@@ -110,16 +110,19 @@ public class PlayerController : MonoBehaviour
     {
         TogglePauseMenu();
 
-        ThrowGrenade();
-        Aim();
-        Shoot();
+        if (!isInPause)
+        {
+            ThrowGrenade();
+            Aim();
+            Shoot();
 
-        updateStats();
+            updateStats();
 
-        ApplyGravity();
-        CheckIsOnGround();
+            ApplyGravity();
+            CheckIsOnGround();
 
-        MovePlayer();
+            MovePlayer(); 
+        }
     }
 
     private void TogglePauseMenu()
@@ -134,7 +137,8 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = Convert.ToInt32(!isInPause);
         pausePanel.SetActive(isInPause);
         Cursor.visible = isInPause;
-        Cursor.lockState = isInPause ? CursorLockMode.Confined : CursorLockMode.Locked;
+        Cursor.lockState = isInPause ? CursorLockMode.None : CursorLockMode.Locked;
+        // da mettere confined nella build finale
     }
 
     public void ActivateHoming()

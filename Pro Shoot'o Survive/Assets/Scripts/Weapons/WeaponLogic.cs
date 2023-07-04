@@ -33,10 +33,12 @@ public class WeaponLogic : MonoBehaviour
 
         bulletsRemainingInMagazine = bulletsPerMagazine;
         isReloading = false;
+
         if (reloadUI != null)
         {
             reloadUI.GetComponent<ReloadUI>().reloadTime = reloadTime;
         }
+
         if (bulletsPerMagazine_text != null && bulletsRemainingInMagazine_text != null)
         {
             bulletsPerMagazine_text.text = bulletsPerMagazine.ToString();
@@ -59,16 +61,16 @@ public class WeaponLogic : MonoBehaviour
         PlayerBullet bulletScript = bullet.GetComponent<PlayerBullet>();
         if (bulletScript != null)
         {
+            bulletScript.DamageDealt = damage;
+
             if (!isHoming)
             {
-                bulletScript.DamageDealt = damage;
                 bulletScript.dir = dir;
             }
             else
             {
                 bulletScript.IsHoming = isHoming;
                 bulletScript.target = target;
-                bulletScript.DamageDealt = damage;
                 bullet.transform.rotation = bulletSpawnPoint.rotation;
             }
         }
@@ -77,12 +79,12 @@ public class WeaponLogic : MonoBehaviour
 
         bulletsRemainingInMagazine--;
         bulletsRemainingInMagazine_text.text = bulletsRemainingInMagazine.ToString();
+
         if (bulletsRemainingInMagazine == 0)
         {
             Reload();
             reloadUI.SetActive(true);
         }
-
     }
 
     void Reload()

@@ -7,7 +7,7 @@ public class BloodVFXManager : MonoBehaviour
     private static BloodVFXManager instance;
     public static BloodVFXManager Instance { get { return instance; } }
 
-    [SerializeField] Queue<GameObject> bloodVFXPool;
+    private Queue<GameObject> bloodVFXPool;
     [SerializeField] GameObject bloodPrefab;
     [SerializeField] int VFXamount;
 
