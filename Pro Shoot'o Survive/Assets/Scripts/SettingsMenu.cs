@@ -11,10 +11,12 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] TMP_Text sensitivityValue;
     [SerializeField] Slider sensitivitySlider;
     [SerializeField] Slider volumeSlider;
-
+    private Camera cam;
 
     private void Start()
     {
+        cam = Camera.main;
+
         float volumeValue;
         musicMixer.GetFloat("MusicVolume", out volumeValue);
         volumeValue = Mathf.Pow(10, volumeValue / 20);
@@ -39,5 +41,11 @@ public class SettingsMenu : MonoBehaviour
     {
         PlayerPrefs.SetFloat("Sensitivity", sensitivity);
         sensitivityValue.text = sensitivity.ToString("0.0");
+
+        CameraController actualCamera = cam.GetComponent<CameraController>();
+        if (actualCamera != null)
+        {
+            actualCamera.SetCameraSensitivity(sensitivity);
+        }
     }
 }

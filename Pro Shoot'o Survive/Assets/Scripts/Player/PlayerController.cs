@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-
+        
         isInPause = !isInPause;
 
         Time.timeScale = Convert.ToInt32(!isInPause);
