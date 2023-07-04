@@ -68,8 +68,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform grenadeSpawnPoint;
     [SerializeField] TMP_Text grenadeNumberText;
 
-
-
     [Header("\nHoming variables")]
     [SerializeField] float homingTimer;
     [SerializeField] float homingTime;
@@ -91,6 +89,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask aimMask;
     [SerializeField] GameObject pausePanel;
     private bool isInPause;
+    public bool IsPlayerInputsActive { get; private set; }
 
     private void Start()
     {
@@ -103,6 +102,8 @@ public class PlayerController : MonoBehaviour
         IsAiming = false;
 
         currentWeapon = defaultWeapon;
+        animatorController.SetInteger("WeaponType_int", 1);
+
         BulletSpawn = currentWeapon.transform;
     }
 
@@ -121,23 +122,28 @@ public class PlayerController : MonoBehaviour
             ApplyGravity();
             CheckIsOnGround();
 
-            MovePlayer(); 
+            MovePlayer();
         }
+    }
+
+    public void TogglePlayerInputs()
+    {
+        IsPlayerInputsActive = !IsPlayerInputsActive;
     }
 
     private void TogglePauseMenu()
     {
-        if (!InputsController.OnInputTrigger("PauseMenu"))
+        if (!InputsController.OnInputTrigger("PauseMenu") || !IsPlayerInputsActive)
         {
             return;
         }
-        
+
         isInPause = !isInPause;
 
         Time.timeScale = Convert.ToInt32(!isInPause);
         pausePanel.SetActive(isInPause);
         Cursor.visible = isInPause;
-        Cursor.lockState = isInPause ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.lockState = isInPause ? CursorLockMode.Confined : CursorLockMode.Locked;
         // da mettere confined nella build finale
     }
 
@@ -302,12 +308,10 @@ public class PlayerController : MonoBehaviour
 
 
         Transform bulletTarget = SetFirstTarget();
-        GameObject bulletPrefab = currentWeapon.GetComponent<WeaponLogic>().bulletPrefab;
 
         if (!activeHoming || bulletTarget == null)
         {
             Ray rayToCenter = new Ray(cam.position, cam.forward);
-
             Vector3 shootDir = Vector3.zero;
 
             if (Physics.Raycast(rayToCenter, out RaycastHit target, Mathf.Infinity, aimMask))
@@ -349,7 +353,6 @@ public class PlayerController : MonoBehaviour
             weaponLogic.Fire(transform.forward, activeHoming, bulletTarget);
         }
 
-        animatorController.SetInteger("WeaponType_int", 1);
         animatorController.SetBool("Reload_b", false);
         animatorController.SetBool("Shoot_b", true);
     }
