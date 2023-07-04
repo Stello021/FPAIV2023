@@ -52,11 +52,10 @@ public class CameraController : MonoBehaviour
         if (PlayerPrefs.GetFloat("Sensitivity") != 0)
         {
             cameraMoveSpeed = PlayerPrefs.GetFloat("Sensitivity");
-            cameraMoveSpeedOnAim = cameraMoveSpeed * 0.5f;
-
-            currentCameraMoveSpeed = cameraMoveSpeed;
         }
 
+        currentCameraMoveSpeed = cameraMoveSpeed;
+        cameraMoveSpeedOnAim = cameraMoveSpeed * 0.5f;
     }
 
     private void MoveCamera()

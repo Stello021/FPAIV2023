@@ -25,6 +25,7 @@ public class SettingsMenu : MonoBehaviour
         if (PlayerPrefs.GetFloat("Sensitivity") != 0)
         {
             sensitivitySlider.value = PlayerPrefs.GetFloat("Sensitivity");
+            sensitivityValue.text = sensitivitySlider.value.ToString("0.0");
         }
     }
 
