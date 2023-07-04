@@ -2611,7 +2611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedBar: {fileID: 1966763814}
-  damageBar: {fileID: 1241555904}
+  ReloadBar: {fileID: 1241555904}
   HpBar: {fileID: 1684159852}
   playerRef: {fileID: 0}
 --- !u!1001 &467381693
@@ -7737,7 +7737,7 @@ GameObject:
   - component: {fileID: 1241555902}
   - component: {fileID: 1241555904}
   m_Layer: 5
-  m_Name: 'Damage Bar '
+  m_Name: 'Reload Bar '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
