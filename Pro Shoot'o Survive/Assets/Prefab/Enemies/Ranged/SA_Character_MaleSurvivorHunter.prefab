@@ -1087,6 +1087,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AssaultRifle
       objectReference: {fileID: 0}
+    - target: {fileID: 7432371568988571414, guid: cb70310fde27c154093d230626cd0cee,
+        type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8496259313088172248, guid: cb70310fde27c154093d230626cd0cee,
         type: 3}
       propertyPath: m_IsActive

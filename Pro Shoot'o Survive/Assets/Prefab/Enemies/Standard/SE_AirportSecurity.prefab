@@ -527,7 +527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 100
   OwnWeapon: {fileID: 0}
-  meleeDamage: 10
+  meleeDamage: 25
   PowerUpSpawnPos: {x: 0, y: 0, z: 0}
   powerUpProbability: 30
   bloodVFX: {fileID: 194062, guid: bb954c7832c9a9845b017b284d33fbc8, type: 3}
