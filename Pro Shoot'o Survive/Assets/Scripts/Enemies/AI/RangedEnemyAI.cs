@@ -9,6 +9,7 @@ public class RangedEnemyAI : EnemyAI
     [SerializeField] LayerMask PlayerMask; //Layer mask to recognize Player Layer
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] GameObject OwnWeapon;
+    [SerializeField] float bulletDamage;
     public int WeaponTypeIndex;
     public Transform BulletStartingPoint; //Bullets Spawn Point
     public float startingEnemySpeed;
@@ -95,7 +96,7 @@ public class RangedEnemyAI : EnemyAI
         bullet.transform.rotation = BulletStartingPoint.rotation;
 
         bullet.GetComponent<EnemyBullet>().dir = transform.forward;
-        bullet.GetComponent<EnemyBullet>().DamageDealt = OwnWeapon.GetComponent<WeaponLogic>().damage;
+        bullet.GetComponent<EnemyBullet>().DamageDealt = bulletDamage;
         // togliere weapon logic al nemico?
     }
 

@@ -225,6 +225,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2405495413867421730, guid: 55e296f3bd557094f89462310c1dad66,
     type: 3}
   OwnWeapon: {fileID: 7892383639195193910}
+  bulletDamage: 10
   WeaponTypeIndex: 3
   BulletStartingPoint: {fileID: 4726506298786535712}
   startingEnemySpeed: 0
