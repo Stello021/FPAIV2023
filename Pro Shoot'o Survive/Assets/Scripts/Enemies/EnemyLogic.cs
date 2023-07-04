@@ -59,6 +59,8 @@ public class EnemyLogic : MonoBehaviour
         enemyAnimator.SetBool("Death_b", true);
         EnemyAI e = GetComponent<EnemyAI>();
         e.IsAlive = false;
+        NavMeshAgent nme = GetComponent<NavMeshAgent>();
+        nme.enabled = false;
 
         if (OwnWeapon != null)
         {
