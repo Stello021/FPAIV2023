@@ -32,7 +32,10 @@ public class PlayerLogic : MonoBehaviour
     [SerializeField] TMP_Text armorValueText;
 
     private int points;
-    private int deathPoints = 500;
+    private int deathPoints = 5000;
+    private int barPoints = 3000;
+    private int pointsDecreaseRate = 2;
+    [SerializeField] TMP_Text pointsText;
 
     // Start is called before the first frame update
     void Awake()
@@ -45,6 +48,8 @@ public class PlayerLogic : MonoBehaviour
         actuallyMaxHp = hpMax;
         hp = actuallyMaxHp;
         BarsManager.Instance.playerRef = this;
+
+        InvokeRepeating("UpdatePointsText", 2.0f, 1.0f);
     }
 
     // Update is called once per frame
@@ -143,13 +148,29 @@ public class PlayerLogic : MonoBehaviour
         points += pointsToAdd;
     }
 
+    public void UpdatePointsText()
+    {
+        points -= pointsDecreaseRate;
+        pointsText.text = points.ToString();
+    }
+
     private void SavePoints()
     {
-        points -= (int)Time.timeSinceLevelLoad * 2;
-        points += (int)(HP + Armor) * 5;
+        points += (int)(HP + Armor) * 10;
+
+        if (ReloadBarValue >= 0.6f && ReloadBarValue <= 0.7f)
+        {
+            points += barPoints;
+        }
+
+        if (speedBarValue >= 0.6f && speedBarValue <= 0.7f)
+        {
+            points += barPoints;
+        }
 
         if (HP <= 0)
         {
+            Debug.Log("Death");
             points -= deathPoints;
         }
 

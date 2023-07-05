@@ -41,11 +41,6 @@ public class EnemyLogic : MonoBehaviour
         }
     }
 
-    public void UpdatePoints(int points)
-    {
-        pointsValue += points;
-    }
-
     public void DestroyEnemy()
     {
         Destroy(gameObject);
