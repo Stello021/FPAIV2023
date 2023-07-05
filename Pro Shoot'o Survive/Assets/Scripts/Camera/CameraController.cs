@@ -46,9 +46,6 @@ public class CameraController : MonoBehaviour
         cameraCurrentPosOffset = cameraCurrentPosOffsetAsMagnitude = cameraMovePosOffsetAsMagnitude;
         cameraCurrentFixedPosOffsetAsLookRotation = cameraMoveFixedPosOffsetAsLookRotation;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
         if (PlayerPrefs.GetFloat("Sensitivity") != 0)
         {
             cameraMoveSpeed = PlayerPrefs.GetFloat("Sensitivity");
@@ -60,8 +57,12 @@ public class CameraController : MonoBehaviour
 
     public void SetCameraSensitivity(float sensitivity)
     {
+        float oldCameraMoveSpeed = cameraMoveSpeed;
+
         cameraMoveSpeed = sensitivity;
         cameraMoveSpeedOnAim = cameraMoveSpeed * 0.4f;
+
+        currentCameraMoveSpeed = currentCameraMoveSpeed == oldCameraMoveSpeed ? cameraMoveSpeed : cameraMoveSpeedOnAim;
     }
 
     private void MoveCamera()

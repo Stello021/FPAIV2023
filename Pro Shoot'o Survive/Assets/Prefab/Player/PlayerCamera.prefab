@@ -257,12 +257,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  cameraMoveSpeedOnRotation: 20
+  cameraMoveSpeedOnAim: 10
+  cameraMoveSpeed: 10
   lerpCameraPositionSpeed: 10
   cameraRotationSpeed: 10
   minCameraOffsetY: 0.5
   maxCameraOffsetY: 5.5
-  cameraMovePosOffsetAsMagnitude: {x: 0, y: 2, z: -10}
+  cameraMovePosOffsetAsMagnitude: {x: 0, y: 2, z: -8}
   cameraAimPosOffsetAsMagnitude: {x: 0, y: 2, z: -5}
   cameraMoveFixedPosOffsetAsLookRotation: {x: 0, y: 2, z: 0}
   cameraAimFixedPosOffsetAsLookRotation: {x: 2, y: 2, z: 2}

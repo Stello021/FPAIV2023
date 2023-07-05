@@ -18,12 +18,15 @@ public class SettingsMenu : MonoBehaviour
         cam = Camera.main;
 
         float volumeValue;
+
         musicMixer.GetFloat("MusicVolume", out volumeValue);
+
         volumeValue = Mathf.Pow(10, volumeValue / 20);
-        Debug.Log(volumeValue);
         volumeSlider.value = volumeValue;
 
-        Debug.Log(PlayerPrefs.GetFloat("Sensitivity"));
+        //Debug.Log(volumeValue);
+        //Debug.Log(PlayerPrefs.GetFloat("Sensitivity"));
+
         if (PlayerPrefs.GetFloat("Sensitivity") != 0)
         {
             sensitivitySlider.value = PlayerPrefs.GetFloat("Sensitivity");
