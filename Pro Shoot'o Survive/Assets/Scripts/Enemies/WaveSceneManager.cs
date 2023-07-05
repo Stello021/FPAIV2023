@@ -38,7 +38,7 @@ public class WaveSceneManager : MonoBehaviour
 
             waveNumberText.text = (waveNumber + 1).ToString();
 
-            if (waveNumber == 4)
+            if (waveNumber == 3)
             {
                 AudioManager.Instance.ChangeMusic(MusicType.T2, 3, 0.15f);
             }
