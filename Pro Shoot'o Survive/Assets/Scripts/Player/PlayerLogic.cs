@@ -130,6 +130,8 @@ public class PlayerLogic : MonoBehaviour
             ChangeReloadTime();
         }
 
+
+
         if (speedBarValue <= 0 || speedBarValue >= 1)
         {
             speedMultiplier = 0.5f;
