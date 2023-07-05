@@ -1,53 +1,61 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
 
 public class WeaponLogic : MonoBehaviour
 {
-    public int bulletsPerMagazine;
-    public int totalMagazines;
-    public float currentReloadTime;
+    [SerializeField] private bool hasInfiniteAmmo;
+    [SerializeField] private bool isWeaponHanded;
+    public bool IsWeaponHanded { get { return isWeaponHanded; } }
+
+    [SerializeField] private int wpnClip;
+    [SerializeField] private int wpnMagazine;
+    private int currentWpnClip;
+    private int currentWpnMagazine;
+
     public float reloadTime = 2f;
+    public float currentReloadTime;
 
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
 
-    protected int bulletsRemainingInMagazine;
-    protected bool isReloading;
+    private bool isReloading;
 
     public float damage;
 
-    [SerializeField] List<AudioClip> shootClips;
+    [SerializeField] private List<AudioClip> shootClips;
 
-    [SerializeField] TMP_Text bulletsPerMagazine_text;
-    [SerializeField] TMP_Text bulletsRemainingInMagazine_text;
+    [SerializeField] private TMP_Text wpnClipTextObject;
+    [SerializeField] private TMP_Text wpnMagazineTextObject;
 
     [SerializeField] public GameObject reloadUI;
 
     public PlayerController playerController;
 
-
-
     void Start()
     {
-        currentReloadTime = reloadTime;
-
-        bulletsRemainingInMagazine = bulletsPerMagazine;
-        isReloading = false;
-
-        if (reloadUI != null)
-        {
-            reloadUI.GetComponent<ReloadUI>().reloadTime = reloadTime;
-        }
-
-        if (bulletsPerMagazine_text != null && bulletsRemainingInMagazine_text != null)
-        {
-            bulletsPerMagazine_text.text = bulletsPerMagazine.ToString();
-            bulletsRemainingInMagazine_text.text = bulletsRemainingInMagazine.ToString();
-        }
-
         gameObject.tag = "Weapon";
+
+        if (!isWeaponHanded)
+        {
+            return;
+        }
+
+        InitUI_WeaponAmmo();
+
+        currentReloadTime = reloadTime;
+        isReloading = false;
+        reloadUI.GetComponent<ReloadUI>().reloadTime = reloadTime;
+    }
+
+    public void InitUI_WeaponAmmo()
+    {
+        currentWpnClip = wpnClip;
+        currentWpnMagazine = wpnMagazine;
+
+        wpnClipTextObject.text = wpnClip.ToString();
+        wpnMagazineTextObject.text = hasInfiniteAmmo ? "∞" : currentWpnMagazine.ToString();
     }
 
     public void Fire(Vector3 dir, bool isHoming = false, Transform target = null)
@@ -61,6 +69,7 @@ public class WeaponLogic : MonoBehaviour
         bullet.transform.position = bulletSpawnPoint.position;
 
         PlayerBullet bulletScript = bullet.GetComponent<PlayerBullet>();
+
         if (bulletScript != null)
         {
             bulletScript.DamageDealt = damage;
@@ -79,37 +88,58 @@ public class WeaponLogic : MonoBehaviour
 
         PlayShootClip();
 
-        bulletsRemainingInMagazine--;
-        bulletsRemainingInMagazine_text.text = bulletsRemainingInMagazine.ToString();
+        currentWpnClip--;
+        wpnClipTextObject.text = currentWpnClip.ToString();
 
-        if (bulletsRemainingInMagazine == 0)
+        if (currentWpnClip <= 0)
         {
-            Reload();
-            reloadUI.SetActive(true);
+            if (currentWpnMagazine > 0 || hasInfiniteAmmo)
+            {
+                Reload();
+            }
+
+            else
+            {
+                playerController.switchCurrentWeapon();
+
+                //Debug.Log("Weapon is empty!");
+            }
         }
     }
 
     void Reload()
     {
-        if (totalMagazines > 0)
-        {
-            isReloading = true;
+        isReloading = true;
+        reloadUI.SetActive(true);
 
-            Invoke("FinishReloading", reloadTime);
-        }
-        else
-        {
-            playerController.switchCurrentWeapon();
-            Debug.Log("Weapon is empty!");
-        }
+        Invoke("FinishReloading", reloadTime);
     }
 
     void FinishReloading()
     {
-        bulletsRemainingInMagazine = bulletsPerMagazine;
-        totalMagazines--;
-        bulletsRemainingInMagazine_text.text = bulletsRemainingInMagazine.ToString();
+        if (!hasInfiniteAmmo)
+        {
+            if (currentWpnMagazine < wpnClip)
+            {
+                currentWpnClip = currentWpnMagazine;
+                currentWpnMagazine = 0;
+            }
 
+            else
+            {
+                currentWpnMagazine -= (wpnClip - currentWpnClip);
+                currentWpnClip = wpnClip;
+            }
+
+            wpnMagazineTextObject.text = currentWpnMagazine.ToString();
+        }
+
+        else
+        {
+            currentWpnClip = wpnClip;
+        }
+
+        wpnClipTextObject.text = currentWpnClip.ToString();
 
         isReloading = false;
     }

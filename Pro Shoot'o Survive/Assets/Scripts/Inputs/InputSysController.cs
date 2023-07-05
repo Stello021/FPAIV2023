@@ -44,6 +44,11 @@ public class InputSysController
         return inputs[inputActionName].triggered;
     }
 
+    public bool OnInputPressed(string inputActionName)
+    {
+        return inputs[inputActionName].IsPressed();
+    }
+
     public T GetInputValue<T>(string inputActionName) where T : struct
     {
         return inputs[inputActionName].ReadValue<T>();

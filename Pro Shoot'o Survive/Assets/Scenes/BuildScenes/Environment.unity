@@ -12063,11 +12063,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
-      propertyPath: damage
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
-        type: 3}
       propertyPath: reloadUI
       value: 
       objectReference: {fileID: 699532129}
@@ -12077,6 +12072,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2405495413867421730, guid: 70743bf4717711046be45b32b6933d3b,
         type: 3}
+    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: isWeaponHanded
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: totalMagazines
@@ -12089,6 +12089,16 @@ PrefabInstance:
       objectReference: {fileID: 4121980923265742142}
     - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 614902942}
+    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: wpnClipTextObject
+      value: 
+      objectReference: {fileID: 1526159748}
+    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
       propertyPath: bulletsPerMagazine
       value: 5
       objectReference: {fileID: 0}
@@ -12097,6 +12107,11 @@ PrefabInstance:
       propertyPath: shootClips.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: wpnMagazineTextObject
+      value: 
+      objectReference: {fileID: 1248512209}
     - target: {fileID: 569148060710741368, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: bulletsPerMagazine_text
@@ -12224,11 +12239,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
-      propertyPath: damage
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
-        type: 3}
       propertyPath: reloadUI
       value: 
       objectReference: {fileID: 699532129}
@@ -12240,14 +12250,39 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
+      propertyPath: isWeaponHanded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: totalMagazines
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 4121980923265742143}
     - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 614902942}
+    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: wpnClipTextObject
+      value: 
+      objectReference: {fileID: 1526159748}
+    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
       propertyPath: shootClips.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: wpnMagazineTextObject
+      value: 
+      objectReference: {fileID: 1248512209}
     - target: {fileID: 6421899061783596672, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: bulletsPerMagazine_text
@@ -12450,6 +12485,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321754258756277837, guid: 71da2eeae31907a4a800c9bc565db5cf,
+        type: 3}
+      propertyPath: m_Name
+      value: WpnMagazine
       objectReference: {fileID: 0}
     - target: {fileID: 7764611473004649149, guid: 71da2eeae31907a4a800c9bc565db5cf,
         type: 3}

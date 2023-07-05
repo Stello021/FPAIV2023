@@ -48,7 +48,16 @@ public class WaveSceneManager : MonoBehaviour
 
     public void Spawn()
     {
-        enemiesToSpawn = waves[waveNumber].StandardEnemiesToSpawn + waves[waveNumber].RangedEnemiesToSpawn;
+        try
+        {
+            enemiesToSpawn = waves[waveNumber].StandardEnemiesToSpawn + waves[waveNumber].RangedEnemiesToSpawn;
+        }
+
+        catch
+        {
+            return;  //when we win the game, the WaveSceneManager will try to let spawn enemies again, so we catch the exception
+        }
+
         int standardSpawned = 0;
         int rangedSpawned = 0;
         for (int i = 0; i < enemiesToSpawn; i++)

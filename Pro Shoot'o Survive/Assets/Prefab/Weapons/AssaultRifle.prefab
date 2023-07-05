@@ -205,7 +205,7 @@ Transform:
   - {fileID: 2810779733498473989}
   - {fileID: 8746495783248339174}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!33 &7996312333485749860
 MeshFilter:
@@ -269,11 +269,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03aea9ca1cec7db4e86dfc7bfb9a35dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletsPerMagazine: 5
-  totalMagazines: 8
+  hasInfiniteAmmo: 0
+  isWeaponHanded: 0
+  wpnClip: 30
+  wpnMagazine: 100
+  reloadTime: 2
+  currentReloadTime: 0
   bulletSpawnPoint: {fileID: 0}
   bulletPrefab: {fileID: 0}
   damage: 25
+  shootClips: []
+  wpnClipTextObject: {fileID: 0}
+  wpnMagazineTextObject: {fileID: 0}
+  reloadUI: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!65 &2252135017554809381
 BoxCollider:
   m_ObjectHideFlags: 0

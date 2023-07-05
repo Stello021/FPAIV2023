@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
     private float throwGrenadeElapsedTime;
     private float nextGrenadeThrowElapsedTime;
 
+    [Header("Shooting variables")]
+    [SerializeField] private float nextShootTimer;
+    private float nextShootTimeElapsed;
+
     public bool IsAiming
     {
         get
@@ -52,6 +56,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject defaultWeapon;
     [SerializeField] private GameObject assaultWeapon;
     public GameObject currentWeapon;
+    public WeaponLogic CurrentWeaponController { get { return currentWeapon.GetComponent<WeaponLogic>(); } }
 
     [Header("\nCrossHair variables")]
     [SerializeField] private RectTransform crossHairTransform;
@@ -276,6 +281,8 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
+        nextShootTimeElapsed -= Time.deltaTime;
+
         if (animatorController.GetBool("IsThrowingGrenade") || nextGrenadeThrowElapsedTime > 0)
         {
             return;
@@ -291,7 +298,9 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (!InputsController.OnInputTrigger("Shoot") || !IsAiming)
+        bool shootInputTriggered = currentWeapon == assaultWeapon ? InputsController.OnInputPressed("Shoot") : InputsController.OnInputTrigger("Shoot");
+
+        if (!shootInputTriggered || !IsAiming || nextShootTimeElapsed > 0)
         {
             if (!IsAiming)
             {
@@ -324,34 +333,17 @@ public class PlayerController : MonoBehaviour
                 shootDir = ((cam.position + cam.forward * 100) - BulletSpawn.position).normalized;
             }
 
-            //GameObject bullet = WeaponManager.Instance.GetPlayerBullet(); // Get a bullet from the pool
-            //bullet.transform.position = BulletSpawn.position;
-            //bullet.transform.rotation = BulletSpawn.rotation;
-            //bullet.GetComponent<PlayerBullet>().dir = shootDir; // Set the bullet direction
-
-            //WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
-            //bullet.GetComponent<PlayerBullet>().DamageDealt = wL.damage; // Set bullet damage
-            //bullet.SetActive(true);
-
             WeaponLogic weaponLogic = currentWeapon.GetComponent<WeaponLogic>();
             weaponLogic.Fire(shootDir);
         }
+
         else
         {
-            //GameObject bullet = WeaponManager.Instance.GetPlayerBullet(); // Get a bullet from the pool
-            //bullet.transform.position = BulletSpawn.position;
-            //bullet.transform.rotation = BulletSpawn.rotation;
-            //PlayerBullet playerBullet = bullet.GetComponent<PlayerBullet>();
-            //playerBullet.target = bulletTarget;
-            //// Set bullet damage
-            //WeaponLogic wL = currentWeapon.GetComponent<WeaponLogic>();
-            //playerBullet.DamageDealt = wL.damage;
-            //playerBullet.IsHoming = true;
-            //bullet.SetActive(true);
-
             WeaponLogic weaponLogic = currentWeapon.GetComponent<WeaponLogic>();
             weaponLogic.Fire(transform.forward, activeHoming, bulletTarget);
         }
+
+        nextShootTimeElapsed = nextShootTimer;
 
         animatorController.SetBool("Reload_b", false);
         animatorController.SetBool("Shoot_b", true);
@@ -368,18 +360,15 @@ public class PlayerController : MonoBehaviour
         {
             other.GetComponent<PowerUp>().PickUp(gameObject);
         }
-        else if (other.CompareTag("Weapon") && other.transform.parent == null)
+
+        else if (other.CompareTag("Weapon") && !other.GetComponent<WeaponLogic>().IsWeaponHanded)
         {
-            //// Disattiva l'arma di default
-            //defaultWeapon.SetActive(false);
+            if (currentWeapon != assaultWeapon)
+            {
+                switchCurrentWeapon();
+            }
 
-            //// Attiva l'arma d'assalto
-            //assaultWeapon.SetActive(true);
-            //currentWeapon = assaultWeapon;
-            //animatorController.SetInteger("WeaponType_int", 2);
-            switchCurrentWeapon();
-
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
         }
     }
 
@@ -402,40 +391,43 @@ public class PlayerController : MonoBehaviour
 
             for (int i = 0; i < enemyTargets.Length; i++)
             {
-                //sometimes may happen the enemy could get null
-                //'cause killed, so we'll skip the current enemy
-                //if killed
-                if (enemyTargets[i] == null)
+                try
                 {
-                    continue;
-                }
+                    Transform possibleTarget = enemyTargets[i].GetComponent<EnemyLogic>().Center;
+                    Vector3 distToTarget = possibleTarget.position - myCentralPosition;
+                    float distance = Vector3.Distance(myCentralPosition, possibleTarget.position);
+                    float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
 
-                Transform possibleTarget = enemyTargets[i].GetComponent<EnemyLogic>().Center;
-                Vector3 distToTarget = possibleTarget.position - myCentralPosition;
-                float distance = Vector3.Distance(myCentralPosition, possibleTarget.position);
-                float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
+                    //Debug.Log(enemyTargets[i].name);
+                    //Debug.Log(distance);
+                    //Debug.DrawRay(myCentralPosition, distToTarget, Color.red, 10);
 
-                //Debug.Log(enemyTargets[i].name);
-                //Debug.Log(distance);
-                //Debug.DrawRay(myCentralPosition, distToTarget, Color.red, 10);
-
-                // check if enemy is inside the player viewRadius
-                if (angleToTarget < angleOfVision * 0.5f)
-                {
-                    //check if enemy is not behind a wall
-                    if (!Physics.Raycast(myCentralPosition, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
+                    // check if enemy is inside the player viewRadius
+                    if (angleToTarget < angleOfVision * 0.5f)
                     {
-                        if (closestTarget == null)
+                        //check if enemy is not behind a wall
+                        if (!Physics.Raycast(myCentralPosition, distToTarget.normalized, distToTarget.magnitude, obstacleMask))
                         {
-                            lowestDist = distance;
-                            closestTarget = possibleTarget;
-                        }
-                        else if (distance < lowestDist)
-                        {
-                            lowestDist = distance;
-                            closestTarget = possibleTarget;
+                            if (closestTarget == null)
+                            {
+                                lowestDist = distance;
+                                closestTarget = possibleTarget;
+                            }
+                            else if (distance < lowestDist)
+                            {
+                                lowestDist = distance;
+                                closestTarget = possibleTarget;
+                            }
                         }
                     }
+                }
+
+                catch
+                {
+                    //sometimes may happen the enemy could get null
+                    //'cause killed, so we'll catch the exception and
+                    //skip the current enemy if killed
+                    continue;
                 }
             }
             target = closestTarget;
@@ -443,9 +435,10 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("Target is: " + target.parent.name);
         return target;
     }
+
     public void switchCurrentWeapon()
     {
-        if (currentWeapon = defaultWeapon)
+        if (currentWeapon == defaultWeapon)
         {
             // Disattiva l'arma di default
             defaultWeapon.SetActive(false);
@@ -465,6 +458,8 @@ public class PlayerController : MonoBehaviour
             currentWeapon = defaultWeapon;
             animatorController.SetInteger("WeaponType_int", 1);
         }
+
+        CurrentWeaponController.InitUI_WeaponAmmo();
     }
 
     private void updateStats()
