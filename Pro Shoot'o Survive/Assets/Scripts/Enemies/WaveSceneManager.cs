@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,13 +12,14 @@ public class WaveSceneManager : MonoBehaviour
     public List<GameObject> EnemiesSpawned;
 
     private int enemiesToSpawn;
+    [SerializeField] TMP_Text waveNumberText;
 
     // Start is called before the first frame update
     void Start()
     {
         spawners = FindObjectsByType<Spawner>(FindObjectsSortMode.None);
         EnemiesSpawned = new List<GameObject>();
-
+        waveNumberText.text = (waveNumber + 2).ToString();
     }
 
     // Update is called once per frame
@@ -30,11 +32,12 @@ public class WaveSceneManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
 
-
-
         if (EnemiesSpawned.Count <= 0)
         {
             waveNumber++;
+
+            waveNumberText.text = (waveNumber + 1).ToString();
+
             if (waveNumber == 4)
             {
                 AudioManager.Instance.ChangeMusic(MusicType.T2, 3, 0.15f);
