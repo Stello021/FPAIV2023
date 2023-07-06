@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public enum MusicType { T1, T2, }
+public enum MusicType { first, second }
 
 public class MusicManager : MonoBehaviour
 {

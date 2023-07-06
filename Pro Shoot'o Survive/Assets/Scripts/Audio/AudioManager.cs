@@ -31,8 +31,8 @@ public class AudioManager : MonoBehaviour
     private void OnDestroy()
     {
         float volumeOff = Mathf.Log10(0.0001f) * 20;
-        mixer.SetFloat(GetMixerParamName(MusicType.T1), volumeOff);
-        mixer.SetFloat(GetMixerParamName(MusicType.T2), volumeOff);
+        mixer.SetFloat(GetMixerParamName(MusicType.first), volumeOff);
+        mixer.SetFloat(GetMixerParamName(MusicType.second), volumeOff);
     }
 
     public IEnumerator AdjustVolumeRoutine(MusicType type, float duration, float targetVolume, float startDelay = 0)
@@ -71,9 +71,9 @@ public class AudioManager : MonoBehaviour
 
         switch (type)
         {
-            case MusicType.T1:
+            case MusicType.first:
                 return "T1_Vol";
-            case MusicType.T2:
+            case MusicType.second:
                 return "T2_Vol";
         }
 
