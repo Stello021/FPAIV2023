@@ -12116,6 +12116,11 @@ PrefabInstance:
       propertyPath: bulletsPerMagazine
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9187945122536386635, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7144409925733116861, guid: 4030413b0c7bd744db811e22c994e5cb, type: 3}
     m_RemovedGameObjects: []
@@ -12298,7 +12303,7 @@ PrefabInstance:
     - target: {fileID: 232835584744295884, guid: 71da2eeae31907a4a800c9bc565db5cf,
         type: 3}
       propertyPath: m_Name
-      value: UI
+      value: PlaySceneUI
       objectReference: {fileID: 0}
     - target: {fileID: 1696214756488496037, guid: 71da2eeae31907a4a800c9bc565db5cf,
         type: 3}

@@ -55,8 +55,8 @@ public class PlayerController : MonoBehaviour
     [Header("\nWeapon reference variables")]
     [SerializeField] private GameObject defaultWeapon;
     [SerializeField] private GameObject assaultWeapon;
-    public GameObject currentWeapon;
-    public WeaponLogic CurrentWeaponController { get { return currentWeapon.GetComponent<WeaponLogic>(); } }
+    public GameObject CurrentWeapon { get; private set; }
+    public WeaponLogic CurrentWeaponController { get { return CurrentWeapon.GetComponent<WeaponLogic>(); } }
 
     [Header("\nCrossHair variables")]
     [SerializeField] private RectTransform crossHairTransform;
@@ -106,10 +106,10 @@ public class PlayerController : MonoBehaviour
 
         IsAiming = false;
 
-        currentWeapon = defaultWeapon;
+        CurrentWeapon = defaultWeapon;
         animatorController.SetInteger("WeaponType_int", 1);
 
-        BulletSpawn = currentWeapon.transform;
+        BulletSpawn = CurrentWeapon.transform;
     }
 
     private void Update()
@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
             ThrowGrenade();
             Aim();
             Shoot();
+            Reload();
 
             updateStats();
 
@@ -222,11 +223,14 @@ public class PlayerController : MonoBehaviour
             nextGrenadeThrowElapsedTime -= Time.deltaTime;
         }
 
-        if (InputsController.OnInputTrigger("ThrowGrenade") && Grenades > 0 && nextGrenadeThrowElapsedTime <= 0)
+        if (InputsController.OnInputTrigger("ThrowGrenade") &&
+            Grenades > 0 &&
+            nextGrenadeThrowElapsedTime <= 0 &&
+            !CurrentWeaponController.IsReloading)
         {
             if (!isThrowingGrenade)
             {
-                throwGrenadeElapsedTime = isAiming || InputsController.GetInputValue<Vector2>("MoveDir") != Vector2.zero ? throwGrenadeTimer + 0.2f : throwGrenadeTimer;
+                throwGrenadeElapsedTime = throwGrenadeTimer;
             }
 
             animatorController.SetBool("IsThrowingGrenade", true);
@@ -244,8 +248,8 @@ public class PlayerController : MonoBehaviour
         if (throwGrenadeElapsedTime <= 0)
         {
             GameObject grenade = Instantiate(grenadePrefab, grenadeSpawnPoint.position, grenadeSpawnPoint.rotation);
-            grenade.GetComponent<Grenade>().Throw(transform.forward);
 
+            grenade.GetComponent<Grenade>().Throw(transform.forward);
             Grenades--;
 
             isThrowingGrenade = false;
@@ -273,20 +277,23 @@ public class PlayerController : MonoBehaviour
         IsAiming = !IsAiming;
 
         cam.GetComponent<CameraController>().ToggleCameraOffsets();
+    }
 
-        animatorController.SetInteger("WeaponType_int", Convert.ToInt32(IsAiming));
-        animatorController.SetBool("Shoot_b", false);
-        animatorController.SetBool("Reload_b", false);
+    private void Reload()
+    {
+        if (!InputsController.OnInputTrigger("Reload") ||
+            isThrowingGrenade ||
+            nextGrenadeThrowElapsedTime > 0)
+        {
+            return;
+        }
+
+        CurrentWeaponController.ReloadManually();
     }
 
     private void Shoot()
     {
         nextShootTimeElapsed -= Time.deltaTime;
-
-        if (animatorController.GetBool("IsThrowingGrenade") || nextGrenadeThrowElapsedTime > 0)
-        {
-            return;
-        }
 
         if (activeHoming)
         {
@@ -298,23 +305,19 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        bool shootInputTriggered = currentWeapon == assaultWeapon ? InputsController.OnInputPressed("Shoot") : InputsController.OnInputTrigger("Shoot");
+        bool shootInputTriggered = CurrentWeapon == assaultWeapon ? InputsController.OnInputPressed("Shoot") : InputsController.OnInputTrigger("Shoot");
 
-        if (!shootInputTriggered || !IsAiming || nextShootTimeElapsed > 0)
+        if (!shootInputTriggered ||
+            !IsAiming ||
+            nextShootTimeElapsed > 0 ||
+            CurrentWeaponController.IsReloading ||
+            isThrowingGrenade ||
+            nextGrenadeThrowElapsedTime > 0)
         {
-            if (!IsAiming)
-            {
-                animatorController.SetInteger("WeaponType_int", 0);
-                animatorController.SetBool("Shoot_b", false);
-            }
-            else
-            {
-                animatorController.SetBool("Shoot_b", false);
-            }
+            animatorController.SetBool("Shoot_b", false);
 
             return;
         }
-
 
         Transform bulletTarget = SetFirstTarget();
 
@@ -326,26 +329,22 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(rayToCenter, out RaycastHit target, Mathf.Infinity, aimMask))
             {
                 shootDir = (target.point - BulletSpawn.position).normalized;
-                //Debug.DrawRay(BulletSpawn.position, shootDir, Color.yellow);
             }
             else
             {
                 shootDir = ((cam.position + cam.forward * 100) - BulletSpawn.position).normalized;
             }
 
-            WeaponLogic weaponLogic = currentWeapon.GetComponent<WeaponLogic>();
-            weaponLogic.Fire(shootDir);
+            CurrentWeaponController.Fire(shootDir);
         }
 
         else
         {
-            WeaponLogic weaponLogic = currentWeapon.GetComponent<WeaponLogic>();
-            weaponLogic.Fire(transform.forward, activeHoming, bulletTarget);
+            CurrentWeaponController.Fire(transform.forward, activeHoming, bulletTarget);
         }
 
         nextShootTimeElapsed = nextShootTimer;
 
-        animatorController.SetBool("Reload_b", false);
         animatorController.SetBool("Shoot_b", true);
     }
 
@@ -363,9 +362,9 @@ public class PlayerController : MonoBehaviour
 
         else if (other.CompareTag("Weapon") && !other.GetComponent<WeaponLogic>().IsWeaponHanded)
         {
-            if (currentWeapon != assaultWeapon)
+            if (CurrentWeapon != assaultWeapon)
             {
-                switchCurrentWeapon();
+                SwitchCurrentWeapon();
             }
 
             Destroy(other.gameObject);
@@ -436,16 +435,18 @@ public class PlayerController : MonoBehaviour
         return target;
     }
 
-    public void switchCurrentWeapon()
+    public void SwitchCurrentWeapon()
     {
-        if (currentWeapon == defaultWeapon)
+        CurrentWeaponController.ReloadUI.SetActive(false);
+
+        if (CurrentWeapon == defaultWeapon)
         {
             // Disattiva l'arma di default
             defaultWeapon.SetActive(false);
 
             // Attiva l'arma d'assalto
             assaultWeapon.SetActive(true);
-            currentWeapon = assaultWeapon;
+            CurrentWeapon = assaultWeapon;
             animatorController.SetInteger("WeaponType_int", 2);
         }
         else
@@ -455,7 +456,7 @@ public class PlayerController : MonoBehaviour
 
             // Attiva l'arma di dedfault
             defaultWeapon.SetActive(true);
-            currentWeapon = defaultWeapon;
+            CurrentWeapon = defaultWeapon;
             animatorController.SetInteger("WeaponType_int", 1);
         }
 

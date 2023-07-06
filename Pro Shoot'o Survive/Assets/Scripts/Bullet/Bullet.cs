@@ -9,12 +9,9 @@ public class Bullet : MonoBehaviour
 
     [HideInInspector] public float DamageDealt;
 
-    [SerializeField] protected float lifetime;
-
     // Start is called before the first frame update
     protected virtual void Start()
     {
-
     }
 
     protected virtual void Update()

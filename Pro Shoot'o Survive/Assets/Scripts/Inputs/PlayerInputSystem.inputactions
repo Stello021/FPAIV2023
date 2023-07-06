@@ -42,6 +42,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Reload",
+                    "type": "Value",
+                    "id": "8aa5dbc2-bbed-4dad-a78c-ae17cbb821af",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "ThrowGrenade",
                     "type": "Value",
                     "id": "d90455d8-f6fb-4e1b-91e0-823a717de61a",
@@ -206,17 +215,6 @@
                 },
                 {
                     "name": "",
-                    "id": "117df93a-9a90-4d25-81f1-b72e658faaea",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PauseMenu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "2a374f0e-1a10-487c-a959-519887aa7e8a",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -256,6 +254,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0cccd983-fe4f-4aff-8e88-fefb918441e1",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a33bc279-e2a7-43bb-a024-047cc556505e",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

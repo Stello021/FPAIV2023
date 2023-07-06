@@ -209,8 +209,8 @@ public class PlayerLogic : MonoBehaviour
     private void ChangeReloadTime()
     {
         PlayerController playerController = GetComponent<PlayerController>();
-        WeaponLogic weaponLogic = playerController.currentWeapon.GetComponent<WeaponLogic>();
-        ReloadUI reloadUI = weaponLogic.reloadUI.GetComponent<ReloadUI>();
+        WeaponLogic weaponLogic = playerController.CurrentWeapon.GetComponent<WeaponLogic>();
+        ReloadUI reloadUI = weaponLogic.ReloadUI.GetComponent<ReloadUI>();
 
         weaponLogic.reloadTime = weaponLogic.currentReloadTime * ReloadMultiplier;
         reloadUI.reloadTime = weaponLogic.reloadTime;

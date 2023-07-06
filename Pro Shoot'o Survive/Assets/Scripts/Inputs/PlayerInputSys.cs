@@ -64,6 +64,15 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Reload"",
+                    ""type"": ""Value"",
+                    ""id"": ""8aa5dbc2-bbed-4dad-a78c-ae17cbb821af"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""ThrowGrenade"",
                     ""type"": ""Value"",
                     ""id"": ""d90455d8-f6fb-4e1b-91e0-823a717de61a"",
@@ -228,17 +237,6 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""117df93a-9a90-4d25-81f1-b72e658faaea"",
-                    ""path"": ""<Keyboard>/p"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PauseMenu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""2a374f0e-1a10-487c-a959-519887aa7e8a"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
@@ -280,6 +278,28 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
                     ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0cccd983-fe4f-4aff-8e88-fefb918441e1"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a33bc279-e2a7-43bb-a024-047cc556505e"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -292,6 +312,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
         m_PlayerInputs_MoveDir = m_PlayerInputs.FindAction("MoveDir", throwIfNotFound: true);
         m_PlayerInputs_Aim = m_PlayerInputs.FindAction("Aim", throwIfNotFound: true);
         m_PlayerInputs_Shoot = m_PlayerInputs.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerInputs_Reload = m_PlayerInputs.FindAction("Reload", throwIfNotFound: true);
         m_PlayerInputs_ThrowGrenade = m_PlayerInputs.FindAction("ThrowGrenade", throwIfNotFound: true);
         m_PlayerInputs_PauseMenu = m_PlayerInputs.FindAction("PauseMenu", throwIfNotFound: true);
     }
@@ -359,6 +380,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInputs_MoveDir;
     private readonly InputAction m_PlayerInputs_Aim;
     private readonly InputAction m_PlayerInputs_Shoot;
+    private readonly InputAction m_PlayerInputs_Reload;
     private readonly InputAction m_PlayerInputs_ThrowGrenade;
     private readonly InputAction m_PlayerInputs_PauseMenu;
     public struct PlayerInputsActions
@@ -369,6 +391,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
         public InputAction @MoveDir => m_Wrapper.m_PlayerInputs_MoveDir;
         public InputAction @Aim => m_Wrapper.m_PlayerInputs_Aim;
         public InputAction @Shoot => m_Wrapper.m_PlayerInputs_Shoot;
+        public InputAction @Reload => m_Wrapper.m_PlayerInputs_Reload;
         public InputAction @ThrowGrenade => m_Wrapper.m_PlayerInputs_ThrowGrenade;
         public InputAction @PauseMenu => m_Wrapper.m_PlayerInputs_PauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInputs; }
@@ -392,6 +415,9 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @Reload.started += instance.OnReload;
+            @Reload.performed += instance.OnReload;
+            @Reload.canceled += instance.OnReload;
             @ThrowGrenade.started += instance.OnThrowGrenade;
             @ThrowGrenade.performed += instance.OnThrowGrenade;
             @ThrowGrenade.canceled += instance.OnThrowGrenade;
@@ -414,6 +440,9 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @Reload.started -= instance.OnReload;
+            @Reload.performed -= instance.OnReload;
+            @Reload.canceled -= instance.OnReload;
             @ThrowGrenade.started -= instance.OnThrowGrenade;
             @ThrowGrenade.performed -= instance.OnThrowGrenade;
             @ThrowGrenade.canceled -= instance.OnThrowGrenade;
@@ -443,6 +472,7 @@ public partial class @PlayerInputSys: IInputActionCollection2, IDisposable
         void OnMoveDir(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
         void OnThrowGrenade(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
     }

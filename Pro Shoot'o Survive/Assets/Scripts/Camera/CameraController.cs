@@ -118,7 +118,7 @@ public class CameraController : MonoBehaviour
         }
 
         newOffset.y = cameraCurrentPosOffset.y;
-        cameraCurrentPosOffset = Vector3.Lerp(cameraCurrentPosOffset, newOffset, lerpCameraPositionSpeed * Time.fixedDeltaTime);
+        cameraCurrentPosOffset = Vector3.Lerp(cameraCurrentPosOffset, newOffset, lerpCameraPositionSpeed * Time.deltaTime);
     }
 
     private Vector3 GetCameraOrbitalMovementOnImpactPoint(Vector3 hitPointOffset)
@@ -128,7 +128,7 @@ public class CameraController : MonoBehaviour
         Vector2 mouseDeltaDir = PlayerInputsController.GetInputValue<Vector2>("MouseDeltaDir");
 
         currentRotationY = Mathf.Atan2(hitPointOffset.z, hitPointOffset.x);
-        currentRotationY += mouseDeltaDir.x * currentCameraMoveSpeed * Time.fixedDeltaTime;
+        currentRotationY += mouseDeltaDir.x * currentCameraMoveSpeed * Time.deltaTime;
 
         newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
         newOffset *= new Vector3(hitPointOffset.x, 0, hitPointOffset.z).magnitude;
@@ -145,7 +145,7 @@ public class CameraController : MonoBehaviour
         Vector2 mouseDeltaDir = PlayerInputsController.GetInputValue<Vector2>("MouseDeltaDir");
 
         currentRotationY = Mathf.Atan2(cameraCurrentPosOffset.z, cameraCurrentPosOffset.x);
-        currentRotationY += mouseDeltaDir.x * currentCameraMoveSpeed * Time.fixedDeltaTime;
+        currentRotationY += mouseDeltaDir.x * currentCameraMoveSpeed * Time.deltaTime;
 
         newOffset = new Vector3(Mathf.Cos(currentRotationY), 0, Mathf.Sin(currentRotationY));
         newOffset *= new Vector3(cameraCurrentPosOffsetAsMagnitude.x, 0, cameraCurrentPosOffsetAsMagnitude.z).magnitude;
@@ -165,12 +165,12 @@ public class CameraController : MonoBehaviour
 
         newOffset *= new Vector3(0, cameraCurrentPosOffset.y, cameraCurrentPosOffset.z).magnitude;
 
-        newOffset.y += mouseDeltaDir.y * (currentCameraMoveSpeed * 2.5f) * Time.fixedDeltaTime;
+        newOffset.y += mouseDeltaDir.y * (currentCameraMoveSpeed * 2.5f) * Time.deltaTime;
         newOffset.y = Mathf.Clamp(newOffset.y, minCameraOffsetY, maxCameraOffsetY);
 
         newOffset.x = cameraCurrentPosOffset.x;
 
-        cameraCurrentPosOffset = Vector3.Lerp(cameraCurrentPosOffset, newOffset, lerpCameraPositionSpeed * Time.fixedDeltaTime);
+        cameraCurrentPosOffset = Vector3.Lerp(cameraCurrentPosOffset, newOffset, lerpCameraPositionSpeed * Time.deltaTime);
     }
 
     public void RotateCamera()
@@ -228,7 +228,7 @@ public class CameraController : MonoBehaviour
         currentCameraMoveSpeed = cameraMoveSpeed;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         try
         {

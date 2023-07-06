@@ -4,23 +4,28 @@ using UnityEngine;
 
 public class PlayerBullet : Bullet
 {
+    [Header("Bullet lifetime variables")]
+    [SerializeField] private float lifetime;
+    private float currentLifetime;
+
     [Header("Homing variables")]
     public bool IsHoming;
     public Transform target;
     [SerializeField] float rotSpeed;
     [SerializeField] float homingTimer;
 
+    protected override void Start()
+    {
+        currentLifetime = lifetime;
+    }
+
     protected override void Update()
     {
-        lifetime -= Time.deltaTime;
-        if (lifetime <= 0)
+        currentLifetime -= Time.deltaTime;
+
+        if (currentLifetime <= 0)
         {
-            WeaponManager.Instance.ReturnPlayerBullet(gameObject);
-            if (IsHoming)
-            {
-                IsHoming = false;
-                target = null;
-            }
+            RestoreBullet();
         }
         if (IsHoming)
         {
@@ -30,6 +35,18 @@ public class PlayerBullet : Bullet
         else
         {
             StandardMovement();
+        }
+    }
+
+    private void RestoreBullet()
+    {
+        currentLifetime = lifetime;
+        WeaponManager.Instance.ReturnPlayerBullet(gameObject);
+
+        if (IsHoming)
+        {
+            IsHoming = false;
+            target = null;
         }
     }
 
@@ -58,11 +75,6 @@ public class PlayerBullet : Bullet
             //Debug.Log("Danni al nemico:" + DamageDealt);
         }
 
-        WeaponManager.Instance.ReturnPlayerBullet(gameObject);
-        if (IsHoming)
-        {
-            IsHoming = false;
-            target = null;
-        }
+        RestoreBullet();
     }
 }

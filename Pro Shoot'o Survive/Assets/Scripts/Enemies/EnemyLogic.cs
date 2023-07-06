@@ -62,6 +62,7 @@ public class EnemyLogic : MonoBehaviour
             OwnWeapon.transform.rotation = Quaternion.identity;
             OwnWeapon.transform.parent = null;
             OwnWeapon.SetActive(true);
+            OwnWeapon.GetComponent<BoxCollider>().isTrigger = true;
 
             RotatingManager.Instance.AddRotatingObject(OwnWeapon.transform);
         }

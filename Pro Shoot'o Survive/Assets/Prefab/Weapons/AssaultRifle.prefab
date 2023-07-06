@@ -272,7 +272,7 @@ MonoBehaviour:
   hasInfiniteAmmo: 0
   isWeaponHanded: 0
   wpnClip: 30
-  wpnMagazine: 100
+  wpnMaxAmmo: 120
   reloadTime: 2
   currentReloadTime: 0
   bulletSpawnPoint: {fileID: 0}
@@ -302,8 +302,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.13200283, y: 0.5982413, z: 2.0341861}
-  m_Center: {x: -0.0059922338, y: 0.10694377, z: 0.2762891}
+  m_Size: {x: 0.35, y: 1.01, z: 3}
+  m_Center: {x: -0.0059922338, y: 0.10694377, z: 0.59}
 --- !u!1 &6741954447777854336
 GameObject:
   m_ObjectHideFlags: 0

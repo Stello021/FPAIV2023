@@ -10,9 +10,9 @@ public class WeaponLogic : MonoBehaviour
     public bool IsWeaponHanded { get { return isWeaponHanded; } }
 
     [SerializeField] private int wpnClip;
-    [SerializeField] private int wpnMagazine;
+    [SerializeField] private int wpnMaxAmmo;
     private int currentWpnClip;
-    private int currentWpnMagazine;
+    private int currentWpnAmmo;
 
     public float reloadTime = 2f;
     public float currentReloadTime;
@@ -20,7 +20,7 @@ public class WeaponLogic : MonoBehaviour
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
 
-    private bool isReloading;
+    public bool IsReloading { get; private set; }
 
     public float damage;
 
@@ -29,7 +29,8 @@ public class WeaponLogic : MonoBehaviour
     [SerializeField] private TMP_Text wpnClipTextObject;
     [SerializeField] private TMP_Text wpnMagazineTextObject;
 
-    [SerializeField] public GameObject reloadUI;
+    [SerializeField] private GameObject reloadUI;
+    public GameObject ReloadUI { get { return reloadUI; } }
 
     public PlayerController playerController;
 
@@ -45,22 +46,22 @@ public class WeaponLogic : MonoBehaviour
         InitUI_WeaponAmmo();
 
         currentReloadTime = reloadTime;
-        isReloading = false;
+        IsReloading = false;
         reloadUI.GetComponent<ReloadUI>().reloadTime = reloadTime;
     }
 
     public void InitUI_WeaponAmmo()
     {
         currentWpnClip = wpnClip;
-        currentWpnMagazine = wpnMagazine;
+        currentWpnAmmo = wpnMaxAmmo;
 
         wpnClipTextObject.text = wpnClip.ToString();
-        wpnMagazineTextObject.text = hasInfiniteAmmo ? "∞" : currentWpnMagazine.ToString();
+        wpnMagazineTextObject.text = hasInfiniteAmmo ? "∞" : currentWpnAmmo.ToString();
     }
 
     public void Fire(Vector3 dir, bool isHoming = false, Transform target = null)
     {
-        if (isReloading)
+        if (IsReloading)
         {
             return;
         }
@@ -93,45 +94,54 @@ public class WeaponLogic : MonoBehaviour
 
         if (currentWpnClip <= 0)
         {
-            if (currentWpnMagazine > 0 || hasInfiniteAmmo)
+            if (currentWpnAmmo > 0 || hasInfiniteAmmo)
             {
-                Reload();
+                ReloadAutomatically();
             }
 
             else
             {
-                playerController.switchCurrentWeapon();
-
-                //Debug.Log("Weapon is empty!");
+                playerController.SwitchCurrentWeapon();
             }
         }
     }
 
-    void Reload()
+    public void ReloadManually()
     {
-        isReloading = true;
-        reloadUI.SetActive(true);
-
-        Invoke("FinishReloading", reloadTime);
+        if (currentWpnClip < wpnClip && (currentWpnAmmo > 0 || hasInfiniteAmmo))
+        {
+            ReloadAutomatically();
+        }
     }
 
-    void FinishReloading()
+    private void ReloadAutomatically()
+    {
+        if (!IsReloading)
+        {
+            Invoke(nameof(FinishReloading), reloadTime);
+        }
+
+        IsReloading = true;
+        reloadUI.SetActive(true);
+    }
+
+    private void FinishReloading()
     {
         if (!hasInfiniteAmmo)
         {
-            if (currentWpnMagazine < wpnClip)
+            if (currentWpnAmmo < wpnClip)
             {
-                currentWpnClip = currentWpnMagazine;
-                currentWpnMagazine = 0;
+                currentWpnClip = currentWpnAmmo;
+                currentWpnAmmo = 0;
             }
 
             else
             {
-                currentWpnMagazine -= (wpnClip - currentWpnClip);
+                currentWpnAmmo -= (wpnClip - currentWpnClip);
                 currentWpnClip = wpnClip;
             }
 
-            wpnMagazineTextObject.text = currentWpnMagazine.ToString();
+            wpnMagazineTextObject.text = currentWpnAmmo.ToString();
         }
 
         else
@@ -141,7 +151,7 @@ public class WeaponLogic : MonoBehaviour
 
         wpnClipTextObject.text = currentWpnClip.ToString();
 
-        isReloading = false;
+        IsReloading = false;
     }
 
     private void PlayShootClip()
