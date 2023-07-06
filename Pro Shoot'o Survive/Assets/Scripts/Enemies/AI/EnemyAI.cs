@@ -61,7 +61,7 @@ public class EnemyAI : MonoBehaviour
         rb.isKinematic = false;
         enemyAgent.enabled = false;
         enemyAnimator.enabled = false;
-        Invoke("EnableAgent", reactivationTime);
+        Invoke(nameof(EnableAgent), reactivationTime);
     }
 
     public void EnableAgent()

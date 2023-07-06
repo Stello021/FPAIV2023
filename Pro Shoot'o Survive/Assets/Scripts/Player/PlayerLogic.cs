@@ -48,7 +48,7 @@ public class PlayerLogic : MonoBehaviour
         hp = actuallyMaxHp;
         BarsManager.Instance.playerRef = this;
 
-        InvokeRepeating("UpdatePointsText", 1.0f, 1.0f);
+        InvokeRepeating(nameof(UpdatePointsText), 1.0f, 1.0f);
     }
 
     // Update is called once per frame
@@ -169,7 +169,7 @@ public class PlayerLogic : MonoBehaviour
             points -= deathPoints;
         }
 
-        
+
 
         if (PlayerPrefs.HasKey("Record"))
         {
