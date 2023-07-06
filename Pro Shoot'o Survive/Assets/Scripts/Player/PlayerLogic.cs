@@ -114,29 +114,22 @@ public class PlayerLogic : MonoBehaviour
         if (ReloadBarValue <= 0 || ReloadBarValue >= 1)
         {
             ReloadMultiplier = 2f;
-
-            ChangeReloadTime();
         }
-        else if (ReloadBarValue >= 0.6f && ReloadBarValue <= 0.7f)
+        else if (ReloadBarValue >= 0.61f && ReloadBarValue <= 0.69f)
         {
             ReloadMultiplier = 0f;
-
-            ChangeReloadTime();
         }
         else
         {
             ReloadMultiplier = 1f;
-
-            ChangeReloadTime();
         }
-
-
+        ChangeReloadTime();
 
         if (speedBarValue <= 0 || speedBarValue >= 1)
         {
             speedMultiplier = 0.5f;
         }
-        else if (speedBarValue >= 0.6f && speedBarValue <= 0.7f)
+        else if (speedBarValue >= 0.61f && speedBarValue <= 0.69f)
         {
             speedMultiplier = 2f;
         }

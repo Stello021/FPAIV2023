@@ -71,14 +71,14 @@ public class EnemyLogic : MonoBehaviour
         if (gameObject.tag == "Standard")
         {
             BarsManager.Instance.setSpeedBar(0.15f);
-            BarsManager.Instance.setDamageBar(-0.10f);
+            BarsManager.Instance.setDamageBar(-0.1f);
 
         }
 
         else if (gameObject.tag == "Ranged")
         {
             BarsManager.Instance.setDamageBar(0.15f);
-            BarsManager.Instance.setSpeedBar(-0.10f);
+            BarsManager.Instance.setSpeedBar(-0.1f);
 
         }
 
