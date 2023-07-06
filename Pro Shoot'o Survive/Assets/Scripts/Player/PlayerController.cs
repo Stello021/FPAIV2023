@@ -156,7 +156,6 @@ public class PlayerController : MonoBehaviour
         pausePanel.SetActive(isInPause);
         Cursor.visible = isInPause;
         Cursor.lockState = isInPause ? CursorLockMode.Confined : CursorLockMode.Locked;
-        // da mettere confined nella build finale
     }
 
     public void ActivateHoming()
