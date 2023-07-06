@@ -489,7 +489,7 @@ MonoBehaviour:
   OwnWeapon: {fileID: 0}
   meleeDamage: 25
   PowerUpSpawnPos: {x: 0, y: 0, z: 0}
-  powerUpProbability: 30
+  powerUpProbability: 25
 --- !u!54 &7732149030087572073
 Rigidbody:
   m_ObjectHideFlags: 0
