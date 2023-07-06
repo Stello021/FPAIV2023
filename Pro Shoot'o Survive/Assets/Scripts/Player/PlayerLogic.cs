@@ -17,7 +17,6 @@ public class PlayerLogic : MonoBehaviour
     [SerializeField] private float armorMax;
     public float Armor { get { return armor; } set { armor = Mathf.Clamp(value, 0, armorMax); UpdateArmorText(); } }
 
-
     public float ReloadMultiplier = 1f;
 
     public float speedMultiplier = 1f;
