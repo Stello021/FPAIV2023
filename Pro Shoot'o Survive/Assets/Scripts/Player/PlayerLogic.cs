@@ -36,11 +36,13 @@ public class PlayerLogic : MonoBehaviour
     private int pointsHPBonus = 10;
     [SerializeField] TMP_Text pointsText;
     [SerializeField] List<AudioClip> damageClips;
+    private AudioSource playerSource;
 
     // Start is called before the first frame update
     void Awake()
     {
         instance = this;
+        playerSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -59,11 +61,11 @@ public class PlayerLogic : MonoBehaviour
         UpdateStatsMultiplier();
     }
 
-    private void PlayDamageClips() 
+    protected void PlayDamageClips() 
     {
         int randIndex = Random.Range(0, damageClips.Count);
         float randVolume = Random.Range(0.5f, 1.0f);
-        AudioSource.PlayClipAtPoint(damageClips[randIndex], transform.position, randVolume);
+        playerSource.PlayOneShot(damageClips[randIndex], randVolume);
     }
 
     public void TakeDamage(float damage)

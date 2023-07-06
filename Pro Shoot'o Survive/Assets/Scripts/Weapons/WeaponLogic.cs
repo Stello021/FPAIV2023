@@ -25,6 +25,7 @@ public class WeaponLogic : MonoBehaviour
     public float damage;
 
     [SerializeField] private List<AudioClip> shootClips;
+    private AudioSource playerSource;
 
     [SerializeField] private TMP_Text wpnClipTextObject;
     [SerializeField] private TMP_Text wpnMagazineTextObject;
@@ -48,6 +49,7 @@ public class WeaponLogic : MonoBehaviour
         currentReloadTime = reloadTime;
         IsReloading = false;
         reloadUI.GetComponent<ReloadUI>().reloadTime = reloadTime;
+        playerSource = GetComponentInParent<AudioSource>();
     }
 
     public void InitUI_WeaponAmmo()
@@ -158,6 +160,6 @@ public class WeaponLogic : MonoBehaviour
     {
         int randIndex = Random.Range(0, shootClips.Count);
         float randVolume = Random.Range(0.8f, 1.0f);
-        AudioSource.PlayClipAtPoint(shootClips[randIndex], bulletSpawnPoint.position, randVolume);
+        playerSource.PlayOneShot(shootClips[randIndex], randVolume);
     }
 }
