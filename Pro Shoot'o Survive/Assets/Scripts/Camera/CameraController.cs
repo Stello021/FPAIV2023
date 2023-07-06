@@ -52,7 +52,7 @@ public class CameraController : MonoBehaviour
         }
 
         currentCameraMoveSpeed = cameraMoveSpeed;
-        cameraMoveSpeedOnAim = cameraMoveSpeed * 0.4f;
+        cameraMoveSpeedOnAim = cameraMoveSpeed * 0.5f;
     }
 
     public void SetCameraSensitivity(float sensitivity)
@@ -60,7 +60,7 @@ public class CameraController : MonoBehaviour
         float oldCameraMoveSpeed = cameraMoveSpeed;
 
         cameraMoveSpeed = sensitivity;
-        cameraMoveSpeedOnAim = cameraMoveSpeed * 0.4f;
+        cameraMoveSpeedOnAim = cameraMoveSpeed * 0.5f;
 
         currentCameraMoveSpeed = currentCameraMoveSpeed == oldCameraMoveSpeed ? cameraMoveSpeed : cameraMoveSpeedOnAim;
     }
