@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -34,7 +35,7 @@ public class PlayerLogic : MonoBehaviour
     private int pointsDecreaseRate = 2;
     private int pointsHPBonus = 10;
     [SerializeField] TMP_Text pointsText;
-    [SerializeField] AudioClip damageClip;
+    [SerializeField] List<AudioClip> damageClips;
 
     // Start is called before the first frame update
     void Awake()
@@ -58,10 +59,16 @@ public class PlayerLogic : MonoBehaviour
         UpdateStatsMultiplier();
     }
 
+    private void PlayDamageClips() 
+    {
+        int randIndex = Random.Range(0, damageClips.Count);
+        float randVolume = Random.Range(0.5f, 1.0f);
+        AudioSource.PlayClipAtPoint(damageClips[randIndex], transform.position, randVolume);
+    }
+
     public void TakeDamage(float damage)
     {
-        float randVolume = Random.Range(0.5f, 1.0f);
-        AudioSource.PlayClipAtPoint(damageClip, transform.position, randVolume);
+        PlayDamageClips();
         float excessDamage = Armor - damage;
 
         if (Armor > 0)
