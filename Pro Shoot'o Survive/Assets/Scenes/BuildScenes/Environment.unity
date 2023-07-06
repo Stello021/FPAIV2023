@@ -11940,11 +11940,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2937389559105038557, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
-      propertyPath: homingTime
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937389559105038557, guid: 4030413b0c7bd744db811e22c994e5cb,
-        type: 3}
       propertyPath: pausePanel
       value: 
       objectReference: {fileID: 8392194328220826733}
@@ -11952,11 +11947,6 @@ PrefabInstance:
         type: 3}
       propertyPath: BulletSpawn
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937389559105038557, guid: 4030413b0c7bd744db811e22c994e5cb,
-        type: 3}
-      propertyPath: angleOfVision
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2937389559105038557, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
@@ -12109,11 +12099,6 @@ PrefabInstance:
       propertyPath: bulletsRemainingInMagazine_text
       value: 
       objectReference: {fileID: 1526159748}
-    - target: {fileID: 6680636118048746160, guid: 4030413b0c7bd744db811e22c994e5cb,
-        type: 3}
-      propertyPath: speed
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 6680636118048746160, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: damageClip
