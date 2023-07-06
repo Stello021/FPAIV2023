@@ -72,7 +72,6 @@ public class EnemyLogic : MonoBehaviour
 
         if (gameObject.tag == "Standard")
         {
-            Debug.Log("punti melee: " + meleePoints);
             BarsManager.Instance.setSpeedBar(meleePoints);
             BarsManager.Instance.setReloadBar(pointsToDecrement);
 
@@ -80,8 +79,6 @@ public class EnemyLogic : MonoBehaviour
 
         else if (gameObject.tag == "Ranged")
         {
-            Debug.Log("punti ranged: " + rangedPoints);
-
             BarsManager.Instance.setReloadBar(rangedPoints);
             BarsManager.Instance.setSpeedBar(pointsToDecrement);
 

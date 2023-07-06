@@ -25,7 +25,6 @@ public class WeaponLogic : MonoBehaviour
     public float damage;
 
     [SerializeField] private List<AudioClip> shootClips;
-    private AudioSource playerSource;
 
     [SerializeField] private TMP_Text wpnClipTextObject;
     [SerializeField] private TMP_Text wpnMagazineTextObject;
@@ -44,12 +43,9 @@ public class WeaponLogic : MonoBehaviour
             return;
         }
 
-        InitUI_WeaponAmmo();
-
         currentReloadTime = reloadTime;
         IsReloading = false;
         reloadUI.GetComponent<ReloadUI>().reloadTime = reloadTime;
-        playerSource = GetComponentInParent<AudioSource>();
     }
 
     public void InitUI_WeaponAmmo()
@@ -57,7 +53,7 @@ public class WeaponLogic : MonoBehaviour
         currentWpnClip = wpnClip;
         currentWpnAmmo = wpnMaxAmmo;
 
-        wpnClipTextObject.text = wpnClip.ToString();
+        wpnClipTextObject.text = currentWpnClip.ToString();
         wpnMagazineTextObject.text = hasInfiniteAmmo ? "∞" : currentWpnAmmo.ToString();
     }
 
@@ -131,17 +127,21 @@ public class WeaponLogic : MonoBehaviour
     {
         if (!hasInfiniteAmmo)
         {
-            if (currentWpnAmmo < wpnClip)
+            int newWpnAmmo = currentWpnAmmo - (wpnClip - currentWpnClip);
+
+            if (newWpnAmmo < currentWpnClip)
             {
-                currentWpnClip = currentWpnAmmo;
-                currentWpnAmmo = 0;
+                currentWpnClip += Mathf.Abs(currentWpnAmmo);
+                currentWpnClip = Mathf.Clamp(currentWpnClip, 0, wpnClip);
             }
 
             else
             {
-                currentWpnAmmo -= (wpnClip - currentWpnClip);
                 currentWpnClip = wpnClip;
             }
+
+            newWpnAmmo = Mathf.Clamp(newWpnAmmo, 0, wpnMaxAmmo);
+            currentWpnAmmo = newWpnAmmo;
 
             wpnMagazineTextObject.text = currentWpnAmmo.ToString();
         }
@@ -160,6 +160,6 @@ public class WeaponLogic : MonoBehaviour
     {
         int randIndex = Random.Range(0, shootClips.Count);
         float randVolume = Random.Range(0.8f, 1.0f);
-        playerSource.PlayOneShot(shootClips[randIndex], randVolume);
+        AudioSource.PlayClipAtPoint(shootClips[randIndex], bulletSpawnPoint.position, randVolume);
     }
 }

@@ -101,6 +101,8 @@ public class PlayerController : MonoBehaviour
         IsAiming = false;
 
         CurrentWeapon = defaultWeapon;
+        CurrentWeaponController.InitUI_WeaponAmmo();
+        
         animatorController.SetInteger("WeaponType_int", 1);
 
         BulletSpawn = CurrentWeapon.transform;
