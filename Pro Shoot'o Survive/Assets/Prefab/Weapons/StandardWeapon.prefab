@@ -209,8 +209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasInfiniteAmmo: 1
   isWeaponHanded: 0
-  wpnClip: 12
-  wpnMagazine: 0
+  wpnClip: 15
+  wpnMaxAmmo: 0
   reloadTime: 2
   currentReloadTime: 0
   bulletSpawnPoint: {fileID: 0}
