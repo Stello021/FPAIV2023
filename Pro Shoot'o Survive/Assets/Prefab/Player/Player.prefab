@@ -1330,6 +1330,11 @@ PrefabInstance:
       propertyPath: Damage
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 7432371568988571414, guid: cb70310fde27c154093d230626cd0cee,
+        type: 3}
+      propertyPath: wpnMaxAmmo
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
