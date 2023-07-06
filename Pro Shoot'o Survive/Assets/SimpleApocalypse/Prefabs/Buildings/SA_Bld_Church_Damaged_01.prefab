@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 695544669137110711}
   - component: {fileID: 1351752150396503994}
   - component: {fileID: 1847757879938265075}
+  - component: {fileID: 1491759582647715880}
   m_Layer: 9
   m_Name: SA_Bld_Church_Damaged_01
   m_TagString: Untagged
@@ -230,8 +231,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 12.726654, y: 19.267008, z: 20.801025}
-  m_Center: {x: -0.060307026, y: 9.287822, z: -1.1410766}
+  m_Size: {x: 12.726654, y: 19.267008, z: 11.366693}
+  m_Center: {x: -0.060307026, y: 9.287822, z: 3.5760894}
 --- !u!65 &1847757879938265075
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -253,3 +254,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.3485684, y: 0.98, z: 3.2409859}
   m_Center: {x: 0.18623376, y: 0.06578398, z: 10.120493}
+--- !u!65 &1491759582647715880
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155732}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12.847229, y: 1.5418508, z: 9.479701}
+  m_Center: {x: -0.000019550323, y: 0.42524397, z: -6.801739}
