@@ -37,6 +37,10 @@ public class EnemyLogic : MonoBehaviour
         if (currentHP <= 0)
         {
             player.AddPoints(pointsValue);
+            Animator enemyAnimator = GetComponent<Animator>();
+            enemyAnimator.SetBool("Death_b", true);
+            EnemyAI e = GetComponent<EnemyAI>();
+            e.IsAlive = false;
             StartCoroutine(Death());
         }
     }
@@ -50,10 +54,7 @@ public class EnemyLogic : MonoBehaviour
 
     public IEnumerator Death()
     {
-        Animator enemyAnimator = GetComponent<Animator>();
-        enemyAnimator.SetBool("Death_b", true);
-        EnemyAI e = GetComponent<EnemyAI>();
-        e.IsAlive = false;
+
         NavMeshAgent nme = GetComponent<NavMeshAgent>();
         nme.enabled = false;
 
