@@ -17,6 +17,9 @@ public class EnemyLogic : MonoBehaviour
     public Transform Center { get { return center; } }
     private PlayerLogic player;
     private int pointsValue = 100;
+    [SerializeField] int meleePoints;
+    [SerializeField] int rangedPoints;
+    [SerializeField] int pointsToDecrement;
 
     // Start is called before the first frame update
     void Start()
@@ -69,15 +72,15 @@ public class EnemyLogic : MonoBehaviour
 
         if (gameObject.tag == "Standard")
         {
-            BarsManager.Instance.setSpeedBar(0.15f);
-            BarsManager.Instance.setDamageBar(-0.1f);
+            BarsManager.Instance.setSpeedBar(meleePoints);
+            BarsManager.Instance.setDamageBar(pointsToDecrement);
 
         }
 
         else if (gameObject.tag == "Ranged")
         {
-            BarsManager.Instance.setDamageBar(0.15f);
-            BarsManager.Instance.setSpeedBar(-0.1f);
+            BarsManager.Instance.setDamageBar(rangedPoints);
+            BarsManager.Instance.setSpeedBar(pointsToDecrement);
 
         }
 
