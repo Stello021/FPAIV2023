@@ -11955,6 +11955,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2937389559105038557, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
+      propertyPath: angleOfVision
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937389559105038557, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
       propertyPath: assaultWeapon
       value: 
       objectReference: {fileID: 4121980923265742140}
@@ -12109,6 +12114,11 @@ PrefabInstance:
       propertyPath: speed
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 6680636118048746160, guid: 4030413b0c7bd744db811e22c994e5cb,
+        type: 3}
+      propertyPath: damageClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 184833fa4ee064d4ab9efd765131aa47, type: 3}
     - target: {fileID: 6680636118048746160, guid: 4030413b0c7bd744db811e22c994e5cb,
         type: 3}
       propertyPath: pointsText

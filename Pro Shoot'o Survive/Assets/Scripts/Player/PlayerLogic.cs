@@ -34,6 +34,7 @@ public class PlayerLogic : MonoBehaviour
     private int pointsDecreaseRate = 2;
     private int pointsHPBonus = 10;
     [SerializeField] TMP_Text pointsText;
+    [SerializeField] AudioClip damageClip;
 
     // Start is called before the first frame update
     void Awake()
@@ -59,6 +60,8 @@ public class PlayerLogic : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        float randVolume = Random.Range(0.5f, 1.0f);
+        AudioSource.PlayClipAtPoint(damageClip, transform.position, randVolume);
         float excessDamage = Armor - damage;
 
         if (Armor > 0)
