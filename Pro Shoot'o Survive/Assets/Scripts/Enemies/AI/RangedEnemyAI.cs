@@ -88,10 +88,8 @@ public class RangedEnemyAI : EnemyAI
         GameObject bullet = WeaponManager.Instance.GetEnemyBullet();
         bullet.transform.position = BulletStartingPoint.position;
         bullet.transform.rotation = BulletStartingPoint.rotation;
-
         bullet.GetComponent<EnemyBullet>().dir = transform.forward;
         bullet.GetComponent<EnemyBullet>().DamageDealt = OwnWeapon.GetComponent<WeaponLogic>().damage;
-        // togliere weapon logic al nemico?
     }
 
     private void ResetAttack()
