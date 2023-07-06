@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForceValue: 20
-  explosionDelay: 5
+  explosionDelay: 3
   explosionRadius: 15
   enemyMask:
     serializedVersion: 2

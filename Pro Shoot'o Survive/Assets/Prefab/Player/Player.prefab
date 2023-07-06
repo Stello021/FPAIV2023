@@ -352,7 +352,7 @@ MonoBehaviour:
   grenadeSpawnPoint: {fileID: 866391988763072698}
   grenadeNumberText: {fileID: 0}
   homingTimer: 0
-  homingTime: 30
+  homingTime: 20
   viewRadius: 100
   enemyMask:
     serializedVersion: 2
@@ -360,7 +360,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 512
-  angleOfVision: 120
+  angleOfVision: 100
   smr: {fileID: 2868627714407516670}
   normalMaterial: {fileID: 2100000, guid: 11473f6bfb61e0245b60784ebb60cfef, type: 2}
   homingMaterial: {fileID: 2100000, guid: 26f3fa9c3bc73444fa542bd796157072, type: 2}
@@ -388,12 +388,13 @@ MonoBehaviour:
   armorMax: 200
   ReloadMultiplier: 1
   speedMultiplier: 1
-  speed: 10
+  speed: 12
   speedBarValue: 0.5
   healthBarValue: 0
   ReloadBarValue: 0
   armorValueText: {fileID: 0}
   pointsText: {fileID: 0}
+  damageClips: []
 --- !u!1 &1109565101684327897
 GameObject:
   m_ObjectHideFlags: 0
