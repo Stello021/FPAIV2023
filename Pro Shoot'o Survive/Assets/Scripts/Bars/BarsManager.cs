@@ -43,7 +43,7 @@ public class BarsManager : MonoBehaviour
     {
         speedBar.amount += fillAmount;
     }
-    public void setDamageBar(float fillAmount)
+    public void setReloadBar(float fillAmount)
     {
         ReloadBar.amount += fillAmount;
     }

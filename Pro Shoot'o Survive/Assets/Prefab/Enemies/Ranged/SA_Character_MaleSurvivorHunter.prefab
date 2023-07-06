@@ -248,8 +248,8 @@ MonoBehaviour:
   PowerUpSpawnPos: {x: 0, y: 0, z: 0}
   powerUpProbability: 25
   meleePoints: 0
-  rangedPoints: 22
-  pointsToDecrement: 15
+  rangedPoints: 0.22
+  pointsToDecrement: 0.15
 --- !u!54 &5300890679074815323
 Rigidbody:
   m_ObjectHideFlags: 0
