@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StandardEnemiesToSpawn: 5
   RangedEnemiesToSpawn: 3
-  EnemiesSpeedMultiplier: 1.25
-  EnemiesHpMultiplier: 1.25
+  EnemiesSpeedMultiplier: 1.2
+  EnemiesHpMultiplier: 1.2
