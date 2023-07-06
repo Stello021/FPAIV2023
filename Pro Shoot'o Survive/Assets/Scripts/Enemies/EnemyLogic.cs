@@ -13,7 +13,6 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField] public float meleeDamage;
     [SerializeField] Vector3 PowerUpSpawnPos;
     [SerializeField] float powerUpProbability;
-    [SerializeField] GameObject bloodVFX;
     private Transform center;
     public Transform Center { get { return center; } }
     private PlayerLogic player;
@@ -33,7 +32,7 @@ public class EnemyLogic : MonoBehaviour
     {
         currentHP -= damage;
         BloodVFXManager.Instance.GetBloodVFX(Center.position);
-        //Debug.Log("Current HP: " + currentHP);
+
         if (currentHP <= 0)
         {
             player.AddPoints(pointsValue);

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -11,11 +10,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] MusicManager musicMngr;
     [SerializeField] private AudioMixer mixer;
-
-    [SerializeField] private AudioMixerSnapshot mainSnap;
-    [SerializeField] private AudioMixerSnapshot pauseSnap;
-
-    bool isInPause;
+    
 
     // Start is called before the first frame update
     void Awake()

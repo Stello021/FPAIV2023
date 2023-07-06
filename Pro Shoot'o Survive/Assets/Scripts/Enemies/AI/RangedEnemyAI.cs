@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Animations;
 
 public class RangedEnemyAI : EnemyAI
 {
@@ -88,8 +85,6 @@ public class RangedEnemyAI : EnemyAI
 
     private void SpawnBullet()
     {
-        //GameObject bullet = Instantiate(bulletPrefab, BulletStartingPoint.position, BulletStartingPoint.rotation);
-
         GameObject bullet = WeaponManager.Instance.GetEnemyBullet();
         bullet.transform.position = BulletStartingPoint.position;
         bullet.transform.rotation = BulletStartingPoint.rotation;

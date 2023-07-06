@@ -151,4 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4403cd0c2f8b7054b884c794c72ac071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armorAmount: 25
+  armorAmount: 30
