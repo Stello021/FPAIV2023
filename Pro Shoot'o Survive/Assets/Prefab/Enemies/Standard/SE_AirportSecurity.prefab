@@ -532,7 +532,7 @@ MonoBehaviour:
   powerUpProbability: 25
   meleePoints: 0.15
   rangedPoints: 0
-  pointsToDecrement: 0.1
+  pointsToDecrement: -0.1
 --- !u!54 &4208671294045329953
 Rigidbody:
   m_ObjectHideFlags: 0
