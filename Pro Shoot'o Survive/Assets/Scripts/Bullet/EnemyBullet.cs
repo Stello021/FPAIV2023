@@ -13,7 +13,6 @@ public class EnemyBullet : Bullet
     {
         if (other.CompareTag("Player"))
         {
-            //Debug.Log("Damage of enemy bullet: " + DamageDealt);
             PlayerLogic player = other.gameObject.GetComponent<PlayerLogic>();
             player.TakeDamage(DamageDealt);
         }

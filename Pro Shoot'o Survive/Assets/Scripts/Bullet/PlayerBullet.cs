@@ -69,10 +69,9 @@ public class PlayerBullet : Bullet
     {
         if (other.CompareTag("Standard") || other.CompareTag("Ranged"))
         {
-            //enemy damage
+            
             EnemyLogic enemy = other.gameObject.GetComponent<EnemyLogic>();
             enemy.ReceiveDamage(DamageDealt);
-            //Debug.Log("Danni al nemico:" + DamageDealt);
         }
 
         RestoreBullet();

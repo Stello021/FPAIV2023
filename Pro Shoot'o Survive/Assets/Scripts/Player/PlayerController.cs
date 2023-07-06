@@ -1,12 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Runtime.Versioning;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
@@ -386,7 +380,6 @@ public class PlayerController : MonoBehaviour
         {
             Transform closestTarget = null;
             float lowestDist = float.MaxValue;
-            //Debug.Log("Enemies detected: " + enemyTargets.Length);
 
             for (int i = 0; i < enemyTargets.Length; i++)
             {
@@ -396,10 +389,6 @@ public class PlayerController : MonoBehaviour
                     Vector3 distToTarget = possibleTarget.position - myCentralPosition;
                     float distance = Vector3.Distance(myCentralPosition, possibleTarget.position);
                     float angleToTarget = Vector3.Angle(transform.forward, distToTarget.normalized);
-
-                    //Debug.Log(enemyTargets[i].name);
-                    //Debug.Log(distance);
-                    //Debug.DrawRay(myCentralPosition, distToTarget, Color.red, 10);
 
                     // check if enemy is inside the player viewRadius
                     if (angleToTarget < angleOfVision * 0.5f)
@@ -420,7 +409,6 @@ public class PlayerController : MonoBehaviour
                         }
                     }
                 }
-
                 catch
                 {
                     //sometimes may happen the enemy could get null
@@ -429,9 +417,10 @@ public class PlayerController : MonoBehaviour
                     continue;
                 }
             }
+
             target = closestTarget;
         }
-        //Debug.Log("Target is: " + target.parent.name);
+
         return target;
     }
 

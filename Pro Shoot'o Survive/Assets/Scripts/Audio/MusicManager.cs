@@ -12,7 +12,6 @@ public class MusicManager : MonoBehaviour
     [SerializeField] MusicType startType;
     [SerializeField] float fadeInTime;
 
-
     private Dictionary<MusicType, AudioSource> mSources;
     private MusicType currentType;
 
