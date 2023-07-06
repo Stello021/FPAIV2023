@@ -108,24 +108,36 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!IsPlayerInputsActive)
+        {
+            return;
+        }
+
         TogglePauseMenu();
 
-        if (!isInPause)
+        if (isInPause)
         {
-            ThrowGrenade();
-            Aim();
-            Shoot();
-            Reload();
-
-            updateStats();
-
-            ApplyGravity();
-            CheckIsOnGround();
-
-            MovePlayer();
+            return;
         }
+
+        ThrowGrenade();
+        Aim();
+        Shoot();
+        Reload();
     }
 
+    private void LateUpdate()
+    {
+        UpdateStats();
+
+        ApplyGravity();
+        CheckIsOnGround();
+
+        MovePlayer();
+    }
+
+    //this method is called on start UI button click
+    //on tutorial panel (check the button inspector)
     public void TogglePlayerInputs()
     {
         IsPlayerInputsActive = !IsPlayerInputsActive;
@@ -133,7 +145,7 @@ public class PlayerController : MonoBehaviour
 
     private void TogglePauseMenu()
     {
-        if (!InputsController.OnInputTrigger("PauseMenu") || !IsPlayerInputsActive)
+        if (!InputsController.OnInputTrigger("PauseMenu"))
         {
             return;
         }
@@ -188,7 +200,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerForward = Vector3.forward;
 
-                if (moveDir.y != 0)
+                if (Mathf.Abs(moveDir.y) > 0.5f)
                 {
                     playerForward += cam.transform.right * moveDir.x * playerMoveSpeed;
                 }
@@ -452,7 +464,7 @@ public class PlayerController : MonoBehaviour
         CurrentWeaponController.InitUI_WeaponAmmo();
     }
 
-    private void updateStats()
+    private void UpdateStats()
     {
         playerMoveSpeed = PlayerLogic.Instance.speed * PlayerLogic.Instance.speedMultiplier;
     }
