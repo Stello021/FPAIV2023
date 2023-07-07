@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLogic : MonoBehaviour
 {
-    static private PlayerLogic instance;
-    static public PlayerLogic Instance { get { return instance; } }
-
     [SerializeField] float hpMax;
     [HideInInspector] public float actuallyMaxHp;
 
@@ -16,7 +13,6 @@ public class PlayerLogic : MonoBehaviour
     [SerializeField] private float armor;
     [SerializeField] private float armorMax;
     public float Armor { get { return armor; } set { armor = Mathf.Clamp(value, 0, armorMax); UpdateArmorText(); } }
-
 
     public float ReloadMultiplier = 1f;
 
@@ -41,14 +37,13 @@ public class PlayerLogic : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        instance = this;
         playerSource = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
-        actuallyMaxHp = hpMax;
-        hp = actuallyMaxHp;
+        //actuallyMaxHp = hpMax;
+        hp = hpMax;
         BarsManager.Instance.playerRef = this;
 
         InvokeRepeating(nameof(UpdatePointsText), 1.0f, 1.0f);
@@ -57,7 +52,7 @@ public class PlayerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        BarsManager.Instance.setHpBar(hp / actuallyMaxHp);
+        BarsManager.Instance.setHpBar(hp / hpMax);
         UpdateStatsMultiplier();
     }
 

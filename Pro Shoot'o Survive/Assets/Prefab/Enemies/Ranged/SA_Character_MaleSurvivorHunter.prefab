@@ -246,7 +246,7 @@ MonoBehaviour:
   OwnWeapon: {fileID: 7892383639195193910}
   meleeDamage: 10
   PowerUpSpawnPos: {x: 0, y: 0, z: 0}
-  powerUpProbability: 20
+  powerUpProbability: 25
   meleePoints: 0
   rangedPoints: 0.21
   pointsToDecrement: -0.15

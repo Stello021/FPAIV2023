@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player variables")]
+    private PlayerLogic playerLogic;
     [SerializeField] private float playerMoveSpeed = 6f; // Speed at which the player moves.
     [SerializeField] private float playerRotationSpeed = 6f; // Speed at which the player moves.
     [SerializeField] private float playerTurnRate = 6f; // Speed at which the player moves.
@@ -92,6 +93,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        playerLogic = GetComponent<PlayerLogic>();
         InputsController = new InputSysController();
 
         animatorController = GetComponent<Animator>(); // Get the Animator component attached to the same GameObject.
@@ -467,6 +469,6 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateStats()
     {
-        playerMoveSpeed = PlayerLogic.Instance.speed * PlayerLogic.Instance.speedMultiplier;
+        playerMoveSpeed = playerLogic.speed * playerLogic.speedMultiplier;
     }
 }

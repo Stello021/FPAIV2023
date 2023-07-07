@@ -5478,7 +5478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodPrefab: {fileID: 194062, guid: bb954c7832c9a9845b017b284d33fbc8, type: 3}
-  VFXamount: 20
+  VFXamount: 30
 --- !u!1001 &973576253
 PrefabInstance:
   m_ObjectHideFlags: 0
